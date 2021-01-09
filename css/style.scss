@@ -1,0 +1,348 @@
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700;800;900&display=swap');
+        * {
+            margin: 0 auto;
+            padding: 0;
+            list-style-type: none;
+        }
+        
+        $font-padrao: 'Roboto',
+        serif;
+        $font-titulo:'Roboto Slab',
+        serif;
+        $cor-padrao: #369E1E;
+        $cor-secundaria: #fff;
+        $cor-terciaria:#F7F8FA;
+        $cor-destaque:#25B7BA;
+        // cores termina aqui
+        //
+        //
+        @mixin displayFlex() {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        @mixin btn {
+            border: 1px solid $cor-secundaria;
+            border-radius: 4px;
+            color: $cor-secundaria;
+            text-transform: uppercase;
+        }
+        
+        body {
+            background-color: #F7F8FA;
+            .banner-home {
+                width: 100wh;
+                height: 20.3rem;
+                background-image: url("../assets/img/banner.png");
+                background-position: center;
+                padding: 20px;
+                position: relative;
+                h1 {
+                    color: $cor-secundaria;
+                    font-family: $font-titulo;
+                    text-align: center;
+                    text-transform: uppercase;
+                    font-size: 2rem;
+                    font-weight: 400;
+                    margin-top: 80px;
+                }
+                p {
+                    color: $cor-secundaria;
+                    font-size: 1.3rem;
+                    text-align: center;
+                    margin-top: 25px;
+                    font-weight: 400;
+                }
+            }
+            header {
+                width: 100%;
+                height: 7.3vh;
+                position: fixed;
+                z-index: 100000;
+                top: 0;
+                .box-menu {
+                    width: 100%;
+                    height: 7.3vh;
+                    background-color: #369E1E;
+                    padding: 0 10px;
+                    .menu-lateral {
+                        @include displayFlex();
+                        width: 30px;
+                        height: inherit;
+                        float: left;
+                        i {
+                            cursor: pointer;
+                            font-size: 1.3rem;
+                            color: #fff;
+                            text-align: left;
+                        }
+                    }
+                    .menu-logo {
+                        max-width: 45%;
+                        height: inherit;
+                        float: left;
+                        overflow: hidden;
+                        img {
+                            width: 7.5rem;
+                            object-fit: contain;
+                            margin-top: 11px;
+                            padding-left: 3px;
+                            z-index: 10;
+                        }
+                    }
+                    .menu-btn {
+                        max-width: 45%;
+                        height: inherit;
+                        float: right;
+                        padding-right: 10px;
+                        z-index: 5;
+                        button {
+                            @include btn();
+                            outline: none;
+                            float: right;
+                            outline: none;
+                            padding: 7px 10px;
+                            font-size: .75rem;
+                            font-family: $font-padrao;
+                            font-weight: 500;
+                            background-color: $cor-padrao;
+                            margin-top: 11px;
+                        }
+                    }
+                }
+                .menu-lateral-show {
+                    width: 100vw;
+                    height: 90.5vh;
+                    background-color: #FFF;
+                    position: relative;
+                    left: -5000%;
+                    z-index: 1;
+                    transition: all .5s;
+                    ul {
+                        width: 100%;
+                        height: fit-content;
+                        padding: 8px 15px;
+                        li:not(:first-child) {
+                            padding-top: 20px;
+                        }
+                        a {
+                            font-family: $font-padrao;
+                            text-transform: uppercase;
+                            font-size: .8rem;
+                            text-decoration: none;
+                            color: #333;
+                        }
+                    }
+                    .btn-menu-lateral {
+                        @include displayFlex();
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                        height: fit-content;
+                        button {
+                            @include btn;
+                            outline: none;
+                            padding: 15px 0;
+                            display: block;
+                            width: 450%;
+                            text-transform: uppercase;
+                            font-weight: 500;
+                            background-color: #fcfcfc;
+                            color: #333;
+                            box-shadow: 2px 2px 15px rgb(238, 236, 236);
+                            font-size: .75rem;
+                        }
+                        .btn-lateral-style {
+                            background-color: #7CC33E;
+                            color: $cor-secundaria;
+                        }
+                    }
+                }
+                .show {
+                    left: 0;
+                    transition: all .2s;
+                }
+            }
+            main {
+                width: 100%;
+                height: fit-content;
+                position: relative;
+                top: 40px;
+                .container {
+                    margin-bottom: 100px;
+                    .box-legenda {
+                        width: inherit;
+                        height: 300px;
+                        h6 {
+                            text-transform: uppercase;
+                            padding-top: 55px;
+                            font-size: .8rem;
+                            font-weight: bold;
+                        }
+                        ul {
+                            padding-left: 0;
+                            width: 100%;
+                            li {
+                                .icone-star {
+                                    font-size: 1.2rem;
+                                    float: left;
+                                    padding-top: 3px;
+                                    padding-right: 8px;
+                                    color: $cor-padrao;
+                                }
+                                .icone-info {
+                                    font-size: 1.2rem;
+                                    float: left;
+                                    padding-top: 3px;
+                                    padding-right: 8px;
+                                    color: $cor-padrao;
+                                    border: 1px solid #fff
+                                }
+                                p {
+                                    font-size: .8rem;
+                                }
+                            }
+                        }
+                    }
+                    .box-busca {
+                        @include displayFlex();
+                        width: 100%;
+                        height: 100px;
+                        background-color: #fff;
+                        border-radius: 5px;
+                        flex-direction: column;
+                        #buscaFundo {
+                            cursor: pointer;
+                            width: 92%;
+                            border-top-style: hidden;
+                            border-right-style: hidden;
+                            border-left-style: hidden;
+                            border-bottom: 1px solid #333;
+                            position: relative;
+                        }
+                        #buscaFundo:focus {
+                            outline: none;
+                            border-bottom: 2.5px solid $cor-destaque;
+                        }
+                        label {
+                            display: block;
+                            width: 100%;
+                            font-size: .7rem;
+                            padding-left: 15px;
+                            padding-top: 8px;
+                        }
+                    }
+                    .box-info-fundos {
+                        background-color: $cor-secundaria;
+                        overflow: hidden;
+                        margin-top: 20px;
+                        background-color: #F7F8FA;
+                        a {
+                            cursor: pointer;
+                            float: left;
+                            display: block;
+                            color: #000;
+                            text-align: center;
+                            font-family: $font-padrao;
+                            text-transform: uppercase;
+                            padding: 14px 16px;
+                            text-decoration: none;
+                            font-size: .8rem;
+                        }
+                    }
+                    .box-display-fundos {
+                        width: 100%;
+                        height: fit-content;
+                        background-color: #fff;
+                        border-radius: 5px;
+                        margin-top: 40px;
+                        padding: 10px;
+                        .box-item-fundo {
+                            font-family: $font-padrao;
+                            border-bottom: 1px solid rgb(238, 238, 238);
+                            padding-top: 40px;
+                            padding-bottom: 20px;
+                            .wrap-titulo {
+                                @include displayFlex();
+                                width: 100%;
+                                .titulo-fundo {
+                                    font-size: .9rem;
+                                }
+                                .status-fundo {
+                                    display: block;
+                                    width: 16px;
+                                    height: 15px;
+                                    background-color: red;
+                                    border-radius: 3px;
+                                }
+                            }
+                            .subtitulo-fundo {
+                                font-size: .8rem;
+                                color: rgb(150, 150, 150);
+                                padding-top: 5px;
+                            }
+                            .box-item-info-fundos {
+                                @include displayFlex();
+                                width: 100%;
+                                flex-direction: row;
+                                font-size: .8rem;
+                                font-weight: bold;
+                                .right-row {
+                                    width: 50%;
+                                    text-align: left;
+                                }
+                                .left-row {
+                                    width: 50%;
+                                    text-align: right;
+                                    font-weight: 400;
+                                }
+                            }
+                            .box-info-button {
+                                @include displayFlex();
+                                justify-content: space-around;
+                                width: 100%;
+                                button {
+                                    width: 47%;
+                                    padding: 7px 5px;
+                                    border-radius: 5px;
+                                    text-transform: uppercase;
+                                    font-size: .9rem;
+                                    font-weight: bolder;
+                                }
+                                 :first-child {
+                                    color: $cor-destaque;
+                                    background-color: #fff;
+                                    border: 2px solid $cor-destaque;
+                                }
+                                 :last-child {
+                                    background-color: $cor-destaque;
+                                    color: #fff;
+                                    border: 2px solid $cor-destaque;
+                                }
+                            }
+                        }
+                    }
+                }
+                .box-abra-sua-conta {
+                    width: 100%;
+                    height: 45px;
+                    position: fixed;
+                    bottom: 0;
+                    background-color: $cor-padrao;
+                    text-align: center;
+                    color: #fff;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                     :first-child {
+                        font-size: .8rem;
+                        margin-bottom: 0;
+                        padding-top: 5px;
+                    }
+                     :last-child {
+                        font-size: .6rem;
+                    }
+                }
+            }
+        }
