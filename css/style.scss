@@ -4,6 +4,7 @@
             margin: 0 auto;
             padding: 0;
             list-style-type: none;
+            text-decoration: none;
         }
         
         $font-padrao: 'Roboto',
@@ -49,6 +50,7 @@
                     margin-top: 80px;
                 }
                 p {
+                    font-family: $font-padrao;
                     color: $cor-secundaria;
                     font-size: 1.3rem;
                     text-align: center;
@@ -58,13 +60,13 @@
             }
             header {
                 width: 100%;
-                height: 7.3vh;
+                height: 7.7vh;
                 position: fixed;
                 z-index: 100000;
                 top: 0;
                 .box-menu {
                     width: 100%;
-                    height: 7.3vh;
+                    height: inherit;
                     background-color: #369E1E;
                     padding: 0 10px;
                     .menu-lateral {
@@ -163,6 +165,9 @@
                 .show {
                     left: 0;
                     transition: all .2s;
+                }
+                .box-menu-desktop {
+                    display: none; // menu para desktop (substitui o mneu lateral)
                 }
             }
             main {
@@ -268,6 +273,7 @@
                                 @include displayFlex();
                                 width: 100%;
                                 .titulo-fundo {
+                                    width: 90%;
                                     font-size: .9rem;
                                 }
                                 .status-fundo {
@@ -341,8 +347,194 @@
                         padding-top: 5px;
                     }
                      :last-child {
-                        font-size: .6rem;
+                        font-size: .7rem;
                     }
                 }
             }
+        }
+        
+        @media (min-width:320px) {
+            /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+        }
+        
+        @media (min-width:430px) {
+            /* smartphones, Android phones, landscape iPhone */
+            body header .box-menu .menu-logo img {
+                width: 12rem;
+                padding-left: 17px;
+                margin-top: 5px;
+            }
+            body header .box-menu .menu-btn button {
+                padding: 9px 15px;
+            }
+        }
+        
+        @media (min-width:482px) {
+            body .banner-home h1 {
+                font-size: 3rem;
+            }
+            body .banner-home p {
+                font-size: 1.4rem;
+                font-weight: lighter;
+            }
+        }
+        
+        @media (min-width:791px) {
+            body {
+                .banner-home {
+                    position: relative;
+                }
+                header {
+                    display: block;
+                    width: 98%;
+                    height: 7vh;
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    transform: (translate(-50%));
+                    .box-menu {
+                        display: none;
+                    }
+                    .box-menu-desktop {
+                        @include displayFlex();
+                        width: inherit;
+                        height: inherit;
+                        position: absolute;
+                        // background-color: #369E1E;
+                        top: 0;
+                        left: 50%;
+                        transform: (translate(-50%));
+                        overflow: hidden;
+                        .box-menu-desktop-logo {
+                            width: 15%;
+                            height: inherit;
+                            float: left;
+                            // background-color: red;
+                            margin-left: 0;
+                            img {
+                                margin-top: 15px;
+                                width: 7rem;
+                            }
+                        }
+                        .menu-desktop {
+                            width: fit-content;
+                            height: inherit;
+                            // background-color: pink;
+                            margin-left: 0;
+                            margin-top: 40px;
+                            nav {
+                                ul {
+                                    padding-left: 0;
+                                    li {
+                                        display: inline-block;
+                                        a {
+                                            font-family: $font-padrao;
+                                            font-size: .8rem;
+                                            text-decoration: none;
+                                            color: #fff;
+                                            text-transform: uppercase;
+                                            padding-right: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .box-menu-desktop-btn {
+                            width: 30%;
+                            @include displayFlex();
+                            margin-right: 0;
+                            button {
+                                @include btn();
+                                justify-content: space-between;
+                                width: 48%;
+                                outline: none;
+                                padding: 7px 10px;
+                                font-size: .6rem;
+                                font-family: $font-padrao;
+                                font-weight: 500;
+                                background-color: #fff;
+                                color: #000;
+                                margin-right: 5px;
+                            }
+                             :last-child {
+                                // padding: 7px 22px;
+                                background-color: $cor-padrao;
+                                color: #fff;
+                                float: right;
+                                // margin-right: 25px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        @media (min-width:950px) {
+            body {
+                header {
+                    .box-menu-desktop {
+                        .box-menu-desktop-logo {
+                            width: 15%;
+                            height: inherit;
+                            float: left;
+                            // background-color: red;
+                            margin-left: 0;
+                            img {
+                                margin-top: 12px;
+                                width: 8.5rem;
+                            }
+                        }
+                        .menu-desktop {
+                            width: fit-content;
+                            height: inherit;
+                            // background-color: pink;
+                            margin-left: 0;
+                            margin-top: 40px;
+                            nav {
+                                ul {
+                                    padding-left: 0;
+                                    li {
+                                        display: inline-block;
+                                        a {
+                                            font-size: .9rem;
+                                            padding-right: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .box-menu-desktop-btn {
+                            width: 300px;
+                            // background-color: red;
+                            padding-right: 4px;
+                            justify-content: space-between;
+                            button {
+                                @include btn();
+                                width: fit-content;
+                                padding: 10px 20px;
+                                margin-right: 5px;
+                                color: #000;
+                                font-size: .7rem;
+                            }
+                             :last-child {
+                                padding: 10px 35px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        @media (min-width:1200px) {
+            body {
+                header {
+                    .box-menu-desktop {
+                        width: 1200px;
+                    }
+                }
+            }
+        }
+        
+        @media (min-width:1281px) {
+            /* hi-res laptops and desktops */
         }
