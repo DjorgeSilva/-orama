@@ -10,6 +10,7 @@ import {Busca} from "./components/Busca.js";
 import {NavTabDestaqueTodos} from "./components/NavTabDestaqueTodos.js";
 import {InfoFundos} from "./components/InfoFundos.js";
 
+
 function App() {
   return (
     <React.Fragment>
@@ -25,6 +26,7 @@ function App() {
         <Legenda/>
         <Busca/>
         <NavTabDestaqueTodos/>
+        <InfoFundos/>
       </Layout>
 
       <BtnConta/>

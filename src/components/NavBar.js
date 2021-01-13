@@ -54,6 +54,33 @@ export const NavBar = () => {
                     </div>
 
                 </IconContext.Provider>
+
+                
+                    <div className="box-menu-desktop">
+
+                        <div className="box-menu-desktop-logo">
+                            <img src={imgLogo}  alt="logomarca òrama"/>
+                        </div>
+
+                        <div className="menu-desktop">
+                            <nav>
+                                <ul>
+                                    <li><a href="#">A empresa</a></li>
+                                    <li><a href="#">Como funciona</a></li>
+                                    <li><a href="#">investimentos</a></li>
+                                    <li><a href="#">Atendimento</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <div className="box-menu-desktop-btn">
+                            <button type="button">Sua conta</button>
+                            <button type="Sua conta">Abra sua conta</button>
+                        </div>
+
+                    </div> 
+
+                
             </React.Fragment> 
         </div>
     );

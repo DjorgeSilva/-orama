@@ -1,37 +1,35 @@
+import { Tab, Tabs } from 'react-bootstrap';
 import React from 'react';
-import "../css/index.css";
+import {InfoFundos} from "./InfoFundos.js";
 
-export const NavTabDestaqueTodos = () => {
-
-    function onLoad() {
-        var destaque = document.querySelector('.active');
-        var todos = document.querySelector('.inactive');
-        console.log('carregou!!')
+export class NavTabDestaqueTodos extends React.Component {
+  constructor(props) {
+    super();
+    this.state = {
+      // define a tab ativa apartir do props se definido
+      activeTab: props.activeTab || 1
+    };
     
-        destaque.style.borderBottom = "3px solid #25B7BA";
-        todos.style.border = "none";
-    
-        todos.addEventListener('click', function() {
-            console.log('clicou');
-            todos.style.borderBottom = "3px solid #25B7BA";
-            destaque.style.border = "none";
-    
-        });
-    
-        destaque.addEventListener('click', function() {
-            destaque.style.borderBottom = "3px solid #25B7BA";
-            todos.style.border = "none";
-    
-        });
-    }
-
+    // função de seleção aqui (não no render)
+    this.handleSelect = this.handleSelect.bind(this);
+  }
+  
+  render() {
     return (
-        <div>
-            <div class="box-info-fundos">
-                <a href="#home" className="active">Destaques</a>
-                <a href="#news" className="inactive">Todos</a>
-            </div>
+        <div className="box-info-fundos">
+            <Tabs activeKey={this.state.activeTab} onSelect={this.handleSelect}>
+                <Tab eventKey={1} title="DESTAQUES" class=""><InfoFundos/></Tab>
+                <Tab eventKey={2} title="TODOS">Tab 2 content</Tab>
+            </Tabs>
         </div>
     );
+  }
+  
+  handleSelect(selectedTab) {
+    // a tab ativa tem que ser definida no state
+    // para o tabs component ver a mudança e renderizar
+    this.setState({
+      activeTab: selectedTab
+    });
+  }
 }
-
