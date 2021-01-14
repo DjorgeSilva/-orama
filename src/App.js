@@ -9,7 +9,7 @@ import {BtnConta} from "./components/BtnConta.js";
 import {Busca} from "./components/Busca.js";
 import {NavTabDestaqueTodos} from "./components/NavTabDestaqueTodos.js";
 import {InfoFundos} from "./components/InfoFundos.js";
-
+import {HeaderInfoFundos} from "./components/HeaderInfoFundos.jsx"
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
         <Legenda/>
         <Busca/>
         <NavTabDestaqueTodos/>
+        <HeaderInfoFundos/>
         <InfoFundos/>
       </Layout>
 
