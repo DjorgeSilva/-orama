@@ -1,47 +1,27 @@
-import React from 'react';
-import "../css/index.css";
+import React, {useState} from 'react'
+import {Button, Collapse} from 'react-bootstrap'
 import {Container, Row, Col} from 'react-bootstrap';
 
-export const InfoFundos = () => {
+export class InfoFundos extends React.Component {
+
+    constructor(props){
+        super(props);
+
+        this.state = {
+        open: false
+        }
+        this.togglePanel = this.togglePanel.bind(this);
+    }
+
+    togglePanel(e){
+        this.setState({open: !this.state.open})
+    }
+
+    render() {
     return (
-        <div class="box-display-fundos">
-            
-                <div class="box-item-fundo">
+        <div className="box-items-fundos-mobile" onClick={(e)=>this.togglePanel(e)}>
 
-                    <div class="wrap-titulo">
-                        <h6 class="titulo-fundo">Claritas Inflação Instituiconal FIM</h6>
-                        <div class='box-status-fundo'><span></span></div>
-                    </div>
-
-                    <p class="subtitulo-fundo">Renda Fixa | Renda Fixa Indexados</p>
-                    
-                    <div class="box-item-info-fundos">
-                        <p class="right-row">Data da cota:</p>
-                        <p class="left-row">07/01/2021</p>
-                    </div>
-
-                    <div class="box-item-info-fundos">
-                        <p class="right-row">rantabilidade 12 Meses:</p>
-                        <p class="left-row">119,61</p>
-                    </div>
-
-                    <div class="box-item-info-fundos">
-                        <p class="right-row">Aplicação Mínima:</p>
-                        <p class="left-row">10.000,00</p>
-                    </div>
-                    
-                    <div class="box-item-info-fundos">
-                        <p class="right-row">Cotização do Resgate:</p>
-                        <p class="left-row">D+1</p>
-                    </div>
-
-                    <div class="box-info-button">
-                        <button type="button">Mais detalhes</button>
-                        <button type="button">Aplicar</button>
-                    </div>
-                </div>
-
-                <div className="box-items-fundos-mobile">
+                    <div class='box-status-fundo'><span></span></div>
 
                     <Row noGutters={true} className="row-header">
 
@@ -79,11 +59,30 @@ export const InfoFundos = () => {
                         </Col>
 
                     </Row>
-                </div>
+                    {this.state.open ? (
+                    <div className="box-more-info">
+                        {this.props.children}
 
-                
+                        <div className="box-more-info-grafico">
 
+                        </div>
+
+                        <div className="box-more-info-detalhes">
+                            <p>Cotização da aplicação: <span></span></p>
+                            <p>Cotização do resgate <span></span></p>
+                            <p>Liquidação do resgate: <span></span></p>
+                            <p className="last-p">Taxa de administração <span></span></p>
+                            
+
+                           <a href="#" className="link">Conheça mais informações sobre este fundo</a>
+
+                            <p className="style-bottom">CNPJ do fundo: <span></span></p>
+                        </div>  
+                        
+                    </div>) : null}
         </div>
+
+    
     );
+    }
 }
-;

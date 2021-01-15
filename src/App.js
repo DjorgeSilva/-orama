@@ -8,8 +8,11 @@ import {Legenda} from "./components/Legenda.js";
 import {BtnConta} from "./components/BtnConta.js";
 import {Busca} from "./components/Busca.js";
 import {NavTabDestaqueTodos} from "./components/NavTabDestaqueTodos.js";
+import {InfoFundosMobile} from "./components/InfoFundosMobile.js";
 import {InfoFundos} from "./components/InfoFundos.js";
 import {HeaderInfoFundos} from "./components/HeaderInfoFundos.jsx"
+import {Footer} from "./components/Footer.js"
+
 
 function App() {
   return (
@@ -27,10 +30,13 @@ function App() {
         <Busca/>
         <NavTabDestaqueTodos/>
         <HeaderInfoFundos/>
+        <InfoFundosMobile/>
         <InfoFundos/>
       </Layout>
 
       <BtnConta/>
+
+      <Footer/>
     </React.Fragment>
   );
 }

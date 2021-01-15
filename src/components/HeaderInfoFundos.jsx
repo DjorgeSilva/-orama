@@ -7,7 +7,7 @@ export const HeaderInfoFundos = () => {
 
     
     return (
-        <div className="box-header-fundos">
+                <div className="box-header-fundos-mobile">
                     <Row noGutters={true} className="row-header">
                         <Col md="3" className="coluna-header">
                             <h4 className="first-style">Fundo</h4>
@@ -28,7 +28,7 @@ export const HeaderInfoFundos = () => {
                             <h4>Aplicação mínima (R$)</h4>
                         </Col>
                         <Col md="1" className="coluna-header">
-                            <h4 className="style-bottom">Prazo do resgate</h4>
+                            <h4 className="style-bottom style-top">Prazo do resgate</h4>
                         </Col>
                         <Col md="1" className="coluna-header">
                             <h4>Aplicar</h4>
@@ -36,7 +36,7 @@ export const HeaderInfoFundos = () => {
                     </Row>
 
                     
-        </div>
+                </div>
     );
 }
 

@@ -5,7 +5,7 @@ export const Busca = () => {
     return (
         <div className="container-busca">
             <div class="box-busca">
-                <input type="search" name="busca-fundo" id="buscaFundo"/>
+                <input type="search" name="busca-fundo" id="buscaFundo" placeholder="Buscar fundo por nome"/>
                 <label for="busca-fundo" className="label-input-search">*Selecione o fundo para saber o horário limite de aplicação.</label>
            
                 <div className="box-filtros">
@@ -29,9 +29,9 @@ export const Busca = () => {
                     
                 </div>
 
-                <p>Horário limite de aplicação: 12:00</p>
+                <p className="label-filtros">Horário limite de aplicação: 12:00</p>
             
-        </div>
+            </div>
             
            
         </div>
