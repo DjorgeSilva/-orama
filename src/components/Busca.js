@@ -3,6 +3,7 @@ import "../css/index.css";
 
 export const Busca = () => {
     return (
+        
         <div className="container-busca">
             <div class="box-busca">
                 <input type="search" name="busca-fundo" id="buscaFundo" placeholder="Buscar fundo por nome"/>

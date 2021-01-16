@@ -2,15 +2,73 @@ import React from 'react';
 import "../css/index.css";
 import { Container, Row, Col } from 'react-bootstrap';
 
+require("es6-promise").polyfill();
+require("isomorphic-fetch");
+
+
+
 export const InfoFundosMobile = ({ data }) => {
   return (
     <div classNames='data-mobile'>{data.slice(0, 100).map((item, index) => {
 
-      const { specification: { fund_type: tipoFundo, fund_class: classeFundo } } = item;
+      const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo }  } } = item;
       const { profitabilities: { month: lucroMes, m12, year: lucroAno } } = item;
       const { operability: { minimum_initial_application_amount: aplicacaoMinima, application_quotation_days_str: cotizacaoAplicacao, retrieval_quotation_days_str: cotizacaoResgate,
         retrieval_liquidation_days_str: liquidacaoResgate, application_time_limit: horarioLimiteAplicacao } } = item;
       const { fees: { administration_fee: taxaAdministracao } } = item;
+
+      function cor(idCor) {
+        switch (idCor) {
+            case 1:
+                return '#A6ECFC';
+                break;
+            case 2:
+                return '#68F1DD';
+                break;
+            case 3:
+                return '#91ED6E';
+                break;
+
+            case 4:
+                return '#B0F42A';
+                break;
+
+            case 5:
+                return '#DDF40C';
+                break;
+
+            case 6:
+                return '#FAF00E';
+                break;
+
+            case 7:
+                return '#FFDC00';
+                break;
+
+            case 8:
+                return '#FFBB00';
+                break;
+
+            case 9:
+                return '#FFBB00';
+                break;
+
+            case 10:
+                return '#FF5E00';
+                break;
+            case 11:
+                return '#FF0600';
+                break;
+
+            case 12:
+                return '#FFFFFF';
+                break;
+
+            default:
+                return '#000';
+                break;
+        }
+    }
 
 
       return (
@@ -21,7 +79,7 @@ export const InfoFundosMobile = ({ data }) => {
 
               <div class="wrap-titulo">
                 <h6 class="titulo-fundo">{item.simple_name}</h6>
-                <div class='box-status-fundo'><span></span></div>
+                <div class='box-status-fundo'><span style={{ backgroundColor: cor(corPerfilRiscoFundo)}}></span></div>
               </div>
 
               <p class="subtitulo-fundo">{tipoFundo} | {classeFundo}</p>
@@ -32,7 +90,7 @@ export const InfoFundosMobile = ({ data }) => {
               </div>
 
               <div class="box-item-info-fundos">
-                <p class="right-row">rantabilidade 12 Meses:</p>
+                <p class="right-row">rentabilidade 12 Meses:</p>
                 <p class="left-row">{(Number(m12 * 100).toFixed(2))}</p>
               </div>
 

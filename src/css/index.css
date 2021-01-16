@@ -842,7 +842,9 @@ body .footer .box-img-redes .box-redes-sociais a[href*="instagram"] {
     cursor: pointer;
     display: block;
     width: 100%;
-    height: 65px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
     position: relative;
     background-color: #ffffff;
   }
