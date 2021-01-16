@@ -2,8 +2,9 @@ import React from 'react';
 import "../css/index.css";
 import {Container, Row, Col} from 'react-bootstrap';
 
-export const InfoFundosMobile = () => {
+export const InfoFundosMobile = ({data}) => {
     return (
+
         <div class="box-display-fundos">
             
                 <div class="box-item-fundo">

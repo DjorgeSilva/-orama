@@ -12,83 +12,81 @@ import IconeExecution from "../assets/img/icone-execution.png"
 
 export const Footer = () => {
     return (
-
         <div className="footer">
 
-            <div className="box-footer">
+            <div className="footer-txt">
 
-                <div className="box-footer-iner">
-                            
-                        <div className="box-item-footer">
-                            <h6>Quem somos</h6>
-                            <a href="#">A Empresa</a>
-                            <a href="#">Trabalhe conosco</a>
-                            <a href="#">Aplicativo</a>
-                        </div>
-
-                        <div className="box-item-footer">
-                            <h6>Assessoria Órama</h6>
-                            <a href="#">Privilege</a>
-                            <a href="#">Wealth Management</a>
-                        </div>
-
-                        <div className="box-item-footer">
-                            <h6>Parcerias</h6>
-                            <a href="#">Seja um Parceiro</a>
-                            <a href="#">Agente Autônomo</a>
-                        </div>
-                </div>
-
-                <div className="box-footer-iner">
-                            
-                        <div className="box-item-footer">
-                            <h6>Primeiros Passos</h6>
-                            <a href="#">Como funciona</a>
-                            <a href="#">Educacional</a>
-                            <a href="#">Blog Órama</a>
-                            <a href="#">Transferência de Recursos</a>
-                            <a href="#">Investimento Ideal</a>
-                        </div>
-
-                        <div className="box-item-footer">
-                            <h6>Moedas e Serviços</h6>
-                            <a href="#">Entenda Moedas e Serviços</a>
-                        </div>
-                </div>
-
-                    <div className="box-footer-iner">
-                        <div className="box-item-footer">
-                            <h6>Invista agora</h6>
-                            <a href="#">Todos os Investimentos</a>
-                            <a href="#" >Fundo de Investimentos</a>
-                            <a href="#" className="style">Renda Fixa</a>
-                            <a href="#" className="style">Renda Variavél</a>
-                            <a href="#" className="style">Oferta Pública</a>
-                            <a href="#">Tessouro Direto</a>
-                            <a href="#" className="style">Seguros e Previdência</a>
-                            <a href="#">Entenda COE</a>
-                            <a href="#">Entenda Custos</a>
-                        </div>
+                <div className="box-footer-inner">
+                    <div className="box-item-footer">
+                        <h6>Quem somos</h6>
+                        <a href="#">A Empresa</a>
+                        <a href="#">Trabalhe conosco</a>
+                        <a href="#">Aplicativo</a>
                     </div>
 
-                    <div className="box-footer-iner">
-                        <div className="box-item-footer">
-                            <h6>Fale conosco</h6>
-                            <a href="#">Atendimento</a>
-                            <a href="#">Consultoria</a>
-                        </div>
-
-                        <div className="box-item-footer">
-                            <h6>Onde estamos</h6>
-                            <p>Praia de Botafogo, 228 18° dandar</p>
-                            <p>Botafogo - cep: 22250-906</p>
-                            <p>Rio de Janeiro - Brasil</p>
-                        </div>
+                    <div className="box-item-footer">
+                        <h6>Assessoria Órama</h6>
+                        <a href="#">Privilege</a>
+                        <a href="#">Wealth Management</a>
                     </div>
+
+                    <div className="box-item-footer">
+                        <h6>Parcerias</h6>
+                        <a href="#">Seja um Parceiro</a>
+                        <a href="#">Agente Autônomo</a>
+                    </div>
+                </div>
+
+                <div className="box-footer-inner">
+
+                    <div className="box-item-footer">
+                        <h6>Primeiros Passos</h6>
+                        <a href="#">Como funciona</a>
+                        <a href="#">Educacional</a>
+                        <a href="#">Blog Órama</a>
+                        <a href="#">Transferência de Recursos</a>
+                        <a href="#">Investimento Ideal</a>
+                    </div>
+
+                    <div className="box-item-footer">
+                        <h6>Moedas e Serviços</h6>
+                        <a href="#">Entenda Moedas e Serviços</a>
+                    </div>
+                </div>
+
+                <div className="box-footer-inner">
+                    <div className="box-item-footer">
+                        <h6>Invista agora</h6>
+                        <a href="#">Todos os Investimentos</a>
+                        <a href="#" >Fundo de Investimentos</a>
+                        <a href="#" className="style">Renda Fixa</a>
+                        <a href="#" className="style">Renda Variavél</a>
+                        <a href="#" className="style">Oferta Pública</a>
+                        <a href="#">Tessouro Direto</a>
+                        <a href="#" className="style">Seguros e Previdência</a>
+                        <a href="#">Entenda COE</a>
+                        <a href="#">Entenda Custos</a>
+                    </div>
+                </div>
+
+                <div className="box-footer-inner">
+                    <div className="box-item-footer">
+                        <h6>Fale conosco</h6>
+                        <a href="#">Atendimento</a>
+                        <a href="#">Consultoria</a>
+                    </div>
+
+                    <div className="box-item-footer">
+                        <h6>Onde estamos</h6>
+                        <p>Praia de Botafogo, 228 18° dandar</p>
+                        <p>Botafogo - cep: 22250-906</p>
+                        <p>Rio de Janeiro - Brasil</p>
+                    </div>
+                </div>
 
             </div>
 
-            <div className="box-termos">
+            <div className="footer-links">
                 <div className="box-termos-legais">
                     <a href="#">Politíca de privacidade</a>
                     <a href="#">Termo de uso</a>
@@ -97,68 +95,73 @@ export const Footer = () => {
                     <a href="#">Compliance</a>
                     <a href="#">Mapa do site</a>
                 </div>
+
             </div>
 
-            <div className="box-img">
-                
-                <div className="container-footer">
-              
+            <div className="footer-img">
 
-                    <div className="box-img-footer-card">
-                            <div className="box-item-img">
-                                <img src={IconeOfertasPublicas} alt=""/>
-                            </div>
 
-                            <div className="box-item-img">
-                                <img src={IconeGestaoRecursos} alt=""/>
-                            </div>
+                <div className="box-img-footer gridOfertas">
+                    <div className="box-item-img">
+                        <img src={IconeOfertasPublicas} alt="" />
                     </div>
 
-                    <div className="box-img-footer-card">
-                    
-                            <div className="box-item-img">
-                                <img src={IconeDistribuicaoProdutos} alt=""/>
-                            </div>
+                    <div className="box-item-img">
+                        <img src={IconeGestaoRecursos} alt="" />
+                    </div>
+                </div>
 
-                            <div className="box-item-img">
-                                <img src={IconePrivate} alt=""/>
-                            </div>
+                <div className="box-img-footer gridPrivate">
+
+                    <div className="box-item-img">
+                        <img src={IconeDistribuicaoProdutos} alt="" />
                     </div>
 
+                    <div className="box-item-img">
+                        <img src={IconePrivate} alt="" />
+                    </div>
+                </div>
 
-                    <div className="box-img-footer-card">
-                    
-                        <div className="box-item-img">
-                            <img src={IconeBSM} alt=""/>
-                        </div>
 
-                        <div className="box-item-img">
-                            <img src={IconeBrasilBolsa} alt=""/>
-                        </div>
+                <div className="box-img-footer gridBSM">
+
+                    <div className="box-item-img">
+                        <img src={IconeBSM} alt="" />
                     </div>
 
-
-                    <div className="box-img-footer-card execution">
-                            <div className="box-item-img">
-                                <img src={IconeExecution} alt=""/>
-                            </div>
+                    <div className="box-item-img">
+                        <img src={IconeBrasilBolsa} alt="" />
                     </div>
+                </div>
 
+
+                <div className="box-img-footer execution">
+                    <div className="box-item-img">
+                        <img src={IconeExecution} alt="" />
+                    </div>
+                </div>
+
+
+
+                <div className="box-img-redes gridRedesSociais">
                     <div className="box-img-footer-eleita">
                         <p>Eleita</p>
-                            <div className="box-item-img">
-                                <img src={IconeMelhor} alt=""/>
-                            </div>
+                        <div className="box-item-img">
+                            <img src={IconeMelhor} alt="" />
+                        </div>
                     </div>
 
+                    <div className="box-redes-sociais">
+                        <a href="https://www.facebook.com/oramainvest">facebook</a>
+                        <a href="https://www.linkedin.com/company/oramainvest/">linkedin</a>
+                        <a href="https://twitter.com/oramainvest">twitter</a>
+                        <a href="https://www.youtube.com/channel/UCcmiKisvBXwAZF63qansofQ">youtube</a>
+                        <a href="https://www.instagram.com/oramainvestimentos/">instagram</a>
+                    </div>
                 </div>
-
-                <div className="box-info-legais">
-                        <p>Informações legais</p>
-                </div>
-
 
             </div>
+
 
 
         </div>
