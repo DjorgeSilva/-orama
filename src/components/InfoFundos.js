@@ -1,88 +1,103 @@
-import React, {useState} from 'react'
-import {Button, Collapse} from 'react-bootstrap'
-import {Container, Row, Col} from 'react-bootstrap';
+import React, { useState } from 'react'
+import { Button, Collapse } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap';
 
 export class InfoFundos extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
-        open: false
+            open: false
         }
         this.togglePanel = this.togglePanel.bind(this);
     }
 
-    togglePanel(e){
-        this.setState({open: !this.state.open})
+    togglePanel(e) {
+        this.setState({ open: !this.state.open })
     }
+
 
     render() {
-    return (
-        <div className="box-items-fundos-mobile" onClick={(e)=>this.togglePanel(e)}>
+        return (
 
-                    <div class='box-status-fundo'><span></span></div>
+            <div classNames='data-mobile'>{data.slice(0, 100).map((item, index) => {
 
-                    <Row noGutters={true} className="row-header">
+                const { specification: { fund_type: tipoFundo, fund_class: classeFundo } } = item;
+                const { profitabilities: { month: lucroMes, m12, year: lucroAno } } = item;
+                const { operability: { minimum_initial_application_amount: aplicacaoMinima, application_quotation_days_str: cotizacaoAplicacao, retrieval_quotation_days_str: cotizacaoResgate,
+                    retrieval_liquidation_days_str: liquidacaoResgate, application_time_limit: horarioLimiteAplicacao } } = item;
+                const { fees: { administration_fee: taxaAdministracao } } = item;
 
-                        <Col md="3" className="coluna-header">
-                            <h4 className="first-style">JP Morgan Global Macro Opportunities</h4>
-                            <h2>Renda Fixa | Indexado Soberano</h2>
-                        </Col>
 
-                        <Col md="1" className="coluna-header">
-                            <h4  className="style-bottom">29/04/2016</h4>
-                        </Col>
+                return (
 
-                        <Col md="1" className="coluna-header ">
-                            <h4>0,47</h4>
-                        </Col>
 
-                        <Col md="1" className="coluna-header">
-                            <h4>2,93</h4>
-                        </Col>
-                        
-                        <Col md="1" className="coluna-header">
-                            <h4>13,16</h4>
-                        </Col>
+                    <div className="box-items-fundos-mobile" onClick={(e) => this.togglePanel(e)}>
 
-                        <Col md="3" className="coluna-header">
-                            <h4>1.000,00</h4>
-                        </Col>
+                        <div class='box-status-fundo'><span></span></div>
 
-                        <Col md="1" className="coluna-header">
-                            <h4 className="style-bottom">icone</h4>
-                        </Col>
+                        <Row noGutters={true} className="row-header">
 
-                        <Col md="1" className="coluna-header">
-                            <h4>icone</h4>
-                        </Col>
+                            <Col md="3" className="coluna-header">
+                                <h4 className="first-style">JP Morgan Global Macro Opportunities</h4>
+                                <h2>Renda Fixa | Indexado Soberano</h2>
+                            </Col>
 
-                    </Row>
-                    {this.state.open ? (
-                    <div className="box-more-info">
-                        {this.props.children}
+                            <Col md="1" className="coluna-header">
+                                <h4 className="style-bottom">29/04/2016</h4>
+                            </Col>
 
-                        <div className="box-more-info-grafico">
+                            <Col md="1" className="coluna-header ">
+                                <h4>0,47</h4>
+                            </Col>
 
-                        </div>
+                            <Col md="1" className="coluna-header">
+                                <h4>2,93</h4>
+                            </Col>
 
-                        <div className="box-more-info-detalhes">
-                            <p>Cotização da aplicação: <span></span></p>
-                            <p>Cotização do resgate <span></span></p>
-                            <p>Liquidação do resgate: <span></span></p>
-                            <p className="last-p">Taxa de administração <span></span></p>
-                            
+                            <Col md="1" className="coluna-header">
+                                <h4>13,16</h4>
+                            </Col>
 
-                           <a href="#" className="link">Conheça mais informações sobre este fundo</a>
+                            <Col md="3" className="coluna-header">
+                                <h4>1.000,00</h4>
+                            </Col>
 
-                            <p className="style-bottom">CNPJ do fundo: <span></span></p>
-                        </div>  
-                        
-                    </div>) : null}
-        </div>
+                            <Col md="1" className="coluna-header">
+                                <h4 className="style-bottom">icone</h4>
+                            </Col>
 
-    
-    );
-    }
+                            <Col md="1" className="coluna-header">
+                                <h4>icone</h4>
+                            </Col>
+
+                        </Row>
+                        {this.state.open ? (
+                            <div className="box-more-info">
+                                {this.props.children}
+
+                                <div className="box-more-info-grafico">
+
+                                </div>
+
+                                <div className="box-more-info-detalhes">
+                                    <p>Cotização da aplicação: <span></span></p>
+                                    <p>Cotização do resgate <span></span></p>
+                                    <p>Liquidação do resgate: <span></span></p>
+                                    <p className="last-p">Taxa de administração <span></span></p>
+
+
+                                    <a href="#" className="link">Conheça mais informações sobre este fundo</a>
+
+                                    <p className="style-bottom">CNPJ do fundo: <span></span></p>
+                                </div>
+
+                            </div>) : null}
+
+                    </div>
+                );
+            })}</div>
+        }
+
 }

@@ -836,13 +836,6 @@ body .footer .box-img-redes .box-redes-sociais a[href*="instagram"] {
     text-align: right;
   }
   body .container .box-display-fundos {
-    border: 1px solid #e9e9e9;
-    background-color: white;
-    margin-left: 0;
-    padding-left: 0;
-    padding: 0;
-  }
-  body .container .box-display-fundos .box-item-fundo {
     display: none;
   }
   body .container .box-items-fundos-mobile {
@@ -851,7 +844,7 @@ body .footer .box-img-redes .box-redes-sociais a[href*="instagram"] {
     width: 100%;
     height: 65px;
     position: relative;
-    background-color: #fff;
+    background-color: #ffffff;
   }
   body .container .box-items-fundos-mobile .box-status-fundo {
     float: left;
