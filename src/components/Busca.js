@@ -32,6 +32,18 @@ export const Busca = () => {
         }
     }
 
+    function changeValuePerfilRisco(){
+        var inputPerfilRisco = document.querySelector("#perfilRisco");
+        var outputPerfilRisco = document.querySelector("#valuePerfilRisco");
+
+        outputPerfilRisco.innerHTML = inputPerfilRisco.value;
+
+
+        inputPerfilRisco.oninput = function() {
+            outputPerfilRisco.innerHTML = this.value;
+        }
+    }
+
 
 
     return (
@@ -51,8 +63,24 @@ export const Busca = () => {
 
                     <div className="perfilRiscoFundo item-filtro perfilRisco">
                         <p className="style">Perfil de risco de fundo</p>
-                        <img src={imgPerfilRisco} alt=""/>
-                        <input type="range" name="aplicacao-minima" id="perfilRisco"/>
+                        <label htmlFor="aplicacao-minima">
+                            <ul>
+                                <li><span className="item-filter-risco" onHoverT></span></li>
+                                <li><span className="item-filter-risco"></span></li>
+                                <li><span className="item-filter-risco"></span></li>
+                                <li><span className="item-filter-risco"></span></li>
+                                <li><span className="item-filter-risco"></span></li>
+                                <li><span className="item-filter-risco"></span></li>
+                                <li><span className="item-filter-risco"></span></li>
+                                <li><span className="item-filter-risco"></span></li>
+                                <li><span className="item-filter-risco"></span></li>
+                                <li><span className="item-filter-risco"></span></li>
+                                <li><span className="item-filter-risco"></span></li>
+                                <li><span className="item-filter-risco"></span></li>
+                            </ul>
+                        </label>
+                        <input type="range" min="1" max="12" id="perfilRisco" onChange={changeValuePerfilRisco}/>
+                        <span id="valuePerfilRisco"></span>
                     </div>
 
                     <div className="prazoResgate item-filtro">

@@ -2,6 +2,7 @@ import React, { useState, useEffect, ExpandCollapse } from 'react'
 import { Button } from 'react-bootstrap'
 import { Container, Row, Col } from 'react-bootstrap';
 import { Colors } from 'react-foundation';
+import * as IoIcons from "react-icons/io5";
 
 require("es6-promise").polyfill();
 require("isomorphic-fetch");
@@ -11,13 +12,17 @@ require("isomorphic-fetch");
 export const InfoFundos = () => {
 
     const [data, setData] = useState([]);
-    const [q, setQ] = useState("");
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         fetch("https://s3.amazonaws.com/orama-media/json/fund_detail_full.json?limit=1000&offset=0&serializer=fund_detail_full")
             .then((response) => response.json())
             .then((json) => setData(json));
     }, [])
+
+    function collapse(){
+        setIsOpen(!isOpen)
+    }
 
     function cor(idCor) {
         switch (idCor) {
@@ -52,7 +57,7 @@ export const InfoFundos = () => {
                 break;
 
             case 9:
-                return '#FFBB00';
+                return '#FF8800';
                 break;
 
             case 10:
@@ -63,7 +68,7 @@ export const InfoFundos = () => {
                 break;
 
             case 12:
-                return '#FFFFFF';
+                return '#B51414';
                 break;
 
             default:
@@ -87,7 +92,7 @@ export const InfoFundos = () => {
             return (
 
 
-                <div className="box-items-fundos-mobile">
+                <div className="box-items-fundos-mobile" onClick={collapse}>
 
                     <div class='box-status-fundo' style={{ backgroundColor: cor(corPerfilRiscoFundo) }}><span></span></div>
 
@@ -123,30 +128,32 @@ export const InfoFundos = () => {
                         </Col>
 
                         <Col md="1" className="coluna-header">
-                            <h4>icone</h4>
+                            <IoIcons.IoArrowUndoCircleSharp className="icone-aplicar"/>
                         </Col>
 
                     </Row>
 
-                    <div className="box-more-info">
+                    {isOpen && (
+                        <div className="box-more-info">
 
-                        <div className="box-more-info-grafico">
+                            <div className="box-more-info-grafico">
+
+                            </div>
+
+                            <div className="box-more-info-detalhes">
+                                <p>Cotização da aplicação: <span>{cotizacaoAplicacao}</span></p>
+                                <p>Cotização do resgate <span>{cotizacaoResgate}</span></p>
+                                <p>Liquidação do resgate: <span>{liquidacaoResgate}</span></p>
+                                <p className="last-p">Taxa de administração: <span>{taxaAdministracao}</span></p>
+
+
+                                <a href="#" className="link">Conheça mais informações sobre este fundo</a>
+
+                                <p className="style-bottom">CNPJ do fundo: <span>{item.cnpj}</span></p>
+                            </div>
 
                         </div>
-
-                        <div className="box-more-info-detalhes">
-                            <p>Cotização da aplicação: <span>{cotizacaoAplicacao}</span></p>
-                            <p>Cotização do resgate <span>{cotizacaoResgate}</span></p>
-                            <p>Liquidação do resgate: <span>{liquidacaoResgate}</span></p>
-                            <p className="last-p">Taxa de administração: <span>{taxaAdministracao}</span></p>
-
-
-                            <a href="#" className="link">Conheça mais informações sobre este fundo</a>
-
-                            <p className="style-bottom">CNPJ do fundo: <span>{item.cnpj}</span></p>
-                        </div>
-
-                    </div>
+                    )}
 
                 </div>
             );
