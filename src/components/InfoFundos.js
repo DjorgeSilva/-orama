@@ -20,8 +20,24 @@ export const InfoFundos = () => {
             .then((json) => setData(json));
     }, [])
 
-    function collapse(){
-        setIsOpen(!isOpen)
+    function moneyFormatter(money) {
+       const valor = new Intl.NumberFormat('pt-BR',
+            { style: 'currency', currency: 'BRL' }
+        ).format(money);
+
+        return valor;
+    }
+
+    function reformatDate(dateStr){
+        const dArr = dateStr.split("-");  // ex input "2010-01-18"
+        return dArr[2]+ "/" +dArr[1]+ "/" +dArr[0].substring(2); //ex out: "18/01/10"
+    }
+
+    function collapse(key) {
+        setIsOpen(!isOpen);
+
+        console.log(key)
+       
     }
 
     function cor(idCor) {
@@ -79,11 +95,11 @@ export const InfoFundos = () => {
 
 
     return (
-        <div classNames='data-mobile'>{data.slice(0, 100).map((item, index) => {
+        <div classNames='data-mobile'>{data.slice(0, 100).map((item, key) => {
 
             const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo } } } = item;
             const { profitabilities: { month: lucroMes, m12, year: lucroAno } } = item;
-            const { operability: { minimum_initial_application_amount: aplicacaoMinima, application_quotation_days_str: cotizacaoAplicacao, retrieval_quotation_days_str: cotizacaoResgate,
+            const { operability: { minimum_initial_application_amount: aplicacaoMinima, application_quotation_days_str: cotizacaoAplicacao, retrieval_quotation_days: cotizacaoAplicacaoSigla, retrieval_quotation_days_str: cotizacaoResgate,
                 retrieval_liquidation_days_str: liquidacaoResgate, application_time_limit: horarioLimiteAplicacao } } = item;
             const { fees: { administration_fee: taxaAdministracao } } = item;
 
@@ -92,7 +108,7 @@ export const InfoFundos = () => {
             return (
 
 
-                <div className="box-items-fundos-mobile" onClick={collapse}>
+                <div className="box-items-fundos-mobile" key={key} onClick={collapse.bind(this, key)}>
 
                     <div class='box-status-fundo' style={{ backgroundColor: cor(corPerfilRiscoFundo) }}><span></span></div>
 
@@ -104,7 +120,7 @@ export const InfoFundos = () => {
                         </Col>
 
                         <Col md="1" className="coluna-header dataCota">
-                            <h4 className="style-bottom">{item.quota_date}</h4>
+                            <h4 className="style-bottom">{reformatDate(item.quota_date)}</h4>
                         </Col>
 
                         <Col md="1" className="coluna-header mes">
@@ -120,15 +136,15 @@ export const InfoFundos = () => {
                         </Col>
 
                         <Col md="3" className="coluna-header aplicacao_minima">
-                            <h4>{(Number(aplicacaoMinima).toFixed())}</h4>
+                            <h4>{moneyFormatter(Number(aplicacaoMinima).toFixed())}</h4>
                         </Col>
 
                         <Col md="1" className="coluna-header prazoResgate">
-                            <h4 className="style-bottom">{cotizacaoResgate}</h4>
+                            <h4 className="style-bottom">D+{cotizacaoAplicacaoSigla}</h4>
                         </Col>
 
                         <Col md="1" className="coluna-header">
-                            <IoIcons.IoArrowUndoCircleSharp className="icone-aplicar"/>
+                            <IoIcons.IoArrowUndoCircleSharp className="icone-aplicar" />
                         </Col>
 
                     </Row>

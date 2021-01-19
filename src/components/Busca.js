@@ -13,10 +13,11 @@ export const Busca = () => {
         var outputAplicacaoMinima = document.querySelector("#valueAplicacaoMinima");
 
 
-        outputAplicacaoMinima.innerHTML = inputAplicacaoMinima.value;
+        outputAplicacaoMinima.innerHTML = moneyFormatter(inputAplicacaoMinima.value);
 
         inputAplicacaoMinima.oninput = function() {
-            outputAplicacaoMinima.innerHTML = this.value;
+            const valor = this.value;
+            outputAplicacaoMinima.innerHTML = valor;
         }
     }
 
@@ -44,6 +45,14 @@ export const Busca = () => {
         }
     }
 
+    function moneyFormatter(money) {
+        const valor = new Intl.NumberFormat('pt-BR',
+             { style: 'currency', currency: 'BRL' }
+         ).format(money);
+ 
+         return valor;
+     }
+
 
 
     return (
@@ -57,8 +66,8 @@ export const Busca = () => {
 
                     <div className="aplicacao-minima item-filtro">
                         <p>Aplicação mínima</p>
-                        <input type="range" min="0" max="20000" id="aplicacaoMinima" onChange={changeValueMinimo}/>
-                        <label htmlFor="aplicacao-minima">Até R$ <span id="valueAplicacaoMinima"></span></label>
+                        <input type="range" min="0" max="20000" id="aplicacaoMinima" defaultValue="20000" onChange={changeValueMinimo}/>
+                        <label htmlFor="aplicacao-minima">Até <span id="valueAplicacaoMinima">R$ 20.000,00</span></label>
                     </div>
 
                     <div className="perfilRiscoFundo item-filtro perfilRisco">
@@ -79,14 +88,14 @@ export const Busca = () => {
                                 <li><span className="item-filter-risco"></span></li>
                             </ul>
                         </label>
-                        <input type="range" min="1" max="12" id="perfilRisco" onChange={changeValuePerfilRisco}/>
+                        <input type="range" min="1" max="12" defaultValue="12" id="perfilRisco" onChange={changeValuePerfilRisco}/>
                         <span id="valuePerfilRisco"></span>
                     </div>
 
                     <div className="prazoResgate item-filtro">
                         <p>Prazo de resgate</p>
-                        <input type="range" min="0" max="30" id="prazoResgate" onChange={changeValuePrazoResgate}/>
-                        <label htmlFor="prazoResgate">Até <span id="valuePrazoResgate"></span> dias utéis</label>
+                        <input type="range" min="0" max="30" defaultValue="30" id="prazoResgate" onChange={changeValuePrazoResgate}/>
+                        <label htmlFor="prazoResgate">Até <span id="valuePrazoResgate">30</span> dias utéis</label>
                     </div>
                     
                 </div>

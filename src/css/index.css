@@ -873,7 +873,7 @@ body .footer .box-img-redes .box-redes-sociais a[href*="instagram"] {
     font-weight: 500;
     text-align: right;
     margin-top: 5px;
-    font-weight: 600;
+    font-weight: 500;
   }
   body .container .box-items-fundos-mobile .row-header .coluna-header h4 {
     margin-top: 25px;
@@ -881,6 +881,7 @@ body .footer .box-img-redes .box-redes-sociais a[href*="instagram"] {
   body .container .box-items-fundos-mobile .row-header .coluna-header h2 {
     font-size: .6rem;
     text-align: left;
+    color: rgba(95, 95, 95, 0.867);
   }
   body .container .box-items-fundos-mobile .row-header .coluna-header .first-style {
     text-align: left;
@@ -974,7 +975,7 @@ body .footer .box-img-redes .box-redes-sociais a[href*="instagram"] {
 
 @media (min-width: 960px) {
   body .box-menu-desktop .box-menu-desktop-logo {
-    width: 14%;
+    width: 13%;
     height: inherit;
     float: left;
     margin-left: 0;
@@ -1030,7 +1031,6 @@ body .footer .box-img-redes .box-redes-sociais a[href*="instagram"] {
   }
   body .container .container-busca {
     width: 100%;
-    background-color: #fff;
     margin-top: 40px;
     height: 280px;
     padding: 10px 0px;
