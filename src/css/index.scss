@@ -218,7 +218,8 @@
                         }
                     }
                 }
-                .container-busca {
+                .container-busca,
+                .container-busca-mobile {
                     .box-busca {
                         @include displayFlex();
                         width: 100%;
@@ -255,6 +256,9 @@
                     .box-filtros {
                         display: none;
                     }
+                }
+                .container-busca {
+                    display: none;
                 }
                 .box-header-fundos-mobile {
                     display: none;
@@ -382,6 +386,7 @@
                             font-weight: bold;
                             color: #333;
                             margin-top: 25px;
+                            font-weight: bolder;
                         }
                         a {
                             display: block;
@@ -664,6 +669,12 @@
                     .box-display-fundos {
                         display: none;
                     }
+                    .container-busca {
+                        display: block;
+                    }
+                    .container-busca-mobile {
+                        display: none;
+                    }
                     .box-items-fundos-mobile {
                         cursor: pointer;
                         display: block;
@@ -764,6 +775,32 @@
                 }
                 .footer {
                     width: 100%;
+                    .footer-txt {
+                        width: 100%;
+                        @include displayFlex();
+                        justify-content: space-between;
+                        align-items: flex-start;
+                        align-content: center;
+                        .box-footer-inner {
+                            width: fit-content;
+                            padding-right: 10px;
+                            .box-item-footer {
+                                width: fit-content;
+                                h6 {
+                                    font-size: .8rem;
+                                }
+                                a {
+                                    font-size: .8rem;
+                                }
+                                p {
+                                    font-size: .8rem;
+                                }
+                            }
+                        }
+                         :last-child {
+                            padding-right: 0px;
+                        }
+                    }
                     .box-img-footer {
                         width: 100%;
                         height: fit-content;
@@ -1117,6 +1154,24 @@
                                 .first-style {
                                     text-align: left;
                                     margin-top: 6px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .footer {
+                    .footer-txt {
+                        .box-footer-inner {
+                            .box-item-footer {
+                                width: fit-content;
+                                h6 {
+                                    font-size: .9rem;
+                                }
+                                a {
+                                    font-size: .9rem;
+                                }
+                                p {
+                                    font-size: .9rem;
                                 }
                             }
                         }

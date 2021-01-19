@@ -18,7 +18,7 @@ export class NavTabDestaqueTodos extends React.Component {
     return (
         <div className="box-info-fundos-tabs">
             <Tabs activeKey={this.state.activeTab} onSelect={this.handleSelect}>
-                <Tab eventKey={1} title="DESTAQUES" class=""><InfoFundos/></Tab>
+                <Tab eventKey={1} title="DESTAQUES" class=""></Tab>
                 <Tab eventKey={2} title="TODOS">Tab 2 content</Tab>
             </Tabs>
         </div>

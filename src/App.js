@@ -6,11 +6,9 @@ import {BannerHome} from "./components/BannerHome.js";
 import {NavBar} from "./components/NavBar.js";
 import {Legenda} from "./components/Legenda.js";
 import {BtnConta} from "./components/BtnConta.js";
-import {Busca} from "./components/Busca.js";
 import {NavTabDestaqueTodos} from "./components/NavTabDestaqueTodos.js";
 import {InfoFundosMobile} from "./components/InfoFundosMobile.js";
 import {InfoFundos} from "./components/InfoFundos.js";
-import {HeaderInfoFundos} from "./components/HeaderInfoFundos.jsx"
 import {Footer} from "./components/Footer.js"
 
 
@@ -39,11 +37,8 @@ function App() {
 
       <Layout>
         <Legenda/>
-        <Busca/>
-        <NavTabDestaqueTodos/>
-        <HeaderInfoFundos/>
         <InfoFundosMobile data={data}/>
-        <InfoFundos data={data}/>
+        <InfoFundos/>
       </Layout>
 
       <BtnConta/>

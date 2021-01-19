@@ -261,7 +261,8 @@ body .container .box-legenda ul li p {
   color: #333;
 }
 
-body .container .container-busca .box-busca {
+body .container .container-busca .box-busca,
+body .container .container-busca-mobile .box-busca {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -282,7 +283,8 @@ body .container .container-busca .box-busca {
   margin-bottom: 20px;
 }
 
-body .container .container-busca .box-busca #buscaFundo {
+body .container .container-busca .box-busca #buscaFundo,
+body .container .container-busca-mobile .box-busca #buscaFundo {
   cursor: pointer;
   width: 92%;
   border: none;
@@ -294,12 +296,14 @@ body .container .container-busca .box-busca #buscaFundo {
   margin-top: 20px;
 }
 
-body .container .container-busca .box-busca #buscaFundo:focus {
+body .container .container-busca .box-busca #buscaFundo:focus,
+body .container .container-busca-mobile .box-busca #buscaFundo:focus {
   outline: none;
   border-bottom: 2.5px solid #25B7BA;
 }
 
-body .container .container-busca .box-busca label {
+body .container .container-busca .box-busca label,
+body .container .container-busca-mobile .box-busca label {
   display: block;
   width: 100%;
   font-size: .7rem;
@@ -309,7 +313,13 @@ body .container .container-busca .box-busca label {
 }
 
 body .container .container-busca .label-filtros,
-body .container .container-busca .box-filtros {
+body .container .container-busca .box-filtros,
+body .container .container-busca-mobile .label-filtros,
+body .container .container-busca-mobile .box-filtros {
+  display: none;
+}
+
+body .container .container-busca {
   display: none;
 }
 
@@ -499,6 +509,7 @@ body .footer .footer-txt .box-footer-inner h6 {
   font-weight: bold;
   color: #333;
   margin-top: 25px;
+  font-weight: bolder;
 }
 
 body .footer .footer-txt .box-footer-inner a {
@@ -853,6 +864,12 @@ body .footer .box-img-redes .box-redes-sociais a[href*="instagram"] {
   body .container .box-display-fundos {
     display: none;
   }
+  body .container .container-busca {
+    display: block;
+  }
+  body .container .container-busca-mobile {
+    display: none;
+  }
   body .container .box-items-fundos-mobile {
     cursor: pointer;
     display: block;
@@ -968,6 +985,49 @@ body .footer .box-img-redes .box-redes-sociais a[href*="instagram"] {
   }
   body .footer {
     width: 100%;
+  }
+  body .footer .footer-txt {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+  body .footer .footer-txt .box-footer-inner {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding-right: 10px;
+  }
+  body .footer .footer-txt .box-footer-inner .box-item-footer {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  body .footer .footer-txt .box-footer-inner .box-item-footer h6 {
+    font-size: .8rem;
+  }
+  body .footer .footer-txt .box-footer-inner .box-item-footer a {
+    font-size: .8rem;
+  }
+  body .footer .footer-txt .box-footer-inner .box-item-footer p {
+    font-size: .8rem;
+  }
+  body .footer .footer-txt :last-child {
+    padding-right: 0px;
   }
   body .footer .box-img-footer {
     width: 100%;
@@ -1325,6 +1385,20 @@ body .footer .box-img-redes .box-redes-sociais a[href*="instagram"] {
   body .container .box-items-fundos-mobile .row-header .coluna-header .first-style {
     text-align: left;
     margin-top: 6px;
+  }
+  body .footer .footer-txt .box-footer-inner .box-item-footer {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  body .footer .footer-txt .box-footer-inner .box-item-footer h6 {
+    font-size: .9rem;
+  }
+  body .footer .footer-txt .box-footer-inner .box-item-footer a {
+    font-size: .9rem;
+  }
+  body .footer .footer-txt .box-footer-inner .box-item-footer p {
+    font-size: .9rem;
   }
 }
 
