@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap'
 import { Container, Row, Col } from 'react-bootstrap';
 import { Colors } from 'react-foundation';
 import * as IoIcons from "react-icons/io5";
+import { Grid, Cell } from 'react-foundation';
 
 require("es6-promise").polyfill();
 require("isomorphic-fetch");
@@ -112,42 +113,42 @@ export const InfoFundos = () => {
 
                     <div class='box-status-fundo' style={{ backgroundColor: cor(corPerfilRiscoFundo) }}><span></span></div>
 
-                    <Row noGutters={true} className="row-header">
+                    <div className="grid-x row-header">
 
-                        <Col md="3" className="coluna-header fundo">
+                        <div md="3" className="cell medium-3 coluna-header fundo">
                             <h4 className="first-style">{item.simple_name}</h4>
                             <h2>{tipoFundo} | {classeFundo}</h2>
-                        </Col>
+                        </div>
 
-                        <Col md="1" className="coluna-header dataCota">
+                        <div md="1" className="cell medium-1 coluna-header dataCota">
                             <h4 className="style-bottom">{reformatDate(item.quota_date)}</h4>
-                        </Col>
+                        </div>
 
-                        <Col md="1" className="coluna-header mes">
+                        <div md="1" className="cell medium-1 coluna-header mes">
                             <h4>{(Number(lucroMes * 100).toFixed(2))}</h4>
-                        </Col>
+                        </div>
 
-                        <Col md="1" className="coluna-header ano">
+                        <div md="1" className="cell medium-1 coluna-header ano">
                             <h4>{(Number(lucroMes * 100).toFixed(2))}</h4>
-                        </Col>
+                        </div>
 
-                        <Col md="1" className="coluna-header _12m">
+                        <div md="1" className="cell medium-1 coluna-header _12m">
                             <h4>{(Number(m12 * 100).toFixed(2))}</h4>
-                        </Col>
+                        </div>
 
-                        <Col md="3" className="coluna-header aplicacao_minima">
+                        <div md="3" className="cell medium-3 coluna-header aplicacao_minima">
                             <h4>{moneyFormatter(Number(aplicacaoMinima).toFixed())}</h4>
-                        </Col>
+                        </div>
 
-                        <Col md="1" className="coluna-header prazoResgate">
+                        <div md="1" className="cell medium-1 coluna-header prazoResgate">
                             <h4 className="style-bottom">D+{cotizacaoAplicacaoSigla}</h4>
-                        </Col>
+                        </div>
 
-                        <Col md="1" className="coluna-header">
+                        <div md="1" className="cell medium-1 coluna-header">
                             <IoIcons.IoArrowUndoCircleSharp className="icone-aplicar" />
-                        </Col>
+                        </div>
 
-                    </Row>
+                    </div>
 
                     {isOpen && (
                         <div className="box-more-info">

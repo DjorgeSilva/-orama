@@ -98,72 +98,88 @@ export const Footer = () => {
 
             </div>
 
+           
             <div className="footer-img">
 
 
-                <div className="box-img-footer gridOfertas">
-                    <div className="box-item-img">
-                        <img src={IconeOfertasPublicas} alt="" />
-                    </div>
+                <div className="box-img-footer">
 
-                    <div className="box-item-img">
-                        <img src={IconeGestaoRecursos} alt="" />
-                    </div>
-                </div>
+                    <div className="itemRight floatLeft">
 
-                <div className="box-img-footer gridPrivate">
-
-                    <div className="box-item-img">
-                        <img src={IconeDistribuicaoProdutos} alt="" />
-                    </div>
-
-                    <div className="box-item-img">
-                        <img src={IconePrivate} alt="" />
-                    </div>
-                </div>
-
-
-                <div className="box-img-footer gridBSM">
-
-                    <div className="box-item-img">
-                        <img src={IconeBSM} alt="" />
-                    </div>
-
-                    <div className="box-item-img">
-                        <img src={IconeBrasilBolsa} alt="" />
-                    </div>
-                </div>
-
-
-                <div className="box-img-footer execution">
-                    <div className="box-item-img">
-                        <img src={IconeExecution} alt="" />
-                    </div>
-                </div>
-
-
-
-                <div className="box-img-redes gridRedesSociais">
-                    <div className="box-img-footer-eleita">
-                        <p>Eleita</p>
                         <div className="box-item-img">
-                            <img src={IconeMelhor} alt="" />
+                            <img src={IconeOfertasPublicas} alt="" />
+                        </div>
+
+                        <div className="box-item-img">
+                            <img src={IconeGestaoRecursos} alt="" />
+                        </div>
+
+                    </div>
+
+                    <div className="itemLeft">
+
+                        <div className="box-item-img">
+                            <img src={IconeDistribuicaoProdutos} alt="" />
+                        </div>
+
+                        <div className="box-item-img">
+                            <img src={IconePrivate} alt="" />
                         </div>
                     </div>
 
-                    <div className="box-redes-sociais">
-                        <a href="https://www.facebook.com/oramainvest">facebook</a>
-                        <a href="https://www.linkedin.com/company/oramainvest/">linkedin</a>
-                        <a href="https://twitter.com/oramainvest">twitter</a>
-                        <a href="https://www.youtube.com/channel/UCcmiKisvBXwAZF63qansofQ">youtube</a>
-                        <a href="https://www.instagram.com/oramainvestimentos/">instagram</a>
+
+                </div>
+
+
+                <div className="box-img-footer floatRight">
+
+                    <div className="itemRight">
+                        <div className="box-item-img">
+                            <img className ="styleBSM-img" src={IconeBSM} alt="" />
+                        </div>
+
+                        <div className="box-item-img">
+                            <img className ="styleBrasil-img" src={IconeBrasilBolsa} alt="" />
+                        </div>
                     </div>
+
+                    <div className="itemLeft">
+                        <div className="box-item-img">
+                            <img className ="styleExecution-img" src={IconeExecution} alt="" />
+                        </div>
+                    </div>
+
+
                 </div>
 
             </div>
 
 
 
+
+
+            <div className="box-img-redes">
+                <div className="box-img-footer-eleita">
+                    <p>Eleita</p>
+                    <div className="box-item-img">
+                        <img src={IconeMelhor} alt="" />
+                    </div>
+                </div>
+
+                <div className="box-redes-sociais">
+                    <a href="https://www.facebook.com/oramainvest">facebook</a>
+                    <a href="https://www.linkedin.com/company/oramainvest/">linkedin</a>
+                    <a href="https://twitter.com/oramainvest">twitter</a>
+                    <a href="https://www.youtube.com/channel/UCcmiKisvBXwAZF63qansofQ">youtube</a>
+                    <a href="https://www.instagram.com/oramainvestimentos/">instagram</a>
+                </div>
+            </div>
+
+
+
         </div>
+
+
+
     );
 }
