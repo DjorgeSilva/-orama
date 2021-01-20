@@ -6,9 +6,7 @@ import {BannerHome} from "./components/BannerHome.js";
 import {NavBar} from "./components/NavBar.js";
 import {Legenda} from "./components/Legenda.js";
 import {BtnConta} from "./components/BtnConta.js";
-import {NavTabDestaqueTodos} from "./components/NavTabDestaqueTodos.js";
 import {InfoFundosMobile} from "./components/InfoFundosMobile.js";
-import {InfoFundos} from "./components/InfoFundos.js";
 import {Footer} from "./components/Footer.js"
 
 
@@ -38,9 +36,7 @@ function App() {
       <Layout>
         <Legenda/>
         <InfoFundosMobile data={data}/>
-        <InfoFundos/>
       </Layout>
-
       <BtnConta/>
 
       <Footer/>

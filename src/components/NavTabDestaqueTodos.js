@@ -1,6 +1,5 @@
 import { Tab, Tabs } from 'react-bootstrap';
 import React from 'react';
-import {InfoFundos} from "./InfoFundos.js";
 
 export class NavTabDestaqueTodos extends React.Component {
   constructor(props) {

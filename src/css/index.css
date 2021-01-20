@@ -261,8 +261,13 @@ body .container .box-legenda ul li p {
   color: #333;
 }
 
-body .container .container-busca .box-busca,
-body .container .container-busca-mobile .box-busca {
+body .container .container-busca {
+  display: block;
+  -webkit-box-shadow: 1px 1px 5px #dadada;
+          box-shadow: 1px 1px 5px #dadada;
+}
+
+body .container .container-busca .box-busca {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -283,8 +288,7 @@ body .container .container-busca-mobile .box-busca {
   margin-bottom: 20px;
 }
 
-body .container .container-busca .box-busca #buscaFundo,
-body .container .container-busca-mobile .box-busca #buscaFundo {
+body .container .container-busca .box-busca #buscaFundo {
   cursor: pointer;
   width: 92%;
   border: none;
@@ -296,16 +300,14 @@ body .container .container-busca-mobile .box-busca #buscaFundo {
   margin-top: 20px;
 }
 
-body .container .container-busca .box-busca #buscaFundo:focus,
-body .container .container-busca-mobile .box-busca #buscaFundo:focus {
+body .container .container-busca .box-busca #buscaFundo:focus {
   outline: none;
   border-bottom: 2.5px solid #25B7BA;
 }
 
-body .container .container-busca .box-busca label,
-body .container .container-busca-mobile .box-busca label {
+body .container .container-busca .box-busca label {
   display: block;
-  width: 100%;
+  width: 90%;
   font-size: .7rem;
   padding-left: 15px;
   padding-top: 5px;
@@ -313,13 +315,7 @@ body .container .container-busca-mobile .box-busca label {
 }
 
 body .container .container-busca .label-filtros,
-body .container .container-busca .box-filtros,
-body .container .container-busca-mobile .label-filtros,
-body .container .container-busca-mobile .box-filtros {
-  display: none;
-}
-
-body .container .container-busca {
+body .container .container-busca .box-filtros {
   display: none;
 }
 
@@ -862,12 +858,6 @@ body .footer .box-img-redes .box-redes-sociais a[href*="instagram"] {
     text-align: right;
   }
   body .container .box-display-fundos {
-    display: none;
-  }
-  body .container .container-busca {
-    display: block;
-  }
-  body .container .container-busca-mobile {
     display: none;
   }
   body .container .box-items-fundos-mobile {
