@@ -263,36 +263,36 @@ export const InfoFundosMobile = () => {
 
                 <div className="grid-x row-header">
 
-                  <div md="3" className="cell medium-3 coluna-header fundo">
+                  <div className="cell medium-3 coluna-header fundo">
                     <h4 className="first-style">{item.simple_name}</h4>
                     <h2>{tipoFundo} | {classeFundo}</h2>
                   </div>
 
-                  <div md="1" className="cell medium-1 coluna-header dataCota">
+                  <div className="cell medium-1 coluna-header dataCota">
                     <h4 className="style-bottom">{reformatDate(item.quota_date)}</h4>
                   </div>
 
-                  <div md="1" className="cell medium-1 coluna-header mes">
+                  <div className="cell medium-1 coluna-header mes">
                     <h4>{(Number(lucroMes * 100).toFixed(2))}</h4>
                   </div>
 
-                  <div md="1" className="cell medium-1 coluna-header ano">
+                  <div className="cell medium-1 coluna-header ano">
                     <h4>{(Number(lucroMes * 100).toFixed(2))}</h4>
                   </div>
 
-                  <div md="1" className="cell medium-1 coluna-header _12m">
+                  <div className="cell medium-1 coluna-header _12m">
                     <h4>{(Number(m12 * 100).toFixed(2))}</h4>
                   </div>
 
-                  <div md="3" className="cell medium-3 coluna-header aplicacao_minima">
+                  <div className="cell medium-3 coluna-header aplicacao_minima">
                     <h4>{moneyFormatter(Number(aplicacaoMinima).toFixed())}</h4>
                   </div>
 
-                  <div md="1" className="cell medium-1 coluna-header prazoResgate">
+                  <div className="cell medium-1 coluna-header prazoResgate">
                     <h4 className="style-bottom">D+{cotizacaoAplicacaoSigla}</h4>
                   </div>
 
-                  <div md="1" className="cell medium-1 coluna-header">
+                  <div className="cell medium-1 coluna-header">
                     <IoIcons.IoArrowUndoCircleSharp className="icone-aplicar" />
                   </div>
 

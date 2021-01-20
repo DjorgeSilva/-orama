@@ -344,6 +344,9 @@
                         }
                     }
                 }
+                .sidebarFiltros {
+                    display: none;
+                }
                 .box-items-fundos-mobile {
                     display: none;
                 }
@@ -760,6 +763,82 @@
                                 .style-bottom {
                                     position: absolute;
                                     bottom: 20px;
+                                }
+                            }
+                        }
+                    }
+                    .sidebarFiltros {
+                        display: block;
+                        .item-sideBarFiltros {
+                            width: 100%;
+                            height: fit-content;
+                            margin-top: 30px;
+                            h1 {
+                                width: 100%;
+                                font-size: .9rem;
+                                font-weight: 600;
+                                font-family: $font-padrao;
+                                color: #333;
+                                margin-bottom: 15px;
+                            }
+                            button {
+                                width: 100%;
+                                background-color: #F4F5F7;
+                                color: #333;
+                                font-weight: bold;
+                                text-align: left;
+                                outline: none;
+                                border: none;
+                                font-size: .9rem;
+                                box-shadow: 2px 5px 10px rgba(223, 223, 223, 0.867);
+                                padding: 10px 10px;
+                                border-radius: 5px;
+                                text-transform: uppercase;
+                            }
+                            .btn-estrategiasDiferenciadas {
+                                margin-top: 10px;
+                            }
+                            #btn-collapse-renda-fixa,
+                            #btn-collapse-estrategias-diferenciadas {
+                                width: 100%;
+                                height: fit-content;
+                                background-color: #fff;
+                                .body-rendaFixa,
+                                .body-Diferenciada {
+                                    ul {
+                                        padding: 0;
+                                        margin: 0;
+                                        li {
+                                            padding: 0 10px;
+                                            height: 25px;
+                                            border: 1px solid rgb(247, 247, 247);
+                                            input {
+                                                display: inline-block;
+                                                margin-right: 5px;
+                                                background-color: $cor-destaque;
+                                            }
+                                            p {
+                                                display: inline-block;
+                                                font-size: .8rem;
+                                                font-family: $font-padrao;
+                                                font-weight: 500;
+                                                color: #333;
+                                            }
+                                        }
+                                    }
+                                }
+                                .body-Diferenciada {
+                                    ul {
+                                         :nth-child(4) {
+                                            height: 100px;
+                                            input {
+                                                display: inline-block;
+                                            }
+                                            p {
+                                                display: inline-block;
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
