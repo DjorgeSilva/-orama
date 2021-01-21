@@ -102,7 +102,7 @@ export const Footer = () => {
             <div className="footer-img">
 
 
-                <div className="box-img-footer">
+                <div className=" box-img-footer">
 
                     <div className="itemRight floatLeft">
 
@@ -131,7 +131,7 @@ export const Footer = () => {
                 </div>
 
 
-                <div className="box-img-footer floatRight">
+                <div className=" box-img-footer floatRight">
 
                     <div className="itemRight">
                         <div className="box-item-img">

@@ -38,13 +38,19 @@ function App() {
         <div className="columns small-12 medium-12 large-9">
           <Legenda />
           <InfoFundosMobile data={data} />
-          <Footer />
         </div>
 
         <div className="columns large-3 sidebarFiltros">
           <SideBarFilter/>
 
         </div>
+
+        <div className="columns large-12 footer">
+        <Footer />
+
+        </div>
+
+
       </Layout>
       <BtnConta />
     </React.Fragment>
