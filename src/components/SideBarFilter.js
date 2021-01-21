@@ -5,15 +5,25 @@ export function SideBarFilter() {
 
     const [openRendaFixa, setOpenRendaFixa] = useState(false);
     const [openDiferenciada, setOpenDiferenciada] = useState(false);
+    const [openGestores, setOpenGestores] = useState(false);
+    const [openVariavel, setOpenVariavel] = useState(false);
     const [data, setData] = useState([]);
     const [rendaFixa, setRendaFixa] = useState([]);
     const [diferenciada, setDiferenciada] = useState([]);
+    const [rendaVariavel, setRendaVariavel] = useState([]);
+    const [checado, setChecado] = useState(true);
     const rendaFixaID = "1";
     const diferenciadaID = "2";
+    const varivelID = "3";
     var filtraNomeEstrategiaRendaFixa = []; 
     var uniqueNomeEstrategiaRendaFixa = [];
     var filtraNomeEstrategiaDiferenciada = []; 
     var uniqueNomeEstrategiaDiferenciada = [];
+    var filtraNomeRendaVariavel = []; 
+    var uniqueNomeRendaVariavel = [];
+    var filtraNomeGestores = []; 
+    var uniqueNomeGestores = [];
+
 
 
     useEffect(() => {
@@ -37,6 +47,15 @@ export function SideBarFilter() {
           })
         )
       }, [data])
+
+      useEffect(() => {
+        setRendaVariavel(
+          data.filter(item => {
+           return JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase().includes(varivelID.toLowerCase())
+          })
+        )
+      }, [data])
+
     
 
       rendaFixa.map((item)=>{
@@ -55,6 +74,24 @@ export function SideBarFilter() {
         return filtraNomeEstrategiaDiferenciada.indexOf(item) == pos;
     })
 
+    rendaVariavel.map((item)=>{
+        filtraNomeRendaVariavel.push(item.specification.fund_main_strategy.name);
+      })
+
+      uniqueNomeRendaVariavel = filtraNomeRendaVariavel.filter(function(item, pos) {
+        return filtraNomeRendaVariavel.indexOf(item) == pos;
+    })
+
+    data.map((item)=>{
+        filtraNomeGestores.push(item.fund_manager.name);
+      })
+
+      uniqueNomeGestores = filtraNomeGestores.filter(function(item, pos) {
+        return filtraNomeGestores.indexOf(item) == pos;
+    })
+
+    uniqueNomeGestores.sort((a,b) => (a > b) ? 1 : ((b > a) ? -1 : 0))
+
     return (
 
         <div className="item-sideBarFiltros">
@@ -72,7 +109,7 @@ export function SideBarFilter() {
                             
                                 return (
                                 
-                                    <li><input type="checkbox" id="" className="inside-btn" /><p>{item}</p></li>
+                                    <li><input type="checkbox" id="" className="inside-btn" defaultChecked={checado} /><p>{item}</p></li>
                                 )
                             })}
 
@@ -98,7 +135,7 @@ export function SideBarFilter() {
                             
                                 return (
                                 
-                                    <li><input type="checkbox" id="" className="inside-btn" /><p>{item}</p></li>
+                                    <li><input type="checkbox" id="" className="inside-btn" defaultChecked={checado} /><p>{item}</p></li>
                                 )
                             })}
 
@@ -110,6 +147,63 @@ export function SideBarFilter() {
                 </div>
 
             </Collapse>
+
+            <Button onClick={() => setOpenVariavel(!openVariavel)} aria-controls="btn-collapse-renda-variavel" aria-expanded={openVariavel} className="bg-light btn-estrategiasRenda-variavel">Estratégias variavél</Button>
+            <Collapse in={openVariavel}>
+
+
+                <div id="btn-collapse-renda-variavel">
+                    <div class="card card-body bg-white p-0 body-variavel">
+                        <ul>
+                            {uniqueNomeRendaVariavel.map((item) => {
+                            
+                                return (
+                                
+                                    <li><input type="checkbox" id="" className="inside-btn" defaultChecked={checado} /><p>{item}</p></li>
+                                )
+                            })}
+
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+            </Collapse>
+
+            <h1 className="txt-filtrar-gestores">Filtrar por gestores:</h1>
+            
+            <Button onClick={() => setOpenGestores(!openGestores)} aria-controls="btn-collapse-gestores" aria-expanded={openGestores} className="bg-light btn-gestores">Gestores</Button>
+            <Collapse in={openGestores}>
+
+
+                <div id="btn-collapse-gestores">
+                    <div class="card card-body bg-white p-0 body-gestores">
+                        <ul>
+                        
+                            {uniqueNomeGestores.map((item) => {
+                            
+                                return (
+                                
+                                    <li><input type="checkbox" id="" className="inside-btn" defaultChecked={checado} /><p>{item}</p></li>
+                                )
+                            })}
+
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+            </Collapse>
+
+            
+
+            
+
+
         </div >
     )
 }

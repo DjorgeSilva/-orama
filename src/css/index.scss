@@ -780,7 +780,9 @@
                                 font-family: $font-padrao;
                                 color: #333;
                                 margin-bottom: 15px;
+                            
                             }
+                            
                             button {
                                 width: 100%;
                                 background-color: #F4F5F7;
@@ -794,29 +796,35 @@
                                 padding: 10px 10px;
                                 border-radius: 5px;
                                 text-transform: uppercase;
+                                margin-top: 10px;
                             }
                             .btn-estrategiasDiferenciadas {
                                 margin-top: 10px;
                             }
                             #btn-collapse-renda-fixa,
-                            #btn-collapse-estrategias-diferenciadas {
+                            #btn-collapse-estrategias-diferenciadas,
+                            #btn-collapse-renda-variavel,
+                            #btn-collapse-gestores {
                                 width: 100%;
                                 height: fit-content;
                                 background-color: #fff;
                                 .body-rendaFixa,
-                                .body-Diferenciada {
+                                .body-Diferenciada,
+                                .body-variavel,
+                                .body-gestores {
                                     ul {
                                         padding: 0;
                                         margin: 0;
                                         li {
                                             padding: 0 10px;
-                                            height: 25px;
+                                            height: 30px;
                                             border: 1px solid rgb(247, 247, 247);
-                                            input {
+                                            input  {
                                                 display: inline-block;
                                                 margin-right: 5px;
                                                 background-color: $cor-destaque;
                                             }
+                                            
                                             p {
                                                 display: inline-block;
                                                 font-size: .8rem;
@@ -830,18 +838,30 @@
                                 .body-Diferenciada {
                                     ul {
                                          :nth-child(4) {
-                                            height: 100px;
+                                            height: 40px;
                                             input {
                                                 display: inline-block;
                                             }
                                             p {
+                                                width: 80%;
                                                 display: inline-block;
                                             }
                                         }
                                     }
                                 }
+                                .body-gestores{
+                                    height: 5000px;
+                                }
+                                .txt-filtrar-gestores{
+                                    margin-top: 10px;
+                                }
                             }
+                            
                         }
+                        .txt-filtrar-gestores{
+                            margin-top: 30px;
+                    }
+
                     }
                 }
                 .footer {
