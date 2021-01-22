@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Collapse } from "react-bootstrap"
 
-export function SideBarFilter() {
+export function SideBarFilter(isCheckedRendaFixa, isCheckedDifereciada, isCheckedRendaVariavel, setIsCheckedRendaFixa, setIsCheckedDifereciada, setIsCheckedRendaVariavel) {
 
     const [openRendaFixa, setOpenRendaFixa] = useState(false);
     const [openDiferenciada, setOpenDiferenciada] = useState(false);
@@ -23,7 +23,6 @@ export function SideBarFilter() {
     var uniqueNomeRendaVariavel = [];
     var filtraNomeGestores = []; 
     var uniqueNomeGestores = [];
-
 
 
     useEffect(() => {
@@ -98,7 +97,7 @@ export function SideBarFilter() {
             <h1>Filtrar por estratégias:</h1>
 
             <>
-            <Button onClick={() => setOpenRendaFixa(!openRendaFixa)} aria-controls="btn-collapse-renda-fixa" aria-expanded={openRendaFixa} className="bg-light btn-collapse-renda-fixa">Renda Fixa</Button>
+            <Button onClick={() => setOpenRendaFixa(!openRendaFixa)} aria-controls="btn-collapse-renda-fixa" aria-expanded={openRendaFixa} className="bg-light btn-collapse-renda-fixa"><input type="checkbox" id="input-valor-rendaFixa" className="inside-btn" defaultChecked={isCheckedRendaFixa} onChange={()=>setIsCheckedRendaFixa(!isCheckedRendaFixa)}/>Renda Fixa</Button>
             <Collapse in={openRendaFixa}>
 
 
@@ -124,7 +123,7 @@ export function SideBarFilter() {
             </>
 
 
-            <Button onClick={() => setOpenDiferenciada(!openDiferenciada)} aria-controls="btn-collapse-estrategias-diferenciadas" aria-expanded={openDiferenciada} className="bg-light btn-estrategiasDiferenciadas">Estratégias diferenciadas</Button>
+            <Button onClick={() => setOpenDiferenciada(!openDiferenciada)} aria-controls="btn-collapse-estrategias-diferenciadas" aria-expanded={openDiferenciada} className="bg-light btn-estrategiasDiferenciadas"><input type="checkbox" id="input-valor-estrategiasDiferenciadas" className="inside-btn" defaultChecked={isCheckedDifereciada} />Estratégias diferenciadas</Button>
             <Collapse in={openDiferenciada}>
 
 
@@ -148,7 +147,7 @@ export function SideBarFilter() {
 
             </Collapse>
 
-            <Button onClick={() => setOpenVariavel(!openVariavel)} aria-controls="btn-collapse-renda-variavel" aria-expanded={openVariavel} className="bg-light btn-estrategiasRenda-variavel">Estratégias variavél</Button>
+            <Button onClick={() => setOpenVariavel(!openVariavel)} aria-controls="btn-collapse-renda-variavel" aria-expanded={openVariavel} className="bg-light btn-estrategiasRenda-variavel"><input type="checkbox" id="input-valor-rendaVariavel" className="inside-btn" defaultChecked={isCheckedRendaVariavel} />Estratégias variavél</Button>
             <Collapse in={openVariavel}>
 
 
@@ -174,7 +173,7 @@ export function SideBarFilter() {
 
             <h1 className="txt-filtrar-gestores">Filtrar por gestores:</h1>
             
-            <Button onClick={() => setOpenGestores(!openGestores)} aria-controls="btn-collapse-gestores" aria-expanded={openGestores} className="bg-light btn-gestores">Gestores</Button>
+            <Button onClick={() => setOpenGestores(!openGestores)} aria-controls="btn-collapse-gestores" aria-expanded={openGestores} className="bg-light btn-gestores"><input type="checkbox" id="input-valor-gestores" className="inside-btn" defaultChecked={checado} />Gestores</Button>
             <Collapse in={openGestores}>
 
 

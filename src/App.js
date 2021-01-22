@@ -34,16 +34,16 @@ function App() {
         </Switch>
       </Router>
 
-      <Layout class="row">
-        <div className="columns small-12 medium-12 large-9">
+      <Layout>
+        <div>
           <Legenda />
           <InfoFundosMobile data={data} />
         </div>
-
+{/* 
         <div className="columns large-3 sidebarFiltros">
           <SideBarFilter/>
 
-        </div>
+        </div> */}
 
         <div className="columns large-12 footer">
         <Footer />

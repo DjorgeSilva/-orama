@@ -1412,51 +1412,48 @@ body .footer .box-img-redes .box-redes-sociais a[href*="instagram"] {
     margin-top: 10px;
     width: 12rem;
   }
-  body .container .box-header-fundos-mobile .row-header .coluna-header h4 {
+  body .container .box-wrap-all-filters .box-right-wrap-all .box-header-fundos-mobile .row-header .coluna-header h4 {
     font-size: .8rem;
   }
-  body .container .box-header-fundos-mobile .row-header .coluna-header .first-style {
+  body .container .box-wrap-all-filters .box-right-wrap-all .box-header-fundos-mobile .row-header .coluna-header .first-style {
     text-align: left;
   }
-  body .container .box-header-fundos-mobile .row-header .coluna-header .style-bottom {
+  body .container .box-wrap-all-filters .box-right-wrap-all .box-header-fundos-mobile .row-header .coluna-header .style-bottom {
     margin-top: 23px;
     text-align: right;
     width: 100%;
   }
-  body .container .box-header-fundos-mobile .row-header .coluna-header .style-top {
+  body .container .box-wrap-all-filters .box-right-wrap-all .box-header-fundos-mobile .row-header .coluna-header .style-top {
     margin-top: 24px;
     width: 100%;
   }
-  body .container .box-display-fundos .box-item-fundo {
-    display: none;
-  }
-  body .container .box-items-fundos-mobile .row-header .coluna-header {
+  body .container .box-wrap-all-filters .box-right-wrap-all .box-wrap-all .box-right-wrap-all .box-items-fundos-mobile .row-header .coluna-header {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
   }
-  body .container .box-items-fundos-mobile .row-header .coluna-header h4,
-  body .container .box-items-fundos-mobile .row-header .coluna-header h2 {
+  body .container .box-wrap-all-filters .box-right-wrap-all .box-wrap-all .box-right-wrap-all .box-items-fundos-mobile .row-header .coluna-header h4,
+  body .container .box-wrap-all-filters .box-right-wrap-all .box-wrap-all .box-right-wrap-all .box-items-fundos-mobile .row-header .coluna-header h2 {
     font-size: .8rem;
   }
-  body .container .box-items-fundos-mobile .row-header .coluna-header h4 {
+  body .container .box-wrap-all-filters .box-right-wrap-all .box-wrap-all .box-right-wrap-all .box-items-fundos-mobile .row-header .coluna-header h4 {
     margin-top: 25px;
   }
-  body .container .box-items-fundos-mobile .row-header .coluna-header .first-style {
+  body .container .box-wrap-all-filters .box-right-wrap-all .box-wrap-all .box-right-wrap-all .box-items-fundos-mobile .row-header .coluna-header .first-style {
     text-align: left;
     margin-top: 13px;
   }
-  body .container .sidebarFiltros {
-    display: block;
+  body .container .box-wrap-all-filters .box-right-wrap-all .box-display-fundos .box-item-fundo {
+    display: none;
   }
-  body .container .sidebarFiltros .item-sideBarFiltros {
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros {
     width: 100%;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     margin-top: 30px;
   }
-  body .container .sidebarFiltros .item-sideBarFiltros h1 {
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros h1 {
     width: 100%;
     font-size: .9rem;
     font-weight: 600;
@@ -1464,7 +1461,7 @@ body .footer .box-img-redes .box-redes-sociais a[href*="instagram"] {
     color: #333;
     margin-bottom: 15px;
   }
-  body .container .sidebarFiltros .item-sideBarFiltros button {
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros button {
     width: 100%;
     background-color: #F4F5F7;
     color: #333;
@@ -1479,133 +1476,149 @@ body .footer .box-img-redes .box-redes-sociais a[href*="instagram"] {
     border-radius: 5px;
     text-transform: uppercase;
     margin-top: 10px;
+    margin-bottom: 0;
   }
-  body .container .sidebarFiltros .item-sideBarFiltros .btn-estrategiasDiferenciadas {
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros button p {
+    padding: 0;
+    margin: 0;
+    padding-left: 20px;
+  }
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #input-valor-rendaFixa,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #input-valor-estrategiasDiferenciadas,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #input-valor-rendaVariavel,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #input-valor-gestores {
+    position: relative;
+    top: 45px;
+    left: 10px;
+    padding: 0;
+    margin: 0;
+  }
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros .btn-estrategiasDiferenciadas {
     margin-top: 10px;
   }
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores {
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores {
     width: 100%;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     background-color: #fff;
   }
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .body-rendaFixa ul,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .body-Diferenciada ul,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .body-variavel ul,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .body-gestores ul,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-rendaFixa ul,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-Diferenciada ul,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-variavel ul,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-gestores ul,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .body-rendaFixa ul,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .body-Diferenciada ul,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .body-variavel ul,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .body-gestores ul,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .body-rendaFixa ul,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .body-Diferenciada ul,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .body-variavel ul,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .body-gestores ul {
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-rendaFixa ul,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-Diferenciada ul,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-variavel ul,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-gestores ul,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-rendaFixa ul,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-Diferenciada ul,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-variavel ul,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-gestores ul,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-rendaFixa ul,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-Diferenciada ul,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-variavel ul,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-gestores ul,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-rendaFixa ul,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-Diferenciada ul,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-variavel ul,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-gestores ul {
     padding: 0;
     margin: 0;
   }
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .body-rendaFixa ul li,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .body-Diferenciada ul li,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .body-variavel ul li,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .body-gestores ul li,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-rendaFixa ul li,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-Diferenciada ul li,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-variavel ul li,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-gestores ul li,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .body-rendaFixa ul li,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .body-Diferenciada ul li,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .body-variavel ul li,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .body-gestores ul li,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .body-rendaFixa ul li,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .body-Diferenciada ul li,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .body-variavel ul li,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .body-gestores ul li {
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-rendaFixa ul li,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-Diferenciada ul li,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-variavel ul li,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-gestores ul li,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-rendaFixa ul li,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-Diferenciada ul li,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-variavel ul li,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-gestores ul li,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-rendaFixa ul li,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-Diferenciada ul li,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-variavel ul li,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-gestores ul li,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-rendaFixa ul li,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-Diferenciada ul li,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-variavel ul li,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-gestores ul li {
     padding: 0 10px;
     height: 30px;
     border: 1px solid #f7f7f7;
   }
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .body-rendaFixa ul li input,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .body-Diferenciada ul li input,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .body-variavel ul li input,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .body-gestores ul li input,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-rendaFixa ul li input,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-Diferenciada ul li input,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-variavel ul li input,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-gestores ul li input,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .body-rendaFixa ul li input,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .body-Diferenciada ul li input,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .body-variavel ul li input,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .body-gestores ul li input,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .body-rendaFixa ul li input,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .body-Diferenciada ul li input,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .body-variavel ul li input,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .body-gestores ul li input {
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-rendaFixa ul li input,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-Diferenciada ul li input,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-variavel ul li input,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-gestores ul li input,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-rendaFixa ul li input,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-Diferenciada ul li input,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-variavel ul li input,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-gestores ul li input,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-rendaFixa ul li input,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-Diferenciada ul li input,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-variavel ul li input,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-gestores ul li input,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-rendaFixa ul li input,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-Diferenciada ul li input,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-variavel ul li input,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-gestores ul li input {
     display: inline-block;
     margin-right: 5px;
     background-color: #25B7BA;
   }
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .body-rendaFixa ul li p,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .body-Diferenciada ul li p,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .body-variavel ul li p,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .body-gestores ul li p,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-rendaFixa ul li p,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-Diferenciada ul li p,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-variavel ul li p,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-gestores ul li p,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .body-rendaFixa ul li p,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .body-Diferenciada ul li p,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .body-variavel ul li p,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .body-gestores ul li p,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .body-rendaFixa ul li p,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .body-Diferenciada ul li p,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .body-variavel ul li p,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .body-gestores ul li p {
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-rendaFixa ul li p,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-Diferenciada ul li p,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-variavel ul li p,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-gestores ul li p,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-rendaFixa ul li p,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-Diferenciada ul li p,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-variavel ul li p,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-gestores ul li p,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-rendaFixa ul li p,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-Diferenciada ul li p,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-variavel ul li p,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-gestores ul li p,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-rendaFixa ul li p,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-Diferenciada ul li p,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-variavel ul li p,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-gestores ul li p {
     display: inline-block;
     font-size: .8rem;
     font-family: "Roboto", serif;
     font-weight: 500;
     color: #333;
   }
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .body-Diferenciada ul :nth-child(4),
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-Diferenciada ul :nth-child(4),
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .body-Diferenciada ul :nth-child(4),
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .body-Diferenciada ul :nth-child(4) {
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-Diferenciada ul :nth-child(4),
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-Diferenciada ul :nth-child(4),
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-Diferenciada ul :nth-child(4),
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-Diferenciada ul :nth-child(4) {
     height: 40px;
   }
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .body-Diferenciada ul :nth-child(4) input,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-Diferenciada ul :nth-child(4) input,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .body-Diferenciada ul :nth-child(4) input,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .body-Diferenciada ul :nth-child(4) input {
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-Diferenciada ul :nth-child(4) input,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-Diferenciada ul :nth-child(4) input,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-Diferenciada ul :nth-child(4) input,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-Diferenciada ul :nth-child(4) input {
     display: inline-block;
   }
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .body-Diferenciada ul :nth-child(4) p,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-Diferenciada ul :nth-child(4) p,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .body-Diferenciada ul :nth-child(4) p,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .body-Diferenciada ul :nth-child(4) p {
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-Diferenciada ul :nth-child(4) p,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-Diferenciada ul :nth-child(4) p,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-Diferenciada ul :nth-child(4) p,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-Diferenciada ul :nth-child(4) p {
     width: 80%;
     display: inline-block;
   }
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .body-gestores,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-gestores,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .body-gestores,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .body-gestores {
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-gestores,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-gestores,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-gestores,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-gestores {
     height: 5000px;
   }
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-fixa .txt-filtrar-gestores,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .txt-filtrar-gestores,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-renda-variavel .txt-filtrar-gestores,
-  body .container .sidebarFiltros .item-sideBarFiltros #btn-collapse-gestores .txt-filtrar-gestores {
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .txt-filtrar-gestores,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .txt-filtrar-gestores,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .txt-filtrar-gestores,
+  body .container .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .txt-filtrar-gestores {
     margin-top: 10px;
   }
-  body .container .sidebarFiltros .txt-filtrar-gestores {
+  body .container .box-wrap-all-filters .box-left-wrap-all .txt-filtrar-gestores {
     margin-top: 30px;
   }
   body .box-footer {
