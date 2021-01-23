@@ -22,7 +22,7 @@ export const InfoFundosMobile = () => {
   const rendaFixaID = "1";
   const diferenciadaID = "2";
   const varivelID = "3";
-  const [isCheckedRendaFixa, setIsCheckedRendaFixa] = useState(false);
+  const [isCheckedRendaFixa, setIsCheckedRendaFixa] = useState(true);
   const [isCheckedDifereciada, setIsCheckedDifereciada] = useState(false);
   const [isCheckedRendaVariavel, setIsCheckedRendaVariavel] = useState(false);
   const [openRendaFixa, setOpenRendaFixa] = useState(false);
@@ -42,7 +42,7 @@ export const InfoFundosMobile = () => {
   var filtraNomeGestores = [];
   var uniqueNomeGestores = [];
 
-  const [dadosFiltradosRendaFixa, setDadosFiltradosRendaFixa] = useState([]);
+  let [dadosFiltradosRendaFixa, setDadosFiltradosRendaFixa] = useState([]);
 
 
 
@@ -137,16 +137,20 @@ export const InfoFundosMobile = () => {
   }, [q, data, aplicacaoMinima, perfilRisco, prazoResgate, isCheckedRendaVariavel, isCheckedRendaFixa, isCheckedDifereciada, dadosFiltradosRendaFixa])
 
 
+  
+
   function filterDataRendaFixa(e){
     let index = Number(e.target.getAttribute("a-key")); 
+    let posicaoElemento = dadosFiltradosRendaFixa.indexOf(uniqueNomeRendaFixa[index]);
 
     if(e.target.checked===true){
-      dadosFiltradosRendaFixa.push(uniqueNomeRendaFixa[index]);
-      console.log(dadosFiltradosRendaFixa);
+      if(posicaoElemento === -1){
+        dadosFiltradosRendaFixa.push(uniqueNomeRendaFixa[index]);
+        console.log(dadosFiltradosRendaFixa);
+      }
 
     }
     if(e.target.checked===false){
-      let posicaoElemento = dadosFiltradosRendaFixa.indexOf(uniqueNomeRendaFixa[index]);
       dadosFiltradosRendaFixa.splice(posicaoElemento,1);
       console.log(dadosFiltradosRendaFixa)
     }
@@ -262,6 +266,10 @@ export const InfoFundosMobile = () => {
   uniqueNomeRendaFixa = filtraNomeRendaFixa.filter(function (item, pos) {
     return filtraNomeRendaFixa.indexOf(item) == pos;
   })
+
+  dadosFiltradosRendaFixa = filtraNomeRendaFixa.filter(function (item, pos) {
+    return filtraNomeRendaFixa.indexOf(item) == pos;
+  }) //adiciona os dados já marcados do filtro Renda Fixa no array para ser filtrado quando mudado o seu valor
 
   diferenciada.map((item) => {
     filtraNomeEstrategiaDiferenciada.push(item.specification.fund_main_strategy.name);
@@ -593,4 +601,3 @@ export const InfoFundosMobile = () => {
 
   );
 }
-
