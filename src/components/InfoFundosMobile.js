@@ -19,7 +19,6 @@ export const InfoFundosMobile = () => {
   const [perfilRisco, setPerfilRisco] = useState(12);
   const [prazoResgate, setPrazoResgate] = useState(30);
   let [FilteredData, setFilteredData] = useState([]);
-  let [FilteredDataa, setFilteredDataa] = useState([]);
   const rendaFixaID = "1";
   const diferenciadaID = "2";
   const varivelID = "3";
@@ -34,8 +33,8 @@ export const InfoFundosMobile = () => {
   const [diferenciada, setDiferenciada] = useState([]);
   const [rendaVariavel, setRendaVariavel] = useState([]);
   const [checado, setChecado] = useState(true);
-  var filtraNomeEstrategiaRendaFixa = [];
-  var uniqueNomeEstrategiaRendaFixa = [];
+  var filtraNomeRendaFixa = [];
+  var uniqueNomeRendaFixa = [];
   var filtraNomeEstrategiaDiferenciada = [];
   var uniqueNomeEstrategiaDiferenciada = [];
   var filtraNomeRendaVariavel = [];
@@ -51,57 +50,7 @@ export const InfoFundosMobile = () => {
       .then((json) => setData(json));
   }, [])
 
-  // function checkFilters(id){
-  //   let filtros = [];
 
-  //   const checkRendaFixa = document.querySelector('#input-valor-rendaFixa').checked;
-  //   const checkDiferenciada = document.querySelector('#input-valor-estrategiasDiferenciadas').checked;
-  //   const isCheckedRendaVariavel = document.querySelector('#input-valor-rendaVariavel').checked;
-
-  //   if(isCheckedRendaVariavel){
-  //     filtros.push("1")
-  //   }else if(checkDiferenciada){
-  //     filtros.push("2")
-  //   }else if(isCheckedRendaVariavel){
-  //     filtros.push("3")
-  //   }
-  // }
-
-
-  useEffect(() => {
-
-    let filtro,filtroo,filtrooo = "";
-    const checkRendaFixa = (document.querySelector('#input-valor-rendaFixa').checked);
-    const checkDiferenciada = document.querySelector('#input-valor-estrategiasDiferenciadas').checked;
-    const isCheckedRendaVariavel = document.querySelector('#input-valor-rendaVariavel').checked;
-    
-
-    if(checkRendaFixa){
-      filtro = "1"
-      console.log(filtro)
-    }
-    if(checkDiferenciada){
-      filtroo = "2"
-      console.log(filtroo)
-    }
-    if(isCheckedRendaVariavel){
-      filtrooo = "3"
-      console.log(filtrooo)
-    }
-
-    setFilteredData(
-      data.filter(item => {
-        return item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
-          Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
-          Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
-          Number(item.operability.retrieval_quotation_days <= prazoResgate)&&
-          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase()===filtro||
-          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase()===filtrooo||
-          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase()===filtroo
-
-      })
-    )
-  }, [q, data, aplicacaoMinima, perfilRisco, prazoResgate, isCheckedRendaVariavel, isCheckedRendaFixa, isCheckedDifereciada])
 
   function changeValueMinimo() {
     var inputAplicacaoMinima = document.querySelector("#aplicacaoMinima");
@@ -141,6 +90,54 @@ export const InfoFundosMobile = () => {
       outputPrazoResgate.innerHTML = this.value;
     }
   }
+
+
+
+  useEffect(() => {
+
+    let filtroRendaFixa,filtroDiferenciada,filtroRendaVariavel = "";
+    const checkRendaFixa = (document.querySelector('#input-valor-rendaFixa').checked);
+    const checkDiferenciada = document.querySelector('#input-valor-estrategiasDiferenciadas').checked;
+    const isCheckedRendaVariavel = document.querySelector('#input-valor-rendaVariavel').checked;
+    
+
+    if(checkRendaFixa){
+      filtroRendaFixa = rendaFixaID;
+      setChecado(true)
+    }else{
+      setChecado(false)
+    }
+
+    if(checkDiferenciada){
+      filtroDiferenciada = diferenciadaID;
+
+    }
+    if(isCheckedRendaVariavel){
+      filtroRendaVariavel = varivelID;
+    }
+
+
+    setFilteredData(
+      data.filter(item => {
+        return item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
+          Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
+          Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
+          Number(item.operability.retrieval_quotation_days <= prazoResgate)&&
+          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase()===filtroRendaFixa||
+          item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
+          Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
+          Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
+          Number(item.operability.retrieval_quotation_days <= prazoResgate)&&
+          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase()===filtroDiferenciada||
+          item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
+          Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
+          Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
+          Number(item.operability.retrieval_quotation_days <= prazoResgate)&&
+          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase()===filtroRendaVariavel
+
+      })
+    )
+  }, [q, data, aplicacaoMinima, perfilRisco, prazoResgate, isCheckedRendaVariavel, isCheckedRendaFixa, isCheckedDifereciada])
 
 
   function moneyFormatter(money) {
@@ -219,6 +216,7 @@ export const InfoFundosMobile = () => {
   }
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
   useEffect(() => {
     setRendaFixa(
       data.filter(item => {
@@ -246,11 +244,11 @@ export const InfoFundosMobile = () => {
 
 
   rendaFixa.map((item) => {
-    filtraNomeEstrategiaRendaFixa.push(item.specification.fund_main_strategy.name);
+    filtraNomeRendaFixa.push(item.specification.fund_main_strategy.name);
   })
 
-  uniqueNomeEstrategiaRendaFixa = filtraNomeEstrategiaRendaFixa.filter(function (item, pos) {
-    return filtraNomeEstrategiaRendaFixa.indexOf(item) == pos;
+  uniqueNomeRendaFixa = filtraNomeRendaFixa.filter(function (item, pos) {
+    return filtraNomeRendaFixa.indexOf(item) == pos;
   })
 
   diferenciada.map((item) => {
@@ -278,6 +276,7 @@ export const InfoFundosMobile = () => {
   })
 
   uniqueNomeGestores.sort((a, b) => (a > b) ? 1 : ((b > a) ? -1 : 0))
+  FilteredData.sort((a,b) => (a.profitabilities.m12 <  b.profitabilities.m12) ? 1 : ((b.profitabilities.m12< a.profitabilities.m12) ? -1 : 0));
 
 
 
@@ -295,8 +294,8 @@ export const InfoFundosMobile = () => {
 
                 <div className="aplicacao-minima item-filtro">
                   <p>Aplicação mínima</p>
-                  <input type="range" min="0" max="20000" id="aplicacaoMinima" defaultValue="20000" onChange={changeValueMinimo} />
-                  <label htmlFor="aplicacao-minima">Até <span id="valueAplicacaoMinima">R$ 20.000,00</span></label>
+                  <input type="range" min="0" max="500000" id="aplicacaoMinima" defaultValue="500000" onChange={changeValueMinimo} />
+                  <label htmlFor="aplicacao-minima">Até <span id="valueAplicacaoMinima">R$ 500.000,00</span></label>
                 </div>
 
                 <div className="perfilRiscoFundo item-filtro perfilRisco">
@@ -323,8 +322,8 @@ export const InfoFundosMobile = () => {
 
                 <div className="prazoResgate item-filtro">
                   <p>Prazo de resgate</p>
-                  <input type="range" min="0" max="30" defaultValue="30" id="prazoResgate" onChange={changeValuePrazoResgate} />
-                  <label htmlFor="prazoResgate">Até <span id="valuePrazoResgate">30</span> dias utéis</label>
+                  <input type="range" min="0" max="270" defaultValue="270" id="prazoResgate" onChange={changeValuePrazoResgate} />
+                  <label htmlFor="prazoResgate">Até <span id="valuePrazoResgate">270</span> dias utéis</label>
                 </div>
 
               </div>
@@ -340,7 +339,6 @@ export const InfoFundosMobile = () => {
 
           <div classNames='data-mobile'>{FilteredData.map((item, index) => {
 
-FilteredData.sort((a,b) => (a.profitabilities.m12 <  b.profitabilities.m12) ? 1 : ((b.profitabilities.m12< a.profitabilities.m12) ? -1 : 0));
             const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo } } } = item;
             const { profitabilities: { month: lucroMes, m12, year: lucroAno } } = item;
             const { operability: { minimum_initial_application_amount: aplicacaoMinima, application_quotation_days_str: cotizacaoAplicacao, retrieval_quotation_days: cotizacaoAplicacaoSigla, retrieval_quotation_days_str: cotizacaoResgate,
@@ -478,11 +476,11 @@ FilteredData.sort((a,b) => (a.profitabilities.m12 <  b.profitabilities.m12) ? 1 
                 <div id="btn-collapse-renda-fixa">
                   <div class="card card-body bg-white p-0 body-rendaFixa">
                     <ul>
-                      {uniqueNomeEstrategiaRendaFixa.map((item) => {
+                      {uniqueNomeRendaFixa.map((item, index) => {
 
                         return (
 
-                          <li><input type="checkbox" id="" className="inside-btn" defaultChecked={checado} /><p>{item}</p></li>
+                          <li><input type="checkbox" key={index} className="inside-btn inputs-renda-fixa" defaultChecked={isCheckedRendaFixa} value={checado}/><p>{item}</p></li>
                         )
                       })}
 
