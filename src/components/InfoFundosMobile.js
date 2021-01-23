@@ -42,6 +42,8 @@ export const InfoFundosMobile = () => {
   var filtraNomeGestores = [];
   var uniqueNomeGestores = [];
 
+  const [dadosFiltradosRendaFixa, setDadosFiltradosRendaFixa] = useState([]);
+
 
 
   useEffect(() => {
@@ -100,12 +102,8 @@ export const InfoFundosMobile = () => {
     const checkDiferenciada = document.querySelector('#input-valor-estrategiasDiferenciadas').checked;
     const isCheckedRendaVariavel = document.querySelector('#input-valor-rendaVariavel').checked;
     
-
     if(checkRendaFixa){
       filtroRendaFixa = rendaFixaID;
-      setChecado(true)
-    }else{
-      setChecado(false)
     }
 
     if(checkDiferenciada){
@@ -115,7 +113,6 @@ export const InfoFundosMobile = () => {
     if(isCheckedRendaVariavel){
       filtroRendaVariavel = varivelID;
     }
-
 
     setFilteredData(
       data.filter(item => {
@@ -137,8 +134,23 @@ export const InfoFundosMobile = () => {
 
       })
     )
-  }, [q, data, aplicacaoMinima, perfilRisco, prazoResgate, isCheckedRendaVariavel, isCheckedRendaFixa, isCheckedDifereciada])
+  }, [q, data, aplicacaoMinima, perfilRisco, prazoResgate, isCheckedRendaVariavel, isCheckedRendaFixa, isCheckedDifereciada, dadosFiltradosRendaFixa])
 
+
+  function filterDataRendaFixa(e){
+    let index = Number(e.target.getAttribute("a-key")); 
+
+    if(e.target.checked===true){
+      dadosFiltradosRendaFixa.push(uniqueNomeRendaFixa[index]);
+      console.log(dadosFiltradosRendaFixa);
+
+    }
+    if(e.target.checked===false){
+      let posicaoElemento = dadosFiltradosRendaFixa.indexOf(uniqueNomeRendaFixa[index]);
+      dadosFiltradosRendaFixa.splice(posicaoElemento,1);
+      console.log(dadosFiltradosRendaFixa)
+    }
+  }
 
   function moneyFormatter(money) {
     const valor = new Intl.NumberFormat('pt-BR',
@@ -277,8 +289,6 @@ export const InfoFundosMobile = () => {
 
   uniqueNomeGestores.sort((a, b) => (a > b) ? 1 : ((b > a) ? -1 : 0))
   FilteredData.sort((a,b) => (a.profitabilities.m12 <  b.profitabilities.m12) ? 1 : ((b.profitabilities.m12< a.profitabilities.m12) ? -1 : 0));
-
-
 
   return (
     <>
@@ -480,7 +490,7 @@ export const InfoFundosMobile = () => {
 
                         return (
 
-                          <li><input type="checkbox" key={index} className="inside-btn inputs-renda-fixa" defaultChecked={isCheckedRendaFixa} value={checado}/><p>{item}</p></li>
+                          <li><input type="checkbox" key={index} a-key={index} className="inside-btn" defaultChecked={isCheckedRendaFixa} onChange={(e)=>filterDataRendaFixa(e)}/><p>{item}</p></li>
                         )
                       })}
 
