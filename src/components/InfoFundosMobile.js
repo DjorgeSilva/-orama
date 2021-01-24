@@ -449,7 +449,10 @@ export const InfoFundosMobile = () => {
 
                   </div>
 
-                  {isOpen && (
+
+                </div>
+
+                {isOpen && (
                     <div className="box-more-info">
 
                       <div className="box-more-info-grafico">
@@ -470,8 +473,6 @@ export const InfoFundosMobile = () => {
 
                     </div>
                   )}
-
-                </div>
 
               </>
 

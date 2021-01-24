@@ -33,7 +33,7 @@
         }
         
         body {
-            background-color: #F7F8FA;
+            background-color: #F7F8FA !important; 
             .banner-home {
                 width: 100vw;
                 height: 20.3rem;
@@ -181,17 +181,21 @@
             }
 
             
-            .container {
+            .container-all {
+                width: 100%;
                 margin-bottom: 100px;
                 position: relative;
+                background-color: #F7F8FA;
                 .box-legenda {
                     width: 90%;
                     height: 280px;
+                    margin-left: 10px;
                     h6 {
                         text-transform: uppercase;
                         padding-top: 55px;
                         font-size: .8rem;
                         font-weight: bold;
+                        padding-left: 20px;
                     }
                     ul {
                         padding-left: 0;
@@ -222,6 +226,8 @@
                     }
                 }
                 .box-wrap-all-filters {
+                    width: 95%;
+                    margin: 0 auto;
                     .box-right-wrap-all {
                         .container-busca {
                             display: block;
@@ -253,9 +259,9 @@
                                     display: block;
                                     width: 90%;
                                     font-size: .7rem;
-                                    padding-left: 15px;
+                                    padding-left: 0px;
                                     padding-top: 5px;
-                                    margin-left: 20px;
+                                    margin-bottom: 5px;
                                 }
                             }
                             .label-filtros,
@@ -388,13 +394,16 @@
                 margin-top: 100px;
                 position: relative;
                 bottom: 0;
+                background-color: #F7F8FA;
                 .footer-txt {
                     width: inherit;
                     height: fit-content;
                     padding: 0 30px;
+                    background-color: #F7F8FA;
                     .box-footer-inner {
                         width: 100%;
                         height: fit-content;
+                        background-color: #F7F8FA;
                         h6 {
                             font-size: .9rem;
                             font-weight: bold;
@@ -419,6 +428,7 @@
                 }
                 .footer-links {
                     padding: 0 10px;
+                    background-color: #F7F8FA;
                     .box-termos-legais {
                         width: 100%;
                         height: fit-content;
@@ -647,269 +657,7 @@
                         }
                     }
                 }
-                .container {
-                    .box-wrap-all-filters {
-                        .box-right-wrap-all {
-                            .box-info-fundos-tabs {
-                                display: none;
-                            }
-                            .box-header-fundos-mobile {
-                                display: block;
-                                width: 100%;
-                                height: 80px;
-                                padding: 0 20px;
-                                background-color: rgb(255, 255, 255);
-                                margin-bottom: 30px;
-                                border: 1px solid rgb(233, 233, 233);
-                                .row-header {
-                                    .coluna-header {
-                                        height: fit-content;
-                                        h4 {
-                                            font-family: $font-padrao;
-                                            font-size: .7rem;
-                                            font-weight: 500;
-                                            text-align: right;
-                                            margin-top: 40px;
-                                            font-weight: 600;
-                                        }
-                                        .first-style {
-                                            text-align: left;
-                                        }
-                                        .style-bottom {
-                                            margin-top: 24px;
-                                            text-align: right;
-                                        }
-                                    }
-                                }
-                            }
-                            .box-display-fundos {
-                                display: none;
-                            }
-                            .box-items-fundos-mobile {
-                                cursor: pointer;
-                                display: block;
-                                width: 100%;
-                                height: fit-content;
-                                position: relative;
-                                margin-right: 0;
-                                background-color: #ffffff;
-                                box-shadow: 0px 0px 11px -10px rgba(0, 0, 0, 0.75);
-                                .box-status-fundo {
-                                    float: left;
-                                    width: 10px;
-                                    height: 100px;
-                                    background-color: blue;
-                                    position: absolute;
-                                    left: 0;
-                                }
-                                .row-header {
-                                    padding-right: 20px;
-                                    padding-left: 16px;
-                                    .coluna-header {
-                                        height: fit-content;
-                                        text-align: center;
-                                        h4,
-                                        h2 {
-                                            font-family: $font-padrao;
-                                            font-size: .6rem;
-                                            font-weight: 500;
-                                            text-align: right;
-                                            margin-top: 5px;
-                                            font-weight: 500;
-                                        }
-                                        h4 {
-                                            margin-top: 25px;
-                                        }
-                                        h2 {
-                                            font-size: .6rem;
-                                            text-align: left;
-                                            color: rgba(95, 95, 95, 0.867);
-                                        }
-                                        .first-style {
-                                            text-align: left;
-                                            margin-top: 7px;
-                                        }
-                                        .icone-aplicar {
-                                            color: #0F8A8D;
-                                            text-align: center;
-                                            font-size: 30px;
-                                            position: relative;
-                                            margin-top: 30px;
-                                            margin-left: 30px;
-                                            transform: rotate(100deg);
-                                        }
-                                    }
-                                }
-                                .box-more-info {
-                                    width: 100%;
-                                    height: 360px;
-                                    cursor: pointer;
-                                    background-color: #fff;
-                                    @include displayFlex();
-                                    .box-more-info-grafico {
-                                        width: 40%;
-                                        height: fit-content;
-                                        background-color: #fff;
-                                        float: left;
-                                    }
-                                    .box-more-info-detalhes {
-                                        width: 40%;
-                                        height: 360px;
-                                        background-color: #fff;
-                                        float: right;
-                                        position: relative;
-                                        padding-top: 10px;
-                                        margin-left: 120px;
-                                        p {
-                                            font-size: .8rem;
-                                            height: 12px;
-                                            font-weight: bold;
-                                            padding-top: 25px;
-                                        }
-                                        .last-p {
-                                            padding-bottom: 40px;
-                                        }
-                                        .link {
-                                            font-size: .8rem;
-                                            height: 12px;
-                                            font-weight: bold;
-                                            text-decoration: underline;
-                                            color: black;
-                                        }
-                                        .style-bottom {
-                                            position: absolute;
-                                            bottom: 20px;
-                                        }
-                                    }
-                                }
-                            }
-
-                        }
-                        .box-left-wrap-all {
-                            .sidebarFiltros {
-                                display: none;
-                            }
-                        }
-                    }
-
-                    
-                }
-                .footer {
-                    width: 100%;
-                    .footer-txt {
-                        width: 100%;
-                        @include displayFlex();
-                        justify-content: space-between;
-                        align-items: flex-start;
-                        align-content: center;
-                        .box-footer-inner {
-                            width: fit-content;
-                            padding-right: 10px;
-                            .box-item-footer {
-                                width: fit-content;
-                                h6 {
-                                    font-size: .8rem;
-                                }
-                                a {
-                                    font-size: .8rem;
-                                }
-                                p {
-                                    font-size: .8rem;
-                                }
-                            }
-                        }
-                         :last-child {
-                            padding-right: 0px;
-                        }
-                    }
-                    .box-img-footer {
-                        width: 100%;
-                        height: fit-content;
-                        @include displayFlex();
-                        flex-direction: row;
-                        flex-wrap: wrap;
-                        .itemRight,
-                        .itemLeft {
-                            width: 100%;
-                            @include displayFlex();
-                            flex-direction: row;
-                            justify-content: space-between;
-                            .box-item-img {
-                                img {
-                                    width: 100px;
-                                }
-                                .styleBSM-img,
-                                .styleBrasil-img {
-                                    width: 100px;
-                                    margin-top: 10px;
-                                }
-                                .styleExecution-img {
-                                    margin-top: 20px;
-                                    width: 120px;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            .box-abra-sua-conta {
-                display: none;
-            }
-        }
-        
-        @media (min-width:960px) {
-            body {
-                .box-menu-desktop {
-                    .box-menu-desktop-logo {
-                        width: 14%;
-                        height: inherit;
-                        float: left;
-                        // background-color: red;
-                        margin-left: 0;
-                        img {
-                            margin-top: 12px;
-                            width: 12rem;
-                        }
-                    }
-                    .menu-desktop {
-                        width: fit-content;
-                        height: inherit;
-                        // background-color: pink;
-                        margin-left: 0;
-                        margin-top: 50px;
-                        nav {
-                            ul {
-                                padding-left: 0;
-                                li {
-                                    display: inline-block;
-                                    a {
-                                        font-size: .9rem;
-                                        padding-right: 20px;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    .box-menu-desktop-btn {
-                        width: 280px;
-                        // background-color: red;
-                        padding-right: 4px;
-                        justify-content: space-between;
-                        margin-left: 30px;
-                        button {
-                            @include btn();
-                            border: none;
-                            width: fit-content;
-                            padding: 12px 20px;
-                            color: #000;
-                            font-size: .7rem;
-                        }
-                         :last-child {
-                            padding: 13px 35px;
-                        }
-                    }
-                }
-                .container {
+                .container-all {
                     .box-legenda {
                         display: none;
                     }
@@ -1139,11 +887,27 @@
                                     }
                                 }
                             }
+                            .box-info-fundos-tabs {
+                                display: none;
+                            }
                             .box-header-fundos-mobile {
+                                display: block;
+                                width: 100%;
+                                height: 80px;
+                                padding: 0 20px;
+                                background-color: rgb(255, 255, 255);
+                                margin-bottom: 30px;
+                                border: 1px solid rgb(233, 233, 233);
                                 .row-header {
                                     .coluna-header {
+                                        height: fit-content;
                                         h4 {
+                                            font-family: $font-padrao;
                                             font-size: .8rem;
+                                            font-weight: 500;
+                                            text-align: right;
+                                            margin-top: 40px;
+                                            font-weight: 600;
                                         }
                                         .first-style {
                                             text-align: left;
@@ -1156,41 +920,235 @@
                                 }
                             }
                             .box-display-fundos {
-                                .box-item-fundo {
-                                    display: none;
-                                }
+                                display: none;
                             }
                             .box-items-fundos-mobile {
+                                cursor: pointer;
+                                display: block;
+                                width: 100%;
+                                height: 80px;
+                                position: relative;
+                                margin-right: 0;
+                                background-color: #ffffff;
+                                box-shadow: 0px 0px 11px -10px rgba(0, 0, 0, 0.75);
+                                .box-status-fundo {
+                                    float: left;
+                                    width: 10px;
+                                    height: 80px;
+                                    background-color: blue;
+                                    position: absolute;
+                                    left: 0;
+                                }
                                 .row-header {
+                                    padding-right: 20px;
+                                    padding-left: 16px;
                                     .coluna-header {
                                         height: fit-content;
+                                        text-align: center;
                                         h4,
                                         h2 {
-                                            font-size: .8rem;
+                                            font-family: $font-padrao;
+                                            font-size: .7rem;
+                                            font-weight: 500;
+                                            text-align: right;
+                                            font-weight: 500;
                                         }
                                         h4 {
                                             margin-top: 25px;
+                                            margin-bottom: 0;
                                         }
                                         h2 {
-                                            font-size: .6rem;
+                                            font-size: .7rem;
                                             text-align: left;
+                                            color: rgba(95, 95, 95, 0.867);
+                                            margin-top: 0;
                                         }
                                         .first-style {
                                             text-align: left;
-                                            margin-top: 6px;
+                                            margin-top: 7px;
                                         }
+                                        .icone-aplicar {
+                                            color: #0F8A8D;
+                                            text-align: center;
+                                            font-size: 30px;
+                                            position: relative;
+                                            margin-top: 25px;
+                                            margin-left: 30px;
+                                            transform: rotate(100deg);
+                                        }
+                                    }
+                                }  
+                                
+                            }
+                            .box-more-info {
+                                width: 100%;
+                                height: 360px;
+                                cursor: pointer;
+                                background-color: #fff;
+                                @include displayFlex();
+                                .box-more-info-grafico {
+                                    width: 40%;
+                                    height: fit-content;
+                                    background-color: #fff;
+                                    float: left;
+                                }
+                                .box-more-info-detalhes {
+                                    width: 40%;
+                                    height: 360px;
+                                    background-color: #fff;
+                                    float: right;
+                                    position: relative;
+                                    padding-top: 10px;
+                                    margin-left: 120px;
+                                    p {
+                                        font-size: .8rem;
+                                        height: 12px;
+                                        font-weight: bold;
+                                        padding-top: 25px;
+                                    }
+                                    .last-p {
+                                        padding-bottom: 40px;
+                                    }
+                                    .link {
+                                        font-size: .8rem;
+                                        height: 12px;
+                                        font-weight: bold;
+                                        text-decoration: underline;
+                                        color: black;
+                                    }
+                                    .style-bottom {
+                                        position: absolute;
+                                        bottom: 20px;
                                     }
                                 }
                             }
 
                         }
                         .box-left-wrap-all {
-
+                            .sidebarFiltros {
+                                display: block;
+                            }
                         }
                     }
 
-                   
+                    
                 }
+                .footer {
+                    width: 100%;
+                    .footer-txt {
+                        width: 100%;
+                        @include displayFlex();
+                        justify-content: space-between;
+                        align-items: flex-start;
+                        align-content: center;
+                        .box-footer-inner {
+                            width: fit-content;
+                            padding-right: 10px;
+                            .box-item-footer {
+                                width: fit-content;
+                                h6 {
+                                    font-size: .8rem;
+                                }
+                                a {
+                                    font-size: .8rem;
+                                }
+                                p {
+                                    font-size: .8rem;
+                                }
+                            }
+                        }
+                         :last-child {
+                            padding-right: 0px;
+                        }
+                    }
+                    .box-img-footer {
+                        width: 100%;
+                        height: fit-content;
+                        @include displayFlex();
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        .itemRight,
+                        .itemLeft {
+                            width: 100%;
+                            @include displayFlex();
+                            flex-direction: row;
+                            justify-content: space-between;
+                            .box-item-img {
+                                img {
+                                    width: 100px;
+                                }
+                                .styleBSM-img,
+                                .styleBrasil-img {
+                                    width: 100px;
+                                    margin-top: 10px;
+                                }
+                                .styleExecution-img {
+                                    margin-top: 20px;
+                                    width: 120px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .box-abra-sua-conta {
+                display: none;
+            }
+        }
+        
+        @media (min-width:950px) {
+            body {
+                .box-menu-desktop {
+                    .box-menu-desktop-logo {
+                        width: 14%;
+                        height: inherit;
+                        float: left;
+                        // background-color: red;
+                        margin-left: 0;
+                        img {
+                            margin-top: 12px;
+                            width: 12rem;
+                        }
+                    }
+                    .menu-desktop {
+                        width: fit-content;
+                        height: inherit;
+                        // background-color: pink;
+                        margin-left: 0;
+                        margin-top: 50px;
+                        nav {
+                            ul {
+                                padding-left: 0;
+                                li {
+                                    display: inline-block;
+                                    a {
+                                        font-size: .9rem;
+                                        padding-right: 20px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .box-menu-desktop-btn {
+                        width: 280px;
+                        // background-color: red;
+                        padding-right: 4px;
+                        justify-content: space-between;
+                        margin-left: 30px;
+                        button {
+                            @include btn();
+                            border: none;
+                            width: fit-content;
+                            padding: 12px 20px;
+                            color: #000;
+                            font-size: .7rem;
+                        }
+                         :last-child {
+                            padding: 13px 35px;
+                        }
+                    }
+                }
+                   
                 .footer {
                     .footer-txt {
                         .box-footer-inner {
@@ -1212,7 +1170,7 @@
             }
         }
         
-        @media (min-width:992px) {
+        @media (min-width:985px) {
             body {
                 .box-menu-desktop {
                     .box-menu-desktop-logo {
@@ -1223,7 +1181,7 @@
                         }
                     }
                 }
-                .container {
+                .container-all {
                     .box-wrap-all-filters {
                         .box-right-wrap-all {
                             .box-header-fundos-mobile {
@@ -1236,35 +1194,13 @@
                                             text-align: left;
                                         }
                                         .style-bottom {
-                                            margin-top: 23px;
+                                            margin-top: 40px;
                                             text-align: right;
                                             width: 100%;
                                         }
                                         .style-top {
                                             margin-top: 24px;
                                             width: 100%;
-                                        }
-                                    }
-                                }
-                            }
-                            .box-wrap-all {
-                                .box-right-wrap-all {
-                                    .box-items-fundos-mobile {
-                                        .row-header {
-                                            .coluna-header {
-                                                height: fit-content;
-                                                h4,
-                                                h2 {
-                                                    font-size: .8rem;
-                                                }
-                                                h4 {
-                                                    margin-top: 25px;
-                                                }
-                                                .first-style {
-                                                    text-align: left;
-                                                    margin-top: 13px;
-                                                }
-                                            }
                                         }
                                     }
                                 }
@@ -1276,10 +1212,113 @@
                             }
                         }
                         .box-left-wrap-all {
-                            .item-sideBarFiltros{
+                            display: none;
+                            .item-sideBarFiltros {
                                 display: block;
+                                width: 100%;
+                                height: fit-content;
+                                margin-top: 30px;
+                                h1 {
+                                    width: 100%;
+                                    font-size: .9rem;
+                                    font-weight: 600;
+                                    font-family: $font-padrao;
+                                    color: #333;
+                                    margin-bottom: 15px;
+                                }
+                                button {
+                                    width: 100%;
+                                    background-color: #F4F5F7;
+                                    color: #333;
+                                    font-weight: bold;
+                                    text-align: left;
+                                    outline: none;
+                                    border: none;
+                                    font-size: .9rem;
+                                    box-shadow: 2px 5px 10px rgba(223, 223, 223, 0.867);
+                                    padding: 10px 10px;
+                                    border-radius: 5px;
+                                    text-transform: uppercase;
+                                    margin-top: 10px;
+                                    margin-bottom: 0;
+                                    p {
+                                        padding: 0;
+                                        margin: 0;
+                                        padding-left: 20px;
+                                    }
+                                }
+                                #input-valor-rendaFixa,
+                                #input-valor-estrategiasDiferenciadas,
+                                #input-valor-rendaVariavel,
+                                #input-valor-gestores {
+                                    position: relative;
+                                    top: 45px;
+                                    left: 10px;
+                                    padding: 0;
+                                    margin: 0;
+                                }
+                                .btn-estrategiasDiferenciadas {
+                                    margin-top: 10px;
+                                }
+                                #btn-collapse-renda-fixa,
+                                #btn-collapse-estrategias-diferenciadas,
+                                #btn-collapse-renda-variavel,
+                                #btn-collapse-gestores {
+                                    width: 100%;
+                                    height: fit-content;
+                                    background-color: #fff;
+                                    .body-rendaFixa,
+                                    .body-Diferenciada,
+                                    .body-variavel,
+                                    .body-gestores {
+                                        ul {
+                                            padding: 0;
+                                            margin: 0;
+                                            li {
+                                                padding: 0 10px;
+                                                height: 30px;
+                                                border: 1px solid rgb(247, 247, 247);
+                                                input {
+                                                    display: inline-block;
+                                                    margin-right: 5px;
+                                                    background-color: $cor-destaque;
+                                                }
+                                                p {
+                                                    display: inline-block;
+                                                    font-size: .8rem;
+                                                    font-family: $font-padrao;
+                                                    font-weight: 500;
+                                                    color: #333;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .body-Diferenciada {
+                                        ul {
+                                             :nth-child(4) {
+                                                height: 40px;
+                                                input {
+                                                    display: inline-block;
+                                                }
+                                                p {
+                                                    width: 80%;
+                                                    display: inline-block;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .body-gestores {
+                                        height: 5000px;
+                                    }
+                                    .txt-filtrar-gestores {
+                                        margin-top: 10px;
+                                    }
+                                }
                             }
-                    }
+                            
+                            .txt-filtrar-gestores {
+                                margin-top: 30px;
+                            }
                 }
                 .box-footer {
                     width: 100%;
@@ -1292,116 +1331,108 @@
             }
         }
 
-        @media (min-width:1020px) {
-            .container{
+        @media (min-width:1022px) {
+            .container-all{
                 .box-wrap-all-filters {
-                    .box-right-wrap-all {}
+                    .box-right-wrap-all {
+                        .box-header-fundos-mobile {
+                            .row-header {
+                                .coluna-header {
+                                    h4 {
+                                        font-size: .8rem;
+                                    }
+                                    .first-style {
+                                        text-align: left;
+                                    }
+                                    .style-bottom {
+                                        margin-top: 23px;
+                                        text-align: right;
+                                        width: 100%;
+                                    }
+                                    .style-top {
+                                        margin-top: 24px;
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                        .box-items-fundos-mobile {
+                            .row-header {
+                                .coluna-header {
+                                    h4,
+                                    h2 {
+                                        font-family: $font-padrao;
+                                        font-size: .7rem;
+                                        font-weight: 500;
+                                        text-align: right;
+                                        margin-top: 5px;
+                                        font-weight: 500;
+                                    }
+                                    h4 {
+                                        margin-top: 25px;
+                                    }
+                                    h2 {
+                                        font-size: .7rem;
+                                        text-align: left;
+                                        color: rgba(95, 95, 95, 0.867);
+                                    }
+                                    .first-style {
+                                        text-align: left;
+                                        margin-top: 7px;
+                                    }
+                                }
+                            }
+                    }
+                    }
                     .box-left-wrap-all {
+                        display: block;
                         .item-sideBarFiltros {
-                            width: 100%;
-                            height: fit-content;
-                            margin-top: 30px;
-                            h1 {
-                                width: 100%;
-                                font-size: .9rem;
-                                font-weight: 600;
-                                font-family: $font-padrao;
-                                color: #333;
-                                margin-bottom: 15px;
-                            }
-                            button {
-                                width: 100%;
-                                background-color: #F4F5F7;
-                                color: #333;
-                                font-weight: bold;
-                                text-align: left;
-                                outline: none;
-                                border: none;
-                                font-size: .9rem;
-                                box-shadow: 2px 5px 10px rgba(223, 223, 223, 0.867);
-                                padding: 10px 10px;
-                                border-radius: 5px;
-                                text-transform: uppercase;
-                                margin-top: 10px;
-                                margin-bottom: 0;
-                                p {
-                                    padding: 0;
-                                    margin: 0;
-                                    padding-left: 20px;
-                                }
-                            }
-                            #input-valor-rendaFixa,
-                            #input-valor-estrategiasDiferenciadas,
-                            #input-valor-rendaVariavel,
-                            #input-valor-gestores {
-                                position: relative;
-                                top: 45px;
-                                left: 10px;
-                                padding: 0;
-                                margin: 0;
-                            }
-                            .btn-estrategiasDiferenciadas {
-                                margin-top: 10px;
-                            }
-                            #btn-collapse-renda-fixa,
-                            #btn-collapse-estrategias-diferenciadas,
-                            #btn-collapse-renda-variavel,
-                            #btn-collapse-gestores {
-                                width: 100%;
-                                height: fit-content;
-                                background-color: #fff;
-                                .body-rendaFixa,
-                                .body-Diferenciada,
-                                .body-variavel,
-                                .body-gestores {
-                                    ul {
-                                        padding: 0;
-                                        margin: 0;
-                                        li {
-                                            padding: 0 10px;
-                                            height: 30px;
-                                            border: 1px solid rgb(247, 247, 247);
-                                            input {
-                                                display: inline-block;
-                                                margin-right: 5px;
-                                                background-color: $cor-destaque;
-                                            }
-                                            p {
-                                                display: inline-block;
-                                                font-size: .8rem;
-                                                font-family: $font-padrao;
-                                                font-weight: 500;
-                                                color: #333;
-                                            }
-                                        }
+                            display: block;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        @media (min-width:1128px) {
+            .container-all{
+                .box-wrap-all-filters {
+                    .box-right-wrap-all {
+                        .box-items-fundos-mobile {
+                            .row-header {
+                                .coluna-header {
+                                    h4,
+                                    h2 {
+                                        font-family: $font-padrao;
+                                        font-size: .8rem;
+                                        font-weight: 500;
+                                        text-align: right;
+                                        margin-top: 5px;
+                                        font-weight: 500;
+                                    }
+                                    h4 {
+                                        margin-top: 25px;
+                                    }
+                                    h2 {
+                                        font-size: .7rem;
+                                        text-align: left;
+                                        color: rgba(95, 95, 95, 0.867);
+                                    }
+                                    .first-style {
+                                        text-align: left;
+                                        margin-top: 7px;
                                     }
                                 }
-                                .body-Diferenciada {
-                                    ul {
-                                         :nth-child(4) {
-                                            height: 40px;
-                                            input {
-                                                display: inline-block;
-                                            }
-                                            p {
-                                                width: 80%;
-                                                display: inline-block;
-                                            }
-                                        }
-                                    }
-                                }
-                                .body-gestores {
-                                    height: 5000px;
-                                }
-                                .txt-filtrar-gestores {
-                                    margin-top: 10px;
-                                }
                             }
-                        }
-                        .txt-filtrar-gestores {
-                            margin-top: 30px;
-                        }
                         
+                        }
+
+                    }
+                
+                    .box-left-wrap-all {
+                        display: block;
+                    }
                     }
                 }
 
@@ -1425,47 +1456,12 @@
                         float: left;
                     }
                 }
-                .container {
-                    .box-header-fundos-mobile {
-                        .row-header {
-                            .coluna-header {
-                                h4 {
-                                    font-size: .8rem;
-                                }
-                                .first-style {
-                                    text-align: left;
-                                }
-                                .style-bottom {
-                                    margin-top: 20px;
-                                    text-align: right;
-                                }
-                                .style-top {
-                                    margin-top: 24px;
-                                }
-                            }
-                        }
-                    }
+                .container-all {
+                    width: 95%;
+                    margin:0 auto;
                     .box-display-fundos {
                         .box-item-fundo {
                             display: none;
-                        }
-                    }
-                }
-                .box-items-fundos-mobile {
-                    .row-header {
-                        .coluna-header {
-                            height: fit-content;
-                            h4,
-                            h2 {
-                                font-size: .8rem;
-                            }
-                            h4 {
-                                margin-top: 25px;
-                            }
-                            .first-style {
-                                text-align: left;
-                                margin-top: 13px;
-                            }
                         }
                     }
                 }

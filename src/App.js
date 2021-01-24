@@ -39,13 +39,8 @@ function App() {
           <Legenda />
           <InfoFundosMobile data={data} />
         </div>
-{/* 
-        <div className="columns large-3 sidebarFiltros">
-          <SideBarFilter/>
 
-        </div> */}
-
-        <div className="columns large-12 footer">
+        <div>
         <Footer />
 
         </div>
