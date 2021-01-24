@@ -179,6 +179,8 @@
                     }
                 }
             }
+
+            
             .container {
                 margin-bottom: 100px;
                 position: relative;
@@ -219,138 +221,145 @@
                         }
                     }
                 }
-                .container-busca {
-                    display: block;
-                    box-shadow: 1px 1px 5px rgb(218, 218, 218);
-                    .box-busca {
-                        @include displayFlex();
-                        width: 100%;
-                        height: 120px;
-                        background-color: #fff;
-                        border-radius: 5px;
-                        flex-direction: column;
-                        margin-bottom: 20px;
-                        #buscaFundo {
-                            cursor: pointer;
-                            width: 92%;
-                            border: none;
-                            border-bottom: 1px solid #333;
-                            position: relative;
-                            outline: none;
-                            background-color: #fff;
-                            outline: 0;
-                            margin-top: 20px;
-                        }
-                        #buscaFundo:focus {
-                            outline: none;
-                            border-bottom: 2.5px solid $cor-destaque;
-                        }
-                        label {
+                .box-wrap-all-filters {
+                    .box-right-wrap-all {
+                        .container-busca {
                             display: block;
-                            width: 90%;
-                            font-size: .7rem;
-                            padding-left: 15px;
-                            padding-top: 5px;
-                            margin-left: 20px;
-                        }
-                    }
-                    .label-filtros,
-                    .box-filtros {
-                        display: none;
-                    }
-                }
-                .box-header-fundos-mobile {
-                    display: none;
-                }
-                .box-display-fundos {
-                    width: 100%;
-                    height: fit-content;
-                    background-color: #fff;
-                    border-radius: 5px;
-                    padding: 10px;
-                    border: 1px solid rgb(233, 233, 233);
-                    .box-item-fundo {
-                        font-family: $font-padrao;
-                        padding-top: 20px;
-                        padding-bottom: 20px;
-                        .wrap-titulo {
-                            @include displayFlex();
-                            width: 100%;
-                            height: 20px;
-                            .titulo-fundo {
-                                width: 90%;
-                                font-size: .9rem;
-                                font-weight: bold;
-                            }
-                            .box-status-fundo {
-                                display: block;
-                                width: 10%;
-                                height: 20px;
-                                span {
+                            box-shadow: 1px 1px 5px rgb(218, 218, 218);
+                            .box-busca {
+                                @include displayFlex();
+                                width: 100%;
+                                height: 120px;
+                                background-color: #fff;
+                                border-radius: 5px;
+                                flex-direction: column;
+                                margin-bottom: 20px;
+                                #buscaFundo {
+                                    cursor: pointer;
+                                    width: 92%;
+                                    border: none;
+                                    border-bottom: 1px solid #333;
+                                    position: relative;
+                                    outline: none;
+                                    background-color: #fff;
+                                    outline: 0;
+                                    margin-top: 20px;
+                                }
+                                #buscaFundo:focus {
+                                    outline: none;
+                                    border-bottom: 2.5px solid $cor-destaque;
+                                }
+                                label {
                                     display: block;
-                                    background-color: red;
-                                    width: 12px;
-                                    height: 12px;
-                                    margin: 0 auto;
-                                    border-radius: 2px;
+                                    width: 90%;
+                                    font-size: .7rem;
+                                    padding-left: 15px;
+                                    padding-top: 5px;
+                                    margin-left: 20px;
+                                }
+                            }
+                            .label-filtros,
+                            .box-filtros {
+                                display: none;
+                            }
+                        }
+                        .box-header-fundos-mobile {
+                            display: none;
+                        }
+                        .box-display-fundos {
+                            width: 100%;
+                            height: fit-content;
+                            background-color: #fff;
+                            border-radius: 5px;
+                            padding: 10px;
+                            border: 1px solid rgb(233, 233, 233);
+                            .box-item-fundo {
+                                font-family: $font-padrao;
+                                padding-top: 20px;
+                                padding-bottom: 20px;
+                                .wrap-titulo {
+                                    @include displayFlex();
+                                    width: 100%;
+                                    height: 20px;
+                                    .titulo-fundo {
+                                        width: 90%;
+                                        font-size: .9rem;
+                                        font-weight: bold;
+                                    }
+                                    .box-status-fundo {
+                                        display: block;
+                                        width: 10%;
+                                        height: 20px;
+                                        span {
+                                            display: block;
+                                            background-color: red;
+                                            width: 12px;
+                                            height: 12px;
+                                            margin: 0 auto;
+                                            border-radius: 2px;
+                                        }
+                                    }
+                                }
+                                .subtitulo-fundo {
+                                    font-size: .8rem;
+                                    color: rgb(150, 150, 150);
+                                    padding-top: 10px;
+                                    font-weight: 500;
+                                }
+                                .box-item-info-fundos {
+                                    @include displayFlex();
+                                    width: 100%;
+                                    height: 30px;
+                                    flex-direction: row;
+                                    font-size: .8rem;
+                                    font-weight: bold;
+                                    .right-row {
+                                        width: 70%;
+                                        text-align: left;
+                                    }
+                                    .left-row {
+                                        width: 50%;
+                                        text-align: right;
+                                        font-weight: 400;
+                                    }
+                                }
+                                .box-info-button {
+                                    @include displayFlex();
+                                    justify-content: space-around;
+                                    width: 100%;
+                                    button {
+                                        width: 47%;
+                                        padding: 11px 5px;
+                                        border-radius: 5px;
+                                        text-transform: uppercase;
+                                        font-size: .8rem;
+                                        font-weight: bolder;
+                                        margin-top: 15px;
+                                    }
+                                     :first-child {
+                                        color: $cor-destaque;
+                                        background-color: #fff;
+                                        border: 1px solid $cor-destaque;
+                                    }
+                                     :last-child {
+                                        background-color: $cor-destaque;
+                                        color: #fff;
+                                        border: 1px solid $cor-destaque;
+                                    }
                                 }
                             }
                         }
-                        .subtitulo-fundo {
-                            font-size: .8rem;
-                            color: rgb(150, 150, 150);
-                            padding-top: 10px;
-                            font-weight: 500;
+                        .box-items-fundos-mobile {
+                            display: none;
                         }
-                        .box-item-info-fundos {
-                            @include displayFlex();
-                            width: 100%;
-                            height: 30px;
-                            flex-direction: row;
-                            font-size: .8rem;
-                            font-weight: bold;
-                            .right-row {
-                                width: 70%;
-                                text-align: left;
-                            }
-                            .left-row {
-                                width: 50%;
-                                text-align: right;
-                                font-weight: 400;
-                            }
-                        }
-                        .box-info-button {
-                            @include displayFlex();
-                            justify-content: space-around;
-                            width: 100%;
-                            button {
-                                width: 47%;
-                                padding: 11px 5px;
-                                border-radius: 5px;
-                                text-transform: uppercase;
-                                font-size: .8rem;
-                                font-weight: bolder;
-                                margin-top: 15px;
-                            }
-                             :first-child {
-                                color: $cor-destaque;
-                                background-color: #fff;
-                                border: 1px solid $cor-destaque;
-                            }
-                             :last-child {
-                                background-color: $cor-destaque;
-                                color: #fff;
-                                border: 1px solid $cor-destaque;
-                            }
+                    }
+                    .box-left-wrap-all {
+                        .item-sideBarFiltros {
+                            display: none;
                         }
                     }
                 }
-                .sidebarFiltros {
-                    display: none;
-                }
-                .box-items-fundos-mobile {
-                    display: none;
-                }
+
             }
             .box-abra-sua-conta {
                 cursor: pointer;
@@ -639,142 +648,151 @@
                     }
                 }
                 .container {
-                    .box-info-fundos-tabs {
-                        display: none;
-                    }
-                    .box-header-fundos-mobile {
-                        display: block;
-                        width: 100%;
-                        height: 80px;
-                        padding: 0 20px;
-                        background-color: rgb(255, 255, 255);
-                        margin-bottom: 30px;
-                        border: 1px solid rgb(233, 233, 233);
-                        .row-header {
-                            .coluna-header {
-                                height: fit-content;
-                                h4 {
-                                    font-family: $font-padrao;
-                                    font-size: .7rem;
-                                    font-weight: 500;
-                                    text-align: right;
-                                    margin-top: 40px;
-                                    font-weight: 600;
-                                }
-                                .first-style {
-                                    text-align: left;
-                                }
-                                .style-bottom {
-                                    margin-top: 24px;
-                                    text-align: right;
+                    .box-wrap-all-filters {
+                        .box-right-wrap-all {
+                            .box-info-fundos-tabs {
+                                display: none;
+                            }
+                            .box-header-fundos-mobile {
+                                display: block;
+                                width: 100%;
+                                height: 80px;
+                                padding: 0 20px;
+                                background-color: rgb(255, 255, 255);
+                                margin-bottom: 30px;
+                                border: 1px solid rgb(233, 233, 233);
+                                .row-header {
+                                    .coluna-header {
+                                        height: fit-content;
+                                        h4 {
+                                            font-family: $font-padrao;
+                                            font-size: .7rem;
+                                            font-weight: 500;
+                                            text-align: right;
+                                            margin-top: 40px;
+                                            font-weight: 600;
+                                        }
+                                        .first-style {
+                                            text-align: left;
+                                        }
+                                        .style-bottom {
+                                            margin-top: 24px;
+                                            text-align: right;
+                                        }
+                                    }
                                 }
                             }
-                        }
-                    }
-                    .box-display-fundos {
-                        display: none;
-                    }
-                    .box-items-fundos-mobile {
-                        cursor: pointer;
-                        display: block;
-                        width: 100%;
-                        height: fit-content;
-                        position: relative;
-                        margin-right: 0;
-                        background-color: #ffffff;
-                        box-shadow: 0px 0px 11px -10px rgba(0, 0, 0, 0.75);
-                        .box-status-fundo {
-                            float: left;
-                            width: 10px;
-                            height: 100px;
-                            background-color: blue;
-                            position: absolute;
-                            left: 0;
-                        }
-                        .row-header {
-                            padding-right: 20px;
-                            padding-left: 16px;
-                            .coluna-header {
-                                height: fit-content;
-                                text-align: center;
-                                h4,
-                                h2 {
-                                    font-family: $font-padrao;
-                                    font-size: .6rem;
-                                    font-weight: 500;
-                                    text-align: right;
-                                    margin-top: 5px;
-                                    font-weight: 500;
-                                }
-                                h4 {
-                                    margin-top: 25px;
-                                }
-                                h2 {
-                                    font-size: .6rem;
-                                    text-align: left;
-                                    color: rgba(95, 95, 95, 0.867);
-                                }
-                                .first-style {
-                                    text-align: left;
-                                    margin-top: 7px;
-                                }
-                                .icone-aplicar {
-                                    color: #0F8A8D;
-                                    text-align: center;
-                                    font-size: 30px;
-                                    position: relative;
-                                    margin-top: 30px;
-                                    margin-left: 30px;
-                                    transform: rotate(100deg);
-                                }
+                            .box-display-fundos {
+                                display: none;
                             }
-                        }
-                        .box-more-info {
-                            width: 100%;
-                            height: 360px;
-                            cursor: pointer;
-                            background-color: #fff;
-                            @include displayFlex();
-                            .box-more-info-grafico {
-                                width: 40%;
+                            .box-items-fundos-mobile {
+                                cursor: pointer;
+                                display: block;
+                                width: 100%;
                                 height: fit-content;
-                                background-color: #fff;
-                                float: left;
-                            }
-                            .box-more-info-detalhes {
-                                width: 40%;
-                                height: 360px;
-                                background-color: #fff;
-                                float: right;
                                 position: relative;
-                                padding-top: 10px;
-                                margin-left: 120px;
-                                p {
-                                    font-size: .8rem;
-                                    height: 12px;
-                                    font-weight: bold;
-                                    padding-top: 25px;
-                                }
-                                .last-p {
-                                    padding-bottom: 40px;
-                                }
-                                .link {
-                                    font-size: .8rem;
-                                    height: 12px;
-                                    font-weight: bold;
-                                    text-decoration: underline;
-                                    color: black;
-                                }
-                                .style-bottom {
+                                margin-right: 0;
+                                background-color: #ffffff;
+                                box-shadow: 0px 0px 11px -10px rgba(0, 0, 0, 0.75);
+                                .box-status-fundo {
+                                    float: left;
+                                    width: 10px;
+                                    height: 100px;
+                                    background-color: blue;
                                     position: absolute;
-                                    bottom: 20px;
+                                    left: 0;
                                 }
+                                .row-header {
+                                    padding-right: 20px;
+                                    padding-left: 16px;
+                                    .coluna-header {
+                                        height: fit-content;
+                                        text-align: center;
+                                        h4,
+                                        h2 {
+                                            font-family: $font-padrao;
+                                            font-size: .6rem;
+                                            font-weight: 500;
+                                            text-align: right;
+                                            margin-top: 5px;
+                                            font-weight: 500;
+                                        }
+                                        h4 {
+                                            margin-top: 25px;
+                                        }
+                                        h2 {
+                                            font-size: .6rem;
+                                            text-align: left;
+                                            color: rgba(95, 95, 95, 0.867);
+                                        }
+                                        .first-style {
+                                            text-align: left;
+                                            margin-top: 7px;
+                                        }
+                                        .icone-aplicar {
+                                            color: #0F8A8D;
+                                            text-align: center;
+                                            font-size: 30px;
+                                            position: relative;
+                                            margin-top: 30px;
+                                            margin-left: 30px;
+                                            transform: rotate(100deg);
+                                        }
+                                    }
+                                }
+                                .box-more-info {
+                                    width: 100%;
+                                    height: 360px;
+                                    cursor: pointer;
+                                    background-color: #fff;
+                                    @include displayFlex();
+                                    .box-more-info-grafico {
+                                        width: 40%;
+                                        height: fit-content;
+                                        background-color: #fff;
+                                        float: left;
+                                    }
+                                    .box-more-info-detalhes {
+                                        width: 40%;
+                                        height: 360px;
+                                        background-color: #fff;
+                                        float: right;
+                                        position: relative;
+                                        padding-top: 10px;
+                                        margin-left: 120px;
+                                        p {
+                                            font-size: .8rem;
+                                            height: 12px;
+                                            font-weight: bold;
+                                            padding-top: 25px;
+                                        }
+                                        .last-p {
+                                            padding-bottom: 40px;
+                                        }
+                                        .link {
+                                            font-size: .8rem;
+                                            height: 12px;
+                                            font-weight: bold;
+                                            text-decoration: underline;
+                                            color: black;
+                                        }
+                                        .style-bottom {
+                                            position: absolute;
+                                            bottom: 20px;
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                        .box-left-wrap-all {
+                            .sidebarFiltros {
+                                display: none;
                             }
                         }
                     }
-                    .sidebarFiltros {
-                        display: none;
-                    }
+
+                    
                 }
                 .footer {
                     width: 100%;
@@ -895,273 +913,283 @@
                     .box-legenda {
                         display: none;
                     }
-                    .container-busca {
-                        width: 100%;
-                        margin-top: 40px;
-                        height: 280px;
-                        padding: 10px 0px;
-                        overflow: hidden;
-                        margin-top: 30px;
-                        margin-bottom: 20px;
-                        border: 1px solid rgb(233, 233, 233);
-                        background-color: #fff;
-                        .box-busca {
-                            display: block;
-                            margin-top: 5px;
-                            margin: 0 auto;
-                            #buscaFundo {
-                                cursor: pointer;
-                                width: 50%;
-                                margin-top: 10px;
-                                float: left;
-                                margin-left: 28px;
-                            }
-                            label {
-                                opacity: 0;
-                            }
-                            .box-filtros {
-                                display: flex;
-                                justify-content: space-between;
-                                width: 95%;
-                                height: 150px;
-                                padding: 10px 20px;
-                                background-color: #fafafa;
-                                margin: 0 auto;
-                                .item-filtro {
-                                    width: 30%;
-                                    padding: 0;
-                                    margin: 0;
-                                    p {
-                                        display: block;
-                                        text-align: left;
-                                        font-family: $font-padrao;
-                                        font-weight: 500;
-                                        margin-bottom: 35px;
-                                        font-size: .9rem;
-                                        margin-top: 10px;
-                                        text-align: left;
-                                    }
-                                    .style {
-                                        margin-bottom: 10px;
-                                    }
-                                    input[type=range] {
-                                        -webkit-appearance: none;
-                                        margin-bottom: 20px;
-                                    }
-                                    input[type=range]::-webkit-slider-runnable-track {
-                                        -webkit-appearance: none;
-                                        appearance: none;
-                                        background-color: $cor-destaque;
-                                        height: 5px;
-                                    }
-                                    input[type=range]::-webkit-slider-thumb {
-                                        -webkit-appearance: none;
-                                        appearance: none;
-                                        background-color: #fff;
-                                        border-radius: 50%;
-                                        border: 5px solid #333;
-                                        box-sizing: border;
-                                    }
-                                    input[type=range]::-moz-range-thumb {
-                                        -webkit-appearance: none;
-                                        appearance: none;
-                                        background-color: #fff;
-                                        border-radius: 50%;
-                                        border: 5px solid #333;
-                                        box-sizing: border;
-                                    }
-                                    #perfilRisco::-webkit-slider-runnable-track {
-                                        -webkit-appearance: none;
-                                        appearance: none;
-                                        background-color: rgba(255, 0, 0, 0);
-                                        height: 5px;
-                                    }
-                                    #perfilRisco {
-                                        width: 165px;
-                                        height: 10px;
-                                        margin: 0 auto;
-                                        border: 1px solid #333;
-                                        border-top: none;
-                                        border-right: none;
-                                        background-color: none;
-                                    }
-                                    #perfilRisco[type=range]::-webkit-slider-thumb {
-                                        -webkit-appearance: none;
-                                        border: none;
-                                        height: 32px;
-                                        width: 32px;
-                                        background: goldenrod;
-                                        background: url("../assets/img/up_arrow.png") no-repeat;
-                                        margin-top: -10px;
-                                        border-radius: 0 !important;
-                                    }
-                                    #perfilRisco[type=range]+.thumb.active {
-                                        top: -20px !important;
-                                    }
-                                }
-                                .perfilRisco {
-                                    text-align: center;
-                                    input[type=range] {
-                                        width: 40%;
-                                    }
-                                }
-                                label {
-                                    width: 100%;
-                                    height: fit-content;
+                    .box-wrap-all-filters {
+                        .box-right-wrap-all {
+                            .container-busca {
+                                width: 100%;
+                                margin-top: 40px;
+                                height: 280px;
+                                padding: 10px 0px;
+                                overflow: hidden;
+                                margin-top: 30px;
+                                margin-bottom: 20px;
+                                border: 1px solid rgb(233, 233, 233);
+                                background-color: #fff;
+                                .box-busca {
                                     display: block;
-                                    opacity: 1;
-                                    font-size: .9rem;
-                                    font-family: $font-padrao;
-                                    color: rgb(104, 103, 103);
-                                    font-weight: 500;
+                                    margin-top: 5px;
                                     margin: 0 auto;
-                                    padding: 0;
-                                    padding-right: 6px;
-                                    ul {
+                                    #buscaFundo {
+                                        cursor: pointer;
+                                        width: 50%;
+                                        margin-top: 10px;
+                                        float: left;
+                                        margin-left: 28px;
+                                    }
+                                    label {
+                                        opacity: 0;
+                                    }
+                                    .box-filtros {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        width: 95%;
+                                        height: 150px;
+                                        padding: 10px 20px;
+                                        background-color: #fafafa;
                                         margin: 0 auto;
-                                        li {
-                                            display: inline-block;
-                                            height: 40px;
-                                            padding-right: 8px;
-                                            position: relative;
-                                            margin: 0 2px;
-                                            span {
-                                                cursor: pointer;
+                                        .item-filtro {
+                                            width: 30%;
+                                            padding: 0;
+                                            margin: 0;
+                                            p {
                                                 display: block;
-                                                width: 7px;
-                                                height: 20px;
-                                                background-color: red;
-                                                position: absolute;
-                                                bottom: 0;
+                                                text-align: left;
+                                                font-family: $font-padrao;
+                                                font-weight: 500;
+                                                margin-bottom: 35px;
+                                                font-size: .9rem;
+                                                margin-top: 10px;
+                                                text-align: left;
+                                            }
+                                            .style {
+                                                margin-bottom: 10px;
+                                            }
+                                            input[type=range] {
+                                                -webkit-appearance: none;
+                                                margin-bottom: 20px;
+                                            }
+                                            input[type=range]::-webkit-slider-runnable-track {
+                                                -webkit-appearance: none;
+                                                appearance: none;
+                                                background-color: $cor-destaque;
+                                                height: 5px;
+                                            }
+                                            input[type=range]::-webkit-slider-thumb {
+                                                -webkit-appearance: none;
+                                                appearance: none;
+                                                background-color: #fff;
+                                                border-radius: 50%;
+                                                border: 5px solid #333;
+                                                box-sizing: border;
+                                            }
+                                            input[type=range]::-moz-range-thumb {
+                                                -webkit-appearance: none;
+                                                appearance: none;
+                                                background-color: #fff;
+                                                border-radius: 50%;
+                                                border: 5px solid #333;
+                                                box-sizing: border;
+                                            }
+                                            #perfilRisco::-webkit-slider-runnable-track {
+                                                -webkit-appearance: none;
+                                                appearance: none;
+                                                background-color: rgba(255, 0, 0, 0);
+                                                height: 5px;
+                                            }
+                                            #perfilRisco {
+                                                width: 165px;
+                                                height: 10px;
+                                                margin: 0 auto;
+                                                border: 1px solid #333;
+                                                border-top: none;
+                                                border-right: none;
+                                                background-color: none;
+                                            }
+                                            #perfilRisco[type=range]::-webkit-slider-thumb {
+                                                -webkit-appearance: none;
+                                                border: none;
+                                                height: 32px;
+                                                width: 32px;
+                                                background: goldenrod;
+                                                background: url("../assets/img/up_arrow.png") no-repeat;
+                                                margin-top: -10px;
+                                                border-radius: 0 !important;
+                                            }
+                                            #perfilRisco[type=range]+.thumb.active {
+                                                top: -20px !important;
                                             }
                                         }
-                                         :first-child {
-                                            span {
-                                                background-color: #A6ECFC;
-                                                height: 15px;
+                                        .perfilRisco {
+                                            text-align: center;
+                                            input[type=range] {
+                                                width: 40%;
                                             }
                                         }
-                                         :nth-child(2) {
-                                            span {
-                                                background-color: #68F1DD;
-                                                height: 18px;
+                                        label {
+                                            width: 100%;
+                                            height: fit-content;
+                                            display: block;
+                                            opacity: 1;
+                                            font-size: .9rem;
+                                            font-family: $font-padrao;
+                                            color: rgb(104, 103, 103);
+                                            font-weight: 500;
+                                            margin: 0 auto;
+                                            padding: 0;
+                                            padding-right: 6px;
+                                            ul {
+                                                margin: 0 auto;
+                                                li {
+                                                    display: inline-block;
+                                                    height: 40px;
+                                                    padding-right: 8px;
+                                                    position: relative;
+                                                    margin: 0 2px;
+                                                    span {
+                                                        cursor: pointer;
+                                                        display: block;
+                                                        width: 7px;
+                                                        height: 20px;
+                                                        background-color: red;
+                                                        position: absolute;
+                                                        bottom: 0;
+                                                    }
+                                                }
+                                                 :first-child {
+                                                    span {
+                                                        background-color: #A6ECFC;
+                                                        height: 15px;
+                                                    }
+                                                }
+                                                 :nth-child(2) {
+                                                    span {
+                                                        background-color: #68F1DD;
+                                                        height: 18px;
+                                                    }
+                                                }
+                                                 :nth-child(3) {
+                                                    span {
+                                                        background-color: #91ED6E;
+                                                        height: 21px;
+                                                    }
+                                                }
+                                                 :nth-child(4) {
+                                                    span {
+                                                        background-color: #B0F42A;
+                                                        height: 24px;
+                                                    }
+                                                }
+                                                 :nth-child(5) {
+                                                    span {
+                                                        background-color: #DDF40C;
+                                                        height: 27px;
+                                                    }
+                                                }
+                                                 :nth-child(6) {
+                                                    span {
+                                                        background-color: #FAF00E;
+                                                        height: 30px;
+                                                    }
+                                                }
+                                                 :nth-child(7) {
+                                                    span {
+                                                        background-color: #FFDC00;
+                                                        height: 33px;
+                                                    }
+                                                }
+                                                 :nth-child(8) {
+                                                    span {
+                                                        background-color: #FFBB00;
+                                                        height: 36px;
+                                                    }
+                                                }
+                                                 :nth-child(9) {
+                                                    span {
+                                                        background-color: #FF8800;
+                                                        height: 39px;
+                                                    }
+                                                }
+                                                 :nth-child(10) {
+                                                    span {
+                                                        background-color: #FF5E00;
+                                                        height: 42px;
+                                                    }
+                                                }
+                                                 :nth-child(11) {
+                                                    span {
+                                                        background-color: #FF0600;
+                                                        height: 45px;
+                                                    }
+                                                }
+                                                 :last-child {
+                                                    span {
+                                                        background-color: #B51414;
+                                                        height: 48px;
+                                                    }
+                                                }
                                             }
                                         }
-                                         :nth-child(3) {
-                                            span {
-                                                background-color: #91ED6E;
-                                                height: 21px;
-                                            }
+                                    }
+                                    .label-filtros {
+                                        display: inline-block;
+                                        margin-left: 28px;
+                                        margin-top: 15px;
+                                        font-size: .8rem;
+                                        color: rgb(151, 151, 151);
+                                    }
+                                }
+                            }
+                            .box-header-fundos-mobile {
+                                .row-header {
+                                    .coluna-header {
+                                        h4 {
+                                            font-size: .8rem;
                                         }
-                                         :nth-child(4) {
-                                            span {
-                                                background-color: #B0F42A;
-                                                height: 24px;
-                                            }
+                                        .first-style {
+                                            text-align: left;
                                         }
-                                         :nth-child(5) {
-                                            span {
-                                                background-color: #DDF40C;
-                                                height: 27px;
-                                            }
-                                        }
-                                         :nth-child(6) {
-                                            span {
-                                                background-color: #FAF00E;
-                                                height: 30px;
-                                            }
-                                        }
-                                         :nth-child(7) {
-                                            span {
-                                                background-color: #FFDC00;
-                                                height: 33px;
-                                            }
-                                        }
-                                         :nth-child(8) {
-                                            span {
-                                                background-color: #FFBB00;
-                                                height: 36px;
-                                            }
-                                        }
-                                         :nth-child(9) {
-                                            span {
-                                                background-color: #FF8800;
-                                                height: 39px;
-                                            }
-                                        }
-                                         :nth-child(10) {
-                                            span {
-                                                background-color: #FF5E00;
-                                                height: 42px;
-                                            }
-                                        }
-                                         :nth-child(11) {
-                                            span {
-                                                background-color: #FF0600;
-                                                height: 45px;
-                                            }
-                                        }
-                                         :last-child {
-                                            span {
-                                                background-color: #B51414;
-                                                height: 48px;
-                                            }
+                                        .style-bottom {
+                                            margin-top: 24px;
+                                            text-align: right;
                                         }
                                     }
                                 }
                             }
-                            .label-filtros {
-                                display: inline-block;
-                                margin-left: 28px;
-                                margin-top: 15px;
-                                font-size: .8rem;
-                                color: rgb(151, 151, 151);
-                            }
-                        }
-                    }
-                    .box-header-fundos-mobile {
-                        .row-header {
-                            .coluna-header {
-                                h4 {
-                                    font-size: .8rem;
-                                }
-                                .first-style {
-                                    text-align: left;
-                                }
-                                .style-bottom {
-                                    margin-top: 24px;
-                                    text-align: right;
+                            .box-display-fundos {
+                                .box-item-fundo {
+                                    display: none;
                                 }
                             }
-                        }
-                    }
-                    .box-display-fundos {
-                        .box-item-fundo {
-                            display: none;
-                        }
-                    }
-                    .box-items-fundos-mobile {
-                        .row-header {
-                            .coluna-header {
-                                height: fit-content;
-                                h4,
-                                h2 {
-                                    font-size: .8rem;
-                                }
-                                h4 {
-                                    margin-top: 25px;
-                                }
-                                h2 {
-                                    font-size: .6rem;
-                                    text-align: left;
-                                }
-                                .first-style {
-                                    text-align: left;
-                                    margin-top: 6px;
+                            .box-items-fundos-mobile {
+                                .row-header {
+                                    .coluna-header {
+                                        height: fit-content;
+                                        h4,
+                                        h2 {
+                                            font-size: .8rem;
+                                        }
+                                        h4 {
+                                            margin-top: 25px;
+                                        }
+                                        h2 {
+                                            font-size: .6rem;
+                                            text-align: left;
+                                        }
+                                        .first-style {
+                                            text-align: left;
+                                            margin-top: 6px;
+                                        }
+                                    }
                                 }
                             }
+
+                        }
+                        .box-left-wrap-all {
+
                         }
                     }
+
+                   
                 }
                 .footer {
                     .footer-txt {
@@ -1248,111 +1276,9 @@
                             }
                         }
                         .box-left-wrap-all {
-                            .item-sideBarFiltros {
-                                width: 100%;
-                                height: fit-content;
-                                margin-top: 30px;
-                                h1 {
-                                    width: 100%;
-                                    font-size: .9rem;
-                                    font-weight: 600;
-                                    font-family: $font-padrao;
-                                    color: #333;
-                                    margin-bottom: 15px;
-                                }
-                                button {
-                                    width: 100%;
-                                    background-color: #F4F5F7;
-                                    color: #333;
-                                    font-weight: bold;
-                                    text-align: left;
-                                    outline: none;
-                                    border: none;
-                                    font-size: .9rem;
-                                    box-shadow: 2px 5px 10px rgba(223, 223, 223, 0.867);
-                                    padding: 10px 10px;
-                                    border-radius: 5px;
-                                    text-transform: uppercase;
-                                    margin-top: 10px;
-                                    margin-bottom: 0;
-                                    p {
-                                        padding: 0;
-                                        margin: 0;
-                                        padding-left: 20px;
-                                    }
-                                }
-                                #input-valor-rendaFixa,
-                                #input-valor-estrategiasDiferenciadas,
-                                #input-valor-rendaVariavel,
-                                #input-valor-gestores {
-                                    position: relative;
-                                    top: 45px;
-                                    left: 10px;
-                                    padding: 0;
-                                    margin: 0;
-                                }
-                                .btn-estrategiasDiferenciadas {
-                                    margin-top: 10px;
-                                }
-                                #btn-collapse-renda-fixa,
-                                #btn-collapse-estrategias-diferenciadas,
-                                #btn-collapse-renda-variavel,
-                                #btn-collapse-gestores {
-                                    width: 100%;
-                                    height: fit-content;
-                                    background-color: #fff;
-                                    .body-rendaFixa,
-                                    .body-Diferenciada,
-                                    .body-variavel,
-                                    .body-gestores {
-                                        ul {
-                                            padding: 0;
-                                            margin: 0;
-                                            li {
-                                                padding: 0 10px;
-                                                height: 30px;
-                                                border: 1px solid rgb(247, 247, 247);
-                                                input {
-                                                    display: inline-block;
-                                                    margin-right: 5px;
-                                                    background-color: $cor-destaque;
-                                                }
-                                                p {
-                                                    display: inline-block;
-                                                    font-size: .8rem;
-                                                    font-family: $font-padrao;
-                                                    font-weight: 500;
-                                                    color: #333;
-                                                }
-                                            }
-                                        }
-                                    }
-                                    .body-Diferenciada {
-                                        ul {
-                                             :nth-child(4) {
-                                                height: 40px;
-                                                input {
-                                                    display: inline-block;
-                                                }
-                                                p {
-                                                    width: 80%;
-                                                    display: inline-block;
-                                                }
-                                            }
-                                        }
-                                    }
-                                    .body-gestores {
-                                        height: 5000px;
-                                    }
-                                    .txt-filtrar-gestores {
-                                        margin-top: 10px;
-                                    }
-                                }
+                            .item-sideBarFiltros{
+                                display: block;
                             }
-                            .txt-filtrar-gestores {
-                                margin-top: 30px;
-                            }
-                        }
                     }
                 }
                 .box-footer {
@@ -1363,6 +1289,122 @@
                         margin-top: 220px;
                     }
                 }
+            }
+        }
+
+        @media (min-width:1020px) {
+            .container{
+                .box-wrap-all-filters {
+                    .box-right-wrap-all {}
+                    .box-left-wrap-all {
+                        .item-sideBarFiltros {
+                            width: 100%;
+                            height: fit-content;
+                            margin-top: 30px;
+                            h1 {
+                                width: 100%;
+                                font-size: .9rem;
+                                font-weight: 600;
+                                font-family: $font-padrao;
+                                color: #333;
+                                margin-bottom: 15px;
+                            }
+                            button {
+                                width: 100%;
+                                background-color: #F4F5F7;
+                                color: #333;
+                                font-weight: bold;
+                                text-align: left;
+                                outline: none;
+                                border: none;
+                                font-size: .9rem;
+                                box-shadow: 2px 5px 10px rgba(223, 223, 223, 0.867);
+                                padding: 10px 10px;
+                                border-radius: 5px;
+                                text-transform: uppercase;
+                                margin-top: 10px;
+                                margin-bottom: 0;
+                                p {
+                                    padding: 0;
+                                    margin: 0;
+                                    padding-left: 20px;
+                                }
+                            }
+                            #input-valor-rendaFixa,
+                            #input-valor-estrategiasDiferenciadas,
+                            #input-valor-rendaVariavel,
+                            #input-valor-gestores {
+                                position: relative;
+                                top: 45px;
+                                left: 10px;
+                                padding: 0;
+                                margin: 0;
+                            }
+                            .btn-estrategiasDiferenciadas {
+                                margin-top: 10px;
+                            }
+                            #btn-collapse-renda-fixa,
+                            #btn-collapse-estrategias-diferenciadas,
+                            #btn-collapse-renda-variavel,
+                            #btn-collapse-gestores {
+                                width: 100%;
+                                height: fit-content;
+                                background-color: #fff;
+                                .body-rendaFixa,
+                                .body-Diferenciada,
+                                .body-variavel,
+                                .body-gestores {
+                                    ul {
+                                        padding: 0;
+                                        margin: 0;
+                                        li {
+                                            padding: 0 10px;
+                                            height: 30px;
+                                            border: 1px solid rgb(247, 247, 247);
+                                            input {
+                                                display: inline-block;
+                                                margin-right: 5px;
+                                                background-color: $cor-destaque;
+                                            }
+                                            p {
+                                                display: inline-block;
+                                                font-size: .8rem;
+                                                font-family: $font-padrao;
+                                                font-weight: 500;
+                                                color: #333;
+                                            }
+                                        }
+                                    }
+                                }
+                                .body-Diferenciada {
+                                    ul {
+                                         :nth-child(4) {
+                                            height: 40px;
+                                            input {
+                                                display: inline-block;
+                                            }
+                                            p {
+                                                width: 80%;
+                                                display: inline-block;
+                                            }
+                                        }
+                                    }
+                                }
+                                .body-gestores {
+                                    height: 5000px;
+                                }
+                                .txt-filtrar-gestores {
+                                    margin-top: 10px;
+                                }
+                            }
+                        }
+                        .txt-filtrar-gestores {
+                            margin-top: 30px;
+                        }
+                        
+                    }
+                }
+
             }
         }
         
@@ -1438,3 +1480,4 @@
         @media (min-width:1281px) {
             /* hi-res laptops and desktops */
         }
+    }
