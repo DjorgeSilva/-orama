@@ -355,7 +355,7 @@ export const InfoFundosMobile = () => {
           <NavTabDestaqueTodos />
           <HeaderInfoFundos />
 
-          <div classNames='data-mobile'>{FilteredData.slice(0,10).map((item, index) => {
+          <div classNames='data-mobile'>{FilteredData.map((item, index) => {
 
             const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo } } } = item;
             const { profitabilities: { month: lucroMes, m12, year: lucroAno } } = item;
