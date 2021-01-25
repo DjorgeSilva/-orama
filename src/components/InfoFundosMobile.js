@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { NavTabDestaqueTodos } from "./NavTabDestaqueTodos.js";
 import { HeaderInfoFundos } from "./HeaderInfoFundos.jsx";
 import * as IoIcons from "react-icons/io5";
-import { SideBarFilter } from "./SideBarFilter.js"
 import { Button, Collapse } from "react-bootstrap"
 
 require("es6-promise").polyfill();
@@ -42,7 +41,8 @@ export const InfoFundosMobile = () => {
   var filtraNomeGestores = [];
   var uniqueNomeGestores = [];
 
-  let [dadosFiltradosRendaFixa, setDadosFiltradosRendaFixa] = useState([]);
+  const [dadosFiltradosRendaFixa, setDadosFiltradosRendaFixa] = useState(false);
+  var checksRendaFixa = [];
 
 
 
@@ -97,20 +97,20 @@ export const InfoFundosMobile = () => {
 
   useEffect(() => {
 
-    let filtroRendaFixa,filtroDiferenciada,filtroRendaVariavel = "";
+    let filtroRendaFixa, filtroDiferenciada, filtroRendaVariavel = "";
     const checkRendaFixa = (document.querySelector('#input-valor-rendaFixa').checked);
     const checkDiferenciada = document.querySelector('#input-valor-estrategiasDiferenciadas').checked;
     const isCheckedRendaVariavel = document.querySelector('#input-valor-rendaVariavel').checked;
-    
-    if(checkRendaFixa){
+
+    if (checkRendaFixa) {
       filtroRendaFixa = rendaFixaID;
     }
 
-    if(checkDiferenciada){
+    if (checkDiferenciada) {
       filtroDiferenciada = diferenciadaID;
 
     }
-    if(isCheckedRendaVariavel){
+    if (isCheckedRendaVariavel) {
       filtroRendaVariavel = varivelID;
     }
 
@@ -119,40 +119,60 @@ export const InfoFundosMobile = () => {
         return item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
           Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
-          Number(item.operability.retrieval_quotation_days <= prazoResgate)&&
-          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase()===filtroRendaFixa||
+          Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
+          entrou(item.specification.fund_main_strategy.name) &&
+          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaFixa ||
+
+
           item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
           Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
-          Number(item.operability.retrieval_quotation_days <= prazoResgate)&&
-          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase()===filtroDiferenciada||
+          Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
+          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroDiferenciada ||
+
+
           item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
           Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
-          Number(item.operability.retrieval_quotation_days <= prazoResgate)&&
-          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase()===filtroRendaVariavel
+          Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
+          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaVariavel
 
       })
     )
   }, [q, data, aplicacaoMinima, perfilRisco, prazoResgate, isCheckedRendaVariavel, isCheckedRendaFixa, isCheckedDifereciada, dadosFiltradosRendaFixa])
 
+  function entrou(name) {
+    if (checksRendaFixa.length >= 1) {
+      var resp = checksRendaFixa.includes(name)
 
-  
+      return resp
+    }else{
+      return false
+    }
 
-  function filterDataRendaFixa(e){
-    let index = Number(e.target.getAttribute("a-key")); 
-    let posicaoElemento = dadosFiltradosRendaFixa.indexOf(uniqueNomeRendaFixa[index]);
+  }
 
-    if(e.target.checked===true){
-      if(posicaoElemento === -1){
-        dadosFiltradosRendaFixa.push(uniqueNomeRendaFixa[index]);
-        console.log(dadosFiltradosRendaFixa);
+  function changeState(){
+    setDadosFiltradosRendaFixa(!dadosFiltradosRendaFixa)
+    console.log(dadosFiltradosRendaFixa)
+  }
+
+
+  function filterDataRendaFixa(e) {
+    let index = Number(e.target.getAttribute("a-key"));
+    let posicaoElemento = checksRendaFixa.indexOf(uniqueNomeRendaFixa[index]);
+
+
+    if (e.target.checked === true) {
+      if (posicaoElemento === -1) {
+        checksRendaFixa.push(uniqueNomeRendaFixa[index]);
+        console.log(checksRendaFixa)
       }
 
     }
-    if(e.target.checked===false){
-      dadosFiltradosRendaFixa.splice(posicaoElemento,1);
-      console.log(dadosFiltradosRendaFixa)
+    if (e.target.checked === false) {
+      checksRendaFixa.splice(posicaoElemento, 1);
+      console.log(checksRendaFixa)
     }
   }
 
@@ -267,7 +287,7 @@ export const InfoFundosMobile = () => {
     return filtraNomeRendaFixa.indexOf(item) == pos;
   })
 
-  dadosFiltradosRendaFixa = filtraNomeRendaFixa.filter(function (item, pos) {
+  checksRendaFixa = filtraNomeRendaFixa.filter(function (item, pos) {
     return filtraNomeRendaFixa.indexOf(item) == pos;
   }) //adiciona os dados já marcados do filtro Renda Fixa no array para ser filtrado quando mudado o seu valor
 
@@ -296,7 +316,7 @@ export const InfoFundosMobile = () => {
   })
 
   uniqueNomeGestores.sort((a, b) => (a > b) ? 1 : ((b > a) ? -1 : 0))
-  FilteredData.sort((a,b) => (a.profitabilities.m12 <  b.profitabilities.m12) ? 1 : ((b.profitabilities.m12< a.profitabilities.m12) ? -1 : 0));
+  FilteredData.sort((a, b) => (a.profitabilities.m12 < b.profitabilities.m12) ? 1 : ((b.profitabilities.m12 < a.profitabilities.m12) ? -1 : 0));
 
   return (
     <>
@@ -353,7 +373,7 @@ export const InfoFundosMobile = () => {
           </div>
 
           <NavTabDestaqueTodos />
-          <HeaderInfoFundos />
+          <HeaderInfoFundos className="cell medium-9" />
 
           <div classNames='data-mobile'>{FilteredData.map((item, index) => {
 
@@ -453,26 +473,26 @@ export const InfoFundosMobile = () => {
                 </div>
 
                 {isOpen && (
-                    <div className="box-more-info">
+                  <div className="box-more-info">
 
-                      <div className="box-more-info-grafico">
-
-                      </div>
-
-                      <div className="box-more-info-detalhes">
-                        <p>Cotização da aplicação: <span>{cotizacaoAplicacao}</span></p>
-                        <p>Cotização do resgate <span>{cotizacaoResgate}</span></p>
-                        <p>Liquidação do resgate: <span>{liquidacaoResgate}</span></p>
-                        <p className="last-p">Taxa de administração: <span>{taxaAdministracao}</span></p>
-
-
-                        <a href="#" className="link">Conheça mais informações sobre este fundo</a>
-
-                        <p className="style-bottom">CNPJ do fundo: <span>{item.cnpj}</span></p>
-                      </div>
+                    <div className="box-more-info-grafico">
 
                     </div>
-                  )}
+
+                    <div className="box-more-info-detalhes">
+                      <p>Cotização da aplicação: <span>{cotizacaoAplicacao}</span></p>
+                      <p>Cotização do resgate <span>{cotizacaoResgate}</span></p>
+                      <p>Liquidação do resgate: <span>{liquidacaoResgate}</span></p>
+                      <p className="last-p">Taxa de administração: <span>{taxaAdministracao}</span></p>
+
+
+                      <a href="#" className="link">Conheça mais informações sobre este fundo</a>
+
+                      <p className="style-bottom">CNPJ do fundo: <span>{item.cnpj}</span></p>
+                    </div>
+
+                  </div>
+                )}
 
               </>
 
@@ -487,7 +507,7 @@ export const InfoFundosMobile = () => {
             <h1>Filtrar por estratégias:</h1>
 
             <>
-              <input type="checkbox" id="input-valor-rendaFixa" className="inside-btn" defaultChecked={isCheckedRendaFixa} onChange={()=>setIsCheckedRendaFixa(!isCheckedRendaFixa)}/>
+              <input type="checkbox" id="input-valor-rendaFixa" className="inside-btn" defaultChecked={isCheckedRendaFixa} onChange={() => setIsCheckedRendaFixa(!isCheckedRendaFixa)} />
               <Button onClick={() => setOpenRendaFixa(!openRendaFixa)} aria-controls="btn-collapse-renda-fixa" aria-expanded={openRendaFixa} className="bg-light btn-collapse-renda-fixa"><p>Renda Fixa</p></Button>
               <Collapse in={openRendaFixa}>
 
@@ -499,7 +519,7 @@ export const InfoFundosMobile = () => {
 
                         return (
 
-                          <li><input type="checkbox" key={index} a-key={index} className="inside-btn" defaultChecked={isCheckedRendaFixa} onChange={(e)=>filterDataRendaFixa(e)}/><p>{item}</p></li>
+                          <li><input type="checkbox" key={index} a-key={index} className="inside-btn" defaultChecked={isCheckedRendaFixa} onChange={(e) => filterDataRendaFixa(e)} /><p>{item}</p></li>
                         )
                       })}
 
@@ -514,7 +534,7 @@ export const InfoFundosMobile = () => {
             </>
 
 
-            <input type="checkbox" id="input-valor-estrategiasDiferenciadas" className="inside-btn" defaultChecked={isCheckedDifereciada} onChange={()=>setIsCheckedDifereciada(!isCheckedDifereciada)} />
+            <input type="checkbox" id="input-valor-estrategiasDiferenciadas" className="inside-btn" defaultChecked={isCheckedDifereciada} onChange={() => setIsCheckedDifereciada(!isCheckedDifereciada)} />
             <Button onClick={() => setOpenDiferenciada(!openDiferenciada)} aria-controls="btn-collapse-estrategias-diferenciadas" aria-expanded={openDiferenciada} className="bg-light btn-estrategiasDiferenciadas"><p>Estratégias diferenciadas</p></Button>
             <Collapse in={openDiferenciada}>
 
@@ -540,7 +560,7 @@ export const InfoFundosMobile = () => {
             </Collapse>
 
 
-            <input type="checkbox" id="input-valor-rendaVariavel" className="inside-btn" defaultChecked={isCheckedRendaVariavel} onChange={()=>setIsCheckedRendaVariavel(!isCheckedRendaVariavel)} />
+            <input type="checkbox" id="input-valor-rendaVariavel" className="inside-btn" defaultChecked={isCheckedRendaVariavel} onChange={() => setIsCheckedRendaVariavel(!isCheckedRendaVariavel)} />
             <Button onClick={() => setOpenVariavel(!openVariavel)} aria-controls="btn-collapse-renda-variavel" aria-expanded={openVariavel} className="bg-light btn-estrategiasRenda-variavel"><p>Estratégias variavél</p></Button>
             <Collapse in={openVariavel}>
 
