@@ -33,6 +33,7 @@
         }
         
         body {
+            overflow-x: hidden;
             background-color: #F7F8FA !important; 
             .banner-home {
                 width: 100vw;
@@ -416,6 +417,7 @@
                             padding-bottom: 5px;
                             font-size: .9rem;
                             color: #333;
+                            font-family: $font-padrao;
                         }
                         .style {
                             font-weight: bold;
@@ -444,7 +446,7 @@
                     }
                 }
                 .footer-img {
-                    width: 300px;
+                    width: 250px;
                     height: fit-content;
                     margin: 0 auto;
                     .box-img-footer {
@@ -455,8 +457,9 @@
                             @include displayFlex();
                             justify-content: space-around;
                             .box-item-img {
+                                width:100%;
                                 img {
-                                    width: 80%;
+                                    width: 115px;
                                 }
                                 .styleBSM-img,
                                 .styleBrasil-img {
@@ -464,26 +467,35 @@
                                     margin-top: 10px;
                                 }
                                 .styleExecution-img {
-                                    margin-top: 20px;
+                                    margin: 20px auto;
                                     width: 120px;
+                                    margin-left: 60px;
+                                    
                                 }
                             }
                         }
+                        .itemLeft{
+                            margin-top: 7px;
+                        }
                     }
+                }
+                .footer-img-desktop{
+                    display: none
                 }
                 .box-img-redes {
                     @include displayFlex();
                     flex-direction: column;
                     .box-img-footer-eleita {
-                        width: 300px;
+                        width: 270px;
                         height: fit-content;
-                        margin-top: 20px;
+                        margin-top: 10px;
                         text-align: center;
                         p {
                             font-weight: bold;
                             color: #333;
                             font-size: .9rem;
                             text-align: left;
+                            
                         }
                         img {
                             width: 85%;
@@ -491,9 +503,10 @@
                     }
                     .box-redes-sociais {
                         width: 100%;
-                        height: 110px;
+                        height: 90px;
                         @include displayFlex();
                         justify-content: center;
+                        margin-top: 0;
                         a {
                             display: inline-block;
                             width: 30px;
@@ -520,6 +533,21 @@
                         }
                     }
                 }
+                .box-txt-footer{
+                    width: 100%;
+                    height: 180px;
+                    background-color: #9C9D9E;
+                    margin-top: 40px;
+                    p{
+                        padding-top: 60px;
+                        margin-left: 10px;
+                        font-size: .8rem;
+                        color: #fff;
+                    }
+                }
+            }
+            .box-txt-footer-outer{
+                display: none;
             }
         }
         
@@ -931,6 +959,7 @@
                                 margin-right: 0;
                                 background-color: #ffffff;
                                 box-shadow: 0px 0px 11px -10px rgba(0, 0, 0, 0.75);
+                                
                                 .box-status-fundo {
                                     float: left;
                                     width: 10px;
@@ -980,6 +1009,7 @@
                                 }  
                                 
                             }
+
                             .box-more-info {
                                 width: 100%;
                                 height: 360px;
@@ -1037,6 +1067,7 @@
                     width: 100%;
                     .footer-txt {
                         width: 100%;
+                        margin-top: 200px;
                         @include displayFlex();
                         justify-content: space-between;
                         align-items: flex-start;
@@ -1061,39 +1092,96 @@
                             padding-right: 0px;
                         }
                     }
-                    .box-img-footer {
-                        width: 100%;
+
+                    .footer-img{
+                        display: none;
+                    }
+                    .footer-links {
+                        .box-termos-legais {
+                            margin:25px 0;
+                            margin-top: 70px;
+                        }}
+                    .footer-img-desktop{
+                        display: block;
+                        width: 80%;
                         height: fit-content;
-                        @include displayFlex();
-                        flex-direction: row;
-                        flex-wrap: wrap;
-                        .itemRight,
-                        .itemLeft {
+                        margin: 0 auto;
+                        .box-img-footer{
                             width: 100%;
                             @include displayFlex();
                             flex-direction: row;
                             justify-content: space-between;
-                            .box-item-img {
-                                img {
-                                    width: 100px;
+                            .itemRight{
+                                width: 55%;
+                                @include displayFlex();
+                                flex-direction: row;
+                                justify-content: space-around;
+                                .box-item-img {
+                                    width:fit-content;
+                                    img {
+                                        width: 130px;
+                                    }
+                                    .styleBSM-img,
+                                    .styleBrasil-img {
+                                        width: 100px;
+                                        margin-top: 10px;
+                                        padding: 0px;
+                                    }
+                                    .styleExecution-img {
+                                        margin: 20px auto;
+                                        width: 120px;
+                                        
+                                    }
                                 }
-                                .styleBSM-img,
-                                .styleBrasil-img {
-                                    width: 100px;
-                                    margin-top: 10px;
-                                }
-                                .styleExecution-img {
-                                    margin-top: 20px;
-                                    width: 120px;
-                                }
+                            }
+                            .style-right{
+                                width: 45%;
+                            }
+                            .itemLeft{
+                                margin-top: 7px;
                             }
                         }
                     }
-                }
+                    .box-img-redes{
+                        width: 80%;
+                        margin: 0 auto;
+                        flex-direction: row-reverse;
+                        justify-content: space-between;
+                        .box-img-footer-eleita,
+                        .box-redes-sociais{
+                           width: 250px;
+                        }
+
+                        .box-redes-sociais{
+                            padding-top: 50px;
+                        }
+
+                    }
+                    .box-txt-footer{
+                        display: none;
+                    }
+                
+                    }
+                .box-txt-footer-outer{
+                        display: block;
+                            width: 100%;
+                            height:10px;
+                            height: fit-content;
+                            background-color: #9C9D9E;
+                            margin-top: 540px;
+                            padding: 50px 15px 60px 15px;
+                            color: #fff;
+                            font-size: .7rem;
+                            font-weight: 500;
+                    }
+                
             }
             .box-abra-sua-conta {
                 display: none;
+                position: relative;
+                width: 100%;
             }
+
         }
         
         @media (min-width:950px) {
@@ -1169,6 +1257,13 @@
                 }
             }
         }
+        .box-txt-footer-outer{
+            .inner-footer-outer{
+                width:95%;
+                margin: 0 auto;
+            }
+
+    }
         
         @media (min-width:985px) {
             body {
@@ -1330,6 +1425,13 @@
                 }
             }
         }
+        .box-txt-footer-outer{
+            .inner-footer-outer{
+                width:85%;
+                margin: 0 auto;
+            }
+
+    }
 
         @media (min-width:1022px) {
             .container-all{

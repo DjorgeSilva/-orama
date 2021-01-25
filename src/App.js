@@ -8,7 +8,7 @@ import { Legenda } from "./components/Legenda.js";
 import { BtnConta } from "./components/BtnConta.js";
 import { InfoFundosMobile } from "./components/InfoFundosMobile.js";
 import { Footer } from "./components/Footer.js"
-import { SideBarFilter } from "./components/SideBarFilter.js";
+import { OuterFooter } from "./components/OuterFooter.js";
 
 
 function App() {
@@ -47,6 +47,7 @@ function App() {
 
 
       </Layout>
+      <OuterFooter/>
       <BtnConta />
     </React.Fragment>
   );

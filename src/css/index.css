@@ -8,6 +8,7 @@
 }
 
 body {
+  overflow-x: hidden;
   background-color: #F7F8FA !important;
 }
 
@@ -531,6 +532,7 @@ body .footer .footer-txt .box-footer-inner a {
   padding-bottom: 5px;
   font-size: .9rem;
   color: #333;
+  font-family: "Roboto", serif;
 }
 
 body .footer .footer-txt .box-footer-inner .style {
@@ -566,7 +568,7 @@ body .footer .footer-links .box-termos-legais a:after {
 }
 
 body .footer .footer-img {
-  width: 300px;
+  width: 250px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -595,9 +597,14 @@ body .footer .footer-img .box-img-footer .itemLeft {
       justify-content: space-around;
 }
 
+body .footer .footer-img .box-img-footer .itemRight .box-item-img,
+body .footer .footer-img .box-img-footer .itemLeft .box-item-img {
+  width: 100%;
+}
+
 body .footer .footer-img .box-img-footer .itemRight .box-item-img img,
 body .footer .footer-img .box-img-footer .itemLeft .box-item-img img {
-  width: 80%;
+  width: 115px;
 }
 
 body .footer .footer-img .box-img-footer .itemRight .box-item-img .styleBSM-img,
@@ -610,8 +617,17 @@ body .footer .footer-img .box-img-footer .itemLeft .box-item-img .styleBrasil-im
 
 body .footer .footer-img .box-img-footer .itemRight .box-item-img .styleExecution-img,
 body .footer .footer-img .box-img-footer .itemLeft .box-item-img .styleExecution-img {
-  margin-top: 20px;
+  margin: 20px auto;
   width: 120px;
+  margin-left: 60px;
+}
+
+body .footer .footer-img .box-img-footer .itemLeft {
+  margin-top: 7px;
+}
+
+body .footer .footer-img-desktop {
+  display: none;
 }
 
 body .footer .box-img-redes {
@@ -631,11 +647,11 @@ body .footer .box-img-redes {
 }
 
 body .footer .box-img-redes .box-img-footer-eleita {
-  width: 300px;
+  width: 270px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -652,7 +668,7 @@ body .footer .box-img-redes .box-img-footer-eleita img {
 
 body .footer .box-img-redes .box-redes-sociais {
   width: 100%;
-  height: 110px;
+  height: 90px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -663,6 +679,7 @@ body .footer .box-img-redes .box-redes-sociais {
       -ms-flex-align: center;
           align-items: center;
   justify-content: center;
+  margin-top: 0;
 }
 
 body .footer .box-img-redes .box-redes-sociais a {
@@ -693,6 +710,24 @@ body .footer .box-img-redes .box-redes-sociais a[href*="youtube"] {
 
 body .footer .box-img-redes .box-redes-sociais a[href*="instagram"] {
   background-image: url("../assets/img/instagram-icone.png");
+}
+
+body .footer .box-txt-footer {
+  width: 100%;
+  height: 180px;
+  background-color: #9C9D9E;
+  margin-top: 40px;
+}
+
+body .footer .box-txt-footer p {
+  padding-top: 60px;
+  margin-left: 10px;
+  font-size: .8rem;
+  color: #fff;
+}
+
+body .box-txt-footer-outer {
+  display: none;
 }
 
 @media (min-width: 320px) {
@@ -1211,6 +1246,7 @@ body .footer .box-img-redes .box-redes-sociais a[href*="instagram"] {
   }
   body .footer .footer-txt {
     width: 100%;
+    margin-top: 200px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1252,29 +1288,22 @@ body .footer .box-img-redes .box-redes-sociais a[href*="instagram"] {
   body .footer .footer-txt :last-child {
     padding-right: 0px;
   }
-  body .footer .box-img-footer {
-    width: 100%;
+  body .footer .footer-img {
+    display: none;
+  }
+  body .footer .footer-links .box-termos-legais {
+    margin: 25px 0;
+    margin-top: 70px;
+  }
+  body .footer .footer-img-desktop {
+    display: block;
+    width: 80%;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    margin: 0 auto;
   }
-  body .footer .box-img-footer .itemRight,
-  body .footer .box-img-footer .itemLeft {
+  body .footer .footer-img-desktop .box-img-footer {
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1293,24 +1322,87 @@ body .footer .box-img-redes .box-redes-sociais a[href*="instagram"] {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  body .footer .box-img-footer .itemRight .box-item-img img,
-  body .footer .box-img-footer .itemLeft .box-item-img img {
-    width: 100px;
+  body .footer .footer-img-desktop .box-img-footer .itemRight {
+    width: 55%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
   }
-  body .footer .box-img-footer .itemRight .box-item-img .styleBSM-img,
-  body .footer .box-img-footer .itemRight .box-item-img .styleBrasil-img,
-  body .footer .box-img-footer .itemLeft .box-item-img .styleBSM-img,
-  body .footer .box-img-footer .itemLeft .box-item-img .styleBrasil-img {
+  body .footer .footer-img-desktop .box-img-footer .itemRight .box-item-img {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  body .footer .footer-img-desktop .box-img-footer .itemRight .box-item-img img {
+    width: 130px;
+  }
+  body .footer .footer-img-desktop .box-img-footer .itemRight .box-item-img .styleBSM-img,
+  body .footer .footer-img-desktop .box-img-footer .itemRight .box-item-img .styleBrasil-img {
     width: 100px;
     margin-top: 10px;
+    padding: 0px;
   }
-  body .footer .box-img-footer .itemRight .box-item-img .styleExecution-img,
-  body .footer .box-img-footer .itemLeft .box-item-img .styleExecution-img {
-    margin-top: 20px;
+  body .footer .footer-img-desktop .box-img-footer .itemRight .box-item-img .styleExecution-img {
+    margin: 20px auto;
     width: 120px;
+  }
+  body .footer .footer-img-desktop .box-img-footer .style-right {
+    width: 45%;
+  }
+  body .footer .footer-img-desktop .box-img-footer .itemLeft {
+    margin-top: 7px;
+  }
+  body .footer .box-img-redes {
+    width: 80%;
+    margin: 0 auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  body .footer .box-img-redes .box-img-footer-eleita,
+  body .footer .box-img-redes .box-redes-sociais {
+    width: 250px;
+  }
+  body .footer .box-img-redes .box-redes-sociais {
+    padding-top: 50px;
+  }
+  body .footer .box-txt-footer {
+    display: none;
+  }
+  body .box-txt-footer-outer {
+    display: block;
+    width: 100%;
+    height: 10px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    background-color: #9C9D9E;
+    margin-top: 540px;
+    padding: 50px 15px 60px 15px;
+    color: #fff;
+    font-size: .7rem;
+    font-weight: 500;
   }
   .box-abra-sua-conta {
     display: none;
+    position: relative;
+    width: 100%;
   }
 }
 
@@ -1381,6 +1473,11 @@ body .footer .box-img-redes .box-redes-sociais a[href*="instagram"] {
   body .footer .footer-txt .box-footer-inner .box-item-footer p {
     font-size: .9rem;
   }
+}
+
+.box-txt-footer-outer .inner-footer-outer {
+  width: 95%;
+  margin: 0 auto;
 }
 
 @media (min-width: 985px) {
@@ -1595,6 +1692,10 @@ body .footer .box-img-redes .box-redes-sociais a[href*="instagram"] {
     width: 992px;
     margin: 0 auto;
     margin-top: 220px;
+  }
+  body .box-txt-footer-outer .inner-footer-outer {
+    width: 85%;
+    margin: 0 auto;
   }
 }
 
