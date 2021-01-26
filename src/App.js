@@ -8,7 +8,7 @@ import { Legenda } from "./components/Legenda.js";
 import { BtnConta } from "./components/BtnConta.js";
 import { InfoFundosMobile } from "./components/InfoFundosMobile.js";
 import { Footer } from "./components/Footer.js"
-import { OuterFooter } from "./components/OuterFooter.js";
+import { SideBarFilter } from "./components/SideBarFilter.js";
 
 
 function App() {
@@ -39,15 +39,19 @@ function App() {
           <Legenda />
           <InfoFundosMobile data={data} />
         </div>
+{/* 
+        <div className="columns large-3 sidebarFiltros">
+          <SideBarFilter/>
 
-        <div>
+        </div> */}
+
+        <div className="columns large-12 footer">
         <Footer />
 
         </div>
 
 
       </Layout>
-      <OuterFooter/>
       <BtnConta />
     </React.Fragment>
   );

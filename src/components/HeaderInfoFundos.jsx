@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Container} from 'react-bootstrap';
 import "../css/index.css";
 
 
 export const HeaderInfoFundos = () => {
+
     
     return (
                 <div className="box-header-fundos-mobile">
