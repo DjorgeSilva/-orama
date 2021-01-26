@@ -411,7 +411,8 @@ export const InfoFundosMobile = () => {
 
           <div classNames='data-mobile'>{FilteredData.map((item, index) => {
 
-            const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo } } } = item;
+            const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo }} } = item;
+            const { specification: { fund_main_strategy:{name:estrategia_principal}} } = item;
             const { profitabilities: { month: lucroMes, m12, year: lucroAno } } = item;
             const { operability: { minimum_initial_application_amount: aplicacaoMinima, application_quotation_days_str: cotizacaoAplicacao, retrieval_quotation_days: cotizacaoAplicacaoSigla, retrieval_quotation_days_str: cotizacaoResgate,
               retrieval_liquidation_days_str: liquidacaoResgate, application_time_limit: horarioLimiteAplicacao } } = item;
@@ -475,9 +476,10 @@ export const InfoFundosMobile = () => {
                       <div class='box-status-fundo'><span style={{ backgroundColor: cor(corPerfilRiscoFundo) }}></span></div>
                     </div>
 
+                    <p class="subtitulo-fundo">{estrategia_principal}</p>
                     <p class="subtitulo-fundo">{tipoFundo} | {classeFundo}</p>
 
-                    <div class="box-item-info-fundos">
+                    <div class="box-item-info-fundos first-box-item">
                       <p class="right-row">Data da cota:</p>
                       <p class="left-row">{reformatDate(item.quota_date)}</p>
                     </div>
@@ -514,6 +516,7 @@ export const InfoFundosMobile = () => {
 
                     <div className="cell medium-3 coluna-header fundo">
                       <h4 className="first-style">{item.simple_name}</h4>
+                      <h2 className="first-h2">{estrategia_principal}</h2>
                       <h2>{tipoFundo} | {classeFundo}</h2>
                     </div>
 

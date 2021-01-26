@@ -291,6 +291,7 @@
                                                 width: 90%;
                                                 font-size: .9rem;
                                                 font-weight: bold;
+                                                padding-bottom: 10px;
                                             }
                                             .box-status-fundo {
                                                 display: block;
@@ -309,8 +310,10 @@
                                         .subtitulo-fundo {
                                             font-size: .8rem;
                                             color: rgb(150, 150, 150);
-                                            padding-top: 10px;
+                                            padding-top: 0;
                                             font-weight: 500;
+                                            padding-bottom: 0;
+                                            margin-bottom: 5px;
                                         }
                                         .box-item-info-fundos {
                                             @include displayFlex();
@@ -328,6 +331,9 @@
                                                 text-align: right;
                                                 font-weight: 400;
                                             }
+                                        }
+                                        .first-box-item {
+                                            margin-top: 10px
                                         }
                                         .box-info-button {
                                             @include displayFlex();
@@ -1006,6 +1012,11 @@
                                                     text-align: left;
                                                     color: rgba(95, 95, 95, 0.867);
                                                     margin-top: 0;
+                                                    padding-top: 0;
+                                                    margin-bottom: 0;
+                                                }
+                                                .first-h2 {
+                                                    margin-top: 4px;
                                                 }
                                                 .first-style {
                                                     text-align: left;
@@ -1461,7 +1472,7 @@
                                         }
                                     }
                                     .style-box-top {
-                                        margin-top: 30px;
+                                        margin-top: 0px;
                                     }
                                 }
                                 .box-footer {
