@@ -1000,10 +1000,23 @@ body .box-txt-footer-outer {
     top: -20px !important;
   }
   body .container-all .box-wrap-all-filters .box-right-wrap-all .container-busca .box-busca .box-filtros .perfilRisco {
+    width: 250px;
+    position: relative;
     text-align: center;
   }
   body .container-all .box-wrap-all-filters .box-right-wrap-all .container-busca .box-busca .box-filtros .perfilRisco input[type=range] {
     width: 40%;
+  }
+  body .container-all .box-wrap-all-filters .box-right-wrap-all .container-busca .box-busca .box-filtros .perfilRisco .style-p {
+    position: absolute;
+    top: 58px;
+    font-size: .8rem;
+  }
+  body .container-all .box-wrap-all-filters .box-right-wrap-all .container-busca .box-busca .box-filtros .perfilRisco .style-p-menor {
+    left: 5px;
+  }
+  body .container-all .box-wrap-all-filters .box-right-wrap-all .container-busca .box-busca .box-filtros .perfilRisco .style-p-maior {
+    right: 15px;
   }
   body .container-all .box-wrap-all-filters .box-right-wrap-all .container-busca .box-busca .box-filtros label {
     width: 100%;
@@ -1726,7 +1739,43 @@ body .box-txt-footer-outer {
   body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .txt-filtrar-gestores {
     margin-top: 10px;
   }
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .txt-outros-filtros,
   body .container-all .box-wrap-all-filters .box-left-wrap-all .txt-filtrar-gestores {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .txt-outros-filtros {
+    margin-bottom: 50px;
+  }
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .box-outros-filtros {
+    width: 100%;
+    height: 70px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 5px 15px;
+    -webkit-box-shadow: 1px 1px 20px #f1f1f1;
+            box-shadow: 1px 1px 20px #f1f1f1;
+    border-radius: 5px;
+  }
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .box-outros-filtros input {
+    display: block;
+    width: 10%;
+    float: left;
+    margin-top: 10px;
+  }
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .box-outros-filtros p {
+    width: 90%;
+    font-family: "Roboto", serif;
+    font-size: .8rem;
+    float: right;
+    font-weight: bold;
+    color: #333;
+    padding-top: 8px;
+  }
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .box-outros-filtros .style-esg {
+    padding-top: 0;
+  }
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .style-box-top {
     margin-top: 30px;
   }
   body .container-all .box-wrap-all-filters .box-footer {
@@ -1845,8 +1894,13 @@ body .box-txt-footer-outer {
   }
 }
 
-@media (min-width: 985px) and (min-width: 1281px) {
-  /* hi-res laptops and desktops */
+@media (min-width: 985px) and (min-width: 1260px) {
+  body .container-all .box-left-wrap-all .item-sideBarFiltros .box-outros-filtros input {
+    margin-top: 15px;
+  }
+  body .container-all .box-left-wrap-all .item-sideBarFiltros .box-outros-filtros .style-esg {
+    padding-top: 10px;
+  }
 }
 
 @media (min-width: 1300px) {
