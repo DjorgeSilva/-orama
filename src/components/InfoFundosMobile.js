@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { NavTabDestaqueTodos } from "./NavTabDestaqueTodos.js";
 import { HeaderInfoFundos } from "./HeaderInfoFundos.jsx";
 import * as IoIcons from "react-icons/io5";
-import { Button, Collapse } from "react-bootstrap"
+import { RiArrowDownSFill } from "react-icons/ri";
+import { Button, Collapse, Tooltip, OverlayTrigger, Popover } from "react-bootstrap"
 
 require("es6-promise").polyfill();
 require("isomorphic-fetch");
@@ -40,7 +41,8 @@ export const InfoFundosMobile = () => {
   var uniqueNomeRendaVariavel = [];
   var filtraNomeGestores = [];
   var uniqueNomeGestores = [];
-
+  var strRendaFixa = "";
+  var count = 0;
   const [dadosFiltradosRendaFixa, setDadosFiltradosRendaFixa] = useState(false);
   var checksRendaFixa = [];
 
@@ -120,7 +122,7 @@ export const InfoFundosMobile = () => {
           Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
-          entrou(item.specification.fund_main_strategy.name) &&
+          // entrou(item.specification.fund_main_strategy.name) &&
           JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaFixa ||
 
 
@@ -141,21 +143,15 @@ export const InfoFundosMobile = () => {
     )
   }, [q, data, aplicacaoMinima, perfilRisco, prazoResgate, isCheckedRendaVariavel, isCheckedRendaFixa, isCheckedDifereciada, dadosFiltradosRendaFixa])
 
-  function entrou(name) {
-    if (checksRendaFixa.length >= 1) {
-      var resp = checksRendaFixa.includes(name)
+  // function entrou(name) {
+  //   if(count === 0){
+  //     return true
+  //     count++;
+  //   }else{
+  //     return false
+  //   }
 
-      return resp
-    }else{
-      return false
-    }
-
-  }
-
-  function changeState(){
-    setDadosFiltradosRendaFixa(!dadosFiltradosRendaFixa)
-    console.log(dadosFiltradosRendaFixa)
-  }
+  // }
 
 
   function filterDataRendaFixa(e) {
@@ -166,14 +162,19 @@ export const InfoFundosMobile = () => {
     if (e.target.checked === true) {
       if (posicaoElemento === -1) {
         checksRendaFixa.push(uniqueNomeRendaFixa[index]);
+        strRendaFixa = checksRendaFixa.toString();
         console.log(checksRendaFixa)
+        console.log(strRendaFixa);
       }
 
     }
     if (e.target.checked === false) {
       checksRendaFixa.splice(posicaoElemento, 1);
-      console.log(checksRendaFixa)
+      strRendaFixa = checksRendaFixa.toString();
+      console.log(checksRendaFixa);
+      console.log(strRendaFixa);
     }
+
   }
 
   function moneyFormatter(money) {
@@ -291,6 +292,8 @@ export const InfoFundosMobile = () => {
     return filtraNomeRendaFixa.indexOf(item) == pos;
   }) //adiciona os dados já marcados do filtro Renda Fixa no array para ser filtrado quando mudado o seu valor
 
+  strRendaFixa = checksRendaFixa.toString();
+
   diferenciada.map((item) => {
     filtraNomeEstrategiaDiferenciada.push(item.specification.fund_main_strategy.name);
   })
@@ -383,6 +386,50 @@ export const InfoFundosMobile = () => {
               retrieval_liquidation_days_str: liquidacaoResgate, application_time_limit: horarioLimiteAplicacao } } = item;
             const { fees: { administration_fee: taxaAdministracao } } = item;
 
+            var fontSize = {
+              fontSize:12,
+              backgroundColor:"#fff",
+              fontWeight:"bold",
+              color:"#333"
+              
+            }
+
+            const tipMes = (
+              <Popover>
+                <Popover.Title style={fontSize}>
+                  Rentabilidade do fundo: {(Number(lucroMes * 100).toFixed(2))+"%"}<br/>
+                  CDI do mês: 
+                </Popover.Title>
+                <Popover.Content style={fontSize}>
+                    % sobre CDI: 
+                </Popover.Content>
+              </Popover>
+            );
+
+            const tipAno = (
+              <Popover>
+                <Popover.Title style={fontSize}>
+                  Rentabilidade do fundo: {(Number(lucroAno * 100).toFixed(2))+"%"}<br/>
+                  CDI 2021: 
+                </Popover.Title>
+                <Popover.Content style={fontSize}>
+                    % sobre CDI: 
+                </Popover.Content >
+              </Popover>
+            );
+
+            const tip12m = (
+              <Popover>
+                <Popover.Title style={fontSize}>
+                  Rentabilidade do fundo: {(Number(m12 * 100).toFixed(2))+"%"}<br/>
+                  CDI 12M: 
+                </Popover.Title>
+                <Popover.Content style={fontSize}>
+                    % sobre CDI: 
+                </Popover.Content>
+              </Popover>
+            );
+
 
 
             return (
@@ -444,15 +491,21 @@ export const InfoFundosMobile = () => {
                     </div>
 
                     <div className="cell medium-1 coluna-header mes">
-                      <h4>{(Number(lucroMes * 100).toFixed(2))}</h4>
+                    <OverlayTrigger trigger="hover" placement="bottom" overlay={tipMes}>
+                        <h4>{(Number(lucroMes * 100).toFixed(2))}</h4>
+                      </OverlayTrigger>
                     </div>
 
                     <div className="cell medium-1 coluna-header ano">
+                    <OverlayTrigger trigger="hover" placement="bottom" overlay={tipAno}>
                       <h4>{(Number(lucroMes * 100).toFixed(2))}</h4>
+                      </OverlayTrigger>
                     </div>
 
                     <div className="cell medium-1 coluna-header _12m">
+                    <OverlayTrigger trigger="hover" placement="bottom" overlay={tip12m}>
                       <h4>{(Number(m12 * 100).toFixed(2))}</h4>
+                      </OverlayTrigger>
                     </div>
 
                     <div className="cell medium-3 coluna-header aplicacao_minima">
@@ -508,7 +561,7 @@ export const InfoFundosMobile = () => {
 
             <>
               <input type="checkbox" id="input-valor-rendaFixa" className="inside-btn" defaultChecked={isCheckedRendaFixa} onChange={() => setIsCheckedRendaFixa(!isCheckedRendaFixa)} />
-              <Button onClick={() => setOpenRendaFixa(!openRendaFixa)} aria-controls="btn-collapse-renda-fixa" aria-expanded={openRendaFixa} className="bg-light btn-collapse-renda-fixa"><p>Renda Fixa</p></Button>
+              <Button onClick={() => setOpenRendaFixa(!openRendaFixa)} aria-controls="btn-collapse-renda-fixa" aria-expanded={openRendaFixa} className="bg-light btn-collapse-renda-fixa"><p>Renda Fixa </p> <RiArrowDownSFill className="icone-dropdown"/></Button>
               <Collapse in={openRendaFixa}>
 
 
@@ -535,7 +588,7 @@ export const InfoFundosMobile = () => {
 
 
             <input type="checkbox" id="input-valor-estrategiasDiferenciadas" className="inside-btn" defaultChecked={isCheckedDifereciada} onChange={() => setIsCheckedDifereciada(!isCheckedDifereciada)} />
-            <Button onClick={() => setOpenDiferenciada(!openDiferenciada)} aria-controls="btn-collapse-estrategias-diferenciadas" aria-expanded={openDiferenciada} className="bg-light btn-estrategiasDiferenciadas"><p>Estratégias diferenciadas</p></Button>
+            <Button onClick={() => setOpenDiferenciada(!openDiferenciada)} aria-controls="btn-collapse-estrategias-diferenciadas" aria-expanded={openDiferenciada} className="bg-light btn-estrategiasDiferenciadas"><p>Estratégias diferenciadas</p><RiArrowDownSFill className="icone-dropdown"/></Button>
             <Collapse in={openDiferenciada}>
 
 
@@ -561,7 +614,7 @@ export const InfoFundosMobile = () => {
 
 
             <input type="checkbox" id="input-valor-rendaVariavel" className="inside-btn" defaultChecked={isCheckedRendaVariavel} onChange={() => setIsCheckedRendaVariavel(!isCheckedRendaVariavel)} />
-            <Button onClick={() => setOpenVariavel(!openVariavel)} aria-controls="btn-collapse-renda-variavel" aria-expanded={openVariavel} className="bg-light btn-estrategiasRenda-variavel"><p>Estratégias variavél</p></Button>
+            <Button onClick={() => setOpenVariavel(!openVariavel)} aria-controls="btn-collapse-renda-variavel" aria-expanded={openVariavel} className="bg-light btn-estrategiasRenda-variavel"><p>Estratégias variavél</p><RiArrowDownSFill className="icone-dropdown"/></Button>
             <Collapse in={openVariavel}>
 
 
@@ -588,7 +641,7 @@ export const InfoFundosMobile = () => {
             <h1 className="txt-filtrar-gestores">Filtrar por gestores:</h1>
 
             <input type="checkbox" id="input-valor-gestores" className="inside-btn" defaultChecked={checado} />
-            <Button onClick={() => setOpenGestores(!openGestores)} aria-controls="btn-collapse-gestores" aria-expanded={openGestores} className="bg-light btn-gestores"><p>Gestores</p></Button>
+            <Button onClick={() => setOpenGestores(!openGestores)} aria-controls="btn-collapse-gestores" aria-expanded={openGestores} className="bg-light btn-gestores"><p>Gestores</p><RiArrowDownSFill className="icone-dropdown"/></Button>
             <Collapse in={openGestores}>
 
 

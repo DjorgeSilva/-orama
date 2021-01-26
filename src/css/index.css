@@ -1109,6 +1109,12 @@ body .box-txt-footer-outer {
   body .container-all .box-wrap-all-filters .box-right-wrap-all .box-header-fundos-mobile .row-header {
     width: 100%;
   }
+  body .container-all .box-wrap-all-filters .box-right-wrap-all .box-header-fundos-mobile .row-header .popover-title {
+    font-size: 5px;
+  }
+  body .container-all .box-wrap-all-filters .box-right-wrap-all .box-header-fundos-mobile .row-header .popover-content {
+    font-size: 5px;
+  }
   body .container-all .box-wrap-all-filters .box-right-wrap-all .box-header-fundos-mobile .row-header .coluna-header {
     height: -webkit-fit-content;
     height: -moz-fit-content;
@@ -1288,6 +1294,7 @@ body .box-txt-footer-outer {
   }
   body .footer .footer-txt .box-footer-inner .box-item-footer a {
     font-size: .8rem;
+    text-decoration: none;
   }
   body .footer .footer-txt .box-footer-inner .box-item-footer p {
     font-size: .8rem;
@@ -1533,7 +1540,7 @@ body .box-txt-footer-outer {
     font-weight: 600;
     font-family: "Roboto", serif;
     color: #333;
-    margin-bottom: 15px;
+    margin-bottom: 0;
   }
   body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros button {
     width: 100%;
@@ -1549,26 +1556,34 @@ body .box-txt-footer-outer {
     padding: 10px 10px;
     border-radius: 5px;
     text-transform: uppercase;
-    margin-top: 10px;
+    margin-top: 0;
     margin-bottom: 0;
   }
   body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros button p {
+    width: 90%;
     padding: 0;
     margin: 0;
-    padding-left: 20px;
+    padding-left: 25px;
+    font-size: .8rem;
+    font-family: "Roboto", serif;
+    float: left;
+    color: #333;
+  }
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros button .icone-dropdown {
+    float: right;
   }
   body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #input-valor-rendaFixa,
   body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #input-valor-estrategiasDiferenciadas,
   body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #input-valor-rendaVariavel,
   body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #input-valor-gestores {
     position: relative;
-    top: 45px;
-    left: 10px;
+    top: 33px;
+    left: 15px;
     padding: 0;
     margin: 0;
   }
   body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros .btn-estrategiasDiferenciadas {
-    margin-top: 10px;
+    margin-top: 0;
   }
   body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa,
   body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas,
@@ -1579,6 +1594,24 @@ body .box-txt-footer-outer {
     height: -moz-fit-content;
     height: fit-content;
     background-color: #fff;
+  }
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-rendaFixa,
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-Diferenciada,
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-variavel,
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-gestores,
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-rendaFixa,
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-Diferenciada,
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-variavel,
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-estrategias-diferenciadas .body-gestores,
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-rendaFixa,
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-Diferenciada,
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-variavel,
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-variavel .body-gestores,
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-rendaFixa,
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-Diferenciada,
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-variavel,
+  body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-gestores .body-gestores {
+    margin-bottom: 0;
   }
   body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-rendaFixa ul,
   body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-Diferenciada ul,
@@ -1638,6 +1671,7 @@ body .box-txt-footer-outer {
     display: inline-block;
     margin-right: 5px;
     background-color: #25B7BA;
+    margin-left: 10px;
   }
   body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-rendaFixa ul li p,
   body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-Diferenciada ul li p,

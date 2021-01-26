@@ -7,6 +7,8 @@ import IconeBSM from "../assets/img/bsm-icone.png"
 import IconeBrasilBolsa from "../assets/img/icone-brasilbolsa.png"
 import IconeMelhor from "../assets/img/icone-a-melhor.png"
 import IconeExecution from "../assets/img/icone-execution.png"
+import { RiArrowDownSLine } from "react-icons/ri";
+
 
 
 
@@ -59,12 +61,12 @@ export const Footer = () => {
                         <div className="box-item-footer">
                             <h6>Invista agora</h6>
                             <a href="#">Todos os Investimentos</a>
-                            <a href="#" >Fundo de Investimentos</a>
-                            <a href="#" className="style">Renda Fixa</a>
-                            <a href="#" className="style">Renda Variavél</a>
-                            <a href="#" className="style">Oferta Pública</a>
+                            <a href="#" className="style">Fundo de Investimentos<RiArrowDownSLine /></a>
+                            <a href="#" className="style">Renda Fixa<RiArrowDownSLine /></a>
+                            <a href="#" className="style">Renda Variavél<RiArrowDownSLine /></a>
+                            <a href="#" className="style">Oferta Pública<RiArrowDownSLine /></a>
                             <a href="#">Tessouro Direto</a>
-                            <a href="#" className="style">Seguros e Previdência</a>
+                            <a href="#" className="style">Seguros e Previdência<RiArrowDownSLine /></a>
                             <a href="#">Entenda COE</a>
                             <a href="#">Entenda Custos</a>
                         </div>
@@ -225,7 +227,7 @@ export const Footer = () => {
             </div>
 
 
-    </>
+        </>
 
     );
 }

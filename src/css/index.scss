@@ -922,8 +922,15 @@
                                         background-color: rgb(255, 255, 255);
                                         margin-bottom: 30px;
                                         border: 1px solid rgb(233, 233, 233);
+                                        
                                         .row-header {
                                             width: 100%;
+                                            .popover-title {
+                                                font-size: 5px;
+                                            }
+                                            .popover-content {
+                                                font-size: 5px;
+                                            }
                                             .coluna-header {
                                                 height: fit-content;
                                                 h4 {
@@ -1073,6 +1080,7 @@
                                         }
                                         a {
                                             font-size: .8rem;
+                                            text-decoration: none;
                                         }
                                         p {
                                             font-size: .8rem;
@@ -1304,7 +1312,7 @@
                                             font-weight: 600;
                                             font-family: $font-padrao;
                                             color: #333;
-                                            margin-bottom: 15px;
+                                            margin-bottom: 0;
                                         }
                                         button {
                                             width: 100%;
@@ -1319,12 +1327,21 @@
                                             padding: 10px 10px;
                                             border-radius: 5px;
                                             text-transform: uppercase;
-                                            margin-top: 10px;
+                                            margin-top: 0;
                                             margin-bottom: 0;
                                             p {
+                                                width: 90%;
                                                 padding: 0;
                                                 margin: 0;
-                                                padding-left: 20px;
+                                                padding-left: 25px;
+                                                font-size: .8rem;
+                                                font-family: $font-padrao;
+                                                float: left;
+                                                color: #333;
+                                            }
+
+                                            .icone-dropdown{
+                                                float:right;
                                             }
                                         }
                                         #input-valor-rendaFixa,
@@ -1332,13 +1349,13 @@
                                         #input-valor-rendaVariavel,
                                         #input-valor-gestores {
                                             position: relative;
-                                            top: 45px;
-                                            left: 10px;
+                                            top: 33px;
+                                            left: 15px;
                                             padding: 0;
                                             margin: 0;
                                         }
                                         .btn-estrategiasDiferenciadas {
-                                            margin-top: 10px;
+                                            margin-top: 0;
                                         }
                                         #btn-collapse-renda-fixa,
                                         #btn-collapse-estrategias-diferenciadas,
@@ -1351,6 +1368,7 @@
                                             .body-Diferenciada,
                                             .body-variavel,
                                             .body-gestores {
+                                                margin-bottom: 0;
                                                 ul {
                                                     padding: 0;
                                                     margin: 0;
@@ -1362,6 +1380,7 @@
                                                             display: inline-block;
                                                             margin-right: 5px;
                                                             background-color: $cor-destaque;
+                                                            margin-left: 10px;
                                                         }
                                                         p {
                                                             display: inline-block;
