@@ -30,7 +30,7 @@ export class DisplayDataDesktop extends React.Component {
     const tipMes = (
       <Popover>
         <Popover.Title style={fontSize}>
-          Rentabilidade do fundo: {(Number(this.props.lucroMes * 100).toFixed(2)) + "%"}<br />
+          Rentabilidade do fundo: {this.props.lucroMes}%<br />
             CDI do mês:
           </Popover.Title>
         <Popover.Content style={fontSize}>
@@ -42,7 +42,7 @@ export class DisplayDataDesktop extends React.Component {
     const tipAno = (
       <Popover>
         <Popover.Title style={fontSize}>
-          Rentabilidade do fundo: {(Number(this.props.lucroAno * 100).toFixed(2)) + "%"}<br />
+          Rentabilidade do fundo: {this.props.lucroAno}%<br />
             CDI 2021:
           </Popover.Title>
         <Popover.Content style={fontSize}>
@@ -54,7 +54,7 @@ export class DisplayDataDesktop extends React.Component {
     const tip12m = (
       <Popover>
         <Popover.Title style={fontSize}>
-          Rentabilidade do fundo: {(Number(this.props.m12 * 100).toFixed(2)) + "%"}<br />
+          Rentabilidade do fundo: {this.props.m12}%<br />
             CDI 12M:
           </Popover.Title>
         <Popover.Content style={fontSize}>

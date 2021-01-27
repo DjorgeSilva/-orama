@@ -6,6 +6,7 @@ import { HeaderInfoFundos } from "./HeaderInfoFundos.jsx";
 import { RiArrowDownSFill } from "react-icons/ri";
 import { Button, Collapse, Tooltip, OverlayTrigger, Popover } from "react-bootstrap"
 import { DisplayDataMobile } from "./DisplayDataMobile.js";
+import { Loading } from "./Loading.js";
 import { DisplayDataDesktop } from "./DisplayDataDesktop.js";
 
 require("es6-promise").polyfill();
@@ -349,8 +350,8 @@ export const Filtros = () => {
 
           </div>
 
-          <NavTabDestaqueTodos />
-
+          <NavTabDestaqueTodos>
+          </NavTabDestaqueTodos>
           <HeaderInfoFundos className="cell medium-9" />
 
           <div classNames='data-mobile'>{(FilteredData.length > 1 ? FilteredData.map((item, index) => {
@@ -377,6 +378,7 @@ export const Filtros = () => {
                   aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} lucroMes={Number(lucroMes * 100).toFixed(2)}
                   lucroAno={Number(lucroAno * 100).toFixed(2)} cotizacaoAplicacao={cotizacaoAplicacao} cotizacaoResgate={cotizacaoResgate} liquidacaoResgate={liquidacaoResgate}
                   taxaAdministracao={taxaAdministracao} cnpj={item.cnpj} />
+              
               </>
 
             );
