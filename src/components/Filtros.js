@@ -121,29 +121,28 @@ export const Filtros = () => {
 
     setFilteredData(
       data.filter(item => {
-        return item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
-          Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
+        return Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
           JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaFixa &&
+          item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
           outrosFiltrosQualificados(JSON.stringify(item.description.target_audience).toLocaleLowerCase()) &&
           outrosFiltrosESG(item.esg_seal) ||
 
 
-          item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
           Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
           JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroDiferenciada &&
+          item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
           outrosFiltrosQualificados(JSON.stringify(item.description.target_audience).toLocaleLowerCase()) &&
           outrosFiltrosESG(item.esg_seal) ||
 
-
-          item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
           Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
           JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaVariavel &&
+          item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
           outrosFiltrosQualificados(JSON.stringify(item.description.target_audience).toLocaleLowerCase()) &&
           outrosFiltrosESG(item.esg_seal)
 
@@ -375,9 +374,9 @@ export const Filtros = () => {
 
                 <DisplayDataDesktop simple_name={item.simple_name} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
                   tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={reformatDate(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
-                  aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} lucroMes={lucroMes} 
-                  lucroAno={lucroAno} cotizacaoAplicacao={cotizacaoAplicacao} cotizacaoResgate={cotizacaoResgate} liquidacaoResgate={liquidacaoResgate}
-                  taxaAdministracao={taxaAdministracao} cnpj={item.cnpj}/>
+                  aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} lucroMes={Number(lucroMes * 100).toFixed(2)}
+                  lucroAno={Number(lucroAno * 100).toFixed(2)} cotizacaoAplicacao={cotizacaoAplicacao} cotizacaoResgate={cotizacaoResgate} liquidacaoResgate={liquidacaoResgate}
+                  taxaAdministracao={taxaAdministracao} cnpj={item.cnpj} />
               </>
 
             );
@@ -503,13 +502,17 @@ export const Filtros = () => {
             <h1 className=" txt-filtrar-gestores txt-outros-filtros">Outros filtros:</h1>
 
             <div className="box-outros-filtros style-box-top">
-              <input type="checkbox" id="input-outros-filtros-esg" className="inside-btn" defaultChecked={false} onChange={() => setIsCheckedESG(!isCheckedESG)} />
-              <p className="style-esg">Somente fundos ESG (Environmental, Social & Governance)</p>
+              <div>
+                <input type="checkbox" id="input-outros-filtros-esg" className="inside-btn" defaultChecked={false} onChange={() => setIsCheckedESG(!isCheckedESG)} />
+                <p className="style-esg">Somente fundos ESG (Environmental, Social & Governance)</p>
+              </div>
             </div>
 
             <div className="box-outros-filtros">
-              <input type="checkbox" id="input-outros-filtros-qualificados" className="inside-btn" defaultChecked={false} onChange={() => setIsCheckedQualificado(!isCheckedQualificado)} />
-              <p>Somente fundos para investidores qualificados</p>
+              <div>
+                <input type="checkbox" id="input-outros-filtros-qualificados" className="inside-btn" defaultChecked={false} onChange={() => setIsCheckedQualificado(!isCheckedQualificado)} />
+                <p>Somente fundos para investidores qualificados</p>
+              </div>
             </div>
 
 
