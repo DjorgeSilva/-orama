@@ -1,4 +1,5 @@
 import { Tab, Tabs } from 'react-bootstrap';
+import {DisplayDataMobile} from "./DisplayDataMobile.js"
 import React from 'react';
 
 export class NavTabDestaqueTodos extends React.Component {
@@ -17,8 +18,8 @@ export class NavTabDestaqueTodos extends React.Component {
     return (
         <div className="box-info-fundos-tabs">
             <Tabs activeKey={this.state.activeTab} onSelect={this.handleSelect}>
-                <Tab eventKey={1} title="DESTAQUES" class=""></Tab>
-                <Tab eventKey={2} title="TODOS">Tab 2 content</Tab>
+                <Tab eventKey={1} title="DESTAQUES" class=""><DisplayDataMobile/></Tab>
+                <Tab eventKey={2} title="TODOS"></Tab>
             </Tabs>
         </div>
     );

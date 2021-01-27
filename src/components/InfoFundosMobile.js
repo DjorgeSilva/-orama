@@ -3,10 +3,11 @@ import "../css/index.css";
 import React, { useState, useEffect } from 'react';
 import { NavTabDestaqueTodos } from "./NavTabDestaqueTodos.js";
 import { HeaderInfoFundos } from "./HeaderInfoFundos.jsx";
-import { Loading} from "./Loading.js";
-import * as IoIcons from "react-icons/io5";
+import { Loading } from "./Loading.js";
 import { RiArrowDownSFill } from "react-icons/ri";
 import { Button, Collapse, Tooltip, OverlayTrigger, Popover } from "react-bootstrap"
+import { DisplayDataMobile } from "./DisplayDataMobile.js";
+import { DisplayDataDesktop } from "./DisplayDataDesktop.js";
 
 require("es6-promise").polyfill();
 require("isomorphic-fetch");
@@ -14,7 +15,6 @@ require("isomorphic-fetch");
 export const InfoFundosMobile = () => {
 
   const [data, setData] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
   const [q, setQ] = useState("");
   const [aplicacaoMinima, setAplicacaoMinima] = useState(20000);
   const [perfilRisco, setPerfilRisco] = useState(12);
@@ -128,8 +128,8 @@ export const InfoFundosMobile = () => {
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
           // entrou(item.specification.fund_main_strategy.name) &&
           JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaFixa &&
-          outrosFiltrosQualificados(JSON.stringify(item.description.target_audience).toLocaleLowerCase())&&
-          outrosFiltrosESG(item.esg_seal)||
+          outrosFiltrosQualificados(JSON.stringify(item.description.target_audience).toLocaleLowerCase()) &&
+          outrosFiltrosESG(item.esg_seal) ||
 
 
           item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
@@ -137,61 +137,61 @@ export const InfoFundosMobile = () => {
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
           JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroDiferenciada &&
-          outrosFiltrosQualificados(JSON.stringify(item.description.target_audience).toLocaleLowerCase())&&
-          outrosFiltrosESG(item.esg_seal)||
+          outrosFiltrosQualificados(JSON.stringify(item.description.target_audience).toLocaleLowerCase()) &&
+          outrosFiltrosESG(item.esg_seal) ||
 
 
           item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
           Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
-          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaVariavel&&
-          outrosFiltrosQualificados(JSON.stringify(item.description.target_audience).toLocaleLowerCase())&&
+          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaVariavel &&
+          outrosFiltrosQualificados(JSON.stringify(item.description.target_audience).toLocaleLowerCase()) &&
           outrosFiltrosESG(item.esg_seal)
 
       })
     )
-  }, [q, data, aplicacaoMinima, perfilRisco, prazoResgate, isCheckedRendaVariavel, isCheckedRendaFixa, isCheckedDifereciada, isCheckedQualificado, isCheckedESG,dadosFiltradosRendaFixa])
+  }, [q, data, aplicacaoMinima, perfilRisco, prazoResgate, isCheckedRendaVariavel, isCheckedRendaFixa, isCheckedDifereciada, isCheckedQualificado, isCheckedESG, dadosFiltradosRendaFixa])
 
 
-  function outrosFiltrosQualificados(outrosfiltros){
+  function outrosFiltrosQualificados(outrosfiltros) {
     const checkQualificados = document.querySelector('#input-outros-filtros-qualificados').checked;
 
     if (checkQualificados) {
       var filtroQualificado = "investidores qualificados";
-      var recebe = outrosfiltros.indexOf(filtroQualificado); 
+      var recebe = outrosfiltros.indexOf(filtroQualificado);
       countQualificados++;
 
-        return ((recebe>-1)?true:false);
-        
+      return ((recebe > -1) ? true : false);
 
-    }else{
-      if(countQualificados===0){
-        return (true? countQualificados===0:false)
-      }
+
+    } else {
+      if (countQualificados === 0) {
+        return (true ? countQualificados === 0 : false)
       }
     }
+  }
 
-    function outrosFiltrosESG(outrosfiltros){
-      const checkESG = document.querySelector('#input-outros-filtros-esg').checked;
-  
-      if (checkESG) {
-        var recebe = outrosfiltros; 
-        countESG++;
-  
-          return ((recebe)?true:false);
-          
-  
-      }else{
-        if(countESG===0){
-          return (true? countESG===0:false)
-        }
-        }
+  function outrosFiltrosESG(outrosfiltros) {
+    const checkESG = document.querySelector('#input-outros-filtros-esg').checked;
+
+    if (checkESG) {
+      var recebe = outrosfiltros;
+      countESG++;
+
+      return ((recebe) ? true : false);
+
+
+    } else {
+      if (countESG === 0) {
+        return (true ? countESG === 0 : false)
       }
-      
-    
+    }
+  }
 
-  
+
+
+
 
 
 
@@ -241,15 +241,6 @@ export const InfoFundosMobile = () => {
     const dArr = dateStr.split("-");
     return dArr[2] + "/" + dArr[1] + "/" + dArr[0].substring(2);
   }
-
-  function collapse(key) {
-    setIsOpen(!isOpen);
-
-    console.log(key)
-
-  }
-
-
 
   function cor(idCor) {
     switch (idCor) {
@@ -431,189 +422,39 @@ export const InfoFundosMobile = () => {
           </div>
 
           <NavTabDestaqueTodos />
+
           <HeaderInfoFundos className="cell medium-9" />
 
-          <div classNames='data-mobile'>{(FilteredData.length > 1? FilteredData.map((item, index) => {
+          <div classNames='data-mobile'>{(FilteredData.length > 1 ? FilteredData.map((item, index) => {
 
-            const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo }} } = item;
-            const { specification: { fund_main_strategy:{name:estrategia_principal}} } = item;
+            const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo } } } = item;
+            const { specification: { fund_main_strategy: { name: estrategia_principal } } } = item;
             const { profitabilities: { month: lucroMes, m12, year: lucroAno } } = item;
             const { operability: { minimum_initial_application_amount: aplicacaoMinima, application_quotation_days_str: cotizacaoAplicacao, retrieval_quotation_days: cotizacaoAplicacaoSigla, retrieval_quotation_days_str: cotizacaoResgate,
               retrieval_liquidation_days_str: liquidacaoResgate, application_time_limit: horarioLimiteAplicacao } } = item;
             const { fees: { administration_fee: taxaAdministracao } } = item;
-
-            var fontSize = {
-              fontSize: 12,
-              backgroundColor: "#fff",
-              fontWeight: "bold",
-              color: "#333"
-
-            }
-
-            const tipMes = (
-              <Popover>
-                <Popover.Title style={fontSize}>
-                  Rentabilidade do fundo: {(Number(lucroMes * 100).toFixed(2)) + "%"}<br />
-                  CDI do mês:
-                </Popover.Title>
-                <Popover.Content style={fontSize}>
-                  % sobre CDI:
-                </Popover.Content>
-              </Popover>
-            );
-
-            const tipAno = (
-              <Popover>
-                <Popover.Title style={fontSize}>
-                  Rentabilidade do fundo: {(Number(lucroAno * 100).toFixed(2)) + "%"}<br />
-                  CDI 2021:
-                </Popover.Title>
-                <Popover.Content style={fontSize}>
-                  % sobre CDI:
-                </Popover.Content >
-              </Popover>
-            );
-
-            const tip12m = (
-              <Popover>
-                <Popover.Title style={fontSize}>
-                  Rentabilidade do fundo: {(Number(m12 * 100).toFixed(2)) + "%"}<br />
-                  CDI 12M:
-                </Popover.Title>
-                <Popover.Content style={fontSize}>
-                  % sobre CDI:
-                </Popover.Content>
-              </Popover>
-            );
 
 
 
             return (
 
               <>
-                <div class="box-display-fundos">
-
-                  <div class="box-item-fundo">
-
-                    <div class="wrap-titulo">
-                      <h6 class="titulo-fundo">{item.simple_name}</h6>
-                      <div class='box-status-fundo'><span style={{ backgroundColor: cor(corPerfilRiscoFundo) }}></span></div>
-                    </div>
-
-                    <p class="subtitulo-fundo">{estrategia_principal}</p>
-                    <p class="subtitulo-fundo">{tipoFundo} | {classeFundo}</p>
-
-                    <div class="box-item-info-fundos first-box-item">
-                      <p class="right-row">Data da cota:</p>
-                      <p class="left-row">{reformatDate(item.quota_date)}</p>
-                    </div>
-
-                    <div class="box-item-info-fundos">
-                      <p class="right-row">rentabilidade 12 Meses:</p>
-                      <p class="left-row">{(Number(m12 * 100).toFixed(2))}</p>
-                    </div>
-
-                    <div class="box-item-info-fundos">
-                      <p class="right-row">Aplicação Mínima:</p>
-                      <p class="left-row">{moneyFormatter(Number(aplicacaoMinima).toFixed())}</p>
-                    </div>
-
-                    <div class="box-item-info-fundos">
-                      <p class="right-row">Cotização do Resgate:</p>
-                      <p class="left-row">D+{cotizacaoAplicacaoSigla}</p>
-                    </div>
-
-                    <div class="box-info-button">
-                      <button type="button">Mais detalhes</button>
-                      <button type="button">Aplicar</button>
-                    </div>
-                  </div>
-
-                </div>
+                <DisplayDataMobile simple_name={item.simple_name} corPerfilRisco={cor(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
+                  tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={reformatDate(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
+                  aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} />
 
 
-                <div className="box-items-fundos-mobile" onClick={collapse.bind(this)}>
-
-                  <div class='box-status-fundo' style={{ backgroundColor: cor(corPerfilRiscoFundo) }}><span></span></div>
-
-                  <div className="grid-x row-header">
-
-                    <div className="cell medium-3 coluna-header fundo">
-                      <h4 className="first-style">{item.simple_name}</h4>
-                      <h2 className="first-h2">{estrategia_principal}</h2>
-                      <h2>{tipoFundo} | {classeFundo}</h2>
-                    </div>
-
-                    <div className="cell medium-1 coluna-header dataCota">
-                      <h4 className="style-bottom">{reformatDate(item.quota_date)}</h4>
-                    </div>
-
-                    <div className="cell medium-1 coluna-header mes">
-                      <OverlayTrigger trigger="hover" placement="bottom" overlay={tipMes}>
-                        <h4>{(Number(lucroMes * 100).toFixed(2))}</h4>
-                      </OverlayTrigger>
-                    </div>
-
-                    <div className="cell medium-1 coluna-header ano">
-                      <OverlayTrigger trigger="hover" placement="bottom" overlay={tipAno}>
-                        <h4>{(Number(lucroMes * 100).toFixed(2))}</h4>
-                      </OverlayTrigger>
-                    </div>
-
-                    <div className="cell medium-1 coluna-header _12m">
-                      <OverlayTrigger trigger="hover" placement="bottom" overlay={tip12m}>
-                        <h4>{(Number(m12 * 100).toFixed(2))}</h4>
-                      </OverlayTrigger>
-                    </div>
-
-                    <div className="cell medium-3 coluna-header aplicacao_minima">
-                      <h4>{moneyFormatter(Number(aplicacaoMinima).toFixed())}</h4>
-                    </div>
-
-                    <div className="cell medium-1 coluna-header prazoResgate">
-                      <h4 className="style-bottom">D+{cotizacaoAplicacaoSigla}</h4>
-                    </div>
-
-                    <div className="cell medium-1 coluna-header">
-                      <IoIcons.IoArrowUndoCircleSharp className="icone-aplicar" />
-
-                    </div>
-
-                  </div>
-
-
-                </div>
-
-                {isOpen && (
-                  <div className="box-more-info">
-
-                    <div className="box-more-info-grafico">
-
-                    </div>
-
-                    <div className="box-more-info-detalhes">
-                      <p>Cotização da aplicação: <span>{cotizacaoAplicacao}</span></p>
-                      <p>Cotização do resgate <span>{cotizacaoResgate}</span></p>
-                      <p>Liquidação do resgate: <span>{liquidacaoResgate}</span></p>
-                      <p className="last-p">Taxa de administração: <span>{taxaAdministracao}</span></p>
-
-
-                      <a href="#" className="link">Conheça mais informações sobre este fundo</a>
-
-                      <p className="style-bottom">CNPJ do fundo: <span>{item.cnpj}</span></p>
-                    </div>
-
-                  </div>
-                )}
-
+                <DisplayDataDesktop simple_name={item.simple_name} corPerfilRisco={cor(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
+                  tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={reformatDate(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
+                  aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} lucroMes={lucroMes} 
+                  lucroAno={lucroAno} cotizacaoAplicacao={cotizacaoAplicacao} cotizacaoResgate={cotizacaoResgate} liquidacaoResgate={liquidacaoResgate}
+                  taxaAdministracao={taxaAdministracao} cnpj={item.cnpj}/>
               </>
 
-
             );
-          }):
-          <div className="box-mensagem-no-item">
-            <Loading/>
-            <p>O fundo buscado não está disponível nesta lista. Verifique nas demais abas.</p>
+          }) :
+            <div className="box-mensagem-no-item">
+              <p>O fundo buscado não está disponível nesta lista. Verifique nas demais abas.</p>
             </div>
           )}</div>
 
@@ -733,12 +574,12 @@ export const InfoFundosMobile = () => {
             <h1 className=" txt-filtrar-gestores txt-outros-filtros">Outros filtros:</h1>
 
             <div className="box-outros-filtros style-box-top">
-              <input type="checkbox" id="input-outros-filtros-esg" className="inside-btn" defaultChecked={false} onChange={() => setIsCheckedESG(!isCheckedESG)}/>
+              <input type="checkbox" id="input-outros-filtros-esg" className="inside-btn" defaultChecked={false} onChange={() => setIsCheckedESG(!isCheckedESG)} />
               <p className="style-esg">Somente fundos ESG (Environmental, Social & Governance)</p>
             </div>
 
             <div className="box-outros-filtros">
-              <input type="checkbox" id="input-outros-filtros-qualificados" className="inside-btn" defaultChecked={false} onChange={() => setIsCheckedQualificado(!isCheckedQualificado)}/>
+              <input type="checkbox" id="input-outros-filtros-qualificados" className="inside-btn" defaultChecked={false} onChange={() => setIsCheckedQualificado(!isCheckedQualificado)} />
               <p>Somente fundos para investidores qualificados</p>
             </div>
 

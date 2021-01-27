@@ -483,6 +483,7 @@ body .container-all .box-wrap-all-filters .box-mensagem-no-item {
   border-radius: 5px;
   -webkit-box-shadow: 2px 5px 10px rgba(223, 223, 223, 0.867);
           box-shadow: 2px 5px 10px rgba(223, 223, 223, 0.867);
+  margin-bottom: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
