@@ -1207,7 +1207,7 @@ body .box-txt-footer-outer {
     float: left;
     width: 10px;
     height: 80px;
-    background-color: blue;
+    background-color: #ff0080;
     position: absolute;
     left: 0;
   }

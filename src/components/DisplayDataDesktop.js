@@ -59,12 +59,67 @@ export function DisplayDataDesktop({simple_name, corPerfilRisco, estrategia_prin
       );
 
 
+      function cor(idCor) {
+        switch (idCor) {
+          case 1:
+            return '#A6ECFC';
+            break;
+          case 2:
+            return '#68F1DD';
+            break;
+          case 3:
+            return '#91ED6E';
+            break;
+    
+          case 4:
+            return '#B0F42A';
+            break;
+    
+          case 5:
+            return '#DDF40C';
+            break;
+    
+          case 6:
+            return '#FAF00E';
+            break;
+    
+          case 7:
+            return '#FFDC00';
+            break;
+    
+          case 8:
+            return '#FFBB00';
+            break;
+    
+          case 9:
+            return '#FF8800';
+            break;
+    
+          case 10:
+            return '#FF5E00';
+            break;
+          case 11:
+            return '#FF0600';
+            break;
+    
+          case 12:
+            return '#B51414';
+            break;
+    
+          default:
+            return '#000';
+            break;
+        }
+      }
+    
+
+
 
     return (
         <>
             <div className="box-items-fundos-mobile" onClick={collapse.bind(this)}>
 
-                <div class='box-status-fundo' style={corPerfilRisco}><span></span></div>
+            <div class='box-status-fundo' style={{ backgroundColor: cor(corPerfilRisco) }}></div>
 
                 <div className="grid-x row-header">
 

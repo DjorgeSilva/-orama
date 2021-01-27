@@ -6,23 +6,12 @@ import { BannerHome } from "./components/BannerHome.js";
 import { NavBar } from "./components/NavBar.js";
 import { Legenda } from "./components/Legenda.js";
 import { BtnConta } from "./components/BtnConta.js";
-import { InfoFundosMobile } from "./components/InfoFundosMobile.js";
+import { Filtros } from "./components/Filtros.js";
 import { Footer } from "./components/Footer.js"
 import { OuterFooter } from "./components/OuterFooter.js";
 
 
 function App() {
-
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    fetch("https://s3.amazonaws.com/orama-media/json/fund_detail_full.json?limit=1000&offset=0&serializer=fund_detail_full")
-      .then((response) => response.json())
-      .then((json) => setData(json));
-  }, [])
-
-
-
 
   return (
     <React.Fragment>
@@ -37,7 +26,7 @@ function App() {
       <Layout>
         <div>
           <Legenda />
-          <InfoFundosMobile data={data} />
+          <Filtros />
         </div>
 
         <div>
