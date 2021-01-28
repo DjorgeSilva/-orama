@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { NavTabDestaqueTodos } from "./NavTabDestaqueTodos.js";
 import { HeaderInfoFundos } from "./HeaderInfoFundos.jsx";
 import { RiArrowDownSFill } from "react-icons/ri";
-import { DisplayDataMobile } from "./DisplayDataMobile.js"
+import { Legenda } from "./Legenda.js"
 import { DisplayDataDesktop } from "./DisplayDataDesktop.js";
 import { Button, Collapse, Tooltip, OverlayTrigger, Popover } from "react-bootstrap"
 
@@ -289,7 +289,8 @@ export const Filtros = () => {
 
   uniqueNomeGestores.sort((a, b) => (a > b) ? 1 : ((b > a) ? -1 : 0))
   FilteredData.sort((a, b) => (a.profitabilities.m12 < b.profitabilities.m12) ? 1 : ((b.profitabilities.m12 < a.profitabilities.m12) ? -1 : 0));
-
+  
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   function moneyFormatter(money) {
     const valor = new Intl.NumberFormat('pt-BR',
@@ -319,7 +320,7 @@ export const Filtros = () => {
 
                 <div className="aplicacao-minima item-filtro">
                   <p>Aplicação mínima</p>
-                  <input type="range" min="0" max="500000" id="aplicacaoMinima" defaultValue="500000" onChange={changeValueMinimo} />
+                  <input type="range" min="0" max="500000" id="aplicacaoMinima" defaultValue="500000" onChange={changeValueMinimo} step="200"/>
                   <label htmlFor="aplicacao-minima">Até <span id="valueAplicacaoMinima">R$ 500.000,00</span></label>
                 </div>
 
@@ -373,7 +374,7 @@ export const Filtros = () => {
             const { operability: { minimum_initial_application_amount: aplicacaoMinima, application_quotation_days_str: cotizacaoAplicacao, retrieval_quotation_days: cotizacaoAplicacaoSigla, retrieval_quotation_days_str: cotizacaoResgate,
               retrieval_liquidation_days_str: liquidacaoResgate, application_time_limit: horarioLimiteAplicacao } } = item;
             const { fees: { administration_fee: taxaAdministracao } } = item;
-
+            const {description:{target_audience:icone_qualificado}} = item;
 
 
             return (
@@ -383,7 +384,7 @@ export const Filtros = () => {
                   tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={reformatDate(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
                   aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} lucroMes={Number(lucroMes * 100).toFixed(2)}
                   lucroAno={Number(lucroAno * 100).toFixed(2)} cotizacaoAplicacao={cotizacaoAplicacao} cotizacaoResgate={cotizacaoResgate} liquidacaoResgate={liquidacaoResgate}
-                  taxaAdministracao={taxaAdministracao} cnpj={item.cnpj} />
+                  taxaAdministracao={taxaAdministracao} cnpj={item.cnpj} icone_qualificado={icone_qualificado} icone_esg={item.esg_seal} close_aplicar={item.is_closed_to_capture}/>
 
               </>
 
@@ -399,6 +400,8 @@ export const Filtros = () => {
         </div>
 
         <div className="column large-3 box-left-wrap-all">
+          <Legenda/>
+
           <div className="item-sideBarFiltros">
             <h1>Filtrar por estratégias:</h1>
 

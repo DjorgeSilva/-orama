@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import * as IoIcons from "react-icons/io5";
+import { MdStars } from "react-icons/md";
+import { AiOutlineInfoCircle } from "react-icons/ai";
+import { FcCancel } from "react-icons/fc";
+import { IoArrowRedoCircle } from "react-icons/io5";
+import { FaGlobeAmericas } from "react-icons/fa";
 import { Button, Collapse, Tooltip, OverlayTrigger, Popover } from "react-bootstrap";
 
 export class DisplayDataDesktop extends React.Component {
@@ -19,12 +24,17 @@ export class DisplayDataDesktop extends React.Component {
 
   render() {
 
-    var fontSize = {
+    const fontSize = {
       fontSize: 12,
       backgroundColor: "#fff",
       fontWeight: "bold",
       color: "#333"
 
+    }
+
+    const fontClosedToCapture = {
+      fontWeight: "bold",
+      color: "red"
     }
 
     const tipMes = (
@@ -118,10 +128,9 @@ export class DisplayDataDesktop extends React.Component {
     }
 
 
-
-
     return (
       <>
+
         <div className="box-items-fundos-mobile" onClick={(e) => this.togglePanel(e)}>
 
           <div class='box-status-fundo' style={{ backgroundColor: cor(this.props.corPerfilRisco) }}></div>
@@ -130,7 +139,10 @@ export class DisplayDataDesktop extends React.Component {
 
             <div className="cell medium-3 coluna-header coluna-header-simple-name fundo">
               <div>
-                <h4 className="first-style">{this.props.simple_name}</h4>
+                <h4 className="first-style">{this.props.simple_name}
+                  {(this.props.icone_qualificado.toLowerCase() === "investidores qualificados") ? <MdStars className="icon-legenda icon-legenda-star" /> : ""}
+                  {(this.props.icone_esg === true) ? <FaGlobeAmericas className="icon-legenda icon-legenda-globe" /> : ""}
+                </h4>
                 <h2 className="first-h2">{this.props.estrategia_principal}</h2>
                 <h2>{this.props.tipoFundo} | {this.props.classeFundo}</h2>
               </div>
@@ -193,9 +205,9 @@ export class DisplayDataDesktop extends React.Component {
               <a href="#" className="link">Conheça mais informações sobre este fundo</a>
 
               <p className="style-bottom">CNPJ do fundo: <span>{this.props.cnpj}</span></p>
-            </div>)
+            </div>
 
-          </div>): null}
+          </div>) : null}
       </>
     )
   }

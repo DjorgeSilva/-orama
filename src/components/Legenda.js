@@ -14,7 +14,7 @@ export const Legenda = () => {
             <div class="box-legenda">
                 <h6>Legenda</h6>
                 <ul>
-                    <li>
+                    <li className="mb-first-li">
                         <MdStars className="icon-legenda icon-legenda-star"/>
                         <p>Fundo para investidor qualificado</p>
                     </li>
@@ -30,7 +30,7 @@ export const Legenda = () => {
                        <IoArrowRedoCircle className="icon-legenda icon-legenda-aplicar"/>
                         <p>Aplicar neste fundo</p>
                     </li>
-                    <li>
+                    <li className="mb-last-li">
                         <FaGlobeAmericas className="icon-legenda icon-legenda-globe"/>
                         <p>Investimento ESG (Environmental, Social and Governance)</p>
 
