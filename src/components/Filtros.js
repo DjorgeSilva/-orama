@@ -4,10 +4,9 @@ import React, { useState, useEffect } from 'react';
 import { NavTabDestaqueTodos } from "./NavTabDestaqueTodos.js";
 import { HeaderInfoFundos } from "./HeaderInfoFundos.jsx";
 import { RiArrowDownSFill } from "react-icons/ri";
-import { Button, Collapse, Tooltip, OverlayTrigger, Popover } from "react-bootstrap"
-import { DisplayDataMobile } from "./DisplayDataMobile.js";
-import { Loading } from "./Loading.js";
+import { DisplayDataMobile } from "./DisplayDataMobile.js"
 import { DisplayDataDesktop } from "./DisplayDataDesktop.js";
+import { Button, Collapse, Tooltip, OverlayTrigger, Popover } from "react-bootstrap"
 
 require("es6-promise").polyfill();
 require("isomorphic-fetch");
@@ -44,11 +43,11 @@ export const Filtros = () => {
   var uniqueNomeRendaVariavel = [];
   var filtraNomeGestores = [];
   var uniqueNomeGestores = [];
+  var checksRendaFixa = [];
   var strRendaFixa = "";
   var countQualificados = 0;
   var countESG = 0;
   const [dadosFiltradosRendaFixa, setDadosFiltradosRendaFixa] = useState(false);
-  var checksRendaFixa = [];
 
 
 
@@ -127,6 +126,7 @@ export const Filtros = () => {
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
           JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaFixa &&
           item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
+          // logicaFiltragemRendaFixa(item.specification.fund_main_strategy.name)&&
           outrosFiltrosQualificados(JSON.stringify(item.description.target_audience).toLocaleLowerCase()) &&
           outrosFiltrosESG(item.esg_seal) ||
 
@@ -150,6 +150,39 @@ export const Filtros = () => {
       })
     )
   }, [q, data, aplicacaoMinima, perfilRisco, prazoResgate, isCheckedRendaVariavel, isCheckedRendaFixa, isCheckedDifereciada, isCheckedQualificado, isCheckedESG, dadosFiltradosRendaFixa])
+
+  // function logicaFiltragemRendaFixa(fund_main_name){
+  //   console.log(strRendaFixa)
+  //   return true;
+  // }
+
+  function mudaEstado(e){
+    filterDataRendaFixa(e)
+    
+    // setDadosFiltradosRendaFixa(!dadosFiltradosRendaFixa)
+  }
+
+  function filterDataRendaFixa(e) { //recebe o evento
+    let index = Number(e.target.getAttribute("a-key")); // armaneza o index
+    let posicaoElemento = checksRendaFixa.indexOf(uniqueNomeRendaFixa[index]); // armazena se existe no array de itens selecionados
+
+
+    if (e.target.checked === true) { // se item checado check = true
+      if (posicaoElemento === -1) { // se não exirtir no array de itens marcados
+        checksRendaFixa.push(uniqueNomeRendaFixa[index]); // armazena o item 
+        strRendaFixa = checksRendaFixa.toString(); // converte o estado atual para a string para utilização no filtro
+        // console.log(checksRendaFixa)
+        // console.log(strRendaFixa);
+      }
+
+    }
+    if (e.target.checked === false) { // se item desmarcado check = false
+      checksRendaFixa.splice(posicaoElemento, 1); //procura no array de itens selecionado e deleta
+      strRendaFixa = checksRendaFixa.toString(); // converte o estado atual para a string para utilização no filtro
+      // console.log(checksRendaFixa);
+      // console.log(strRendaFixa);
+    }
+  }
 
 
   function outrosFiltrosQualificados(outrosfiltros) {
@@ -185,42 +218,6 @@ export const Filtros = () => {
         return (true ? countESG === 0 : false)
       }
     }
-  }
-
-  function filterDataRendaFixa(e) {
-    let index = Number(e.target.getAttribute("a-key"));
-    let posicaoElemento = checksRendaFixa.indexOf(uniqueNomeRendaFixa[index]);
-
-
-    if (e.target.checked === true) {
-      if (posicaoElemento === -1) {
-        checksRendaFixa.push(uniqueNomeRendaFixa[index]);
-        strRendaFixa = checksRendaFixa.toString();
-        console.log(checksRendaFixa)
-        console.log(strRendaFixa);
-      }
-
-    }
-    if (e.target.checked === false) {
-      checksRendaFixa.splice(posicaoElemento, 1);
-      strRendaFixa = checksRendaFixa.toString();
-      console.log(checksRendaFixa);
-      console.log(strRendaFixa);
-    }
-
-  }
-
-  function moneyFormatter(money) {
-    const valor = new Intl.NumberFormat('pt-BR',
-      { style: 'currency', currency: 'BRL' }
-    ).format(money);
-
-    return valor;
-  }
-
-  function reformatDate(dateStr) {
-    const dArr = dateStr.split("-");
-    return dArr[2] + "/" + dArr[1] + "/" + dArr[0].substring(2);
   }
 
 
@@ -294,6 +291,20 @@ export const Filtros = () => {
   FilteredData.sort((a, b) => (a.profitabilities.m12 < b.profitabilities.m12) ? 1 : ((b.profitabilities.m12 < a.profitabilities.m12) ? -1 : 0));
 
 
+  function moneyFormatter(money) {
+    const valor = new Intl.NumberFormat('pt-BR',
+      { style: 'currency', currency: 'BRL' }
+    ).format(money);
+
+    return valor;
+  }
+
+  function reformatDate(dateStr) {
+    const dArr = dateStr.split("-");
+    return dArr[2] + "/" + dArr[1] + "/" + dArr[0].substring(2);
+  }
+
+
   return (
     <>
       <div className="grid-x box-wrap-all-filters">
@@ -350,9 +361,9 @@ export const Filtros = () => {
 
           </div>
 
-          <NavTabDestaqueTodos>
-          </NavTabDestaqueTodos>
+          <NavTabDestaqueTodos FilteredData={FilteredData} />
           <HeaderInfoFundos className="cell medium-9" />
+
 
           <div classNames='data-mobile'>{(FilteredData.length > 1 ? FilteredData.map((item, index) => {
 
@@ -368,17 +379,12 @@ export const Filtros = () => {
             return (
 
               <>
-                <DisplayDataMobile simple_name={item.simple_name} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
-                  tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={reformatDate(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
-                  aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} />
-
-
                 <DisplayDataDesktop simple_name={item.simple_name} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
                   tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={reformatDate(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
                   aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} lucroMes={Number(lucroMes * 100).toFixed(2)}
                   lucroAno={Number(lucroAno * 100).toFixed(2)} cotizacaoAplicacao={cotizacaoAplicacao} cotizacaoResgate={cotizacaoResgate} liquidacaoResgate={liquidacaoResgate}
                   taxaAdministracao={taxaAdministracao} cnpj={item.cnpj} />
-              
+
               </>
 
             );
@@ -388,6 +394,8 @@ export const Filtros = () => {
             </div>
           )}</div>
 
+
+
         </div>
 
         <div className="column large-3 box-left-wrap-all">
@@ -395,7 +403,7 @@ export const Filtros = () => {
             <h1>Filtrar por estratégias:</h1>
 
             <>
-              <input type="checkbox" id="input-valor-rendaFixa" className="inside-btn" defaultChecked={isCheckedRendaFixa} onChange={() => setIsCheckedRendaFixa(!isCheckedRendaFixa)} />
+              <input type="checkbox" id="input-valor-rendaFixa" className="inside-btn" defaultChecked={isCheckedRendaFixa} onChange={() => setDadosFiltradosRendaFixa(!dadosFiltradosRendaFixa)} />
               <Button onClick={() => setOpenRendaFixa(!openRendaFixa)} aria-controls="btn-collapse-renda-fixa" aria-expanded={openRendaFixa} className="bg-light btn-collapse-renda-fixa"><p>Renda Fixa </p> <RiArrowDownSFill className="icone-dropdown" /></Button>
               <Collapse in={openRendaFixa}>
 
@@ -407,7 +415,7 @@ export const Filtros = () => {
 
                         return (
 
-                          <li><input type="checkbox" key={index} a-key={index} className="inside-btn" defaultChecked={isCheckedRendaFixa} onChange={(e) => filterDataRendaFixa(e)} /><p>{item}</p></li>
+                          <li><input type="checkbox" key={index} a-key={index} className="inside-btn" defaultChecked={isCheckedRendaFixa} onChange={(e) => mudaEstado(e)}/><p>{item}</p></li>
                         )
                       })}
 
