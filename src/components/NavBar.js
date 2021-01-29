@@ -74,8 +74,8 @@ export const NavBar = () => {
                         </div>
 
                         <div className="box-menu-desktop-btn">
-                            <button type="button">Sua conta</button>
-                            <button type="Sua conta">Abra sua conta</button>
+                            <button type="button" className="btn-sua-conta">Sua conta</button>
+                            <button type="Sua conta" className="btn-abra-sua-conta">Abra sua conta</button>
                         </div>
 
                     </div> 

@@ -3,7 +3,8 @@ import "../css/index.css";
 import React, { useState, useEffect } from 'react';
 import { NavTabDestaqueTodos } from "./NavTabDestaqueTodos.js";
 import { HeaderInfoFundos } from "./HeaderInfoFundos.jsx";
-import { RiArrowDownSFill } from "react-icons/ri";
+import { AiOutlineMinus } from "react-icons/ai";
+import { AiOutlinePlus } from "react-icons/ai";
 import { Legenda } from "./Legenda.js"
 import { DisplayDataDesktop } from "./DisplayDataDesktop.js";
 import { Button, Collapse, Tooltip, OverlayTrigger, Popover } from "react-bootstrap"
@@ -22,32 +23,16 @@ export const Filtros = () => {
   const rendaFixaID = "1";
   const diferenciadaID = "2";
   const varivelID = "3";
-  const [isCheckedRendaFixa, setIsCheckedRendaFixa] = useState(true);
-  const [isCheckedDifereciada, setIsCheckedDifereciada] = useState(false);
-  const [isCheckedRendaVariavel, setIsCheckedRendaVariavel] = useState(false);
-  const [isCheckedQualificado, setIsCheckedQualificado] = useState(false);
-  const [isCheckedESG, setIsCheckedESG] = useState(false)
   const [openRendaFixa, setOpenRendaFixa] = useState(false);
-  const [openDiferenciada, setOpenDiferenciada] = useState(false);
-  const [openGestores, setOpenGestores] = useState(false);
-  const [openVariavel, setOpenVariavel] = useState(false);
   const [rendaFixa, setRendaFixa] = useState([]);
-  const [diferenciada, setDiferenciada] = useState([]);
-  const [rendaVariavel, setRendaVariavel] = useState([]);
   const [checado, setChecado] = useState(true);
   var filtraNomeRendaFixa = [];
   var uniqueNomeRendaFixa = [];
-  var filtraNomeEstrategiaDiferenciada = [];
-  var uniqueNomeEstrategiaDiferenciada = [];
-  var filtraNomeRendaVariavel = [];
-  var uniqueNomeRendaVariavel = [];
   var filtraNomeGestores = [];
-  var uniqueNomeGestores = [];
   var checksRendaFixa = [];
   var strRendaFixa = "";
-  var countQualificados = 0;
-  var countESG = 0;
   const [dadosFiltradosRendaFixa, setDadosFiltradosRendaFixa] = useState(false);
+  const[iconeDropDown, setIconeDropDown] = useState(false)
 
 
 
@@ -103,9 +88,9 @@ export const Filtros = () => {
   useEffect(() => {
 
     let filtroRendaFixa, filtroDiferenciada, filtroRendaVariavel = "";
-    const checkRendaFixa = (document.querySelector('#input-valor-rendaFixa').checked);
-    const checkDiferenciada = document.querySelector('#input-valor-estrategiasDiferenciadas').checked;
-    const isCheckedRendaVariavel = document.querySelector('#input-valor-rendaVariavel').checked;
+    const checkRendaFixa = true;
+    const checkDiferenciada = true;
+    const isCheckedRendaVariavel = true;
 
     if (checkRendaFixa) {
       filtroRendaFixa = rendaFixaID;
@@ -125,169 +110,28 @@ export const Filtros = () => {
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
           JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaFixa &&
-          item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
-          // logicaFiltragemRendaFixa(item.specification.fund_main_strategy.name)&&
-          outrosFiltrosQualificados(JSON.stringify(item.description.target_audience).toLocaleLowerCase()) &&
-          outrosFiltrosESG(item.esg_seal) ||
+          item.simple_name.toLowerCase().includes(q.toLowerCase()) ||
 
 
           Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
           JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroDiferenciada &&
-          item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
-          outrosFiltrosQualificados(JSON.stringify(item.description.target_audience).toLocaleLowerCase()) &&
-          outrosFiltrosESG(item.esg_seal) ||
+          item.simple_name.toLowerCase().includes(q.toLowerCase()) ||
 
           Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
           JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaVariavel &&
-          item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
-          outrosFiltrosQualificados(JSON.stringify(item.description.target_audience).toLocaleLowerCase()) &&
-          outrosFiltrosESG(item.esg_seal)
-
+          item.simple_name.toLowerCase().includes(q.toLowerCase()) 
       })
     )
-  }, [q, data, aplicacaoMinima, perfilRisco, prazoResgate, isCheckedRendaVariavel, isCheckedRendaFixa, isCheckedDifereciada, isCheckedQualificado, isCheckedESG, dadosFiltradosRendaFixa])
-
-  // function logicaFiltragemRendaFixa(fund_main_name){
-  //   console.log(strRendaFixa)
-  //   return true;
-  // }
-
-  function mudaEstado(e){
-    filterDataRendaFixa(e)
-    
-    // setDadosFiltradosRendaFixa(!dadosFiltradosRendaFixa)
-  }
-
-  function filterDataRendaFixa(e) { //recebe o evento
-    let index = Number(e.target.getAttribute("a-key")); // armaneza o index
-    let posicaoElemento = checksRendaFixa.indexOf(uniqueNomeRendaFixa[index]); // armazena se existe no array de itens selecionados
-
-
-    if (e.target.checked === true) { // se item checado check = true
-      if (posicaoElemento === -1) { // se não exirtir no array de itens marcados
-        checksRendaFixa.push(uniqueNomeRendaFixa[index]); // armazena o item 
-        strRendaFixa = checksRendaFixa.toString(); // converte o estado atual para a string para utilização no filtro
-        // console.log(checksRendaFixa)
-        // console.log(strRendaFixa);
-      }
-
-    }
-    if (e.target.checked === false) { // se item desmarcado check = false
-      checksRendaFixa.splice(posicaoElemento, 1); //procura no array de itens selecionado e deleta
-      strRendaFixa = checksRendaFixa.toString(); // converte o estado atual para a string para utilização no filtro
-      // console.log(checksRendaFixa);
-      // console.log(strRendaFixa);
-    }
-  }
-
-
-  function outrosFiltrosQualificados(outrosfiltros) {
-    const checkQualificados = document.querySelector('#input-outros-filtros-qualificados').checked;
-
-    if (checkQualificados) {
-      var filtroQualificado = "investidores qualificados";
-      var recebe = outrosfiltros.indexOf(filtroQualificado);
-      countQualificados++;
-
-      return ((recebe > -1) ? true : false);
-
-
-    } else {
-      if (countQualificados === 0) {
-        return (true ? countQualificados === 0 : false)
-      }
-    }
-  }
-
-  function outrosFiltrosESG(outrosfiltros) {
-    const checkESG = document.querySelector('#input-outros-filtros-esg').checked;
-
-    if (checkESG) {
-      var recebe = outrosfiltros;
-      countESG++;
-
-      return ((recebe) ? true : false);
-
-
-    } else {
-      if (countESG === 0) {
-        return (true ? countESG === 0 : false)
-      }
-    }
-  }
+  }, [q, data, aplicacaoMinima, perfilRisco, prazoResgate])
 
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  useEffect(() => {
-    setRendaFixa(
-      data.filter(item => {
-        return JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase().includes(rendaFixaID.toLowerCase())
-      })
-    )
-  }, [data])
 
-  useEffect(() => {
-    setDiferenciada(
-      data.filter(item => {
-        return JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase().includes(diferenciadaID.toLowerCase())
-      })
-    )
-  }, [data])
-
-  useEffect(() => {
-    setRendaVariavel(
-      data.filter(item => {
-        return JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase().includes(varivelID.toLowerCase())
-      })
-    )
-  }, [data])
-
-
-
-  rendaFixa.map((item) => {
-    filtraNomeRendaFixa.push(item.specification.fund_main_strategy.name);
-  })
-
-  uniqueNomeRendaFixa = filtraNomeRendaFixa.filter(function (item, pos) {
-    return filtraNomeRendaFixa.indexOf(item) == pos;
-  })
-
-  checksRendaFixa = filtraNomeRendaFixa.filter(function (item, pos) {
-    return filtraNomeRendaFixa.indexOf(item) == pos;
-  }) //adiciona os dados já marcados do filtro Renda Fixa no array para ser filtrado quando mudado o seu valor
-
-  strRendaFixa = checksRendaFixa.toString();
-
-  diferenciada.map((item) => {
-    filtraNomeEstrategiaDiferenciada.push(item.specification.fund_main_strategy.name);
-  })
-
-  uniqueNomeEstrategiaDiferenciada = filtraNomeEstrategiaDiferenciada.filter(function (item, pos) {
-    return filtraNomeEstrategiaDiferenciada.indexOf(item) == pos;
-  })
-
-  rendaVariavel.map((item) => {
-    filtraNomeRendaVariavel.push(item.specification.fund_main_strategy.name);
-  })
-
-  uniqueNomeRendaVariavel = filtraNomeRendaVariavel.filter(function (item, pos) {
-    return filtraNomeRendaVariavel.indexOf(item) == pos;
-  })
-
-  data.map((item) => {
-    filtraNomeGestores.push(item.fund_manager.name);
-  })
-
-  uniqueNomeGestores = filtraNomeGestores.filter(function (item, pos) {
-    return filtraNomeGestores.indexOf(item) == pos;
-  })
-
-  uniqueNomeGestores.sort((a, b) => (a > b) ? 1 : ((b > a) ? -1 : 0))
   FilteredData.sort((a, b) => (a.profitabilities.m12 < b.profitabilities.m12) ? 1 : ((b.profitabilities.m12 < a.profitabilities.m12) ? -1 : 0));
   
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -305,11 +149,21 @@ export const Filtros = () => {
     return dArr[2] + "/" + dArr[1] + "/" + dArr[0].substring(2);
   }
 
+  function dropdown(){
+    setOpenRendaFixa(!openRendaFixa)
+
+    setTimeout(()=>{
+      setIconeDropDown(!iconeDropDown)
+    },200)
+
+
+  }
+
 
   return (
     <>
       <div className="grid-x box-wrap-all-filters">
-        <div className="column large-9 box-right-wrap-all">
+        <div className="column large-10 box-right-wrap-all">
 
           <div className="container-busca">
             <div class="box-busca">
@@ -363,7 +217,7 @@ export const Filtros = () => {
           </div>
 
           <NavTabDestaqueTodos FilteredData={FilteredData} />
-          <HeaderInfoFundos className="cell medium-9" />
+          <HeaderInfoFundos className="column medium-9" />
 
 
           <div classNames='data-mobile'>{(FilteredData.length > 1 ? FilteredData.map((item, index) => {
@@ -399,29 +253,25 @@ export const Filtros = () => {
 
         </div>
 
-        <div className="column large-3 box-left-wrap-all">
+        <div className="column large-2 box-left-wrap-all">
           <Legenda/>
 
           <div className="item-sideBarFiltros">
-            <h1>Filtrar por estratégias:</h1>
-
             <>
-              <input type="checkbox" id="input-valor-rendaFixa" className="inside-btn" defaultChecked={isCheckedRendaFixa} onChange={() => setDadosFiltradosRendaFixa(!dadosFiltradosRendaFixa)} />
-              <Button onClick={() => setOpenRendaFixa(!openRendaFixa)} aria-controls="btn-collapse-renda-fixa" aria-expanded={openRendaFixa} className="bg-light btn-collapse-renda-fixa"><p>Renda Fixa </p> <RiArrowDownSFill className="icone-dropdown" /></Button>
+              <input type="checkbox" id="input-valor-rendaFixa" className="inside-btn" defaultChecked={true} onChange={() => setDadosFiltradosRendaFixa(!dadosFiltradosRendaFixa)} />
+              <Button onClick={() => dropdown()} aria-controls="btn-collapse-renda-fixa" aria-expanded={openRendaFixa} className="bg-light btn-collapse-renda-fixa"><p>Renda Fixa </p> {(iconeDropDown?<AiOutlinePlus className="icone-dropdown" onClick={dropdown}/>:<AiOutlineMinus className="icone-dropdown" onClick={dropdown}/>)}</Button>
               <Collapse in={openRendaFixa}>
 
 
                 <div id="btn-collapse-renda-fixa">
                   <div class="card card-body bg-white p-0 body-rendaFixa">
                     <ul>
-                      {uniqueNomeRendaFixa.map((item, index) => {
-
-                        return (
-
-                          <li><input type="checkbox" key={index} a-key={index} className="inside-btn" defaultChecked={isCheckedRendaFixa} onChange={(e) => mudaEstado(e)}/><p>{item}</p></li>
-                        )
-                      })}
-
+                          <li><input type="checkbox"  className="inside-btn" defaultChecked={true}/><p>Indexado Soberano</p></li>
+                          <li><input type="checkbox"  className="inside-btn" defaultChecked={true}/><p>Renda Fixa</p></li>
+                          <li className="sub-item"><p>Renda Fixa Crédito Privado</p></li>
+                          <li className="sub-item"><p>Crédito Privado High Yield</p></li>
+                          <li className="sub-item"><input type="checkbox"  className="inside-btn big-item-input" defaultChecked={true}/><p className="big-item">Renda Fixa Inflação Soberano</p></li>
+                          <li className="sub-item"><input type="checkbox"  className="inside-btn big-item-input" defaultChecked={true}/><p className="big-item">Inflação Crédito Privado</p></li>
                     </ul>
 
                   </div>
@@ -433,100 +283,6 @@ export const Filtros = () => {
             </>
 
 
-            <input type="checkbox" id="input-valor-estrategiasDiferenciadas" className="inside-btn" defaultChecked={isCheckedDifereciada} onChange={() => setIsCheckedDifereciada(!isCheckedDifereciada)} />
-            <Button onClick={() => setOpenDiferenciada(!openDiferenciada)} aria-controls="btn-collapse-estrategias-diferenciadas" aria-expanded={openDiferenciada} className="bg-light btn-estrategiasDiferenciadas"><p>Estratégias diferenciadas</p><RiArrowDownSFill className="icone-dropdown" /></Button>
-            <Collapse in={openDiferenciada}>
-
-
-              <div id="btn-collapse-estrategias-diferenciadas">
-                <div class="card card-body bg-white p-0 body-Diferenciada">
-                  <ul>
-                    {uniqueNomeEstrategiaDiferenciada.map((item) => {
-
-                      return (
-
-                        <li><input type="checkbox" id="" className="inside-btn" defaultChecked={checado} /><p>{item}</p></li>
-                      )
-                    })}
-
-                  </ul>
-
-                </div>
-
-
-              </div>
-
-            </Collapse>
-
-
-            <input type="checkbox" id="input-valor-rendaVariavel" className="inside-btn" defaultChecked={isCheckedRendaVariavel} onChange={() => setIsCheckedRendaVariavel(!isCheckedRendaVariavel)} />
-            <Button onClick={() => setOpenVariavel(!openVariavel)} aria-controls="btn-collapse-renda-variavel" aria-expanded={openVariavel} className="bg-light btn-estrategiasRenda-variavel"><p>Estratégias variavél</p><RiArrowDownSFill className="icone-dropdown" /></Button>
-            <Collapse in={openVariavel}>
-
-
-              <div id="btn-collapse-renda-variavel">
-                <div class="card card-body bg-white p-0 body-variavel">
-                  <ul>
-                    {uniqueNomeRendaVariavel.map((item) => {
-
-                      return (
-
-                        <li><input type="checkbox" id="" className="inside-btn" defaultChecked={checado} /><p>{item}</p></li>
-                      )
-                    })}
-
-                  </ul>
-
-                </div>
-
-
-              </div>
-
-            </Collapse>
-
-            <h1 className="txt-filtrar-gestores">Filtrar por gestores:</h1>
-
-            <input type="checkbox" id="input-valor-gestores" className="inside-btn" defaultChecked={checado} />
-            <Button onClick={() => setOpenGestores(!openGestores)} aria-controls="btn-collapse-gestores" aria-expanded={openGestores} className="bg-light btn-gestores"><p>Gestores</p><RiArrowDownSFill className="icone-dropdown" /></Button>
-            <Collapse in={openGestores}>
-
-
-              <div id="btn-collapse-gestores">
-                <div class="card card-body bg-white p-0 body-gestores">
-                  <ul>
-
-                    {uniqueNomeGestores.map((item) => {
-
-                      return (
-
-                        <li><input type="checkbox" id="" className="inside-btn" defaultChecked={checado} /><p>{item}</p></li>
-                      )
-                    })}
-
-                  </ul>
-
-                </div>
-
-
-              </div>
-
-            </Collapse>
-
-            <h1 className=" txt-filtrar-gestores txt-outros-filtros">Outros filtros:</h1>
-
-            <div className="box-outros-filtros style-box-top">
-              <div>
-                <input type="checkbox" id="input-outros-filtros-esg" className="inside-btn" defaultChecked={false} onChange={() => setIsCheckedESG(!isCheckedESG)} />
-                <p className="style-esg">Somente fundos ESG (Environmental, Social & Governance)</p>
-              </div>
-            </div>
-
-            <div className="box-outros-filtros">
-              <div>
-                <input type="checkbox" id="input-outros-filtros-qualificados" className="inside-btn" defaultChecked={false} onChange={() => setIsCheckedQualificado(!isCheckedQualificado)} />
-                <p>Somente fundos para investidores qualificados</p>
-              </div>
-            </div>
 
 
           </div >

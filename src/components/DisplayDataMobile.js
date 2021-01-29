@@ -73,7 +73,7 @@ export function DisplayDataMobile({ simple_name, icone_qualificado, icone_esg, c
           <div class='box-status-fundo'><span style={{ backgroundColor: cor(corPerfilRisco) }}></span></div>
         </div>
 
-        <p class="subtitulo-fundo">{estrategia_principal}</p>
+        {/* <p class="subtitulo-fundo">{estrategia_principal}</p> */}
         <p class="subtitulo-fundo">{tipoFundo} | {classeFundo}</p>
 
         <div class="box-item-info-fundos first-box-item">

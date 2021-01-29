@@ -140,10 +140,11 @@ export class DisplayDataDesktop extends React.Component {
             <div className="cell medium-3 coluna-header coluna-header-simple-name fundo">
               <div>
                 <h4 className="first-style">{this.props.simple_name}
+                
                   {(this.props.icone_qualificado.toLowerCase() === "investidores qualificados") ? <MdStars className="icon-legenda icon-legenda-star" /> : ""}
-                  {(this.props.icone_esg === true) ? <FaGlobeAmericas className="icon-legenda icon-legenda-globe" /> : ""}
+
                 </h4>
-                <h2 className="first-h2">{this.props.estrategia_principal}</h2>
+                {/* <h2 className="first-h2">{this.props.estrategia_principal}</h2> */}
                 <h2>{this.props.tipoFundo} | {this.props.classeFundo}</h2>
               </div>
             </div>
