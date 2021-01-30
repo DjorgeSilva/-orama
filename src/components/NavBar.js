@@ -38,7 +38,7 @@ export const NavBar = () => {
 
                                 <div className="nav-menu-button">
                                     <button type="button">Sua conta</button>
-                                    <button type="button" class="btn-lateral-style">Abra sua conta</button>
+                                    <button type="button" className="btn-lateral-style">Abra sua conta</button>
                                 </div>
                             </nav>
                         </div>

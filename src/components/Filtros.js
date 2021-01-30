@@ -24,13 +24,6 @@ export const Filtros = () => {
   const diferenciadaID = "2";
   const varivelID = "3";
   const [openRendaFixa, setOpenRendaFixa] = useState(false);
-  const [rendaFixa, setRendaFixa] = useState([]);
-  const [checado, setChecado] = useState(true);
-  var filtraNomeRendaFixa = [];
-  var uniqueNomeRendaFixa = [];
-  var filtraNomeGestores = [];
-  var checksRendaFixa = [];
-  var strRendaFixa = "";
   const [dadosFiltradosRendaFixa, setDadosFiltradosRendaFixa] = useState(false);
   const[iconeDropDown, setIconeDropDown] = useState(false)
 
@@ -106,24 +99,23 @@ export const Filtros = () => {
 
     setFilteredData(
       data.filter(item => {
-        return Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
-          Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
-          Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
-          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaFixa &&
-          item.simple_name.toLowerCase().includes(q.toLowerCase()) ||
-
-
+        return item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
           Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
-          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroDiferenciada &&
-          item.simple_name.toLowerCase().includes(q.toLowerCase()) ||
+          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaFixa ||
 
+          item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
           Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
-          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaVariavel &&
-          item.simple_name.toLowerCase().includes(q.toLowerCase()) 
+          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroDiferenciada ||
+
+          item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
+          Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
+          Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
+          Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
+          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaVariavel 
       })
     )
   }, [q, data, aplicacaoMinima, perfilRisco, prazoResgate])
@@ -166,9 +158,9 @@ export const Filtros = () => {
         <div className="column large-10 box-right-wrap-all">
 
           <div className="container-busca">
-            <div class="box-busca">
+            <div className="box-busca">
               <input type="search" id="buscaFundo" placeholder="Buscar fundo por nome" value={q} onChange={((e) => setQ(e.target.value))} />
-              <label for="busca-fundo" className="label-input-search">*Selecione o fundo para saber o horário limite de aplicação.</label>
+              <label htmlFor="busca-fundo" className="label-input-search">*Selecione o fundo para saber o horário limite de aplicação.</label>
 
               <div className="box-filtros">
 
@@ -220,7 +212,7 @@ export const Filtros = () => {
           <HeaderInfoFundos className="column medium-9" />
 
 
-          <div classNames='data-mobile'>{(FilteredData.length > 1 ? FilteredData.map((item, index) => {
+          <div className='data-mobile'>{(FilteredData.length > 1 ? FilteredData.map((item, index) => {
 
             const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo } } } = item;
             const { specification: { fund_main_strategy: { name: estrategia_principal } } } = item;
@@ -234,11 +226,11 @@ export const Filtros = () => {
             return (
 
               <>
-                <DisplayDataDesktop simple_name={item.simple_name} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
+                <DisplayDataDesktop key={index} simple_name={item.simple_name} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
                   tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={reformatDate(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
                   aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} lucroMes={Number(lucroMes * 100).toFixed(2)}
                   lucroAno={Number(lucroAno * 100).toFixed(2)} cotizacaoAplicacao={cotizacaoAplicacao} cotizacaoResgate={cotizacaoResgate} liquidacaoResgate={liquidacaoResgate}
-                  taxaAdministracao={taxaAdministracao} cnpj={item.cnpj} icone_qualificado={icone_qualificado} icone_esg={item.esg_seal} close_aplicar={item.is_closed_to_capture}/>
+                  taxaAdministracao={taxaAdministracao} cnpj={item.cnpj} icone_qualificado={icone_qualificado} icone_esg={item.esg_seal} close_aplicar={JSON.stringify(item.is_closed_to_capture)}/>
 
               </>
 
@@ -259,12 +251,12 @@ export const Filtros = () => {
           <div className="item-sideBarFiltros">
             <>
               <input type="checkbox" id="input-valor-rendaFixa" className="inside-btn" defaultChecked={true} onChange={() => setDadosFiltradosRendaFixa(!dadosFiltradosRendaFixa)} />
-              <Button onClick={() => dropdown()} aria-controls="btn-collapse-renda-fixa" aria-expanded={openRendaFixa} className="bg-light btn-collapse-renda-fixa"><p>Renda Fixa </p> {(iconeDropDown?<AiOutlinePlus className="icone-dropdown" onClick={dropdown}/>:<AiOutlineMinus className="icone-dropdown" onClick={dropdown}/>)}</Button>
+              <Button onClick={() => dropdown()} aria-controls="btn-collapse-renda-fixa" aria-expanded={openRendaFixa} className="bg-light btn-collapse-renda-fixa"><p>Renda Fixa </p> {(iconeDropDown?<AiOutlineMinus className="icone-dropdown" onClick={dropdown}/>:<AiOutlinePlus className="icone-dropdown" onClick={dropdown}/>)}</Button>
               <Collapse in={openRendaFixa}>
 
 
                 <div id="btn-collapse-renda-fixa">
-                  <div class="card card-body bg-white p-0 body-rendaFixa">
+                  <div className="card card-body bg-white p-0 body-rendaFixa">
                     <ul>
                           <li><input type="checkbox"  className="inside-btn" defaultChecked={true}/><p>Indexado Soberano</p></li>
                           <li><input type="checkbox"  className="inside-btn" defaultChecked={true}/><p>Renda Fixa</p></li>

@@ -88,14 +88,14 @@ export class NavTabDestaqueTodos extends React.Component {
     return (
       <div className="box-info-fundos-tabs">
         <Tabs activeKey={this.state.activeTab} onSelect={this.handleSelect}>
-          <Tab eventKey={1} title="DESTAQUES" class="">
+          <Tab eventKey={1} title="DESTAQUES">
 
           {/* <DisplayDataMobileDestaque FilteredData= {this.props.FilteredData}/> */}
 
           </Tab>
           <Tab eventKey={2} title="TODOS">
 
-            <div classNames='data-mobile'>{(this.props.FilteredData.length > 1 ? this.props.FilteredData.map((item, index) => {
+            <div className='data-mobile'>{(this.props.FilteredData.length > 1 ? this.props.FilteredData.map((item, index) => {
 
               const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo } } } = item;
               const { specification: { fund_main_strategy: { name: estrategia_principal } } } = item;
@@ -110,7 +110,7 @@ export class NavTabDestaqueTodos extends React.Component {
               return (
 
                 <>
-                  <DisplayDataMobile simple_name={item.simple_name} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
+                  <DisplayDataMobile key={index} simple_name={item.simple_name} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
                     tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={reformatDate(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
                     aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} icone_qualificado={icone_qualificado} 
                     icone_esg={item.esg_seal} close_aplicar={item.is_closed_to_capture}/>

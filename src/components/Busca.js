@@ -58,9 +58,9 @@ export const Busca = () => {
     return (
         
         <div className="container-busca">
-            <div class="box-busca">
+            <div className="box-busca">
                 <input type="search" name="busca-fundo" id="buscaFundo" placeholder="Buscar fundo por nome"/>
-                <label for="busca-fundo" className="label-input-search">*Selecione o fundo para saber o horário limite de aplicação.</label>
+                <label htmlFor="busca-fundo" className="label-input-search">*Selecione o fundo para saber o horário limite de aplicação.</label>
            
                 <div className="box-filtros">
 

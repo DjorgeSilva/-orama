@@ -62,41 +62,41 @@ export function DisplayDataMobile({ simple_name, icone_qualificado, icone_esg, c
 
 
   return (
-    <div class="box-display-fundos">
+    <div className="box-display-fundos">
 
-      <div class="box-item-fundo">
-        <div class="wrap-titulo">
-          <h6 class="titulo-fundo">{simple_name}
+      <div className="box-item-fundo">
+        <div className="wrap-titulo">
+          <h6 className="titulo-fundo">{simple_name}
             {(icone_qualificado.toLowerCase() === "investidores qualificados") ? <MdStars className="icon-legenda icon-legenda-star" /> : ""}
             {(icone_esg === true) ? <FaGlobeAmericas className="icon-legenda icon-legenda-globe" /> : ""}
           </h6>
-          <div class='box-status-fundo'><span style={{ backgroundColor: cor(corPerfilRisco) }}></span></div>
+          <div className='box-status-fundo'><span style={{ backgroundColor: cor(corPerfilRisco) }}></span></div>
         </div>
 
-        {/* <p class="subtitulo-fundo">{estrategia_principal}</p> */}
-        <p class="subtitulo-fundo">{tipoFundo} | {classeFundo}</p>
+        {/* <p className="subtitulo-fundo">{estrategia_principal}</p> */}
+        <p className="subtitulo-fundo">{tipoFundo} | {classeFundo}</p>
 
-        <div class="box-item-info-fundos first-box-item">
-          <p class="right-row">Data da cota:</p>
-          <p class="left-row">{quota_date}</p>
+        <div className="box-item-info-fundos first-box-item">
+          <p className="right-row">Data da cota:</p>
+          <p className="left-row">{quota_date}</p>
         </div>
 
-        <div class="box-item-info-fundos">
-          <p class="right-row">rentabilidade 12 Meses:</p>
-          <p class="left-row">{m12}</p>
+        <div className="box-item-info-fundos">
+          <p className="right-row">rentabilidade 12 Meses:</p>
+          <p className="left-row">{m12}</p>
         </div>
 
-        <div class="box-item-info-fundos">
-          <p class="right-row">Aplicação Mínima:</p>
-          <p class="left-row">{aplicacaoMinima}</p>
+        <div className="box-item-info-fundos">
+          <p className="right-row">Aplicação Mínima:</p>
+          <p className="left-row">{aplicacaoMinima}</p>
         </div>
 
-        <div class="box-item-info-fundos">
-          <p class="right-row">Cotização do Resgate:</p>
-          <p class="left-row">D+{cotizacaoAplicacaoSigla}</p>
+        <div className="box-item-info-fundos">
+          <p className="right-row">Cotização do Resgate:</p>
+          <p className="left-row">D+{cotizacaoAplicacaoSigla}</p>
         </div>
 
-        <div class="box-info-button">
+        <div className="box-info-button">
           <button type="button">Mais detalhes</button>
           <button type="button">Aplicar</button>
         </div>

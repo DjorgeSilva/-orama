@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import * as IoIcons from "react-icons/io5";
 import { MdStars } from "react-icons/md";
-import { AiOutlineInfoCircle } from "react-icons/ai";
+import { AiOutlineInfoCircle, AiFillQuestionCircle } from "react-icons/ai";
 import { FcCancel } from "react-icons/fc";
 import { IoArrowRedoCircle } from "react-icons/io5";
+import { TiCancel } from "react-icons/ti";
 import { FaGlobeAmericas } from "react-icons/fa";
 import { Button, Collapse, Tooltip, OverlayTrigger, Popover } from "react-bootstrap";
 
@@ -73,6 +74,41 @@ export class DisplayDataDesktop extends React.Component {
       </Popover>
     );
 
+    const prazoResgate = (
+      <Popover>
+        <Popover.Title style={fontSize}>
+          Dias para a conversão do resgate
+          </Popover.Title>
+        <Popover.Content>
+          3° dia útil anterior ao último dia útil do 2° mês calendário subsequente à solicitação de resgate
+          </Popover.Content>
+      </Popover>
+    );
+
+    const cotizacaoAplicacao = (
+      <Popover>
+        <Popover.Content>
+          Total de dias para que o valor <br />aplicado seja convertido em cotas<br /> do fundo.
+          </Popover.Content>
+      </Popover>
+    );
+
+    const cotizacaoResgate = (
+      <Popover>
+        <Popover.Content>
+          Total de dias para que as cotas do<br /> fundo sejam transformadas em <br /> em valor monetário.
+          </Popover.Content>
+      </Popover>
+    );
+
+    const liquidacaoResgate = (
+      <Popover>
+        <Popover.Content>
+          Total de dias após a conversão <br /> para que o valor do resgate esteja<br /> disponivél em sua Subconta<br /> Órama.
+          </Popover.Content>
+      </Popover>
+    );
+
 
     function cor(idCor) {
       switch (idCor) {
@@ -127,21 +163,33 @@ export class DisplayDataDesktop extends React.Component {
       }
     }
 
-
+    const renderTooltip = (props) => (
+      <Tooltip id="button-tooltip" {...props}>
+        Simple tooltip
+      </Tooltip>
+    );
+    
     return (
       <>
 
         <div className="box-items-fundos-mobile" onClick={(e) => this.togglePanel(e)}>
 
-          <div class='box-status-fundo' style={{ backgroundColor: cor(this.props.corPerfilRisco) }}></div>
 
-          <div className="grid-x row-header">
+          <div className='box-status-fundo' style={{ backgroundColor: cor(this.props.corPerfilRisco) }}></div>
+
+          <div className="grid-x row-header" style={this.props.close_aplicar === "true" ? { color: "#5f5f5fdd" } : {}}>
 
             <div className="cell medium-3 coluna-header coluna-header-simple-name fundo">
               <div>
                 <h4 className="first-style">{this.props.simple_name}
-                
-                  {(this.props.icone_qualificado.toLowerCase() === "investidores qualificados") ? <MdStars className="icon-legenda icon-legenda-star" /> : ""}
+
+
+                  {(this.props.icone_qualificado.toLowerCase() === "investidores qualificados") ?
+                    <OverlayTrigger placement="bottom" overlay={renderTooltip} trigger={["hover", "focus"]}>
+                      <MdStars className="icon-legenda icon-legenda-star" style={this.props.close_aplicar === "true" ? { color: "#5f5f5fdd" } : {}} />
+                    </OverlayTrigger>
+                    : ""}
+                    
 
                 </h4>
                 {/* <h2 className="first-h2">{this.props.estrategia_principal}</h2> */}
@@ -154,19 +202,19 @@ export class DisplayDataDesktop extends React.Component {
             </div>
 
             <div className="cell medium-1 coluna-header mes">
-              <OverlayTrigger trigger="hover" placement="bottom" overlay={tipMes}>
+              <OverlayTrigger placement="bottom" overlay={tipMes} trigger={["hover", "focus"]}>
                 <h4>{this.props.lucroMes}</h4>
               </OverlayTrigger>
             </div>
 
             <div className="cell medium-1 coluna-header ano">
-              <OverlayTrigger trigger="hover" placement="bottom" overlay={tipAno}>
+              <OverlayTrigger placement="bottom" overlay={tipAno} trigger={["hover", "focus"]}>
                 <h4>{this.props.lucroAno}</h4>
               </OverlayTrigger>
             </div>
 
             <div className="cell medium-1 coluna-header _12m">
-              <OverlayTrigger trigger="hover" placement="bottom" overlay={tip12m}>
+              <OverlayTrigger placement="bottom" overlay={tip12m} trigger={["hover", "focus"]}>
                 <h4>{this.props.m12}</h4>
               </OverlayTrigger>
             </div>
@@ -176,12 +224,16 @@ export class DisplayDataDesktop extends React.Component {
             </div>
 
             <div className="cell medium-1 coluna-header prazoResgate">
-              <h4 className="style-bottom">D+{this.props.cotizacaoAplicacaoSigla}</h4>
+              <h4 className="style-bottom">
+                <OverlayTrigger placement="bottom" overlay={prazoResgate} trigger={["hover", "focus"]}>
+                  <AiOutlineInfoCircle className="icon-legenda icon-legenda-info" />
+                </OverlayTrigger>
+              </h4>
+
             </div>
 
             <div className="cell medium-1 coluna-header">
-              <IoIcons.IoArrowUndoCircleSharp className="icone-aplicar" />
-
+              {(this.props.close_aplicar === "true" ? <TiCancel className="icon-legenda icon-legenda-fechado" /> : <IoIcons.IoArrowUndoCircleSharp className="icone-aplicar" />)}
             </div>
 
           </div>
@@ -197,9 +249,29 @@ export class DisplayDataDesktop extends React.Component {
             </div>
 
             <div className="box-more-info-detalhes">
-              <p>Cotização da aplicação: <span>{this.props.cotizacaoAplicacao}</span></p>
-              <p>Cotização do resgate <span>{this.props.cotizacaoResgate}</span></p>
-              <p>Liquidação do resgate: <span>{this.props.liquidacaoResgate}</span></p>
+              <p>Cotização da aplicação:
+                <span>{this.props.cotizacaoAplicacao}
+                  <OverlayTrigger trigger={["hover", "focus"]} placement="bottom" overlay={cotizacaoAplicacao}>
+                    <AiFillQuestionCircle className="icone-more-info" />
+                  </OverlayTrigger>
+                </span>
+              </p>
+              <p>Cotização do resgate
+                <span>{this.props.cotizacaoResgate}
+                  <OverlayTrigger trigger={["hover", "focus"]} placement="bottom" overlay={cotizacaoResgate}>
+                    <AiFillQuestionCircle className="icone-more-info" />
+                  </OverlayTrigger>
+                </span>
+              </p>
+
+
+              <p>Liquidação do resgate:
+                <span>{this.props.liquidacaoResgate}
+                  <OverlayTrigger trigger={["hover", "focus"]} placement="bottom" overlay={liquidacaoResgate}>
+                    <AiFillQuestionCircle className="icone-more-info" />
+                  </OverlayTrigger>
+                </span>
+              </p>
               <p className="last-p">Taxa de administração: <span>{this.props.taxaAdministracao}</span></p>
 
 

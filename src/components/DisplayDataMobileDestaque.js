@@ -18,7 +18,7 @@ export function DisplayDataMobileDestaque({ FilteredData }) {
 
     return (
         <div>
-            <div classNames='data-mobile'>{(FilteredData.length > 1 ? FilteredData.map((item, index) => {
+            <div className='data-mobile'>{(FilteredData.length > 1 ? FilteredData.map((item, index) => {
 
                 const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo } } } = item;
                 const { specification: { fund_main_strategy: { name: estrategia_principal } } } = item;

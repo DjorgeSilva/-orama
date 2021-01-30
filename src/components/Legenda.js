@@ -12,7 +12,7 @@ import { AiFillCheckCircle } from "react-icons/ai";
 export const Legenda = () => {
     return (
         <div>
-            <div class="box-legenda">
+            <div className="box-legenda">
                 <h6>Legenda</h6>
                 <ul>
                     <li className="mb-first-li">
