@@ -287,6 +287,19 @@ body {
                     display: none;
                 }
                 .box-info-fundos-tabs {
+                    .title-box:not(:empty) {
+                        width: 100%;
+                        height: 47px;
+                        margin-top: 0;
+                        background-color: #ededed;
+                        @include displayFlex();
+                        justify-content: left;
+                        font-size: .9rem;
+                        padding-left: 17px;
+                        font-family: $font-padrao;
+                        box-shadow: 0px 1px 1px rgb(190, 190, 190);
+                        font-weight: 500;
+                    }
                     .box-display-fundos {
                         width: 100%;
                         height: fit-content;
@@ -403,6 +416,9 @@ body {
                             text-align: center;
                         }
                     }
+                }
+                .title-box {
+                    display: none;
                 }
                 .box-items-fundos-mobile {
                     display: none;
@@ -991,7 +1007,7 @@ body {
                         height: 80px;
                         padding: 0 20px;
                         background-color: rgb(255, 255, 255);
-                        margin-bottom: 30px;
+                        margin-bottom: 0;
                         border: 1px solid rgb(233, 233, 233);
                         box-shadow: 2px 5px 10px rgba(223, 223, 223, 0.867);
                         .row-header {
@@ -1028,6 +1044,19 @@ body {
                     }
                     .box-display-fundos {
                         display: none;
+                    }
+                    .title-box:not(:empty) {
+                        width: 100%;
+                        height: 47px;
+                        margin-top: 0;
+                        background-color: #ededed;
+                        @include displayFlex();
+                        justify-content: left;
+                        font-size: .9rem;
+                        padding-left: 17px;
+                        font-family: $font-padrao;
+                        box-shadow: 0px 2px 2px rgb(190, 190, 190);
+                        font-weight: 500;
                     }
                     .box-items-fundos-mobile {
                         cursor: pointer;

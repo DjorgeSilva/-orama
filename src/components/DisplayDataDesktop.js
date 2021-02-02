@@ -171,7 +171,7 @@ export class DisplayDataDesktop extends React.Component {
     
     return (
       <>
-
+        <div className='title-box'>{(this.props.posicao.includes(this.props.index)?this.props.estrategia_principal:null)}</div>
         <div className="box-items-fundos-mobile" onClick={(e) => this.togglePanel(e)}>
 
 

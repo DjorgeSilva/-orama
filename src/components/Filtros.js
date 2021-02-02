@@ -20,12 +20,21 @@ export const Filtros = () => {
   const [perfilRisco, setPerfilRisco] = useState(12);
   const [prazoResgate, setPrazoResgate] = useState(30);
   let [FilteredData, setFilteredData] = useState([]);
+  const [rendaFixa, setRendaFixa] = useState([]);
+  const [diferenciada, setDiferenciada] = useState([]);
+  const [rendaVariavel, setRendaVariavel] = useState([]);
   const rendaFixaID = "1";
   const diferenciadaID = "2";
   const varivelID = "3";
   const [openRendaFixa, setOpenRendaFixa] = useState(false);
   const [dadosFiltradosRendaFixa, setDadosFiltradosRendaFixa] = useState(false);
-  const[iconeDropDown, setIconeDropDown] = useState(false)
+  const [iconeDropDown, setIconeDropDown] = useState(false)
+  var filtraNomeRendaFixa = [];
+  var uniqueNomeRendaFixa = [];
+  var filtraNomeEstrategiaDiferenciada = [];
+  var uniqueNomeEstrategiaDiferenciada = [];
+  var filtraNomeRendaVariavel = [];
+  var uniqueNomeRendaVariavel = [];
 
 
 
@@ -115,7 +124,7 @@ export const Filtros = () => {
           Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
-          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaVariavel 
+          JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaVariavel
       })
     )
   }, [q, data, aplicacaoMinima, perfilRisco, prazoResgate])
@@ -125,8 +134,8 @@ export const Filtros = () => {
 
 
   FilteredData.sort((a, b) => (a.profitabilities.m12 < b.profitabilities.m12) ? 1 : ((b.profitabilities.m12 < a.profitabilities.m12) ? -1 : 0));
-  
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   function moneyFormatter(money) {
     const valor = new Intl.NumberFormat('pt-BR',
@@ -141,15 +150,88 @@ export const Filtros = () => {
     return dArr[2] + "/" + dArr[1] + "/" + dArr[0].substring(2);
   }
 
-  function dropdown(){
+  function dropdown() {
     setOpenRendaFixa(!openRendaFixa)
 
-    setTimeout(()=>{
+    setTimeout(() => {
       setIconeDropDown(!iconeDropDown)
-    },200)
+    }, 200)
 
 
   }
+
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  useEffect(() => {
+    setRendaFixa(
+      data.filter(item => {
+        return JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase().includes(rendaFixaID.toLowerCase())
+      })
+    )
+  }, [data])
+
+  useEffect(() => {
+    setDiferenciada(
+      data.filter(item => {
+        return JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase().includes(diferenciadaID.toLowerCase())
+      })
+    )
+  }, [data])
+
+  useEffect(() => {
+    setRendaVariavel(
+      data.filter(item => {
+        return JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase().includes(varivelID.toLowerCase())
+      })
+    )
+  }, [data])
+  
+  rendaFixa.map((item) => {
+    filtraNomeRendaFixa.push(item.specification.fund_main_strategy.name);
+  })
+
+  uniqueNomeRendaFixa = filtraNomeRendaFixa.filter(function (item, pos) { //cria um novo array com todos os os itens de rendaFixa que passarem na condição
+    return filtraNomeRendaFixa.indexOf(item) == pos; //retorna cada item apenas uma vez armazenando no array uniqueRendaFixa                           
+  })
+
+  diferenciada.map((item) => {
+    filtraNomeEstrategiaDiferenciada.push(item.specification.fund_main_strategy.name);
+  })
+
+  uniqueNomeEstrategiaDiferenciada = filtraNomeEstrategiaDiferenciada.filter(function (item, pos) {
+    return filtraNomeEstrategiaDiferenciada.indexOf(item) == pos;
+  })
+
+  rendaVariavel.map((item) => {
+    filtraNomeRendaVariavel.push(item.specification.fund_main_strategy.name);
+  })
+
+  uniqueNomeRendaVariavel = filtraNomeRendaVariavel.filter(function (item, pos) {
+    return filtraNomeRendaVariavel.indexOf(item) == pos;
+  })
+
+  var rendaFixaDestaque = [];
+  var name = [];
+
+  uniqueNomeRendaFixa.map(item => {
+    FilteredData.map(function (itemRendaFixa, index) {
+      if (item.toString().trim() === itemRendaFixa.specification.fund_main_strategy.name.toString().trim()) {
+        rendaFixaDestaque.push(itemRendaFixa)
+        name.push((item.toString()))
+
+      }
+    })
+  })
+
+  var recebe;
+  var posicao = []
+
+  uniqueNomeRendaFixa.map(item => {
+    recebe = name.lastIndexOf(item)
+    posicao.push(recebe + 1)
+  })
+
 
 
   return (
@@ -166,7 +248,7 @@ export const Filtros = () => {
 
                 <div className="aplicacao-minima item-filtro">
                   <p>Aplicação mínima</p>
-                  <input type="range" min="0" max="500000" id="aplicacaoMinima" defaultValue="500000" onChange={changeValueMinimo} step="200"/>
+                  <input type="range" min="0" max="500000" id="aplicacaoMinima" defaultValue="500000" onChange={changeValueMinimo} step="200" />
                   <label htmlFor="aplicacao-minima">Até <span id="valueAplicacaoMinima">R$ 500.000,00</span></label>
                 </div>
 
@@ -208,29 +290,30 @@ export const Filtros = () => {
 
           </div>
 
-          <NavTabDestaqueTodos FilteredData={FilteredData} />
+          <NavTabDestaqueTodos FilteredData={FilteredData} rendaFixaDestaque={rendaFixaDestaque} posicao={posicao}/>
+          {console.log(posicao)}
           <HeaderInfoFundos className="column medium-9" />
 
 
-          <div className='data-mobile'>{(FilteredData.length > 1 ? FilteredData.map((item, index) => {
-
+          <div className='data-mobile'>{(rendaFixaDestaque.length > 1 ? rendaFixaDestaque.map((item, index) => {
+            
             const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo } } } = item;
             const { specification: { fund_main_strategy: { name: estrategia_principal } } } = item;
             const { profitabilities: { month: lucroMes, m12, year: lucroAno } } = item;
             const { operability: { minimum_initial_application_amount: aplicacaoMinima, application_quotation_days_str: cotizacaoAplicacao, retrieval_quotation_days: cotizacaoAplicacaoSigla, retrieval_quotation_days_str: cotizacaoResgate,
               retrieval_liquidation_days_str: liquidacaoResgate, application_time_limit: horarioLimiteAplicacao } } = item;
             const { fees: { administration_fee: taxaAdministracao } } = item;
-            const {description:{target_audience:icone_qualificado}} = item;
+            const { description: { target_audience: icone_qualificado } } = item;
 
 
             return (
 
               <>
-                <DisplayDataDesktop key={index} simple_name={item.simple_name} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
+                <DisplayDataDesktop simple_name={item.simple_name} index={index} posicao={posicao} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
                   tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={reformatDate(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
                   aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} lucroMes={Number(lucroMes * 100).toFixed(2)}
                   lucroAno={Number(lucroAno * 100).toFixed(2)} cotizacaoAplicacao={cotizacaoAplicacao} cotizacaoResgate={cotizacaoResgate} liquidacaoResgate={liquidacaoResgate}
-                  taxaAdministracao={taxaAdministracao} cnpj={item.cnpj} icone_qualificado={icone_qualificado} icone_esg={item.esg_seal} close_aplicar={JSON.stringify(item.is_closed_to_capture)}/>
+                  taxaAdministracao={taxaAdministracao} cnpj={item.cnpj} icone_qualificado={icone_qualificado} icone_esg={item.esg_seal} close_aplicar={JSON.stringify(item.is_closed_to_capture)} />
 
               </>
 
@@ -246,24 +329,24 @@ export const Filtros = () => {
         </div>
 
         <div className="column large-2 box-left-wrap-all">
-          <Legenda/>
+          <Legenda />
 
           <div className="item-sideBarFiltros">
             <>
               <input type="checkbox" id="input-valor-rendaFixa" className="inside-btn" defaultChecked={true} onChange={() => setDadosFiltradosRendaFixa(!dadosFiltradosRendaFixa)} />
-              <Button onClick={() => dropdown()} aria-controls="btn-collapse-renda-fixa" aria-expanded={openRendaFixa} className="bg-light btn-collapse-renda-fixa"><p>Renda Fixa </p> {(iconeDropDown?<AiOutlineMinus className="icone-dropdown" onClick={dropdown}/>:<AiOutlinePlus className="icone-dropdown" onClick={dropdown}/>)}</Button>
+              <Button onClick={() => dropdown()} aria-controls="btn-collapse-renda-fixa" aria-expanded={openRendaFixa} className="bg-light btn-collapse-renda-fixa"><p>Renda Fixa </p> {(iconeDropDown ? <AiOutlineMinus className="icone-dropdown" onClick={dropdown} /> : <AiOutlinePlus className="icone-dropdown" onClick={dropdown} />)}</Button>
               <Collapse in={openRendaFixa}>
 
 
                 <div id="btn-collapse-renda-fixa">
                   <div className="card card-body bg-white p-0 body-rendaFixa">
                     <ul>
-                          <li><input type="checkbox"  className="inside-btn" defaultChecked={true}/><p>Indexado Soberano</p></li>
-                          <li><input type="checkbox"  className="inside-btn" defaultChecked={true}/><p>Renda Fixa</p></li>
-                          <li className="sub-item"><p>Renda Fixa Crédito Privado</p></li>
-                          <li className="sub-item"><p>Crédito Privado High Yield</p></li>
-                          <li className="sub-item"><input type="checkbox"  className="inside-btn big-item-input" defaultChecked={true}/><p className="big-item">Renda Fixa Inflação Soberano</p></li>
-                          <li className="sub-item"><input type="checkbox"  className="inside-btn big-item-input" defaultChecked={true}/><p className="big-item">Inflação Crédito Privado</p></li>
+                      <li><input type="checkbox" className="inside-btn" defaultChecked={true} /><p>Indexado Soberano</p></li>
+                      <li><input type="checkbox" className="inside-btn" defaultChecked={true} /><p>Renda Fixa</p></li>
+                      <li className="sub-item"><p>Renda Fixa Crédito Privado</p></li>
+                      <li className="sub-item"><p>Crédito Privado High Yield</p></li>
+                      <li className="sub-item"><input type="checkbox" className="inside-btn big-item-input" defaultChecked={true} /><p className="big-item">Renda Fixa Inflação Soberano</p></li>
+                      <li className="sub-item"><input type="checkbox" className="inside-btn big-item-input" defaultChecked={true} /><p className="big-item">Inflação Crédito Privado</p></li>
                     </ul>
 
                   </div>

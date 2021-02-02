@@ -5,7 +5,8 @@ import { FcCancel } from "react-icons/fc";
 import { IoArrowRedoCircle } from "react-icons/io5";
 import { FaGlobeAmericas } from "react-icons/fa";
 
-export function DisplayDataMobile({ simple_name, icone_qualificado, icone_esg, corPerfilRisco, estrategia_principal, tipoFundo, classeFundo, quota_date, m12, aplicacaoMinima, cotizacaoAplicacaoSigla }) {
+export function DisplayDataMobile({ simple_name, icone_qualificado, icone_esg, corPerfilRisco, estrategia_principal,
+  tipoFundo, classeFundo, quota_date, m12, aplicacaoMinima, cotizacaoAplicacaoSigla, posicao, index }) {
 
   function cor(idCor) {
     switch (idCor) {
@@ -62,46 +63,50 @@ export function DisplayDataMobile({ simple_name, icone_qualificado, icone_esg, c
 
 
   return (
-    <div className="box-display-fundos">
+    <>
+      <div className='title-box'>{posicao && ((posicao.includes(index) ? estrategia_principal : null))}</div>
+      <div className="box-display-fundos">
+        {/* {(data.includes(index)?estrategia_principal:null)} */}
 
-      <div className="box-item-fundo">
-        <div className="wrap-titulo">
-          <h6 className="titulo-fundo">{simple_name}
-            {(icone_qualificado.toLowerCase() === "investidores qualificados") ? <MdStars className="icon-legenda icon-legenda-star" /> : ""}
-            {(icone_esg === true) ? <FaGlobeAmericas className="icon-legenda icon-legenda-globe" /> : ""}
-          </h6>
-          <div className='box-status-fundo'><span style={{ backgroundColor: cor(corPerfilRisco) }}></span></div>
+        <div className="box-item-fundo">
+          <div className="wrap-titulo">
+            <h6 className="titulo-fundo">{simple_name}
+              {(icone_qualificado.toLowerCase() === "investidores qualificados") ? <MdStars className="icon-legenda icon-legenda-star" /> : ""}
+              {(icone_esg === true) ? <FaGlobeAmericas className="icon-legenda icon-legenda-globe" /> : ""}
+            </h6>
+            <div className='box-status-fundo'><span style={{ backgroundColor: cor(corPerfilRisco) }}></span></div>
+          </div>
+
+          {/* <p className="subtitulo-fundo">{estrategia_principal}</p> */}
+          <p className="subtitulo-fundo">{tipoFundo} | {classeFundo}</p>
+
+          <div className="box-item-info-fundos first-box-item">
+            <p className="right-row">Data da cota:</p>
+            <p className="left-row">{quota_date}</p>
+          </div>
+
+          <div className="box-item-info-fundos">
+            <p className="right-row">rentabilidade 12 Meses:</p>
+            <p className="left-row">{m12}</p>
+          </div>
+
+          <div className="box-item-info-fundos">
+            <p className="right-row">Aplicação Mínima:</p>
+            <p className="left-row">{aplicacaoMinima}</p>
+          </div>
+
+          <div className="box-item-info-fundos">
+            <p className="right-row">Cotização do Resgate:</p>
+            <p className="left-row">D+{cotizacaoAplicacaoSigla}</p>
+          </div>
+
+          <div className="box-info-button">
+            <button type="button">Mais detalhes</button>
+            <button type="button">Aplicar</button>
+          </div>
         </div>
 
-        {/* <p className="subtitulo-fundo">{estrategia_principal}</p> */}
-        <p className="subtitulo-fundo">{tipoFundo} | {classeFundo}</p>
-
-        <div className="box-item-info-fundos first-box-item">
-          <p className="right-row">Data da cota:</p>
-          <p className="left-row">{quota_date}</p>
-        </div>
-
-        <div className="box-item-info-fundos">
-          <p className="right-row">rentabilidade 12 Meses:</p>
-          <p className="left-row">{m12}</p>
-        </div>
-
-        <div className="box-item-info-fundos">
-          <p className="right-row">Aplicação Mínima:</p>
-          <p className="left-row">{aplicacaoMinima}</p>
-        </div>
-
-        <div className="box-item-info-fundos">
-          <p className="right-row">Cotização do Resgate:</p>
-          <p className="left-row">D+{cotizacaoAplicacaoSigla}</p>
-        </div>
-
-        <div className="box-info-button">
-          <button type="button">Mais detalhes</button>
-          <button type="button">Aplicar</button>
-        </div>
       </div>
-
-    </div>
+    </>
   )
 }

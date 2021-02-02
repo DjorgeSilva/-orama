@@ -355,6 +355,31 @@ body .container-all .box-wrap-all-filters .box-right-wrap-all .box-mensagem-no-i
   display: none;
 }
 
+body .container-all .box-wrap-all-filters .box-right-wrap-all .box-info-fundos-tabs .title-box:not(:empty) {
+  width: 100%;
+  height: 47px;
+  margin-top: 0;
+  background-color: #ededed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  font-size: .9rem;
+  padding-left: 17px;
+  font-family: "Roboto", serif;
+  -webkit-box-shadow: 0px 1px 1px #bebebe;
+          box-shadow: 0px 1px 1px #bebebe;
+  font-weight: 500;
+}
+
 body .container-all .box-wrap-all-filters .box-right-wrap-all .box-info-fundos-tabs .box-display-fundos {
   width: 100%;
   height: -webkit-fit-content;
@@ -527,6 +552,10 @@ body .container-all .box-wrap-all-filters .box-right-wrap-all .box-info-fundos-t
   color: #333;
   font-size: .9rem;
   text-align: center;
+}
+
+body .container-all .box-wrap-all-filters .box-right-wrap-all .title-box {
+  display: none;
 }
 
 body .container-all .box-wrap-all-filters .box-right-wrap-all .box-items-fundos-mobile {
@@ -1190,7 +1219,7 @@ body .box-txt-footer-outer {
     height: 80px;
     padding: 0 20px;
     background-color: white;
-    margin-bottom: 30px;
+    margin-bottom: 0;
     border: 1px solid #e9e9e9;
     -webkit-box-shadow: 2px 5px 10px rgba(223, 223, 223, 0.867);
             box-shadow: 2px 5px 10px rgba(223, 223, 223, 0.867);
@@ -1230,6 +1259,30 @@ body .box-txt-footer-outer {
   }
   body .container-all .box-wrap-all-filters .box-right-wrap-all .box-display-fundos {
     display: none;
+  }
+  body .container-all .box-wrap-all-filters .box-right-wrap-all .title-box:not(:empty) {
+    width: 100%;
+    height: 47px;
+    margin-top: 0;
+    background-color: #ededed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
+    font-size: .9rem;
+    padding-left: 17px;
+    font-family: "Roboto", serif;
+    -webkit-box-shadow: 0px 2px 2px #bebebe;
+            box-shadow: 0px 2px 2px #bebebe;
+    font-weight: 500;
   }
   body .container-all .box-wrap-all-filters .box-right-wrap-all .box-items-fundos-mobile {
     cursor: pointer;

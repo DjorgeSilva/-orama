@@ -2,7 +2,6 @@ import { Tab, Tabs } from 'react-bootstrap';
 import { DisplayDataMobile } from "./DisplayDataMobile.js"
 import React from 'react';
 import { DisplayDataDesktop } from "./DisplayDataDesktop.js";
-import {DisplayDataMobileDestaque} from "./DisplayDataMobileDestaque.js"
 
 export class NavTabDestaqueTodos extends React.Component {
   constructor(props) {
@@ -85,17 +84,14 @@ export class NavTabDestaqueTodos extends React.Component {
       }
     }
 
+
     return (
       <div className="box-info-fundos-tabs">
         <Tabs activeKey={this.state.activeTab} onSelect={this.handleSelect}>
           <Tab eventKey={1} title="DESTAQUES">
 
-          {/* <DisplayDataMobileDestaque FilteredData= {this.props.FilteredData}/> */}
 
-          </Tab>
-          <Tab eventKey={2} title="TODOS">
-
-            <div className='data-mobile'>{(this.props.FilteredData.length > 1 ? this.props.FilteredData.map((item, index) => {
+            <div className='data-mobile'>{(this.props.rendaFixaDestaque.length > 1 ? this.props.rendaFixaDestaque.map((item, index) => {
 
               const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo } } } = item;
               const { specification: { fund_main_strategy: { name: estrategia_principal } } } = item;
@@ -103,22 +99,55 @@ export class NavTabDestaqueTodos extends React.Component {
               const { operability: { minimum_initial_application_amount: aplicacaoMinima, application_quotation_days_str: cotizacaoAplicacao, retrieval_quotation_days: cotizacaoAplicacaoSigla, retrieval_quotation_days_str: cotizacaoResgate,
                 retrieval_liquidation_days_str: liquidacaoResgate, application_time_limit: horarioLimiteAplicacao } } = item;
               const { fees: { administration_fee: taxaAdministracao } } = item;
-              const {description:{target_audience:icone_qualificado}} = item;
+              const { description: { target_audience: icone_qualificado } } = item;
 
 
 
               return (
 
                 <>
-                  <DisplayDataMobile key={index} simple_name={item.simple_name} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
+                  <DisplayDataMobile  key={index} simple_name={item.simple_name} index={index} posicao={this.props.posicao} estrategia_principal={estrategia_principal} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
                     tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={reformatDate(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
-                    aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} icone_qualificado={icone_qualificado} 
-                    icone_esg={item.esg_seal} close_aplicar={item.is_closed_to_capture}/>
+                    aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} icone_qualificado={icone_qualificado}
+                    icone_esg={item.esg_seal} close_aplicar={item.is_closed_to_capture} />
 
                 </>
 
               );
             }) :
+              <div className="box-mensagem-no-item">
+                <p>O fundo buscado não está disponível nesta lista. Verifique nas demais abas.</p>
+              </div>
+            )}</div>
+
+
+          </Tab>
+          <Tab eventKey={2} title="TODOS">
+          
+            <div className='data-mobile'>{(this.props.FilteredData.length > 1 ? this.props.FilteredData.map((item, index) => {
+
+            const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo } } } = item;
+            const { specification: { fund_main_strategy: { name: estrategia_principal } } } = item;
+            const { profitabilities: { month: lucroMes, m12, year: lucroAno } } = item;
+            const { operability: { minimum_initial_application_amount: aplicacaoMinima, application_quotation_days_str: cotizacaoAplicacao, retrieval_quotation_days: cotizacaoAplicacaoSigla, retrieval_quotation_days_str: cotizacaoResgate,
+              retrieval_liquidation_days_str: liquidacaoResgate, application_time_limit: horarioLimiteAplicacao } } = item;
+            const { fees: { administration_fee: taxaAdministracao } } = item;
+            const { description: { target_audience: icone_qualificado } } = item;
+
+
+
+            return (
+
+              <>
+                <DisplayDataMobile key={index} simple_name={item.simple_name} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
+                  tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={reformatDate(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
+                  aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} icone_qualificado={icone_qualificado}
+                  icone_esg={item.esg_seal} close_aplicar={item.is_closed_to_capture} />
+
+              </>
+
+            );
+          }) :
               <div className="box-mensagem-no-item">
                 <p>O fundo buscado não está disponível nesta lista. Verifique nas demais abas.</p>
               </div>
