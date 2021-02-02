@@ -64,7 +64,6 @@ export function DisplayDataMobile({ simple_name, icone_qualificado, icone_esg, c
 
   return (
     <>
-    
       <div className='title-box'>{titleDiferenciada &&((titleDiferenciada.includes(index) ? estrategia_macro : null))}</div>
       <div className='subtitle-box'>{posicao && ((posicao.includes(index) ? estrategia_principal : null))}</div>
       <div className="box-display-fundos">

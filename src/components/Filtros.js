@@ -1,4 +1,5 @@
 
+
 import "../css/index.css";
 import React, { useState, useEffect } from 'react';
 import { NavTabDestaqueTodos } from "./NavTabDestaqueTodos.js";
@@ -8,6 +9,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { Legenda } from "./Legenda.js"
 import { DisplayDataDesktop } from "./DisplayDataDesktop.js";
 import { Button, Collapse, Tooltip, OverlayTrigger, Popover } from "react-bootstrap"
+import { brown100 } from "material-ui/styles/colors";
 
 require("es6-promise").polyfill();
 require("isomorphic-fetch");
@@ -15,7 +17,7 @@ require("isomorphic-fetch");
 export const Filtros = () => {
 
   const [data, setData] = useState([]);
-  const [q, setQ] = useState("");
+  const [valorDigitado, setValorDigitado] = useState("");
   const [aplicacaoMinima, setAplicacaoMinima] = useState(20000);
   const [perfilRisco, setPerfilRisco] = useState(12);
   const [prazoResgate, setPrazoResgate] = useState(30);
@@ -106,26 +108,26 @@ export const Filtros = () => {
 
     setFilteredData(
       data.filter(item => {
-        return item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
+        return item.simple_name.toString().toLowerCase().trim().includes(valorDigitado.toLowerCase().trim()) &&
           Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
           JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaFixa ||
 
-          item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
+          item.simple_name.toString().toLowerCase().trim().includes(valorDigitado.toLowerCase().trim()) &&
           Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
           JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroDiferenciada ||
 
-          item.simple_name.toLowerCase().includes(q.toLowerCase()) &&
+          item.simple_name.toString().toLowerCase().trim().includes(valorDigitado.toLowerCase().trim()) &&
           Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
           JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaVariavel
       })
     )
-  }, [q, data, aplicacaoMinima, perfilRisco, prazoResgate])
+  }, [valorDigitado, data, aplicacaoMinima, perfilRisco, prazoResgate])
 
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -268,6 +270,14 @@ export const Filtros = () => {
 
   console.log(titleDiferenciada)
 
+  function checkItemsAuto(){
+    const element = document.getElementsByClassName("inside-btn");
+
+    setDadosFiltradosRendaFixa(!dadosFiltradosRendaFixa);
+    for(let i = 0; i< element.length;i++){
+      element[i].checked = dadosFiltradosRendaFixa;
+    }
+  }
 
 
 
@@ -280,7 +290,9 @@ export const Filtros = () => {
 
           <div className="container-busca">
             <div className="box-busca">
-              <input type="search" id="buscaFundo" placeholder="Buscar fundo por nome" value={q} onChange={((e) => setQ(e.target.value))} />
+              
+              <input type="text" id="buscaFundo" placeholder="Buscar fundo por nome" value={valorDigitado} onChange={((e) => setValorDigitado(e.target.value))}/>
+              <button type="submit" className="icone-busca-btn"><i class="fa fa-search icone-busca"></i></button>
               <label htmlFor="busca-fundo" className="label-input-search">*Selecione o fundo para saber o horário limite de aplicação.</label>
 
               <div className="box-filtros">
@@ -371,7 +383,7 @@ export const Filtros = () => {
 
           <div className="item-sideBarFiltros">
             <>
-              <input type="checkbox" id="input-valor-rendaFixa" className="inside-btn" defaultChecked={true} onChange={() => setDadosFiltradosRendaFixa(!dadosFiltradosRendaFixa)} />
+              <input type="checkbox" id="input-valor-rendaFixa" className="inside-btn-main" defaultChecked={true} onChange={() => checkItemsAuto()} />
               <Button onClick={() => dropdown()} aria-controls="btn-collapse-renda-fixa" aria-expanded={openRendaFixa} className="bg-light btn-collapse-renda-fixa"><p>Renda Fixa </p> {(iconeDropDown ? <AiOutlineMinus className="icone-dropdown" onClick={dropdown} /> : <AiOutlinePlus className="icone-dropdown" onClick={dropdown} />)}</Button>
               <Collapse in={openRendaFixa}>
 
@@ -383,8 +395,8 @@ export const Filtros = () => {
                       <li><input type="checkbox" className="inside-btn" defaultChecked={true} /><p>Renda Fixa</p></li>
                       <li className="sub-item"><p>Renda Fixa Crédito Privado</p></li>
                       <li className="sub-item"><p>Crédito Privado High Yield</p></li>
-                      <li className="sub-item"><input type="checkbox" className="inside-btn big-item-input" defaultChecked={true} /><p className="big-item">Renda Fixa Inflação Soberano</p></li>
-                      <li className="sub-item"><input type="checkbox" className="inside-btn big-item-input" defaultChecked={true} /><p className="big-item">Inflação Crédito Privado</p></li>
+                      <li className="sub-item big-item-soberano"><input type="checkbox" className="inside-btn big-item-input" defaultChecked={true} /><p className="big-item">Renda Fixa Inflação Soberano</p></li>
+                      <li className="sub-item"><input type="checkbox" className="inside-btn  big-item-privado" defaultChecked={true} /><p className="big-item">Inflação Crédito Privado</p></li>
                     </ul>
 
                   </div>
