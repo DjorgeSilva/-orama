@@ -212,25 +212,66 @@ export const Filtros = () => {
   })
 
   var rendaFixaDestaque = [];
-  var name = [];
+  var nameItem = [];
+  var recebePosicao;
+  var posicao = []
 
-  uniqueNomeRendaFixa.map(item => {
+  uniqueNomeRendaFixa.map(item => { 
     FilteredData.map(function (itemRendaFixa, index) {
       if (item.toString().trim() === itemRendaFixa.specification.fund_main_strategy.name.toString().trim()) {
         rendaFixaDestaque.push(itemRendaFixa)
-        name.push((item.toString()))
+        nameItem.push((item.toString()))
 
       }
     })
   })
 
-  var recebe;
-  var posicao = []
-
   uniqueNomeRendaFixa.map(item => {
-    recebe = name.lastIndexOf(item)
-    posicao.push(recebe + 1)
+    recebePosicao =nameItem.lastIndexOf(item)
+    posicao.push(recebePosicao + 1)
   })
+
+  var titleDiferenciada = []
+  titleDiferenciada.push(rendaFixaDestaque.length)
+
+  uniqueNomeEstrategiaDiferenciada.map(item => { 
+    FilteredData.map(function (itemEstrategia, index) {
+      if (item.toString().trim() === itemEstrategia.specification.fund_main_strategy.name.toString().trim()) {
+        rendaFixaDestaque.push(itemEstrategia)
+        nameItem.push((item.toString()))
+
+      }
+    })
+  })
+
+  uniqueNomeEstrategiaDiferenciada.map(item => {
+    recebePosicao =nameItem.lastIndexOf(item)
+    posicao.push(recebePosicao + 1)
+  })
+
+
+  titleDiferenciada.push(rendaFixaDestaque.length)
+  titleDiferenciada.push(0)
+
+    uniqueNomeRendaVariavel.map(item => { 
+    FilteredData.map(function (itemVariavel, index) {
+      if (item.toString().trim() === itemVariavel.specification.fund_main_strategy.name.toString().trim()) {
+        rendaFixaDestaque.push(itemVariavel)
+        nameItem.push((item.toString()))
+
+      }
+    })
+  })
+
+  uniqueNomeRendaVariavel.map(item => {
+    recebePosicao =nameItem.lastIndexOf(item)
+    posicao.push(recebePosicao + 1)
+  })
+
+  console.log(titleDiferenciada)
+
+
+
 
 
 
@@ -290,8 +331,7 @@ export const Filtros = () => {
 
           </div>
 
-          <NavTabDestaqueTodos FilteredData={FilteredData} rendaFixaDestaque={rendaFixaDestaque} posicao={posicao}/>
-          {console.log(posicao)}
+          <NavTabDestaqueTodos FilteredData={FilteredData} rendaFixaDestaque={rendaFixaDestaque} posicao={posicao} titleDiferenciada={titleDiferenciada}/>
           <HeaderInfoFundos className="column medium-9" />
 
 
@@ -299,6 +339,7 @@ export const Filtros = () => {
             
             const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo } } } = item;
             const { specification: { fund_main_strategy: { name: estrategia_principal } } } = item;
+            const { specification: { fund_macro_strategy: { name: estrategia_macro } } } = item;
             const { profitabilities: { month: lucroMes, m12, year: lucroAno } } = item;
             const { operability: { minimum_initial_application_amount: aplicacaoMinima, application_quotation_days_str: cotizacaoAplicacao, retrieval_quotation_days: cotizacaoAplicacaoSigla, retrieval_quotation_days_str: cotizacaoResgate,
               retrieval_liquidation_days_str: liquidacaoResgate, application_time_limit: horarioLimiteAplicacao } } = item;
@@ -309,7 +350,7 @@ export const Filtros = () => {
             return (
 
               <>
-                <DisplayDataDesktop simple_name={item.simple_name} index={index} posicao={posicao} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
+                <DisplayDataDesktop simple_name={item.simple_name} index={index} posicao={posicao} titleDiferenciada={titleDiferenciada} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_macro ={estrategia_macro} estrategia_principal={estrategia_principal}
                   tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={reformatDate(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
                   aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} lucroMes={Number(lucroMes * 100).toFixed(2)}
                   lucroAno={Number(lucroAno * 100).toFixed(2)} cotizacaoAplicacao={cotizacaoAplicacao} cotizacaoResgate={cotizacaoResgate} liquidacaoResgate={liquidacaoResgate}

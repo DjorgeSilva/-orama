@@ -355,11 +355,12 @@ body .container-all .box-wrap-all-filters .box-right-wrap-all .box-mensagem-no-i
   display: none;
 }
 
+body .container-all .box-wrap-all-filters .box-right-wrap-all .box-info-fundos-tabs .subtitle-box:not(:empty),
 body .container-all .box-wrap-all-filters .box-right-wrap-all .box-info-fundos-tabs .title-box:not(:empty) {
   width: 100%;
   height: 47px;
   margin-top: 0;
-  background-color: #ededed;
+  background-color: #fafafa;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -375,9 +376,15 @@ body .container-all .box-wrap-all-filters .box-right-wrap-all .box-info-fundos-t
   font-size: .9rem;
   padding-left: 17px;
   font-family: "Roboto", serif;
-  -webkit-box-shadow: 0px 1px 1px #bebebe;
-          box-shadow: 0px 1px 1px #bebebe;
-  font-weight: 500;
+  -webkit-box-shadow: 0px 2px 2px #bebebe;
+          box-shadow: 0px 2px 2px #bebebe;
+  font-weight: 600;
+  color: #333;
+}
+
+body .container-all .box-wrap-all-filters .box-right-wrap-all .box-info-fundos-tabs .title-box:not(:empty) {
+  background-color: #ededed;
+  text-transform: uppercase;
 }
 
 body .container-all .box-wrap-all-filters .box-right-wrap-all .box-info-fundos-tabs .box-display-fundos {
@@ -1260,11 +1267,12 @@ body .box-txt-footer-outer {
   body .container-all .box-wrap-all-filters .box-right-wrap-all .box-display-fundos {
     display: none;
   }
+  body .container-all .box-wrap-all-filters .box-right-wrap-all .subtitle-box:not(:empty),
   body .container-all .box-wrap-all-filters .box-right-wrap-all .title-box:not(:empty) {
     width: 100%;
     height: 47px;
     margin-top: 0;
-    background-color: #ededed;
+    background-color: #fafafa;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1282,7 +1290,12 @@ body .box-txt-footer-outer {
     font-family: "Roboto", serif;
     -webkit-box-shadow: 0px 2px 2px #bebebe;
             box-shadow: 0px 2px 2px #bebebe;
-    font-weight: 500;
+    font-weight: 600;
+    color: #333;
+  }
+  body .container-all .box-wrap-all-filters .box-right-wrap-all .title-box:not(:empty) {
+    background-color: #ededed;
+    text-transform: uppercase;
   }
   body .container-all .box-wrap-all-filters .box-right-wrap-all .box-items-fundos-mobile {
     cursor: pointer;

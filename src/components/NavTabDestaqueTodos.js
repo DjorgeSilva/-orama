@@ -95,6 +95,7 @@ export class NavTabDestaqueTodos extends React.Component {
 
               const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo } } } = item;
               const { specification: { fund_main_strategy: { name: estrategia_principal } } } = item;
+              const { specification: { fund_macro_strategy: { name: estrategia_macro } } } = item;
               const { profitabilities: { month: lucroMes, m12, year: lucroAno } } = item;
               const { operability: { minimum_initial_application_amount: aplicacaoMinima, application_quotation_days_str: cotizacaoAplicacao, retrieval_quotation_days: cotizacaoAplicacaoSigla, retrieval_quotation_days_str: cotizacaoResgate,
                 retrieval_liquidation_days_str: liquidacaoResgate, application_time_limit: horarioLimiteAplicacao } } = item;
@@ -106,7 +107,7 @@ export class NavTabDestaqueTodos extends React.Component {
               return (
 
                 <>
-                  <DisplayDataMobile  key={index} simple_name={item.simple_name} index={index} posicao={this.props.posicao} estrategia_principal={estrategia_principal} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
+                  <DisplayDataMobile  key={index} simple_name={item.simple_name} index={index} posicao={this.props.posicao} titleDiferenciada={this.props.titleDiferenciada} estrategia_macro={estrategia_macro} estrategia_principal={estrategia_principal} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
                     tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={reformatDate(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
                     aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} icone_qualificado={icone_qualificado}
                     icone_esg={item.esg_seal} close_aplicar={item.is_closed_to_capture} />

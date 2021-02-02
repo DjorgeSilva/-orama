@@ -168,12 +168,13 @@ export class DisplayDataDesktop extends React.Component {
         Simple tooltip
       </Tooltip>
     );
-    
+
     return (
       <>
-        <div className='title-box'>{(this.props.posicao.includes(this.props.index)?this.props.estrategia_principal:null)}</div>
-        <div className="box-items-fundos-mobile" onClick={(e) => this.togglePanel(e)}>
+        <div className='title-box'>{(this.props.titleDiferenciada.includes(this.props.index) ? this.props.estrategia_macro : null)}</div>
 
+        <div className='subtitle-box'>{(this.props.posicao.includes(this.props.index) ? this.props.estrategia_principal : null)}</div>
+        <div className="box-items-fundos-mobile" onClick={(e) => this.togglePanel(e)}>
 
           <div className='box-status-fundo' style={{ backgroundColor: cor(this.props.corPerfilRisco) }}></div>
 
@@ -189,7 +190,7 @@ export class DisplayDataDesktop extends React.Component {
                       <MdStars className="icon-legenda icon-legenda-star" style={this.props.close_aplicar === "true" ? { color: "#5f5f5fdd" } : {}} />
                     </OverlayTrigger>
                     : ""}
-                    
+
 
                 </h4>
                 {/* <h2 className="first-h2">{this.props.estrategia_principal}</h2> */}

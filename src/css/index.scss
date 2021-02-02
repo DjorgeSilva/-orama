@@ -287,18 +287,24 @@ body {
                     display: none;
                 }
                 .box-info-fundos-tabs {
+                    .subtitle-box:not(:empty),
                     .title-box:not(:empty) {
                         width: 100%;
                         height: 47px;
                         margin-top: 0;
-                        background-color: #ededed;
+                        background-color: #fafafa;
                         @include displayFlex();
                         justify-content: left;
                         font-size: .9rem;
                         padding-left: 17px;
                         font-family: $font-padrao;
-                        box-shadow: 0px 1px 1px rgb(190, 190, 190);
-                        font-weight: 500;
+                        box-shadow: 0px 2px 2px rgb(190, 190, 190);
+                        font-weight: 600;
+                        color: #333;
+                    }
+                    .title-box:not(:empty) {
+                        background-color: #ededed;
+                        text-transform: uppercase;
                     }
                     .box-display-fundos {
                         width: 100%;
@@ -1045,18 +1051,24 @@ body {
                     .box-display-fundos {
                         display: none;
                     }
+                    .subtitle-box:not(:empty),
                     .title-box:not(:empty) {
                         width: 100%;
                         height: 47px;
                         margin-top: 0;
-                        background-color: #ededed;
+                        background-color: #fafafa;
                         @include displayFlex();
                         justify-content: left;
                         font-size: .9rem;
                         padding-left: 17px;
                         font-family: $font-padrao;
                         box-shadow: 0px 2px 2px rgb(190, 190, 190);
-                        font-weight: 500;
+                        font-weight: 600;
+                        color: #333;
+                    }
+                    .title-box:not(:empty) {
+                        background-color: #ededed;
+                        text-transform: uppercase;
                     }
                     .box-items-fundos-mobile {
                         cursor: pointer;

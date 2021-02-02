@@ -6,7 +6,7 @@ import { IoArrowRedoCircle } from "react-icons/io5";
 import { FaGlobeAmericas } from "react-icons/fa";
 
 export function DisplayDataMobile({ simple_name, icone_qualificado, icone_esg, corPerfilRisco, estrategia_principal,
-  tipoFundo, classeFundo, quota_date, m12, aplicacaoMinima, cotizacaoAplicacaoSigla, posicao, index }) {
+  tipoFundo, classeFundo, quota_date, m12, aplicacaoMinima, cotizacaoAplicacaoSigla, posicao, index, estrategia_macro, titleDiferenciada }) {
 
   function cor(idCor) {
     switch (idCor) {
@@ -64,7 +64,9 @@ export function DisplayDataMobile({ simple_name, icone_qualificado, icone_esg, c
 
   return (
     <>
-      <div className='title-box'>{posicao && ((posicao.includes(index) ? estrategia_principal : null))}</div>
+    
+      <div className='title-box'>{titleDiferenciada &&((titleDiferenciada.includes(index) ? estrategia_macro : null))}</div>
+      <div className='subtitle-box'>{posicao && ((posicao.includes(index) ? estrategia_principal : null))}</div>
       <div className="box-display-fundos">
         {/* {(data.includes(index)?estrategia_principal:null)} */}
 
