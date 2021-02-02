@@ -60,17 +60,15 @@ export const Filtros = () => {
     }
   }
 
-  function changeValuePerfilRisco() {
+  function changeValuePerfilRisco(valor) {
     var inputPerfilRisco = document.querySelector("#perfilRisco");
-    var outputPerfilRisco = document.querySelector("#valuePerfilRisco");
 
-    outputPerfilRisco.innerHTML = inputPerfilRisco.value;
-    setPerfilRisco(Number(inputPerfilRisco.value));
-
-    inputPerfilRisco.oninput = function () {
-      outputPerfilRisco.innerHTML = this.value;
+    if(valor){
+      inputPerfilRisco.value = valor;
     }
+    setPerfilRisco(Number(inputPerfilRisco.value));
   }
+
 
   function changeValuePrazoResgate() {
     var inputPrazoResgate = document.querySelector("#prazoResgate");
@@ -297,24 +295,23 @@ export const Filtros = () => {
                   <p className="style">Perfil de risco de fundo</p>
                   <label htmlFor="aplicacao-minima">
                     <ul>
-                      <li><span className="item-filter-risco"></span></li>
-                      <li><span className="item-filter-risco"></span></li>
-                      <li><span className="item-filter-risco"></span></li>
-                      <li><span className="item-filter-risco"></span></li>
-                      <li><span className="item-filter-risco"></span></li>
-                      <li><span className="item-filter-risco"></span></li>
-                      <li><span className="item-filter-risco"></span></li>
-                      <li><span className="item-filter-risco"></span></li>
-                      <li><span className="item-filter-risco"></span></li>
-                      <li><span className="item-filter-risco"></span></li>
-                      <li><span className="item-filter-risco"></span></li>
-                      <li><span className="item-filter-risco"></span></li>
+                      <li><span className="item-filter-risco" onClick={()=>changeValuePerfilRisco(1)}></span></li>
+                      <li><span className="item-filter-risco" onClick={()=>changeValuePerfilRisco(2)}></span></li>
+                      <li><span className="item-filter-risco" onClick={()=>changeValuePerfilRisco(3)}></span></li>
+                      <li><span className="item-filter-risco" onClick={()=>changeValuePerfilRisco(4)}></span></li>
+                      <li><span className="item-filter-risco" onClick={()=>changeValuePerfilRisco(5)}></span></li>
+                      <li><span className="item-filter-risco" onClick={()=>changeValuePerfilRisco(6)}></span></li>
+                      <li><span className="item-filter-risco" onClick={()=>changeValuePerfilRisco(7)}></span></li>
+                      <li><span className="item-filter-risco" onClick={()=>changeValuePerfilRisco(8)}></span></li>
+                      <li><span className="item-filter-risco" onClick={()=>changeValuePerfilRisco(9)}></span></li>
+                      <li><span className="item-filter-risco" onClick={()=>changeValuePerfilRisco(10)}></span></li>
+                      <li><span className="item-filter-risco" onClick={()=>changeValuePerfilRisco(11)}></span></li>
+                      <li><span className="item-filter-risco" onClick={()=>changeValuePerfilRisco(12)}></span></li>
                     </ul>
                   </label>
                   <p className="style-p style-p-menor">menor</p>
                   <input type="range" min="1" max="12" defaultValue="12" id="perfilRisco" onChange={changeValuePerfilRisco} />
                   <p className="style-p style-p-maior">maior</p>
-                  <span id="valuePerfilRisco"></span>
                 </div>
 
                 <div className="prazoResgate item-filtro">
