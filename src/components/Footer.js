@@ -14,7 +14,7 @@ import { Collapse, Badge } from "react-bootstrap"
 
 
 export const Footer = () => {
-    const [openSegurosPrevidência, setOpenSegurosPrevidência] = useState(false);
+    const [openSegurosPrevidencia, setOpenSegurosPrevidencia] = useState(false);
     const [openRendaVariavel, setOpenRendaVariavel] = useState(false);
     const [openOfertaPublica, setOpenOfertaPublica] = useState(false);
     const [openRendaFixa, setOpenRendaFixa] = useState(false);
@@ -73,7 +73,8 @@ export const Footer = () => {
                         <div className="box-item-footer">
                             <h6>Invista agora</h6>
                             <a href="#">Todos os Investimentos</a>
-                            <p className="style" onClick={() => setOpenFundoInvestimento(!openFundoInvestimento)} key="Fundo-de-InvestimentosItem" aria-controls="Fundo-de-Investimentos" aria-expanded={openFundoInvestimento}>Fundo de Investimentos<RiArrowDownSLine className="arrow_drop"/></p>
+                            <p className="style" onClick={() => setOpenFundoInvestimento(!openFundoInvestimento)} aria-controls="Fundo-de-Investimentos" aria-expanded={openFundoInvestimento}>
+                                Fundo de Investimentos<RiArrowDownSLine style={openFundoInvestimento===false?{}: {transform: `rotate(${180}deg)` }} className="drop-item-footer"/></p>
                             <Collapse in={openFundoInvestimento} >
                                 <div id="Fundo-de-Investimentos">
                                     <a href="#">Entenda Fundo de Investimentos</a>
@@ -82,14 +83,16 @@ export const Footer = () => {
                                 </div>
                             </Collapse>
 
-                            <p href="#" className="style" onClick={() => setOpenRendaFixa(!openRendaFixa)} key="Renda-FixaItem" aria-controls="Renda-Fixa" aria-expanded={openRendaFixa}>Renda Fixa<RiArrowDownSLine className="arrow_drop"/></p>
+                            <p href="#" className="style" onClick={() => setOpenRendaFixa(!openRendaFixa)} aria-controls="Renda-Fixa" aria-expanded={openRendaFixa}>Renda Fixa
+                            <RiArrowDownSLine style={openRendaFixa===false?{}: {transform: `rotate(${180}deg)` }} className="drop-item-footer"/></p>
                             <Collapse in={openRendaFixa} >
                                 <div id="Renda-Fixa">
                                     <a href="#">Entenda Renda Fixa</a>
                                 </div>
                             </Collapse>
 
-                            <p href="#" className="style" onClick={() => setOpenRendaVariavel(!openRendaVariavel)} key="Renda-VariavelItem" aria-controls="Renda-Variavel" aria-expanded={openRendaVariavel}>Renda Variavél<RiArrowDownSLine className="arrow_drop"/></p>
+                            <p href="#" className="style" onClick={() => setOpenRendaVariavel(!openRendaVariavel)} aria-controls="Renda-Variavel" aria-expanded={openRendaVariavel}>
+                                Renda Variavél<RiArrowDownSLine style={openRendaVariavel===false?{}: {transform: `rotate(${180}deg)` }} className="drop-item-footer"/></p>
                             <Collapse in={openRendaVariavel} >
                                 <div id="Renda-Variavel">
                                     <a href="#">Entenda Renda Variavél</a>
@@ -97,7 +100,8 @@ export const Footer = () => {
                                 </div>
                             </Collapse>
 
-                            <p href="#" className="style" onClick={() => setOpenOfertaPublica(!openOfertaPublica)} key="Oferta-PublicaItem" aria-controls="Oferta-Publica" aria-expanded={openOfertaPublica}>Oferta Pública<RiArrowDownSLine className="arrow_drop"/></p>
+                            <p href="#" className="style" onClick={() => setOpenOfertaPublica(!openOfertaPublica)} key="4" aria-controls="Oferta-Publica" aria-expanded={openOfertaPublica}>
+                                Oferta Pública<RiArrowDownSLine style={openOfertaPublica===false?{}: {transform: `rotate(${180}deg)` }} className="drop-item-footer"/></p>
                             <Collapse in={openOfertaPublica} >
                                 <div id="Oferta-Publica">
                                     <a href="#">Entenda Oferta Pública</a>
@@ -106,8 +110,9 @@ export const Footer = () => {
                             </Collapse>
 
                             <a href="#">Tessouro Direto</a>
-                            <p href="#" className="style" onClick={() => setOpenSegurosPrevidência(!openSegurosPrevidência)} key="Seguros-PrevidênciaItem" aria-controls="Seguros-Previdência" aria-expanded={openSegurosPrevidência}>Seguros e Previdência<RiArrowDownSLine className="arrow_drop"/></p>
-                            <Collapse in={openSegurosPrevidência} >
+                            <p href="#" className="style" onClick={() => setOpenSegurosPrevidencia(!openSegurosPrevidencia)} key="5" aria-controls="Seguros-Previdência" aria-expanded={openSegurosPrevidencia}>Seguros e Previdência
+                            <RiArrowDownSLine style={openSegurosPrevidencia===false?{}: {transform: `rotate(${180}deg)` }} className="drop-item-footer"/></p>
+                            <Collapse in={openSegurosPrevidencia} >
                                 <div id="Seguros-Previdência">
                                     <a href="#">Entenda Seguro de Vida</a>
                                     <a href="#">Entenda Previdência Privada</a>

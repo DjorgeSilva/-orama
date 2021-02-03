@@ -10,6 +10,8 @@ import { Legenda } from "./Legenda.js"
 import { DisplayDataDesktop } from "./DisplayDataDesktop.js";
 import { Button, Collapse, Tooltip, OverlayTrigger, Popover } from "react-bootstrap"
 import { brown100 } from "material-ui/styles/colors";
+import { FaSearch } from "react-icons/fa";
+import { IoThermometer } from "react-icons/io5";
 
 require("es6-promise").polyfill();
 require("isomorphic-fetch");
@@ -37,6 +39,7 @@ export const Filtros = () => {
   var uniqueNomeEstrategiaDiferenciada = [];
   var filtraNomeRendaVariavel = [];
   var uniqueNomeRendaVariavel = [];
+  var [itemSearch, setItemSearch] = useState([])
 
 
 
@@ -107,28 +110,31 @@ export const Filtros = () => {
       filtroRendaVariavel = varivelID;
     }
 
+
     setFilteredData(
       data.filter(item => {
-        return item.simple_name.toString().toLowerCase().trim().includes(valorDigitado.toLowerCase().trim()) &&
-          Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
+        return item.simple_name.toString().toLowerCase().indexOf(valorDigitado.toLowerCase()) >-1 &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
           JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaFixa ||
 
-          item.simple_name.toString().toLowerCase().trim().includes(valorDigitado.toLowerCase().trim()) &&
+          
           Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
           JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroDiferenciada ||
 
-          item.simple_name.toString().toLowerCase().trim().includes(valorDigitado.toLowerCase().trim()) &&
+ 
           Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
           JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaVariavel
       })
     )
+
+      
   }, [valorDigitado, data, aplicacaoMinima, perfilRisco, prazoResgate])
+
 
 
   // useEffect(() => {

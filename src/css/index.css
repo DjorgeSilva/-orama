@@ -1614,7 +1614,7 @@ body .box-txt-footer-outer {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    margin-top: 7px;
+    margin-top: 16px;
   }
   body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros button {
     width: 100%;
@@ -1838,11 +1838,15 @@ body .box-txt-footer-outer {
   body .footer .footer-txt .box-footer-inner .box-item-footer a {
     font-size: .8rem;
     text-decoration: none;
+    color: #757678;
   }
   body .footer .footer-txt .box-footer-inner .box-item-footer p {
     font-size: .8rem;
-    color: #333;
+    color: #757678;
     cursor: pointer;
+  }
+  body .footer .footer-txt .box-footer-inner .box-item-footer p .drop-item-footer {
+    font-size: 1.2rem;
   }
   body .footer .footer-txt :last-child {
     padding-right: 0px;
