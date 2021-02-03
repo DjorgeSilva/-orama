@@ -108,9 +108,9 @@ export class NavTabDestaqueTodos extends React.Component {
 
                 <>
                   <DisplayDataMobile  key={index} simple_name={item.simple_name} index={index} posicao={this.props.posicao} titleDiferenciada={this.props.titleDiferenciada} estrategia_macro={estrategia_macro} estrategia_principal={estrategia_principal} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
-                    tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={reformatDate(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
+                    tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
                     aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} icone_qualificado={icone_qualificado}
-                    icone_esg={item.esg_seal} close_aplicar={item.is_closed_to_capture} />
+                    icone_esg={item.esg_seal} close_aplicar={JSON.stringify(item.is_closed_to_capture)} />
 
                 </>
 
@@ -141,9 +141,9 @@ export class NavTabDestaqueTodos extends React.Component {
 
               <>
                 <DisplayDataMobile key={index} simple_name={item.simple_name} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
-                  tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={reformatDate(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
+                  tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
                   aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} icone_qualificado={icone_qualificado}
-                  icone_esg={item.esg_seal} close_aplicar={item.is_closed_to_capture} />
+                  icone_esg={item.esg_seal} close_aplicar={JSON.stringify(item.is_closed_to_capture)}/>
 
               </>
 

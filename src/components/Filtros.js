@@ -65,9 +65,10 @@ export const Filtros = () => {
   function changeValuePerfilRisco(valor) {
     var inputPerfilRisco = document.querySelector("#perfilRisco");
 
-    if(valor){
+    if(valor||valor.value){
       inputPerfilRisco.value = valor;
     }
+
     setPerfilRisco(Number(inputPerfilRisco.value));
   }
 
@@ -128,6 +129,17 @@ export const Filtros = () => {
       })
     )
   }, [valorDigitado, data, aplicacaoMinima, perfilRisco, prazoResgate])
+
+
+  // useEffect(() => {
+  //   setFilteredData(
+  //     data.filter(item => {
+  //       return item.simple_name.toString().toLowerCase().trim().includes(valorDigitado.toLowerCase().trim())
+
+  //     })
+  //   )
+  // }, [valorDigitado])
+
 
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -322,7 +334,7 @@ export const Filtros = () => {
                     </ul>
                   </label>
                   <p className="style-p style-p-menor">menor</p>
-                  <input type="range" min="1" max="12" defaultValue="12" id="perfilRisco" onChange={changeValuePerfilRisco} />
+                  <input type="range" min="1" max="12" defaultValue="12" id="perfilRisco" onChange={(e)=>changeValuePerfilRisco(e.target.value)} />
                   <p className="style-p style-p-maior">maior</p>
                 </div>
 
@@ -360,7 +372,7 @@ export const Filtros = () => {
 
               <>
                 <DisplayDataDesktop simple_name={item.simple_name} index={index} posicao={posicao} titleDiferenciada={titleDiferenciada} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_macro ={estrategia_macro} estrategia_principal={estrategia_principal}
-                  tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={reformatDate(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
+                  tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
                   aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} lucroMes={Number(lucroMes * 100).toFixed(2)}
                   lucroAno={Number(lucroAno * 100).toFixed(2)} cotizacaoAplicacao={cotizacaoAplicacao} cotizacaoResgate={cotizacaoResgate} liquidacaoResgate={liquidacaoResgate}
                   taxaAdministracao={taxaAdministracao} cnpj={item.cnpj} icone_qualificado={icone_qualificado} icone_esg={item.esg_seal} close_aplicar={JSON.stringify(item.is_closed_to_capture)} />

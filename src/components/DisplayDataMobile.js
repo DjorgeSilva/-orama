@@ -4,9 +4,12 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import { FcCancel } from "react-icons/fc";
 import { IoArrowRedoCircle } from "react-icons/io5";
 import { FaGlobeAmericas } from "react-icons/fa";
+import { AiFillQuestionCircle } from "react-icons/ai";
+import { TiCancel } from "react-icons/ti";
+import * as IoIcons from "react-icons/io5";
 
 export function DisplayDataMobile({ simple_name, icone_qualificado, icone_esg, corPerfilRisco, estrategia_principal,
-  tipoFundo, classeFundo, quota_date, m12, aplicacaoMinima, cotizacaoAplicacaoSigla, posicao, index, estrategia_macro, titleDiferenciada }) {
+  tipoFundo, classeFundo, quota_date, m12, aplicacaoMinima, cotizacaoAplicacaoSigla, posicao, index, estrategia_macro, titleDiferenciada, close_aplicar }) {
 
   function cor(idCor) {
     switch (idCor) {
@@ -69,11 +72,10 @@ export function DisplayDataMobile({ simple_name, icone_qualificado, icone_esg, c
       <div className="box-display-fundos">
         {/* {(data.includes(index)?estrategia_principal:null)} */}
 
-        <div className="box-item-fundo">
+        <div className="box-item-fundo" style={close_aplicar === "true" ? { color: "#5f5f5fdd" } : {}}>
           <div className="wrap-titulo">
             <h6 className="titulo-fundo">{simple_name}
-              {(icone_qualificado.toLowerCase() === "investidores qualificados") ? <MdStars className="icon-legenda icon-legenda-star" /> : ""}
-              {(icone_esg === true) ? <FaGlobeAmericas className="icon-legenda icon-legenda-globe" /> : ""}
+              {(icone_qualificado.toLowerCase() === "investidores qualificados") ? <MdStars className="icon-legenda icon-legenda-star" style={close_aplicar === "true" ? { color: "#5f5f5fdd" } : {}}/> : ""}
             </h6>
             <div className='box-status-fundo'><span style={{ backgroundColor: cor(corPerfilRisco) }}></span></div>
           </div>
@@ -103,7 +105,10 @@ export function DisplayDataMobile({ simple_name, icone_qualificado, icone_esg, c
 
           <div className="box-info-button">
             <button type="button">Mais detalhes</button>
-            <button type="button">Aplicar</button>
+            <button type="button" style={close_aplicar === "true" ? { backgroundColor: "#BABABA", border:"none" } : {}}>Aplicar 
+            {(close_aplicar === "true" ? <TiCancel className="icon-legenda icon-legenda-fechado" style={close_aplicar === "true" ? { backgroundColor: "#BABABA",border:"none" } : {}} /> :
+             <IoIcons.IoArrowUndoCircleSharp className="icone-aplicar" />)}
+            </button>
           </div>
         </div>
 
