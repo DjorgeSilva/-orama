@@ -1180,22 +1180,38 @@ body .box-txt-footer-outer {
     background-color: #60aabf;
     height: 5px;
   }
+  body .container-all .box-wrap-all-filters .box-right-wrap-all .container-busca .box-busca .box-filtros .item-filtro input[type=range]::-moz-range-track {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+         appearance: none;
+    background-color: #60aabf;
+    height: 5px;
+  }
+  body .container-all .box-wrap-all-filters .box-right-wrap-all .container-busca .box-busca .box-filtros .item-filtro #perfilRisco::-moz-range-track {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+         appearance: none;
+    background-color: #FAFAFA;
+    height: 5px;
+  }
   body .container-all .box-wrap-all-filters .box-right-wrap-all .container-busca .box-busca .box-filtros .item-filtro input[type=range]::-webkit-slider-thumb {
     width: 20px;
     height: 20px;
     -webkit-appearance: none;
     appearance: none;
-    background-color: #fff;
+    background-color: #FAFAFA;
     border-radius: 50%;
     border: 5px solid #333;
     -webkit-box-sizing: border;
             box-sizing: border;
   }
   body .container-all .box-wrap-all-filters .box-right-wrap-all .container-busca .box-busca .box-filtros .item-filtro input[type=range]::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
     -webkit-appearance: none;
     -moz-appearance: none;
          appearance: none;
-    background-color: #fff;
+    background-color: #FAFAFA;
     border-radius: 50%;
     border: 5px solid #333;
     box-sizing: border;
@@ -1220,6 +1236,16 @@ body .box-txt-footer-outer {
     border: none;
     height: 32px;
     width: 32px;
+    background: goldenrod;
+    background: url("../assets/img/up_arrow.png") no-repeat;
+    margin-top: -10px;
+    border-radius: 0 !important;
+  }
+  body .container-all .box-wrap-all-filters .box-right-wrap-all .container-busca .box-busca .box-filtros .item-filtro #perfilRisco[type=range]::-moz-range-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 22px;
+    width: 22px;
     background: goldenrod;
     background: url("../assets/img/up_arrow.png") no-repeat;
     margin-top: -10px;
@@ -1998,6 +2024,11 @@ body .box-txt-footer-outer {
     left: 12px;
     padding: 0;
     margin: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: none;
   }
   body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros input[type='checkbox'] {
     -webkit-font-smoothing: antialiased;
@@ -2055,10 +2086,14 @@ body .box-txt-footer-outer {
   body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-rendaFixa ul li input {
     display: inline-block;
     margin-right: 5px;
-    background-color: #60aabf;
     margin-left: 10px;
     position: relative;
     top: 8px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: none;
   }
   body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-rendaFixa ul li p {
     display: inline-block;

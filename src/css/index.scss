@@ -960,20 +960,35 @@ body {
                                         background-color: $cor-destaque;
                                         height: 5px;
                                     }
+                                    input[type=range]::-moz-range-track {
+                                        -webkit-appearance: none;
+                                        appearance: none;
+                                        background-color: $cor-destaque;
+                                        height: 5px;
+                                    }
+                                    #perfilRisco::-moz-range-track {
+                                        -webkit-appearance: none;
+                                        appearance: none;
+                                        background-color: #FAFAFA;
+                                        height: 5px;
+                                    }
                                     input[type=range]::-webkit-slider-thumb {
                                         width: 20px;
                                         height: 20px;
                                         -webkit-appearance: none;
                                         appearance: none;
-                                        background-color: #fff;
+                                        background-color: #FAFAFA;
                                         border-radius: 50%;
                                         border: 5px solid #333;
                                         box-sizing: border;
                                     }
                                     input[type=range]::-moz-range-thumb {
+                                        width: 10px;
+                                        height: 10px;
                                         -webkit-appearance: none;
                                         appearance: none;
-                                        background-color: #fff;
+                                        background-color: #FAFAFA;
+                                        ;
                                         border-radius: 50%;
                                         border: 5px solid #333;
                                         box-sizing: border;
@@ -998,6 +1013,16 @@ body {
                                         border: none;
                                         height: 32px;
                                         width: 32px;
+                                        background: goldenrod;
+                                        background: url("../assets/img/up_arrow.png") no-repeat;
+                                        margin-top: -10px;
+                                        border-radius: 0 !important;
+                                    }
+                                    #perfilRisco[type=range]::-moz-range-thumb {
+                                        -webkit-appearance: none;
+                                        border: none;
+                                        height: 22px;
+                                        width: 22px;
                                         background: goldenrod;
                                         background: url("../assets/img/up_arrow.png") no-repeat;
                                         margin-top: -10px;
@@ -1735,6 +1760,11 @@ body {
                                 left: 12px;
                                 padding: 0;
                                 margin: 0;
+                                -webkit-appearance: none;
+                                -moz-appearance: none;
+                                -ms-appearance: none;
+                                appearance: none;
+                                outline: none;
                             }
                             input[type='checkbox'] {
                                 -webkit-font-smoothing: antialiased;
@@ -1787,10 +1817,14 @@ body {
                                             input {
                                                 display: inline-block;
                                                 margin-right: 5px;
-                                                background-color: $cor-destaque;
                                                 margin-left: 10px;
                                                 position: relative;
                                                 top: 8px;
+                                                -webkit-appearance: none;
+                                                -moz-appearance: none;
+                                                -ms-appearance: none;
+                                                appearance: none;
+                                                outline: none;
                                             }
                                             p {
                                                 display: inline-block;
