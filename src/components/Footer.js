@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import IconeOfertasPublicas from "../assets/img/icone-ofertasPublicas.png"
-import IconeGestaoRecursos from "../assets/img/icone-gestaoRecursos.png"
-import IconeDistribuicaoProdutos from "../assets/img/icone-distribuicaoProdutos.png"
-import IconePrivate from "../assets/img/icone-private.png"
+import IconeOfertasPublicas from "../assets/img/icone-ofertasPublicas.jpg"
+import IconeGestaoRecursos from "../assets/img/icone-gestaoRecursos.jpg"
+import IconeDistribuicaoProdutos from "../assets/img/icone-distribuicaoProdutos.jpg"
+import IconePrivate from "../assets/img/icone-private.jpg"
 import IconeBSM from "../assets/img/bsm-icone.png"
 import IconeBrasilBolsa from "../assets/img/icone-brasilbolsa.png"
 import IconeMelhor from "../assets/img/icone-a-melhor.png"

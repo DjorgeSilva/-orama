@@ -10,3 +10,4 @@ export const BannerHome = () => {
     );
 }
 
+// Componente com o banner da tela inicial

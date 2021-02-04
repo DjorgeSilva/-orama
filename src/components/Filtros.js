@@ -47,8 +47,8 @@ export const Filtros = () => {
   useEffect(() => {
     fetch("https://s3.amazonaws.com/orama-media/json/fund_detail_full.json?limit=1000&offset=0&serializer=fund_detail_full")
       .then((response) => response.json())
-      .then((json) => setData(json));
-      setLoading(true);
+      .then((json) => setData(json))
+      .then(setLoading(true));
   }, [])
 
 
@@ -292,9 +292,6 @@ export const Filtros = () => {
   }
 
 
-
-
-
   return (
     <>
       <div className="grid-x box-wrap-all-filters">
@@ -357,7 +354,7 @@ export const Filtros = () => {
 
 
           <div className='data-mobile'>{(rendaFixaDestaque.length >= 1 ? rendaFixaDestaque.map((item, index) => {
-            
+              
             const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo } } } = item;
             const { specification: { fund_main_strategy: { name: estrategia_principal } } } = item;
             const { specification: { fund_macro_strategy: { name: estrategia_macro } } } = item;
@@ -366,6 +363,7 @@ export const Filtros = () => {
               retrieval_liquidation_days_str: liquidacaoResgate, application_time_limit: horarioLimiteAplicacao } } = item;
             const { fees: { administration_fee: taxaAdministracao } } = item;
             const { description: { target_audience: icone_qualificado } } = item;
+
 
 
             return (
@@ -383,7 +381,8 @@ export const Filtros = () => {
             );
           }) :
             <div className="box-mensagem-no-item">
-              {loading ?(<Spinner animation="border" variant="info" />):(<p>O fundo buscado não está disponível nesta lista. Verifique nas demais abas.</p>)}
+              {/* <p>O fundo buscado não está disponível nesta lista. Verifique nas demais abas.</p> */}
+              {rendaFixaDestaque.length?(<p>O fundo buscado não está disponível nesta lista. Verifique nas demais abas.</p>):<Spinner animation="border" variant="info"></Spinner>}
               
             </div>
           )}</div>
@@ -398,6 +397,7 @@ export const Filtros = () => {
           <div className="item-sideBarFiltros">
             <>
               <input type="checkbox" id="input-valor-rendaFixa" className="inside-btn-main" defaultChecked={true} onChange={() => checkItemsAuto()} />
+              <i class="for_firefox"></i>
               <Button onClick={() => dropdown()} aria-controls="btn-collapse-renda-fixa" aria-expanded={openRendaFixa} className="bg-light btn-collapse-renda-fixa"><p>Renda Fixa </p> {(iconeDropDown ? <AiOutlineMinus className="icone-dropdown" onClick={dropdown} /> : <AiOutlinePlus className="icone-dropdown" onClick={dropdown} />)}</Button>
               <Collapse in={openRendaFixa}>
 

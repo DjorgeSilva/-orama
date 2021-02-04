@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as IoIcons from "react-icons/io5";
 import { MdStars } from "react-icons/md";
 import { AiOutlineInfoCircle, AiFillQuestionCircle } from "react-icons/ai";
-import { FcCancel } from "react-icons/fc";
-import { IoArrowRedoCircle } from "react-icons/io5";
 import { TiCancel } from "react-icons/ti";
-import { FaGlobeAmericas } from "react-icons/fa";
-import { Button, Collapse, Tooltip, OverlayTrigger, Popover } from "react-bootstrap";
+import { Tooltip, OverlayTrigger, Popover } from "react-bootstrap";
 
 export class DisplayDataDesktop extends React.Component {
 
@@ -19,13 +16,13 @@ export class DisplayDataDesktop extends React.Component {
     this.togglePanel = this.togglePanel.bind(this);
   }
 
-  togglePanel(e) {
-    this.setState({ open: !this.state.open })
+  togglePanel(e) {  // método que controla evento
+    this.setState({ open: !this.state.open }) // state (abrir ou fechar mais informações)
   }
 
   render() {
 
-    const fontSize = {
+    const fontSize = { // style popover
       fontSize: 12,
       backgroundColor: "#fff",
       fontWeight: "bold",
@@ -33,12 +30,7 @@ export class DisplayDataDesktop extends React.Component {
 
     }
 
-    const fontClosedToCapture = {
-      fontWeight: "bold",
-      color: "red"
-    }
-
-    const tipMes = (
+    const tipMes = ( // exibe quando hovering em rentabilidade mês 
       <Popover>
         <Popover.Title style={fontSize}>
           Rentabilidade do fundo: {this.props.lucroMes}%<br />
@@ -50,7 +42,7 @@ export class DisplayDataDesktop extends React.Component {
       </Popover>
     );
 
-    const tipAno = (
+    const tipAno = ( // exibe quando hovering em rentabilidade ano 
       <Popover>
         <Popover.Title style={fontSize}>
           Rentabilidade do fundo: {this.props.lucroAno}%<br />
@@ -62,7 +54,7 @@ export class DisplayDataDesktop extends React.Component {
       </Popover>
     );
 
-    const tip12m = (
+    const tip12m = ( // exibe quando hovering em rentabilidade 12m
       <Popover>
         <Popover.Title style={fontSize}>
           Rentabilidade do fundo: {this.props.m12}%<br />
@@ -74,7 +66,7 @@ export class DisplayDataDesktop extends React.Component {
       </Popover>
     );
 
-    const prazoResgate = (
+    const prazoResgate = ( // exibe quando hovering icone prazo resgate 
       <Popover>
         <Popover.Title style={fontSize}>
           Dias para a conversão do resgate
@@ -85,7 +77,7 @@ export class DisplayDataDesktop extends React.Component {
       </Popover>
     );
 
-    const cotizacaoAplicacao = (
+    const cotizacaoAplicacao = ( // exibe quando hovering cotizacao de aplicacão na div collapse (mais informações) 
       <Popover>
         <Popover.Content>
           Total de dias para que o valor <br />aplicado seja convertido em cotas<br /> do fundo.
@@ -93,7 +85,7 @@ export class DisplayDataDesktop extends React.Component {
       </Popover>
     );
 
-    const cotizacaoResgate = (
+    const cotizacaoResgate = ( // exibe quando hovering cotizacao de resgate na div collapse (mais informações) 
       <Popover>
         <Popover.Content>
           Total de dias para que as cotas do<br /> fundo sejam transformadas em <br /> em valor monetário.
@@ -101,7 +93,7 @@ export class DisplayDataDesktop extends React.Component {
       </Popover>
     );
 
-    const liquidacaoResgate = (
+    const liquidacaoResgate = ( // exibe quando hovering liquidacão Resgate na div collapse (mais informações) 
       <Popover>
         <Popover.Content>
           Total de dias após a conversão <br /> para que o valor do resgate esteja<br /> disponivél em sua Subconta<br /> Órama.
@@ -110,7 +102,7 @@ export class DisplayDataDesktop extends React.Component {
     );
 
 
-    function cor(idCor) {
+    function cor(idCor) { // função muda cor de status do perfil de risco de acordo com a entrada
       switch (idCor) {
         case 1:
           return '#A6ECFC';
