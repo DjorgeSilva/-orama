@@ -8,7 +8,7 @@ import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
 import { Legenda } from "./Legenda.js"
 import { DisplayDataDesktop } from "./DisplayDataDesktop.js";
-import { Button, Collapse, Tooltip, OverlayTrigger, Popover } from "react-bootstrap"
+import { Button, Collapse, Tooltip, OverlayTrigger, Popover, Spinner } from "react-bootstrap"
 import { brown100 } from "material-ui/styles/colors";
 import { FaSearch } from "react-icons/fa";
 import { IoThermometer } from "react-icons/io5";
@@ -40,6 +40,7 @@ export const Filtros = () => {
   var filtraNomeRendaVariavel = [];
   var uniqueNomeRendaVariavel = [];
   var [itemSearch, setItemSearch] = useState([])
+  const [loading, setLoading] = useState(false)
 
 
 
@@ -47,6 +48,7 @@ export const Filtros = () => {
     fetch("https://s3.amazonaws.com/orama-media/json/fund_detail_full.json?limit=1000&offset=0&serializer=fund_detail_full")
       .then((response) => response.json())
       .then((json) => setData(json));
+      setLoading(true);
   }, [])
 
 
@@ -138,16 +140,6 @@ export const Filtros = () => {
 
 
 
-  // useEffect(() => {
-  //   setFilteredData(
-  //     data.filter(item => {
-  //       return item.simple_name.toString().toLowerCase().trim().includes(valorDigitado.toLowerCase().trim())
-
-  //     })
-  //   )
-  // }, [valorDigitado])
-
-
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -165,7 +157,8 @@ export const Filtros = () => {
   }
 
   function reformatDate(dateStr) {
-    const dArr = dateStr.split("-");
+    const dArr = JSON.stringify(dateStr).split("-");
+
     return dArr[2] + "/" + dArr[1] + "/" + dArr[0].substring(2);
   }
 
@@ -378,8 +371,9 @@ export const Filtros = () => {
             return (
 
               <>
+              
                 <DisplayDataDesktop simple_name={item.simple_name} index={index} posicao={posicao} titleDiferenciada={titleDiferenciada} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_macro ={estrategia_macro} estrategia_principal={estrategia_principal}
-                  tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
+                  tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={reformatDate(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
                   aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} lucroMes={Number(lucroMes * 100).toFixed(2)}
                   lucroAno={Number(lucroAno * 100).toFixed(2)} cotizacaoAplicacao={cotizacaoAplicacao} cotizacaoResgate={cotizacaoResgate} liquidacaoResgate={liquidacaoResgate}
                   taxaAdministracao={taxaAdministracao} cnpj={item.cnpj} icone_qualificado={icone_qualificado} icone_esg={item.esg_seal} close_aplicar={JSON.stringify(item.is_closed_to_capture)} />
@@ -389,7 +383,8 @@ export const Filtros = () => {
             );
           }) :
             <div className="box-mensagem-no-item">
-              <p>O fundo buscado não está disponível nesta lista. Verifique nas demais abas.</p>
+              {loading ?(<Spinner animation="border" variant="info" />):(<p>O fundo buscado não está disponível nesta lista. Verifique nas demais abas.</p>)}
+              
             </div>
           )}</div>
 

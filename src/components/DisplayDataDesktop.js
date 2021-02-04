@@ -169,6 +169,8 @@ export class DisplayDataDesktop extends React.Component {
       </Tooltip>
     );
 
+    
+
     return (
       <>
         <div className='title-box'>{(this.props.titleDiferenciada.includes(this.props.index) ? this.props.estrategia_macro : null)}</div>

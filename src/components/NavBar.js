@@ -65,10 +65,10 @@ export const NavBar = () => {
                         <div className="menu-desktop">
                             <nav>
                                 <ul>
-                                    <li><a href="#">A empresa</a></li>
-                                    <li><a href="#">Como funciona</a></li>
-                                    <li><a href="#">investimentos</a></li>
-                                    <li><a href="#">Atendimento</a></li>
+                                    <li><a href="https://www.orama.com.br/empresa">A empresa</a></li>
+                                    <li><a href="https://www.orama.com.br/como-funciona">Como funciona</a></li>
+                                    <li><a href="https://www.orama.com.br/investimentos">investimentos</a></li>
+                                    <li><a href="https://www.orama.com.br/atendimento">Atendimento</a></li>
                                 </ul>
                             </nav>
                         </div>

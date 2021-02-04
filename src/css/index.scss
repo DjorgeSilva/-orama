@@ -865,16 +865,17 @@ body {
                     justify-content: space-between;
                     outline: none;
                     padding: 10px 10px;
-                    font-size: .6rem;
+                    font-size: .7rem;
                     font-family: $font-padrao;
                     font-weight: 600;
                     background-color: #fff;
-                    color: #000;
+                    color: #333;
                     margin-right: 5px;
+                    border: none;
                 }
                  :last-child {
                     // padding: 7px 22px;
-                    background-color: $cor-padrao;
+                    background-color: #7CC33E;
                     color: #fff;
                     float: right;
                     // margin-right: 25px;
@@ -1725,8 +1726,8 @@ body {
                     @include btn();
                     border: none;
                     padding: 12px 20px;
-                    color: #000;
-                    font-size: .7rem;
+                    color: #333;
+                    font-size: .8rem;
                 }
             }
         }
@@ -1809,105 +1810,74 @@ body {
         }
     }
     @media (min-width:1022px) {
-        .container-all {
-            .box-wrap-all-filters {
-                .box-right-wrap-all {
-                    .box-items-fundos-mobile {
-                        .row-header {
-                            .coluna-header {
-                                h4,
-                                h2 {
-                                    font-family: $font-padrao;
-                                    font-size: .7rem;
-                                    font-weight: 500;
-                                    text-align: right;
-                                    margin-top: 5px;
-                                    font-weight: 500;
-                                }
-                                h4 {
-                                    margin-top: 25px;
-                                }
-                                h2 {
-                                    font-size: .7rem;
-                                    text-align: left;
-                                    color: rgba(95, 95, 95, 0.867);
-                                }
-                                .first-style {
-                                    text-align: left;
-                                    margin-top: 7px;
+        body {
+            .container-all {
+                .box-wrap-all-filters {
+                    .box-right-wrap-all {
+                        .box-items-fundos-mobile {
+                            .row-header {
+                                .coluna-header {
+                                    h4,
+                                    h2 {
+                                        font-family: $font-padrao;
+                                        font-size: .8rem;
+                                        font-weight: 500;
+                                        text-align: right;
+                                        margin-top: 5px;
+                                        font-weight: 500;
+                                    }
+                                    h4 {
+                                        margin-top: 30px;
+                                    }
+                                    h2 {
+                                        font-size: .7rem;
+                                        text-align: left;
+                                        color: rgba(95, 95, 95, 0.867);
+                                    }
+                                    .first-style {
+                                        text-align: left;
+                                        margin-top: 7px;
+                                    }
                                 }
                             }
                         }
                     }
-                }
-                .box-left-wrap-all {
-                    .item-sideBarFiltros {
-                        display: block;
+                    .box-left-wrap-all {
+                        .item-sideBarFiltros {
+                            display: block;
+                        }
                     }
                 }
             }
         }
-    }
-    @media (min-width:1128px) {
-        .box-menu-desktop {
-            width: 100%;
-            .box-menu-desktop-logo {
-                margin-right: 10px;
-                margin-left: 0;
-                padding-left: 0;
-                nav {
-                    margin-right: 0px;
-                    ul {
-                        margin-left: 0px;
+        @media (min-width:1128px) {
+            .box-menu-desktop {
+                width: 100%;
+                .box-menu-desktop-logo {
+                    margin-right: 10px;
+                    margin-left: 0;
+                    padding-left: 0;
+                    nav {
+                        margin-right: 0px;
+                        ul {
+                            margin-left: 0px;
+                        }
                     }
                 }
-            }
-            .menu-desktop {
-                width: 44%;
-                margin-right: 100px;
-                padding-right: 0;
-            }
-            .box-menu-desktop-btn {
-                width: 280px;
-                padding-right: 0;
-                .btn-sua-conta {
-                    width: 40%
+                .menu-desktop {
+                    width: 44%;
+                    margin-right: 100px;
+                    padding-right: 0;
                 }
-                .btn-abra-sua-conta {
-                    width: 60%;
-                    padding: 12px 20px;
-                }
-            }
-        }
-        .container-all {
-            .box-wrap-all-filters {
-                .box-right-wrap-all {
-                    .box-items-fundos-mobile {
-                        .row-header {
-                            .coluna-header {
-                                h4,
-                                h2 {
-                                    font-family: $font-padrao;
-                                    font-size: .8rem;
-                                    font-weight: 500;
-                                    text-align: right;
-                                    margin-top: 5px;
-                                    font-weight: 500;
-                                }
-                                h4 {
-                                    margin-top: 25px;
-                                }
-                                h2 {
-                                    font-size: .7rem;
-                                    text-align: left;
-                                    color: rgba(95, 95, 95, 0.867);
-                                }
-                                .first-style {
-                                    text-align: left;
-                                    margin-top: 7px;
-                                }
-                            }
-                        }
+                .box-menu-desktop-btn {
+                    width: 280px;
+                    padding-right: 0;
+                    .btn-sua-conta {
+                        width: 40%
+                    }
+                    .btn-abra-sua-conta {
+                        width: 60%;
+                        padding: 12px 20px;
                     }
                 }
             }
@@ -1977,15 +1947,45 @@ body {
 @media (min-width:1260px) {
     body {
         .container-all {
-            width: 98%;
+            width: 95%;
         }
     }
 }
 
 @media (min-width:1300px) {
     body {
-        .container-all {
-            width: 98%;
+        .box-menu-desktop {
+            width: 1300px;
+            float: left;
+            .box-menu-desktop-logo {
+                width: 15%;
+                img {
+                    margin-top: 5px;
+                    padding-right: 15px;
+                    width: 12rem;
+                }
+            }
+            .menu-desktop {
+                width: 41%;
+                float: left;
+                nav {
+                    margin-right: 5px;
+                    ul {
+                        margin-left: 5px;
+                        padding-left: 0;
+                        li {
+                            display: inline-block;
+                            a {
+                                font-size: .8rem;
+                                padding-right: 40px;
+                            }
+                        }
+                    }
+                }
+            }
+            .box-menu-desktop-btn {
+                margin-left: 120px;
+            }
         }
     }
 }
@@ -1998,6 +1998,14 @@ body {
     }
 }
 
+@media (min-width:1500px) {
+    body {
+        .container-all {
+            width: 85%;
+        }
+    }
+}
+
 @media (min-width:1600px) {
     body {
         .container-all {
@@ -2006,7 +2014,7 @@ body {
     }
 }
 
-@media (min-width:1740px) {
+@media (min-width:1700px) {
     body {
         .container-all {
             width: 70%;
