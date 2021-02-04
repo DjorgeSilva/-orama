@@ -114,17 +114,18 @@ export const Filtros = () => {
     setFilteredData(
       data.filter(item => {
         return item.simple_name.toString().toLowerCase().indexOf(valorDigitado.toLowerCase()) >-1 &&
+        Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
           JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroRendaFixa ||
 
-          
+          item.simple_name.toString().toLowerCase().indexOf(valorDigitado.toLowerCase()) >-1 &&
           Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
           JSON.stringify(item.specification.fund_macro_strategy.id).toLowerCase() === filtroDiferenciada ||
 
- 
+          item.simple_name.toString().toLowerCase().indexOf(valorDigitado.toLowerCase()) >-1 &&
           Number(item.operability.minimum_initial_application_amount <= aplicacaoMinima) &&
           Number(item.specification.fund_risk_profile.score_range_order <= perfilRisco) &&
           Number(item.operability.retrieval_quotation_days <= prazoResgate) &&
@@ -362,7 +363,7 @@ export const Filtros = () => {
           <HeaderInfoFundos className="column medium-9" />
 
 
-          <div className='data-mobile'>{(rendaFixaDestaque.length > 1 ? rendaFixaDestaque.map((item, index) => {
+          <div className='data-mobile'>{(rendaFixaDestaque.length >= 1 ? rendaFixaDestaque.map((item, index) => {
             
             const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo } } } = item;
             const { specification: { fund_main_strategy: { name: estrategia_principal } } } = item;
