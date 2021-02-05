@@ -33,8 +33,10 @@ $cor-destaque:#60aabf;
 }
 
 body {
+    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     background-color: #ededed !important;
+    -moz-osx-font-smoothing: grayscale;
     .banner-home {
         width: 100vw;
         height: 20.3rem;
@@ -181,6 +183,8 @@ body {
         }
     }
     .container-all {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
         width: 100%;
         margin-bottom: 100px;
         position: relative;
@@ -191,11 +195,12 @@ body {
             height: 280px;
             margin-left: 10px;
             h6 {
+                -moz-osx-font-smoothing: grayscale;
                 font-family: $font-padrao;
                 text-transform: uppercase;
                 padding-top: 55px;
                 font-size: .9rem;
-                font-weight: bold;
+                font-weight: bolder;
                 padding-left: 20px;
                 color: rgb(80, 80, 80);
             }
@@ -352,7 +357,7 @@ body {
                                 .titulo-fundo {
                                     width: 90%;
                                     font-size: .9rem;
-                                    font-weight: bold;
+                                    font-weight: bolder;
                                     padding-bottom: 10px;
                                     .icon-legenda-star {
                                         color: $cor-padrao;
@@ -393,7 +398,7 @@ body {
                                 height: 30px;
                                 flex-direction: row;
                                 font-size: .8rem;
-                                font-weight: bold;
+                                font-weight: bolder;
                                 .right-row {
                                     width: 70%;
                                     text-align: left;
@@ -417,7 +422,7 @@ body {
                                     border-radius: 5px;
                                     text-transform: uppercase;
                                     font-size: .9rem;
-                                    font-weight: bolder;
+                                    font-weight: bolderer;
                                     margin-top: 15px;
                                     .icone-aplicar,
                                     .icon-legenda-fechado {
@@ -456,12 +461,12 @@ body {
                         background-color: #fff;
                         border-radius: 5px;
                         box-shadow: 2px 5px 10px rgba(223, 223, 223, 0.867);
-                        margin-bottom: 200px;
+                        margin-bottom: 0px;
                         @include displayFlex();
                         p {
                             width: 90%;
                             font-family: $font-padrao;
-                            font-weight: bold;
+                            font-weight: bolder;
                             color: #333;
                             font-size: .9rem;
                             text-align: center;
@@ -504,7 +509,7 @@ body {
         text-align: center;
         color: #fff;
         text-transform: uppercase;
-        font-weight: bold;
+        font-weight: bolder;
         a {
             text-decoration: none;
             color: #fff;
@@ -536,10 +541,10 @@ body {
                 background-color: #ededed;
                 h6 {
                     font-size: .9rem;
-                    font-weight: bold;
+                    font-weight: bolder;
                     color: #333;
                     margin-top: 25px;
-                    font-weight: bolder;
+                    font-weight: bolderer;
                 }
                 a {
                     display: block;
@@ -551,13 +556,13 @@ body {
                         background-color: #639D31;
                         padding: 1px 8px;
                         font-size: .7rem;
-                        font-weight: bold;
+                        font-weight: bolder;
                         color: white;
                         margin-left: 5px;
                     }
                 }
                 .style {
-                    font-weight: bold;
+                    font-weight: bolder;
                 }
                 p {
                     height: 10px;
@@ -627,7 +632,7 @@ body {
                 margin-top: 10px;
                 text-align: center;
                 p {
-                    font-weight: bold;
+                    font-weight: bolder;
                     color: #333;
                     font-size: .9rem;
                     text-align: left;
@@ -690,6 +695,7 @@ body {
 
 @media (min-width:360px) {
     body {
+        -moz-osx-font-smoothing: grayscale;
         .container-all {
             .box-wrap-all-filters {
                 .box-right-wrap-all {
@@ -812,6 +818,7 @@ body {
 
 @media (min-width:770px) {
     body {
+        -moz-osx-font-smoothing: grayscale;
         .navbar {
             display: none;
         }
@@ -1194,6 +1201,7 @@ body {
                                     text-align: right;
                                     margin-top: 45px;
                                     font-weight: 600;
+                                    color: #333;
                                 }
                                 .first-style {
                                     text-align: left;
@@ -1276,11 +1284,9 @@ body {
                                     margin-top: 30px;
                                     margin-bottom: 0;
                                     #tooltip_invetidores_icone .tooltip-inner {
-                                        background-color: #fcd308 ;
+                                        background-color: #fcd308;
                                         color: #000000;
-                                      }
-                                      
-
+                                    }
                                     .icon-legenda-star {
                                         color: $cor-padrao;
                                         margin-left: 3px;
@@ -1358,7 +1364,7 @@ body {
                             p {
                                 font-size: .8rem;
                                 height: fit-content;
-                                font-weight: bold;
+                                font-weight: bolder;
                                 padding: 0;
                             }
                             .icone-more-info {
@@ -1373,7 +1379,7 @@ body {
                             .link {
                                 font-size: .8rem;
                                 height: fit-content;
-                                font-weight: bold;
+                                font-weight: bolder;
                                 text-decoration: underline;
                                 color: black;
                             }
@@ -1390,12 +1396,12 @@ body {
                         background-color: #fff;
                         border-radius: 5px;
                         box-shadow: 2px 5px 10px rgba(223, 223, 223, 0.867);
-                        margin-bottom: 200px;
+                        margin-bottom: 0px;
                         @include displayFlex();
                         p {
                             width: 100%;
                             font-family: $font-padrao;
-                            font-weight: bold;
+                            font-weight: bolder;
                             color: #333;
                             font-size: .9rem;
                             text-align: center;
@@ -1466,6 +1472,7 @@ body {
                         width: 100%;
                         h6 {
                             font-size: .8rem;
+                            color: #333;
                         }
                         a {
                             font-size: .8rem;
@@ -1731,17 +1738,16 @@ body {
                                 height: 45px;
                                 background-color: #fafafa;
                                 color: #333;
-                                font-weight: bold;
+                                font-weight: bolder;
                                 text-align: left;
                                 outline: none;
                                 border: none;
                                 font-size: .9rem;
                                 box-shadow: 2px 5px 10px rgba(223, 223, 223, 0.867);
-                                padding: 10px 10px;
+                                padding: 3px 10px;
                                 border-radius: 5px;
                                 text-transform: uppercase;
                                 margin-top: 0;
-                                margin-bottom: 0;
                                 p {
                                     width: 80%;
                                     padding: 0;
@@ -1752,17 +1758,27 @@ body {
                                     float: left;
                                     color: #333;
                                 }
+                                .style-p-diferenciada {
+                                    margin-top: -2px;
+                                    line-height: 15px;
+                                }
                                 .icone-dropdown {
                                     width: 20%;
                                     padding-left: 15px;
                                     margin-top: 1px;
                                     padding-top: 1px;
                                     float: right;
+                                    color: #333;
                                 }
                             }
-                            #input-valor-rendaFixa {
+                            #input-valor-rendaFixa,
+                            #input-valor-estrategiasDiferenciadas,
+                            #input-valor-rendaVariavel,
+                            #input-valor-gestores,
+                            #input-outros-filtros-esg,
+                            #input-outros-filtros-qualificados {
                                 position: relative;
-                                top: 28px;
+                                top: 33px;
                                 left: 12px;
                                 padding: 0;
                                 margin: 0;
@@ -1771,6 +1787,7 @@ body {
                                 -ms-appearance: none;
                                 appearance: none;
                                 outline: none;
+                                margin-bottom: 5px;
                             }
                             input[type='checkbox'] {
                                 -webkit-font-smoothing: antialiased;
@@ -1806,38 +1823,51 @@ body {
                                 content: '\2714';
                                 color: #fff;
                             }
-                            #btn-collapse-renda-fixa {
+                            #btn-collapse-renda-fixa,
+                            #btn-collapse-estrategias-diferenciadas,
+                            #btn-collapse-renda-variavel,
+                            #btn-collapse-gestores {
                                 outline: none;
                                 width: 100%;
                                 height: fit-content;
                                 background-color: #fff;
-                                .body-rendaFixa {
-                                    margin-bottom: 0;
+                                .body-rendaFixa,
+                                .body-Diferenciada,
+                                .body-variavel,
+                                .body-gestores {
                                     ul {
                                         padding: 0;
                                         margin: 0;
                                         li {
                                             padding: 0px;
-                                            height: 35px;
+                                            height: fit-content;
                                             border: 1px solid rgb(247, 247, 247);
+                                            overflow: hidden;
+                                            padding-right: 4px;
                                             input {
                                                 display: inline-block;
                                                 margin-right: 5px;
                                                 margin-left: 10px;
                                                 position: relative;
-                                                top: 8px;
+                                                top: 9px;
                                                 -webkit-appearance: none;
                                                 -moz-appearance: none;
                                                 -ms-appearance: none;
                                                 appearance: none;
                                                 outline: none;
+                                                height: 100%;
+                                                float: left;
                                             }
                                             p {
+                                                width: 80%;
                                                 display: inline-block;
                                                 font-size: .7rem;
                                                 font-family: $font-padrao;
                                                 font-weight: 500;
                                                 color: #333;
+                                                margin-bottom: .3rem;
+                                                float: right;
+                                                padding-top: 6px;
                                             }
                                         }
                                         .sub-item {
@@ -1851,19 +1881,70 @@ body {
                                                 top: 10px;
                                             }
                                             p {
-                                                width: 90%;
-                                                padding-left: 28px;
+                                                width: 80%;
                                                 padding-top: 5px;
+                                                float: right;
                                             }
                                             .big-item {
-                                                width: 70%;
-                                                padding-left: 2px;
+                                                width: 78%;
+                                                padding-right: 10px;
+                                                float: right;
                                             }
                                         }
                                         .big-item-soberano {
-                                            height: 60px;
+                                            height: fit-content;
+                                        }
+                                        .big-item-privado-li {
+                                            height: fit-content;
+                                            p {
+                                                width: 79%;
+                                            }
                                         }
                                     }
+                                }
+                            }
+                            .txt-filtrar-gestores {
+                                font-size: .9rem;
+                                margin-top: 20px;
+                                font-family: $font-padrao;
+                                font-weight: 500;
+                                color: #333;
+                            }
+                            .txt-outros-filtros {
+                                margin-bottom: 20px;
+                                margin-top: 25px;
+                            }
+                            .box-outros-filtros {
+                                width: 100%;
+                                height: fit-content;
+                                background-color: #fff;
+                                border-radius: 5px;
+                                padding: 0 5px;
+                                display: flex;
+                                align-items: center;
+                                #input-outros-filtros-qualificados,
+                                #input-outros-filtros-esg {
+                                    display: block;
+                                    width: 10%;
+                                    float: left;
+                                    margin-right: 18px;
+                                    margin-top: -75px;
+                                    margin-left: -5px;
+                                }
+                                p {
+                                    width: 90%;
+                                    font-size: .7rem;
+                                    padding-top: 8px;
+                                    font-weight: 560;
+                                    color: #333;
+                                    font-family: $font-padrao;
+                                    margin-bottom: .5rem;
+                                }
+                            }
+                            .box-outros-last {
+                                margin-top: 15px;
+                                input {
+                                    margin-top: -12px;
                                 }
                             }
                         }
@@ -1934,13 +2015,14 @@ body {
             .box-wrap-all-filters {
                 .box-left-wrap-all {
                     .item-sideBarFiltros {
-                        button {
-                            p {
-                                font-size: .8rem;
-                            }
-                        }
-                        #btn-collapse-renda-fixa {
-                            .body-rendaFixa {
+                        #btn-collapse-renda-fixa,
+                        #btn-collapse-estrategias-diferenciadas,
+                        #btn-collapse-renda-variavel,
+                        #btn-collapse-gestores {
+                            .body-rendaFixa,
+                            .body-Diferenciada,
+                            .body-variavel,
+                            .body-gestores {
                                 ul {
                                     li {
                                         p {
@@ -1948,7 +2030,7 @@ body {
                                         }
                                     }
                                     .big-item-soberano {
-                                        height: 70px;
+                                        height: 65px;
                                     }
                                 }
                             }
@@ -1976,7 +2058,7 @@ body {
 @media (min-width:1300px) {
     body {
         .box-menu-desktop {
-            width: 1100px;
+            width: 1320px;
             float: left;
             .box-menu-desktop-logo {
                 width: 15%;
@@ -2009,7 +2091,6 @@ body {
             }
         }
     }
-
 }
 
 @media (min-width:1400px) {

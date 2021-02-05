@@ -4,8 +4,7 @@ import { MdStars } from "react-icons/md";
 import { AiOutlineInfoCircle, AiFillQuestionCircle } from "react-icons/ai";
 import { TiCancel } from "react-icons/ti";
 import { Tooltip, OverlayTrigger, Popover } from "react-bootstrap";
-import Tippy from '@tippy.js/react'
-import 'tippy.js/dist/tippy.css'
+import ReactTooltip from "react-tooltip";
 
 export class DisplayDataDesktop extends React.Component {
 
@@ -191,10 +190,14 @@ export class DisplayDataDesktop extends React.Component {
               <div>
                 <h4 className="first-style">{this.props.simple_name}
 
-
+                 
                   {(this.props.icone_qualificado.toLowerCase() === "investidores qualificados") ?
-                      <MdStars className="icon-legenda icon-legenda-star" style={this.props.close_aplicar === "true" ? { color: "#5f5f5fdd" } : {}} />
+                      <MdStars className="icon-legenda icon-legenda-star"  data-tip data-for="registerTip" data-delay-show='500' style={(this.props.close_aplicar === "true" ? { color: "#5f5f5fdd" } : {})} />
                     : ""}
+               
+               <ReactTooltip id="registerTip" place="top" effect="solid">
+                  Fundo para investidor qualificado
+              </ReactTooltip>
 
 
                 </h4>
