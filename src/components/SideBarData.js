@@ -1,5 +1,8 @@
 import react from 'react';
 
+{/* informações usadas no menu lateral*/}
+
+
 export const SideBarData = [
     {
         title: 'A empresa',

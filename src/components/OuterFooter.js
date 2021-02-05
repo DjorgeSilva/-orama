@@ -1,5 +1,7 @@
 import React from 'react'
 
+{/* componente para exibição de footer */}
+
 export function OuterFooter() {
     return (
         <div className="box-txt-footer-outer">

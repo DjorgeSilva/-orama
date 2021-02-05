@@ -1496,6 +1496,10 @@ body .box-txt-footer-outer {
     margin-top: 30px;
     margin-bottom: 0;
   }
+  body .container-all .box-wrap-all-filters .box-right-wrap-all .box-items-fundos-mobile .row-header .coluna-header h4 #tooltip_invetidores_icone .tooltip-inner {
+    background-color: #fcd308;
+    color: #000000;
+  }
   body .container-all .box-wrap-all-filters .box-right-wrap-all .box-items-fundos-mobile .row-header .coluna-header h4 .icon-legenda-star {
     color: #468537;
     margin-left: 3px;
@@ -1536,14 +1540,14 @@ body .box-txt-footer-outer {
     font-size: 30px;
     position: relative;
     margin-top: 25px;
-    margin-left: 38px;
+    margin-left: 18px;
     -webkit-transform: rotate(100deg);
             transform: rotate(100deg);
   }
   body .container-all .box-wrap-all-filters .box-right-wrap-all .box-items-fundos-mobile .row-header .coluna-header .icon-legenda-fechado {
     color: #bfbfbf;
     font-size: 35px;
-    margin-left: 35px;
+    margin-left: 15px;
     margin-top: 22px;
   }
   body .container-all .box-wrap-all-filters .box-right-wrap-all .box-more-info {
@@ -2190,7 +2194,7 @@ body .box-txt-footer-outer {
     font-size: .8rem;
   }
   body .container-all .box-wrap-all-filters .box-left-wrap-all .item-sideBarFiltros #btn-collapse-renda-fixa .body-rendaFixa ul .big-item-soberano {
-    height: 45px;
+    height: 70px;
   }
   body .footer {
     width: 1150px;
@@ -2201,13 +2205,13 @@ body .box-txt-footer-outer {
 
 @media (min-width: 1260px) {
   body .container-all {
-    width: 95%;
+    width: 87%;
   }
 }
 
 @media (min-width: 1300px) {
   body .box-menu-desktop {
-    width: 1300px;
+    width: 1100px;
     float: left;
   }
   body .box-menu-desktop .box-menu-desktop-logo {
@@ -2234,10 +2238,10 @@ body .box-txt-footer-outer {
   }
   body .box-menu-desktop .menu-desktop nav ul li a {
     font-size: .8rem;
-    padding-right: 40px;
+    padding-right: 20px;
   }
   body .box-menu-desktop .box-menu-desktop-btn {
-    margin-left: 120px;
+    margin-left: 50px;
   }
 }
 

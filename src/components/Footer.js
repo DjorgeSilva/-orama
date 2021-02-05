@@ -14,16 +14,13 @@ import { Collapse, Badge } from "react-bootstrap"
 
 
 export const Footer = () => {
-    const [openSegurosPrevidencia, setOpenSegurosPrevidencia] = useState(false);
-    const [openRendaVariavel, setOpenRendaVariavel] = useState(false);
-    const [openOfertaPublica, setOpenOfertaPublica] = useState(false);
-    const [openRendaFixa, setOpenRendaFixa] = useState(false);
-    const [openFundoInvestimento, setOpenFundoInvestimento] = useState(false);
 
+    const [openSegurosPrevidencia, setOpenSegurosPrevidencia] = useState(false); //dropdown item footer - controla collapse
+    const [openRendaVariavel, setOpenRendaVariavel] = useState(false); //dropdown item footer - controla collapse
+    const [openOfertaPublica, setOpenOfertaPublica] = useState(false); //dropdown item footer - controla collapse
+    const [openRendaFixa, setOpenRendaFixa] = useState(false); //dropdown item footer - controla collapse
+    const [openFundoInvestimento, setOpenFundoInvestimento] = useState(false); //dropdown item footer - controla collapse
 
-    function handlerDropItem(e){
-
-    } 
     return(
         
         <>

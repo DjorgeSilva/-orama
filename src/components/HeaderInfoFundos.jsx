@@ -1,10 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import {Container} from 'react-bootstrap';
-import "../css/index.css";
+import React from 'react';
 
+    {/*componente header dos fundos - exibição apenas desktop */}
 
 export const HeaderInfoFundos = () => {
-    
     return (
                 <div className="box-header-fundos-mobile">
                     <div className="grid-x row-header">

@@ -1275,6 +1275,12 @@ body {
                                 h4 {
                                     margin-top: 30px;
                                     margin-bottom: 0;
+                                    #tooltip_invetidores_icone .tooltip-inner {
+                                        background-color: #fcd308 ;
+                                        color: #000000;
+                                      }
+                                      
+
                                     .icon-legenda-star {
                                         color: $cor-padrao;
                                         margin-left: 3px;
@@ -1316,13 +1322,13 @@ body {
                                     font-size: 30px;
                                     position: relative;
                                     margin-top: 25px;
-                                    margin-left: 38px;
+                                    margin-left: 18px;
                                     transform: rotate(100deg);
                                 }
                                 .icon-legenda-fechado {
                                     color: #bfbfbf;
                                     font-size: 35px;
-                                    margin-left: 35px;
+                                    margin-left: 15px;
                                     margin-top: 22px;
                                 }
                             }
@@ -1942,7 +1948,7 @@ body {
                                         }
                                     }
                                     .big-item-soberano {
-                                        height: 45px;
+                                        height: 70px;
                                     }
                                 }
                             }
@@ -1962,7 +1968,7 @@ body {
 @media (min-width:1260px) {
     body {
         .container-all {
-            width: 95%;
+            width: 87%;
         }
     }
 }
@@ -1970,7 +1976,7 @@ body {
 @media (min-width:1300px) {
     body {
         .box-menu-desktop {
-            width: 1300px;
+            width: 1100px;
             float: left;
             .box-menu-desktop-logo {
                 width: 15%;
@@ -1992,17 +1998,18 @@ body {
                             display: inline-block;
                             a {
                                 font-size: .8rem;
-                                padding-right: 40px;
+                                padding-right: 20px;
                             }
                         }
                     }
                 }
             }
             .box-menu-desktop-btn {
-                margin-left: 120px;
+                margin-left: 50px;
             }
         }
     }
+
 }
 
 @media (min-width:1400px) {

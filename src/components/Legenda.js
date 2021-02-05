@@ -2,12 +2,13 @@ import React from 'react';
 import "../css/index.css";
 import { MdStars } from "react-icons/md";
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import { FcCancel } from "react-icons/fc";
 import { IoArrowUndoCircle } from "react-icons/io5";
 import { TiCancel} from "react-icons/ti";
 import { AiFillCheckCircle } from "react-icons/ai";
 
 
+{/* component para exibição de legenda - (mobile)
+*/}
 
 export const Legenda = () => {
     return (

@@ -6,13 +6,16 @@ import "../css/index.css"
 import {IconContext} from 'react-icons';
 import imgLogo from "../assets/img/orama-logo.png"
 
-export const NavBar = () => {
-    const[sidebar,setSidebar] = useState(false);
+{/* exibição do menu lateral (mobile) e meu principal da página (desktop)
+*/}
 
-    const showSidebar = ()=> setSidebar(!sidebar);
+export const NavBar = () => {
+    const[sidebar,setSidebar] = useState(false); // controla quando abre e fecha menu lateral
+
+    const showSidebar = ()=> setSidebar(!sidebar); // controla quando abre e fecha menu lateral
 
     return (
-        <div>
+        <div> {/* exibição do menu lateral - começa aqui*/}
             <React.Fragment>
                 <IconContext.Provider value={{color:'#fff'}}>
 
@@ -52,10 +55,10 @@ export const NavBar = () => {
                         </div>
 
                     </div>
-
+                {/* exibição do menu lateral - termina aqui (mobile)*/}
                 </IconContext.Provider>
 
-                
+                {/* exibição do menu principal - começa aqui (desktop)*/}
                     <div className="box-menu-desktop">
 
                         <div className="box-menu-desktop-logo">
@@ -80,7 +83,7 @@ export const NavBar = () => {
 
                     </div> 
 
-                
+                 {/* exibição do menu principal - termina aqui (desktop)*/}
             </React.Fragment> 
         </div>
     );

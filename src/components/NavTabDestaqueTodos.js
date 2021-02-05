@@ -1,7 +1,10 @@
 import { Tab, Tabs } from 'react-bootstrap';
 import { DisplayDataMobile } from "./DisplayDataMobile.js"
 import React from 'react';
-import { DisplayDataDesktop } from "./DisplayDataDesktop.js";
+
+
+{/* componente que exibe as tabs (DESTAQUE, TODOS) - apenas mobile*/ }
+
 
 export class NavTabDestaqueTodos extends React.Component {
   constructor(props) {
@@ -24,14 +27,21 @@ export class NavTabDestaqueTodos extends React.Component {
       ).format(money);
 
       return valor;
+
+      // função formata valor numérico para R$ (moeda brasileira) e retorna valor formatado
     }
+
 
     function reformatDate(dateStr) {
-      const dArr = dateStr.split("-");
-      return dArr[2] + "/" + dArr[1] + "/" + dArr[0].substring(2);
+      if(dateStr){
+        var dArr = dateStr.split("-");  // ex input "2010-01-18"
+        return dArr[2] + "/" + dArr[1] + "/" + dArr[0].substring(2); //ex out: "18/01/10"
+      }
+
+      // função formata data para formato shortDate dd-mm-yy
     }
 
-    function cor(idCor) {
+    function cor(idCor) { // função muda cor de status do perfil de risco de acordo com a entrada
       switch (idCor) {
         case 1:
           return '#A6ECFC';
@@ -88,10 +98,11 @@ export class NavTabDestaqueTodos extends React.Component {
     return (
       <div className="box-info-fundos-tabs">
         <Tabs activeKey={this.state.activeTab} onSelect={this.handleSelect}>
-          <Tab eventKey={1} title="DESTAQUES">
+          <Tab eventKey={1} title="DESTAQUES"> {/* tab ativa - DESTAQUE*/}
 
 
             <div className='data-mobile'>{(this.props.rendaFixaDestaque.length > 1 ? this.props.rendaFixaDestaque.map((item, index) => {
+              {/* se houver dados no array destaque ele mapeia cada item e executa o componente DisplayDataMobile para cada um, se não houver executa mensagem "não há itens" */ }
 
               const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo } } } = item;
               const { specification: { fund_main_strategy: { name: estrategia_principal } } } = item;
@@ -102,13 +113,16 @@ export class NavTabDestaqueTodos extends React.Component {
               const { fees: { administration_fee: taxaAdministracao } } = item;
               const { description: { target_audience: icone_qualificado } } = item;
 
-
+              {/* desestruturando objeto para estração de dados */ }
 
               return (
 
                 <>
-                  <DisplayDataMobile  key={index} simple_name={item.simple_name} index={index} posicao={this.props.posicao} titleDiferenciada={this.props.titleDiferenciada} estrategia_macro={estrategia_macro} estrategia_principal={estrategia_principal} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
-                    tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
+                  {/* retorna para cada item do array rendaFixaDestaque este componente DisplayDataMobile 
+              passando como props dados extraido de cada item do array para exibição - exibe epasn itens em destaque*/}
+
+                  <DisplayDataMobile key={index} simple_name={item.simple_name} index={index} posicao={this.props.posicao} titleDiferenciada={this.props.titleDiferenciada} estrategia_macro={estrategia_macro} estrategia_principal={estrategia_principal} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
+                    tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={reformatDate(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
                     aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} icone_qualificado={icone_qualificado}
                     icone_esg={item.esg_seal} close_aplicar={JSON.stringify(item.is_closed_to_capture)} />
 
@@ -117,39 +131,43 @@ export class NavTabDestaqueTodos extends React.Component {
               );
             }) :
               <div className="box-mensagem-no-item">
+                {/* se tamanho de array iqual a zero executa mensagem nenhum item disponivel*/}
                 <p>O fundo buscado não está disponível nesta lista. Verifique nas demais abas.</p>
               </div>
             )}</div>
 
 
           </Tab>
-          <Tab eventKey={2} title="TODOS">
-          
+          <Tab eventKey={2} title="TODOS">  {/* tab TODOS */}
+
             <div className='data-mobile'>{(this.props.FilteredData.length > 1 ? this.props.FilteredData.map((item, index) => {
+              {/* se houver dados no array destaque ele mapeia cada item e executa o componente DisplayDataMobile para cada um, se não houver executa mensagem "não há itens" */ }
 
-            const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo } } } = item;
-            const { specification: { fund_main_strategy: { name: estrategia_principal } } } = item;
-            const { profitabilities: { month: lucroMes, m12, year: lucroAno } } = item;
-            const { operability: { minimum_initial_application_amount: aplicacaoMinima, application_quotation_days_str: cotizacaoAplicacao, retrieval_quotation_days: cotizacaoAplicacaoSigla, retrieval_quotation_days_str: cotizacaoResgate,
-              retrieval_liquidation_days_str: liquidacaoResgate, application_time_limit: horarioLimiteAplicacao } } = item;
-            const { fees: { administration_fee: taxaAdministracao } } = item;
-            const { description: { target_audience: icone_qualificado } } = item;
+              const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo } } } = item;
+              const { specification: { fund_main_strategy: { name: estrategia_principal } } } = item;
+              const { profitabilities: { month: lucroMes, m12, year: lucroAno } } = item;
+              const { operability: { minimum_initial_application_amount: aplicacaoMinima, application_quotation_days_str: cotizacaoAplicacao, retrieval_quotation_days: cotizacaoAplicacaoSigla, retrieval_quotation_days_str: cotizacaoResgate,
+                retrieval_liquidation_days_str: liquidacaoResgate, application_time_limit: horarioLimiteAplicacao } } = item;
+              const { fees: { administration_fee: taxaAdministracao } } = item;
+              const { description: { target_audience: icone_qualificado } } = item;
+              {/* desestruturando objeto para estração de dados */ }
 
 
+              return (
 
-            return (
+                <>
+                  <DisplayDataMobile key={index} simple_name={item.simple_name} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
+                    tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={reformatDate(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
+                    aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} icone_qualificado={icone_qualificado}
+                    icone_esg={item.esg_seal} close_aplicar={JSON.stringify(item.is_closed_to_capture)} />
+                  {/* retorna para cada item do array FilteredData este componente DisplayDataMobile 
+              passando como props dados extraido de cada item do array para exibição - exibe todos os itens */}
+                </>
 
-              <>
-                <DisplayDataMobile key={index} simple_name={item.simple_name} corPerfilRisco={Number(corPerfilRiscoFundo)} estrategia_principal={estrategia_principal}
-                  tipoFundo={tipoFundo} classeFundo={classeFundo} quota_date={(item.quota_date)} m12={(Number(m12 * 100).toFixed(2))}
-                  aplicacaoMinima={moneyFormatter(Number(aplicacaoMinima).toFixed())} cotizacaoAplicacaoSigla={cotizacaoAplicacaoSigla} icone_qualificado={icone_qualificado}
-                  icone_esg={item.esg_seal} close_aplicar={JSON.stringify(item.is_closed_to_capture)}/>
-
-              </>
-
-            );
-          }) :
+              );
+            }) :
               <div className="box-mensagem-no-item">
+                {/* se tamanho de array iqual a zero executa mensagem nenhum item disponivel*/}
                 <p>O fundo buscado não está disponível nesta lista. Verifique nas demais abas.</p>
               </div>
             )}</div>
@@ -159,7 +177,7 @@ export class NavTabDestaqueTodos extends React.Component {
 
           </Tab>
         </Tabs>
-      </div>
+      </div >
     );
   }
 

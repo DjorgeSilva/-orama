@@ -1,17 +1,12 @@
 import React from 'react'
 import { MdStars } from "react-icons/md";
-import { AiOutlineInfoCircle } from "react-icons/ai";
-import { FcCancel } from "react-icons/fc";
-import { IoArrowRedoCircle } from "react-icons/io5";
-import { FaGlobeAmericas } from "react-icons/fa";
-import { AiFillQuestionCircle } from "react-icons/ai";
 import { TiCancel } from "react-icons/ti";
 import * as IoIcons from "react-icons/io5";
 
 export function DisplayDataMobile({ simple_name, icone_qualificado, icone_esg, corPerfilRisco, estrategia_principal,
   tipoFundo, classeFundo, quota_date, m12, aplicacaoMinima, cotizacaoAplicacaoSigla, posicao, index, estrategia_macro, titleDiferenciada, close_aplicar }) {
 
-  function cor(idCor) {
+  function cor(idCor) {  // função muda cor de status do perfil de risco de acordo com a entrada
     switch (idCor) {
       case 1:
         return '#A6ECFC';
@@ -67,7 +62,7 @@ export function DisplayDataMobile({ simple_name, icone_qualificado, icone_esg, c
 
   return (
     <>
-      <div className='title-box'>{titleDiferenciada &&((titleDiferenciada.includes(index) ? estrategia_macro : null))}</div>
+      <div className='title-box'>{titleDiferenciada &&((titleDiferenciada.includes(index) ? estrategia_macro : null))}</div>  {/* contéudo cada item (fundo) - mobile*/}
       <div className='subtitle-box'>{posicao && ((posicao.includes(index) ? estrategia_principal : null))}</div>
       <div className="box-display-fundos">
         {/* {(data.includes(index)?estrategia_principal:null)} */}

@@ -4,6 +4,8 @@ import { MdStars } from "react-icons/md";
 import { AiOutlineInfoCircle, AiFillQuestionCircle } from "react-icons/ai";
 import { TiCancel } from "react-icons/ti";
 import { Tooltip, OverlayTrigger, Popover } from "react-bootstrap";
+import Tippy from '@tippy.js/react'
+import 'tippy.js/dist/tippy.css'
 
 export class DisplayDataDesktop extends React.Component {
 
@@ -101,6 +103,15 @@ export class DisplayDataDesktop extends React.Component {
       </Popover>
     );
 
+    const tip = ( // exibe quando hovering liquidacão Resgate na div collapse (mais informações) 
+    <Popover>
+      <Popover.Content>
+        teste
+        </Popover.Content>
+    </Popover>
+  );
+
+
 
     function cor(idCor) { // função muda cor de status do perfil de risco de acordo com a entrada
       switch (idCor) {
@@ -161,11 +172,13 @@ export class DisplayDataDesktop extends React.Component {
       </Tooltip>
     );
 
-    
+
 
     return (
       <>
-        <div className='title-box'>{(this.props.titleDiferenciada.includes(this.props.index) ? this.props.estrategia_macro : null)}</div>
+
+        
+        <div className='title-box'>{(this.props.titleDiferenciada.includes(this.props.index) ? this.props.estrategia_macro : null)}</div> {/* contéudo cada item (fundo) - desktop*/}
 
         <div className='subtitle-box'>{(this.props.posicao.includes(this.props.index) ? this.props.estrategia_principal : null)}</div>
         <div className="box-items-fundos-mobile" onClick={(e) => this.togglePanel(e)}>
@@ -180,9 +193,7 @@ export class DisplayDataDesktop extends React.Component {
 
 
                   {(this.props.icone_qualificado.toLowerCase() === "investidores qualificados") ?
-                    <OverlayTrigger placement="bottom" overlay={renderTooltip} trigger={["hover", "focus"]}>
                       <MdStars className="icon-legenda icon-legenda-star" style={this.props.close_aplicar === "true" ? { color: "#5f5f5fdd" } : {}} />
-                    </OverlayTrigger>
                     : ""}
 
 
@@ -192,33 +203,33 @@ export class DisplayDataDesktop extends React.Component {
               </div>
             </div>
 
-            <div className="cell medium-1 coluna-header dataCota">
+            <div className="columns medium-1 coluna-header dataCota">
               <h4 className="style-bottom">{this.props.quota_date}</h4>
             </div>
 
-            <div className="cell medium-1 coluna-header mes">
+            <div className="columns medium-1 coluna-header mes">
               <OverlayTrigger placement="bottom" overlay={tipMes} trigger={["hover", "focus"]}>
                 <h4>{this.props.lucroMes}</h4>
               </OverlayTrigger>
             </div>
 
-            <div className="cell medium-1 coluna-header ano">
+            <div className="columns medium-1 coluna-header ano">
               <OverlayTrigger placement="bottom" overlay={tipAno} trigger={["hover", "focus"]}>
                 <h4>{this.props.lucroAno}</h4>
               </OverlayTrigger>
             </div>
 
-            <div className="cell medium-1 coluna-header _12m">
+            <div className="columns medium-1 coluna-header _12m">
               <OverlayTrigger placement="bottom" overlay={tip12m} trigger={["hover", "focus"]}>
                 <h4>{this.props.m12}</h4>
               </OverlayTrigger>
             </div>
 
-            <div className="cell medium-3 coluna-header aplicacao_minima">
+            <div className="columns medium-3 coluna-header aplicacao_minima">
               <h4>{this.props.aplicacaoMinima}</h4>
             </div>
 
-            <div className="cell medium-1 coluna-header prazoResgate">
+            <div className="columns medium-1 coluna-header prazoResgate">
               <h4 className="style-bottom">
                 <OverlayTrigger placement="bottom" overlay={prazoResgate} trigger={["hover", "focus"]}>
                   <AiOutlineInfoCircle className="icon-legenda icon-legenda-info" />
@@ -227,7 +238,7 @@ export class DisplayDataDesktop extends React.Component {
 
             </div>
 
-            <div className="cell medium-1 coluna-header">
+            <div className="columns medium-1 coluna-header">
               {(this.props.close_aplicar === "true" ? <TiCancel className="icon-legenda icon-legenda-fechado" /> : <IoIcons.IoArrowUndoCircleSharp className="icone-aplicar" />)}
             </div>
 
@@ -236,7 +247,7 @@ export class DisplayDataDesktop extends React.Component {
 
         </div>
 
-        {this.state.open ? (
+        {this.state.open ? (    /* mais informações, click collapse, só exibe se state iqual a true */
           <div className="box-more-info">
             {this.props.children}
             <div className="box-more-info-grafico">

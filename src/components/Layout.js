@@ -6,3 +6,7 @@ export const Layout = (props)=>(
             {props.children}
         </div>
 )
+
+{/* (wrapper) "encapsula" todos os elementos html dentro dele 
+    serve como um container 
+*/}
