@@ -533,6 +533,7 @@ body {
             height: fit-content;
             padding: 0 30px;
             background-color: #ededed;
+            text-decoration: none;
             .box-footer-inner {
                 width: 100%;
                 height: fit-content;
@@ -550,6 +551,7 @@ body {
                     font-size: .9rem;
                     color: #333;
                     font-family: $font-padrao;
+                    text-decoration: none;
                     .new-item {
                         background-color: #639D31;
                         padding: 1px 8px;
@@ -1423,7 +1425,7 @@ body {
                 padding-bottom: 20px;
                 position: relative;
                 bottom: 5px;
-                left: 3.5%;
+                left: 0;
                 h6 {
                     padding-left: 14px;
                     padding-top: 20px;
@@ -1726,6 +1728,7 @@ body {
                     }
                     .box-left-wrap-all {
                         display: block;
+                        position: relative;
                         .item-sideBarFiltros {
                             display: block;
                             width: 100%;
@@ -1767,6 +1770,9 @@ body {
                                     padding-top: 1px;
                                     float: right;
                                     color: #333;
+                                }
+                                .icone-dropdown-top {
+                                    margin-top: 6px;
                                 }
                             }
                             #input-valor-rendaFixa,

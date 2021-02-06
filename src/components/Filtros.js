@@ -6,7 +6,7 @@ import { NavTabDestaqueTodos } from "./NavTabDestaqueTodos.js";
 import { HeaderInfoFundos } from "./HeaderInfoFundos.jsx";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
-import { Legenda } from "./Legenda.js"
+import { LegendaDesktop } from "./LegendaDesktop.js";
 import { DisplayDataDesktop } from "./DisplayDataDesktop.js";
 import { Button, Collapse, Spinner } from "react-bootstrap"
 
@@ -226,7 +226,7 @@ export const Filtros = () => {
   uniqueNomeGestores.sort((a, b) => (a > b) ? 1 : ((b > a) ? -1 : 0)) // ordena os dados do filtro gestores em ordem alfabética 
 
 
-  function checkItemsAutoRendaFixa() { 
+  function checkItemsAutoRendaFixa() {
     const element = document.getElementsByClassName("inside-btn-rendaFixa"); // armazena todos os itens de renda fixa (menu-lateral)
 
     setDadosFiltradosRendaFixa(!dadosFiltradosRendaFixa); //modifica o state
@@ -336,9 +336,9 @@ export const Filtros = () => {
     switch (valor) {
       case "openRendaFixa":
         setOpenRendaFixa(!openRendaFixa);
-          setTimeout(() => {
-            setIconeDropDownRendaFixa(!iconeDropDownRendaFixa)
-          }, 200)
+        setTimeout(() => {
+          setIconeDropDownRendaFixa(!iconeDropDownRendaFixa)
+        }, 200)
         break;
       case "openDiferenciada":
         setOpenDiferenciada(!openDiferenciada);
@@ -360,8 +360,8 @@ export const Filtros = () => {
         break;
       default: return null
     }
-  
-    }
+
+  }
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -476,6 +476,8 @@ export const Filtros = () => {
             </div>
           )}</div>
 
+          <LegendaDesktop/>
+
 
 
         </div>
@@ -486,7 +488,7 @@ export const Filtros = () => {
             <>
               <input type="checkbox" id="input-valor-rendaFixa" className="inside-btn-main" defaultChecked={true} onChange={() => checkItemsAutoRendaFixa()} />
               <i class="for_firefox"></i>
-              <Button onClick={() =>dropdown("openRendaFixa")} aria-controls="btn-collapse-renda-fixa" aria-expanded={openRendaFixa} className="bg-light btn-collapse-renda-fixa"><p>Renda Fixa </p> {(iconeDropDownRendaFixa ? <AiOutlineMinus className="icone-dropdown" /> : <AiOutlinePlus className="icone-dropdown" />)}</Button>
+              <Button onClick={() => dropdown("openRendaFixa")} aria-controls="btn-collapse-renda-fixa" aria-expanded={openRendaFixa} className="bg-light btn-collapse-renda-fixa"><p>Renda Fixa </p> {(iconeDropDownRendaFixa ? <AiOutlineMinus className="icone-dropdown" /> : <AiOutlinePlus className="icone-dropdown" />)}</Button>
               <Collapse in={openRendaFixa}>
 
 
@@ -508,8 +510,8 @@ export const Filtros = () => {
 
               </Collapse>
 
-              <input type="checkbox" id="input-valor-estrategiasDiferenciadas" className="inside-btn-main" defaultChecked={true} onChange={() => checkItemsAutoDiferenciada()}/>
-              <Button onClick={()=>dropdown("openDiferenciada")} aria-controls="btn-collapse-estrategias-diferenciadas" aria-expanded={openDiferenciada} className="bg-light btn-estrategiasDiferenciadas"><p className="style-p-diferenciada">Estratégias diferenciadas</p> {(iconeDropDiferenciada ? <AiOutlineMinus className="icone-dropdown" /> : <AiOutlinePlus className="icone-dropdown" />)}</Button>
+              <input type="checkbox" id="input-valor-estrategiasDiferenciadas" className="inside-btn-main" defaultChecked={true} onChange={() => checkItemsAutoDiferenciada()} />
+              <Button onClick={() => dropdown("openDiferenciada")} aria-controls="btn-collapse-estrategias-diferenciadas" aria-expanded={openDiferenciada} className="bg-light btn-estrategiasDiferenciadas"><p className="style-p-diferenciada">Estratégias diferenciadas</p> {(iconeDropDiferenciada ? <AiOutlineMinus className="icone-dropdown icone-dropdown-top" /> : <AiOutlinePlus className="icone-dropdown icone-dropdown-top" />)}</Button>
               <Collapse in={openDiferenciada}>
 
 
@@ -534,8 +536,8 @@ export const Filtros = () => {
               </Collapse>
 
 
-              <input type="checkbox" id="input-valor-rendaVariavel" className="inside-btn-main" defaultChecked={true} onChange={() => checkItemsAutoVariavel()}/>
-              <Button onClick={()=>dropdown("openVariavel")}  aria-controls="btn-collapse-renda-variavel" aria-expanded={openVariavel} className="bg-light btn-estrategiasRenda-variavel"><p>Renda variável</p>{(iconeDropDownVariavel ? <AiOutlineMinus className="icone-dropdown"/> : <AiOutlinePlus className="icone-dropdown"/>)}</Button>
+              <input type="checkbox" id="input-valor-rendaVariavel" className="inside-btn-main" defaultChecked={true} onChange={() => checkItemsAutoVariavel()} />
+              <Button onClick={() => dropdown("openVariavel")} aria-controls="btn-collapse-renda-variavel" aria-expanded={openVariavel} className="bg-light btn-estrategiasRenda-variavel"><p>Renda variável</p>{(iconeDropDownVariavel ? <AiOutlineMinus className="icone-dropdown" /> : <AiOutlinePlus className="icone-dropdown" />)}</Button>
               <Collapse in={openVariavel}>
 
 
@@ -546,7 +548,7 @@ export const Filtros = () => {
 
                         return (
 
-                          <li><input type="checkbox" id="" className="inside-btn inside-btn-variavel" defaultChecked={true}/><p>{item}</p></li>
+                          <li><input type="checkbox" id="" className="inside-btn inside-btn-variavel" defaultChecked={true} /><p>{item}</p></li>
                         )
                       })}
 
@@ -561,11 +563,11 @@ export const Filtros = () => {
 
               <h1 className="txt-filtrar-gestores">Filtrar por gestores:</h1>
 
-              <input type="checkbox" id="input-valor-gestores" className="inside-btn-main" defaultChecked={true} onChange={() => checkItemsAutoGestores()}/>
-              <Button onClick={()=>dropdown("openGestores")}  aria-controls="btn-collapse-gestores" aria-expanded={openGestores} className="bg-light btn-gestores"><p>Gestores</p>{(iconeDropDownGestores ? <AiOutlineMinus className="icone-dropdown" /> : <AiOutlinePlus className="icone-dropdown"/>)}</Button>
+              <input type="checkbox" id="input-valor-gestores" className="inside-btn-main" defaultChecked={true} onChange={() => checkItemsAutoGestores()} />
+              <Button onClick={() => dropdown("openGestores")} aria-controls="btn-collapse-gestores" aria-expanded={openGestores} className="bg-light btn-gestores"><p>Gestores</p>{(iconeDropDownGestores ? <AiOutlineMinus className="icone-dropdown" /> : <AiOutlinePlus className="icone-dropdown" />)}</Button>
               <Collapse in={openGestores}>
 
-    
+
                 <div id="btn-collapse-gestores">
                   <div class="card card-body bg-white p-0 body-gestores">
                     <ul>
@@ -574,7 +576,7 @@ export const Filtros = () => {
 
                         return (
 
-                          <li><input type="checkbox" id="" className="inside-btn inside-btn-gestores" defaultChecked={true}/><p>{item}</p></li>
+                          <li><input type="checkbox" id="" className="inside-btn inside-btn-gestores" defaultChecked={true} /><p>{item}</p></li>
                         )
                       })}
 
@@ -590,12 +592,12 @@ export const Filtros = () => {
               <h1 className=" txt-filtrar-gestores txt-outros-filtros">Outros filtros:</h1>
 
               <div className="box-outros-filtros">
-                <input type="checkbox" id="input-outros-filtros-esg" className="inside-btn" defaultChecked={true}/>
+                <input type="checkbox" id="input-outros-filtros-esg" className="inside-btn" defaultChecked={true} />
                 <p className="style-esg">Somente fundos ESG (Environmental, Social & Governance)</p>
               </div>
 
               <div className="box-outros-filtros box-outros-last">
-                <input type="checkbox" id="input-outros-filtros-qualificados" className="inside-btn" defaultChecked={true}/>
+                <input type="checkbox" id="input-outros-filtros-qualificados" className="inside-btn" defaultChecked={true} />
                 <p className="style-esg">Somente fundos para investidores qualificados</p>
               </div>
 

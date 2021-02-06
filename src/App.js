@@ -9,7 +9,6 @@ import { BtnConta } from "./components/BtnConta.js";
 import { Filtros } from "./components/Filtros.js";
 import { Footer } from "./components/Footer.js"
 import { OuterFooter } from "./components/OuterFooter.js";
-import { LegendaDesktop } from './components/LegendaDesktop.js';
 
 
 function App() {
@@ -31,7 +30,6 @@ function App() {
         </div>
 
         <div>
-        <LegendaDesktop/>
         <Footer />
 
         </div>
