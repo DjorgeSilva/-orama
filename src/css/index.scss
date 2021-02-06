@@ -2056,7 +2056,7 @@ body {
 @media (min-width:1300px) {
     body {
         .box-menu-desktop {
-            width: 1320px;
+            width: 87%;
             float: left;
             .box-menu-desktop-logo {
                 width: 15%;
@@ -2093,6 +2093,9 @@ body {
 
 @media (min-width:1400px) {
     body {
+        .box-menu-desktop {
+            width: 90%;
+        }
         .container-all {
             width: 90%;
         }
@@ -2101,6 +2104,9 @@ body {
 
 @media (min-width:1500px) {
     body {
+        .box-menu-desktop {
+            width: 85%;
+        }
         .container-all {
             width: 85%;
         }
@@ -2109,6 +2115,9 @@ body {
 
 @media (min-width:1600px) {
     body {
+        .box-menu-desktop {
+            width: 80%;
+        }
         .container-all {
             width: 80%;
         }
@@ -2117,6 +2126,9 @@ body {
 
 @media (min-width:1700px) {
     body {
+        .box-menu-desktop {
+            width: 70%;
+        }
         .container-all {
             width: 70%;
         }
