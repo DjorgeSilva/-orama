@@ -537,7 +537,7 @@ export const Filtros = () => {
 
 
               <input type="checkbox" id="input-valor-rendaVariavel" className="inside-btn-main" defaultChecked={true} onChange={() => checkItemsAutoVariavel()} />
-              <Button onClick={() => dropdown("openVariavel")} aria-controls="btn-collapse-renda-variavel" aria-expanded={openVariavel} className="bg-light btn-estrategiasRenda-variavel"><p>Renda variável</p>{(iconeDropDownVariavel ? <AiOutlineMinus className="icone-dropdown" /> : <AiOutlinePlus className="icone-dropdown" />)}</Button>
+              <Button onClick={() => dropdown("openVariavel")} aria-controls="btn-collapse-renda-variavel" aria-expanded={openVariavel} className="bg-light btn-estrategiasRenda-variavel"><p>Renda variável</p>{(iconeDropDownVariavel ? <AiOutlineMinus className="icone-dropdown icone-dropdown-variavel" /> : <AiOutlinePlus className="icone-dropdown icone-dropdown-variavel" />)}</Button>
               <Collapse in={openVariavel}>
 
 
