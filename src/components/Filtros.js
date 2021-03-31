@@ -369,7 +369,7 @@ export const Filtros = () => {
   return (
     <>
       <div className="grid-x box-wrap-all-filters"> {/* container busca com filtros (aplicação minima - perfil de risco de fundo - prazo de resgate)*/}
-        <div className="column large-10 box-right-wrap-all">
+        <div className="column large-12 box-right-wrap-all">
 
           <div className="container-busca">
             <div className="box-busca">
@@ -433,7 +433,7 @@ export const Filtros = () => {
           {/* exibição component Header info fundos - apenas em desktop*/}
 
 
-          <div className='data-mobile'>{(rendaFixaDestaque.length >= 1 ? rendaFixaDestaque.map((item, index) => {
+          <div className='data-mobile'>{(rendaFixaDestaque.length >= 1 ? rendaFixaDestaque.slice(0,100).map((item, index) => {
             {/* se houver dados no array destaque ele mapeia cada item e executa o componente DisplayDataDesktop para cada um, se não houver executa mensagem "não há itens" */ }
 
             const { specification: { fund_type: tipoFundo, fund_class: classeFundo, fund_risk_profile: { score_range_order: corPerfilRiscoFundo } } } = item;
@@ -481,7 +481,7 @@ export const Filtros = () => {
 
 
         </div>
-        {/* exibição dos filtros laterais*/}
+        {/* exibição dos filtros laterais
         <div className="column large-2 box-left-wrap-all">
 
           <div className="item-sideBarFiltros">
@@ -611,8 +611,8 @@ export const Filtros = () => {
 
 
 
-        </div>
-      </div>
+        </div>*/}
+      </div> 
     </>
 
 
